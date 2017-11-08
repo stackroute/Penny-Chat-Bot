@@ -264,7 +264,7 @@
 					</select>
 					<select class="col-md-4" [(ngModel)]="next">
 						<option value=""></option>
-						<option *ngFor="let quest of questionarr" value="{{quest.id}}">{{quest.id}} - {{quest.message}}</option>
+						<option *ngFor="let quest of questionarr" value="{{quest.id}}">{{quest.id}} - {{quest.message}} -- {{quest.genre}}</option>
 					</select>
 					<div class="col-md-4">
 						<button class="btn btn-default" (click)="addanswerflow(input,next)">Add flow</button>
