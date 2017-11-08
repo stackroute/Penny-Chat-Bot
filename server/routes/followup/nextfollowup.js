@@ -6,7 +6,7 @@ import flow_schema from './../../model/flow_schema';
 let checkanswer = (answer, question) => {
 	let result;
 	let set = false;
-	console.log("==============szdvssafdv============sadv",answer);
+	
 	if(question.answertype == "Yes/No") {
 		yesno.map((data) => {
 			data.value.map((main) => {
@@ -86,7 +86,6 @@ flow_schema.find({task : req.body.countertype},(error,data)=>{
 					}
 				})
 				}
-				//console.log("-----------svd-------------------- ",req.body.question);
 			}
 		}
 		else{

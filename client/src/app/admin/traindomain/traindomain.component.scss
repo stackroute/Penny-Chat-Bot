@@ -12,6 +12,10 @@
     border-bottom: 1px dotted #B3A9A9;
 }
 
+.btt {
+    margin : 10px;
+}
+
 .chat li.left .chat-body
 {
     margin-left: 0px;
@@ -22,7 +26,17 @@
     margin-right: 60px;
 }
 
+.setflow b{
+    color : blue;
+    cursor : pointer;
+}
+table {
+    border-collapse: collapse;
+}
 
+table, th, td {
+    border: 1px solid black;
+}
 .chat li .chat-body p
 {
     margin: 0;
