@@ -1,0 +1,176 @@
+<div id="c_card" class="card pi-draggable" draggable="true">
+ <div class="card-header">
+   <div class=row>
+     <div class="col-md-8">
+       <span>Context</span>
+     </div>
+   </div>
+ </div>
+  <app-edit-context></app-edit-context>
+  
+
+  <div class="col-md-3">
+    <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show()" draggable="true">Add New Context</a>
+  </div><br>
+</div>
+
+<div bsModal #addContext="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Context</h4>
+        <button type="button" class="close" (click)="addContext.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <tabset class="tab-container">
+          <div class="tab-content">     
+            <tab heading="Context" ng-reflect-heading="Home" class="tab-pane">
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Context Name</label>
+                  <input type="text" class="form-control" id="contextname" name="contextname" placeholder="Meaning" [(ngModel)]="context.name">
+                  <div><hr>
+                    <label for="exampleInputPassword1">Add synonyms</label>
+                    <tag-input  [(ngModel)]="synonym"
+                    [modelAsStrings]="true"
+                    [theme]="'dark'"
+                    [dragZone]="'zone1'"
+                    [editable]="true"
+                    name="test">
+                  </tag-input>
+                </div>
+              </div><hr>
+              <label for="exampleInputPassword1">Choose Dependency</label>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" name="optradio" class="form-check-input" (click)="setdomain()">
+                  &nbsp;&nbsp;&nbsp;&nbsp;Dependent to Context
+                </label>
+                <label class="form-check-label">
+                  <input type="radio" name="optradio" class="form-check-input" (click)="resetDomain()">
+                  &nbsp;&nbsp;&nbsp;&nbsp;Independent Domain
+                </label>
+              </div>
+              <button type="button" class="btn btn-md btn-primary dropdown-toggle" *ngIf = "setDomain" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                {{selectedContext.name}} ({{selectedContext.label}})
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" *ngFor="let context of contexts;let i=index" (click)="setContext(context)">{{context.name}} ({{context.label}})</a>
+              </div>
+            </form>
+          </tab>
+          <tab heading="Add Content" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
+            <div class="home-container">
+              <angular2-multiselect [data]="intents" [(ngModel)]="selectIntent"
+                                    [settings]="dropdownSettings" 
+                                    (onSelect)="onItemSelect($event)" 
+                                    (onDeSelect)="OnItemDeSelect($event)"
+                                    (onSelectAll)="onSelectAll($event)"
+                                    (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+                                    <div *ngIf="selectedIntent.length > 0"  >
+                                        <br>
+                                        
+                                        <collapsible-list [type]="'accordion'" *ngFor = "let main of selectedIntent;let i=index">
+                                        <collapsible-list-item>
+                                        <collapsible-header class="waves-effect">
+                                        {{main.itemName}}
+                                    </collapsible-header>
+                                    <collapsible-body [expanded]="true">
+                                    
+                                    <!-- ===============Inner Collapse =============== -->
+                                    <collapsible-list [type]="'accordion'">
+                                    <!-- ========= intent ========= -->
+                                    <collapsible-list-item>
+                                    <collapsible-header class="waves-effect">
+                                    Description
+                                </collapsible-header>
+                                <collapsible-body [expanded]="true">
+                                <div class="form-group">
+                                    <textarea [(ngModel)]="main.value" class="form-control" name="description" id= "description" placeholder="description" rows="3"></textarea>
+                                </div>
+                            </collapsible-body>
+                        </collapsible-list-item>
+                        <collapsible-list-item>
+                        <collapsible-header class="waves-effect">
+                        Video Link
+                    </collapsible-header>
+                    <collapsible-body [expanded]="false">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0 video"  *ngFor="let input of inputs; let j=index">
+                        <input type="text" class="form-control " id="inlineFormInputGroup" placeholder="Video Link" [(ngModel)]="selectedIntent[i].videoLink[j]" >
+                        <div class="input-group-addon">
+                            <a (click)="addInput()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="input-group-addon">
+                            <a (click)="removeVideo(i,j,selectedIntent[i].videoLink[j])"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <br>
+                    <button class='btn btn-primary' *ngIf="inputs.length==0" (click)="addInput()">Add More Links</button>
+                    <br>
+                    <br>
+                </collapsible-body>
+            </collapsible-list-item>
+            <collapsible-list-item>
+            <collapsible-header class="waves-effect">
+            Blog Link
+        </collapsible-header>
+        <collapsible-body [expanded]="false">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0 blog" *ngFor="let add of blog;let k=index">
+            <input type="text" class="form-control" placeholder="Blog Link" [(ngModel)]="selectedIntent[i].blogLink[k]" name="blog">
+            <div class="input-group-addon">
+                <a (click)="addBlog()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            </div>
+            <div class="input-group-addon">
+                <a (click)="removeBlog(i,k,selectedIntent[i].blogLink[k])"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <br>
+        <button class='btn btn-primary' *ngIf="blog.length==0" (click)="addBlog()">Add More Links</button>
+        <br>
+        
+    </collapsible-body>
+</collapsible-list-item>
+<collapsible-list-item>
+            <collapsible-header class="waves-effect">
+            Add Sub Intents
+        </collapsible-header>
+        <collapsible-body [expanded]="false">
+        <!-- <div *ngFor="let subInt of subIntents;let l=index">
+          <label class="form-check-label">{{subInt.name}} : {{l}} </label>
+          <input type="text" [(ngModel)]="selectedIntent[i].subIntent[l].value" >
+        </div> -->
+      <!--   <angular2-multiselect [data]="subIntents" [(ngModel)]="selectSubInt"
+                                    [settings]="dropdownSubIntentSettings"
+                                    (onSelect)="selectSubIntent($event)"
+                                    (onDeSelect)="OnItemDeSelect($event)"
+                                    (onSelectAll)="onSelectAll($event)"
+                                    (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect> -->
+          <button type="button" class="btn btn-md btn-primary dropdown-toggle" *ngIf = "subIntents" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                {{selectedSubIntent.name}}
+              </button>
+              <div class="dropdown-menu">
+          <a class="dropdown-item" *ngFor="let subInt of subIntents; let l=index"  (click)="setsubIntent(subInt)">{{subInt.name}} </a>
+              </div>                           
+        <textarea *ngIf="selectedSubIntent.name!='Select SubIntent'"  placeholder="description" rows="2" [(ngModel)]="selectedSubIntent.value" (blur)="pushSubIntent(i,selectedSubIntent)" ></textarea>
+    </collapsible-body>
+</collapsible-list-item>
+<!-- ===========end intent============= -->
+</collapsible-list>
+<!-- ============== inner collapse ============= -->
+</collapsible-body>
+</collapsible-list-item>
+</collapsible-list>
+            </div>
+          </div>
+        </tab>
+      </div>
+    </tabset>
+  </div>
+  <div class="modal-footer">
+   <button type="button" class="btn btn-primary" ><span (click)="submitContext();addContext.hide()">Create Context</span></button>
+ </div>
+</div> <!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

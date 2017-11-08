@@ -1,0 +1,130 @@
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<mat-sidenav-container class="example-container" >
+  <mat-sidenav position="end" #sidenav class="example-sidenav">
+    <h4 class="videoHeading">Related Videos</h4>
+     <div *ngIf="id!=null">
+        <youtube-player
+     [videoId]="id"
+     (ready)="savePlayer($event)"
+     (change)="onStateChange($event)"
+   >  </youtube-player>
+      <!-- <img src={{response.ogp.ogImage[0].url}}> -->
+    </div>
+  </mat-sidenav>
+ 
+ <div class="row">
+      
+        <!--=========================================================-->
+        <!-- selected chat -->
+  
+<!-- ===================================================== -->
+<div class="col-md-12">
+       <div class="chat-panel card1 card-default"> 
+        <!-- Card -->
+       <h3><strong>Penny</strong></h3>
+        <div class="card-block" #scrollMe style="overflow-y: scroll;overflow-x: hidden; height: 550px;">
+         <div id="scroll">
+           <ul class="chat">
+            <div class="left clearfix">
+             <div *ngFor="let ans of question">
+               <div class="gap" *ngIf="ans.bot">
+                 <div class="message-data align-left">
+                <!-- <img src="../../assets/img/bot.png"> -->
+                   <span class="message-data-name"><i class="fa fa-circle you"></i> Bot</span>
+                   
+                 </div>
+                 <!-- chat body -->
+                 <div class="chat-body clearfix">
+                 <div class="message you-message">
+                   {{ans.bot}}
+                   <div *ngIf="ans.option">
+                   <div *ngFor="let opt of ans.option;let i=index">
+                   {{i+1}} )  {{opt.value}}
+                   </div>
+                   </div>
+                   <div *ngIf="ans.image">
+                     <img src="{{ans.image}}">
+                   </div>
+                   <small class="pull-right text-muted"><i class="fa fa-clock-o">12 mins ago</i> </small>
+                   <div class="example-sidenav-content">
+                  </div>
+          
+                <!-- <button type="button" mat-button (click)="sidenav.open()" (click)="next(ans)">
+                  view more
+                  </button> -->
+                 <!--  <div *ngIf="response!=null">
+                    <p>{{response.ogp.ogDescription}}</p>
+                    <p><a href={{response.ogp.ogUrl}} target="_blank">Click here to know more</a></p>
+                    <p><b>keywords:</b>{{response.other.keywords}}</p>
+                  </div> -->
+
+
+
+  
+    
+                        
+
+
+                   </div>
+                </div>
+               </div>
+                <!-- Answers -->
+                <div *ngIf="ans.user">
+                  <div class="message-data align-right">
+                   <span class="message-data-name">User</span> <i class="fa fa-circle me"></i>
+                 </div>
+                 <div class="chat-body clearfix">
+                   <div class="message me-message float-right">
+                   {{ans.user}}
+                    
+                    <small class="pull-right text-muted"><i class="fa fa-clock-o"> 13 mins ago</i></small>
+                  </div>
+                </div>
+              </div>
+          </div>
+               <div *ngIf = "moreInfoLink==1 || moreInfoLink==2 || moreInfoLink==3">
+                 <i class="fa fa-info-circle" aria-hidden="true" (click)="next(ans)"></i>
+                <i class="fa fa-video-camera" aria-hidden="true" [id]="videoId" appAsideMenuToggler></i>
+               </div>
+          <div style="background-color: #e5eff5 ;border-radius: 20px" *ngIf="response!=null">
+<div class="card-block">
+  <a href={{response.ogp.ogUrl}} target="_blank">{{response.ogp.ogUrl}}</a>
+  <div>
+  <div class="attachment_source">
+      <img class="attachment_source_icon" src="{{response.other.appleTouchIcon}}" alt="">
+      <span class="attachment_source_name">{{response.ogp.ogSiteName}}</span>
+     
+    </div>
+  <h4 class="card-title"><a href={{response.ogp.ogUrl}} target="_blank">{{response.ogp.ogTitle}}</a></h4>
+
+   <p class="card-text" style="color: black; width:50%">{{response.ogp.ogDescription}}</p>
+    <div>
+      <span class="attachment_ts">{{response.other.articlePublishedTime}}</span>  
+    </div>
+  <img src={{response.ogp.ogImage[0].url}} >
+  </div>
+</div>
+</div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- card footer -->
+<div class="card-footer" >
+ <div class="input-group">
+   <input id="btn-input"  type="text" name="ques" class="form-control input-lg" name="first" placeholder="Type your message here..." autofocus="" [(ngModel)]="answer" (keyup.enter)="judge(answer)">
+   <span class="input-group-btn">
+     <button class="btn btn-default btn-lg" id="btn-chat" (click) =judge(answer)>
+       Send
+     </button>
+   </span>
+ </div>
+</div>
+</div>
+  </div>
+</mat-sidenav-container>
+<div class="container-fluid bootstrap snippet">
+   
+</div>

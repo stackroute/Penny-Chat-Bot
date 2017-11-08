@@ -1,0 +1,307 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <span class="glyphicon glyphicon-comment"></span> Pending Questions
+        </div>
+        <div class="panel-body">
+          <ul class="chat">
+            <li class="left clearfix">
+              <div class="chat-body clearfix">
+                <p *ngFor="let ques of arr">
+                  <a (click)="getQues(ques)">{{ques}}</a>
+                  <a><i (click)=deletePendingQuestions(ques) class="fa fa-times" aria-hidden="true" style="float: right;"></i></a>
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- =========Send Button======== -->
+        <div class="panel-footer">
+          <div class="input-group">
+            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..."  [(ngModel)]="newQuestion" name="question" (keyup.enter)="sendques(newQuestion)">
+            <span class="input-group-btn">
+              <button class="btn btn-lg btn-warning" id="btn-chat" (click)=sendques(newQuestion)>
+                Send</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ========================table======================= -->
+      <div class="col-md-7">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            {{question}}
+          </div>
+          <div class="panel-body tablepanel">
+            <table id="c_table" class="table pi-draggable" draggable="true">
+              <thead>
+
+                <tr>
+                  <th>Word</th>
+                  <th>Type</th>
+                  <th>Value</th>
+                  <th>Status</th>
+
+                </tr>
+              </thead>
+              <tbody>
+               <tr *ngFor = " let data of tableData; let i=index ">
+                <td>{{data.word}}</td>
+                <td>{{data.type}}</td>
+                <td>{{data.typename}}</td>
+                <td *ngIf="data.type=='Not Found' ">
+                  <a class=" btn btn-primary pi-draggable btn-block" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)">Add</a>
+                </td>
+                <td *ngIf="data.type!= 'Not Found'" style="font-size: 23px;color:#00FF00 "> &#x2713;</td>
+                <td><a (click)="remove(i,data)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+              </tr>
+              <tr>
+                <td>{{contextWord}}</td>
+                <td>{{context}}</td>
+                <td>{{contextValue}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <div id="c_card" class="card pi-draggable" draggable="true">
+
+        <div class="card-header">
+         <div class=row>
+           <div class="col-md-8">
+             <span>Add and Modify Intent</span>
+           </div>
+           <div class="col-md-4">
+            <i class="fa fa-circle int" aria-hidden="true"></i>Intent
+            <i class="fa fa-circle subint" aria-hidden="true"></i>SubIntent
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class = "row ">
+          <div class = "col-md-9">
+            <angular2-multiselect [data]="intentName" [(ngModel)]="selectedItemsIntent" 
+            [settings]="dropdownSettingsIntent" 
+            (onSelect)="onItemSelectIntent($event)" 
+            (onDeSelect)="OnItemDeSelectIntent($event)"
+            (onSelectAll)="onSelectAllIntent($event)"
+            (onDeSelectAll)="onDeSelectAllIntent($event)"></angular2-multiselect>
+          </div>
+          <div class = "col-md-3" *ngIf = "intentname">
+            <button type="button" class="btn btn-primary add"  (click)="deleteIntent(intentname)">Delete {{intentname.label}}</button>
+          </div>
+        </div>
+
+        <div class="existing " *ngIf="correspondSynonym.length>0">
+          <h4>Existing Synonyms For {{intentname.itemName}}</h4>
+          <span class="disp" *ngFor="let intent of correspondSynonym">
+            <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
+              <a>{{intent}}</a>
+              <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
+              <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">
+                <a>{{intent}}</a>
+                <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
+              </span>            
+              <div class="row searchsyn">
+                <div class="col-md-8">
+                  <input class="form-control" name="name" placeholder="Add Synonyms" [(ngModel)]="adminSynonym" (keyup.enter)="addAdminSynonym()">
+                </div>
+                <div class="col-md-4">
+                  <button type="button" class="btn btn-primary add"  (click)="addAdminSynonym()"
+                  >Add Synonym</button>
+                </div>
+              </div>  
+            </div>
+            <div class="addIntent">
+             <button type="button" (click)="add.show()" class="btn btn-primary add" (click)="ifselected('Intent')" 
+             >Add Intent</button>
+             <button type="button" (click)="add.show()" class="btn btn-primary add" (click)="ifselected('SubIntent')" 
+             >Add SubIntent</button> 
+           </div>
+         </div>
+       </div>
+
+
+
+       <!-- ========MOdal start for synonym of particular intent starts here ============-->
+       <div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>       
+            <div class="modal-body">
+
+             <!-- ===============Add a synonym starts here  ===================-->
+             <input type="text" [(ngModel)]="adminSynonym" (keyup)="suggest()">
+             <button type="button" class="btn btn-primary float-left" (click)="addAdminSynonym()" >Add synonym</button>
+             <a class="btn">    
+               <span class="badge badge-pill text-white"*ngFor="let data of test" 
+               (click)="select(data)">{{data}}</span>
+             </a>
+             <!-- ===============Add a synonym  ends here ===================-->
+
+
+             <tabset class="tab-container">
+              <div class="tab-content">  
+                <tab heading="Synonym" ng-reflect-heading="Profile" id="Profile" class="tab-pane">                          
+                  <div class="home-container">
+                    <h3>Existing synonyms</h3>
+                    <div class="existing" >  
+                      <span class="badge badge-pill text-white" *ngFor="let syno of correspondSynonym" >{{syno}}
+                        <!-- ===============delete a particular  synonym  starts ===================-->
+                        <i class="fa fa-times" aria-hidden="true" (click)="deletesynonym(syno)"></i></span>
+                        <!-- ===============delete a particular  synonym ends here  ===================-->
+                      </div>
+                    </div>
+                  </tab>        
+                </div>
+              </tabset>
+            </div>
+            <div class="modal-footer">
+
+
+              <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Close</button>
+
+
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- ========MOdal ends for synonym of particular intent ends here ============-->
+      <app-context></app-context>
+
+      <div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Add Node</h4>
+              <button type="button" class="close" (click)="largeModal.hide()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <tabset class="tab-container">
+                <div class="tab-content">     
+                  <tab heading="Intent" ng-reflect-heading="Home" class="tab-pane">
+                    Add {{val}} same as
+                    <div class="existing ">
+                      <angular2-multiselect [data]="intentName" [(ngModel)]="selectedItemsIntent" 
+                      [settings]="dropdownSettingsIntent" 
+                      (onSelect)="onItemSelectIntent($event)" 
+                      (onDeSelect)="OnItemDeSelectIntent($event)"
+                      (onSelectAll)="onSelectAllIntent($event)"
+                      (onDeSelectAll)="onDeSelectAllIntent($event)"></angular2-multiselect>
+                    </div>
+
+                    <button type="button" class="add text-white" (click) = "setSynonym(selectedItemsIntent);largeModal.hide()"> Add
+                    </button>
+
+                  </tab>
+
+                  <tab heading="Context" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
+
+                   Add {{val}} same as
+
+                   <div class="existing " >
+
+                    <angular2-multiselect [data]="contextName" 
+                    [(ngModel)]="selectedItemsContext" 
+                    [settings]="dropdownSettingsContext" 
+                    (onSelect)="onItemSelectContext($event)" 
+                    (onDeSelect)="OnItemDeSelectContext($event)"
+                    (onSelectAll)="onSelectAllContext($event)"
+                    (onDeSelectAll)="onDeSelectAllContext($event)"></angular2-multiselect>
+
+                    <button type="button" class="add text-white" (click) = "contextSynonym(onItemSelectContext);largeModal.hide()"> Add
+                    </button>
+
+                  </div>
+
+                </tab>
+
+              </div>
+            </tabset>
+          </div>
+          <div>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+    <!-- =========================Modal 2=========================== -->
+
+
+    <div bsModal #add="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+         <div class="modal-header">
+          <h4 class="modal-title">Add </h4>
+          <button type="button" class="close" (click)="add.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> 
+        <div class="modal-body">
+          <div class="headingbutton">    
+          </div>
+          <tabset class="tab-container" *ngIf="value">
+            <div class="tab-content">     
+              <tab heading={{value}} ng-reflect-heading="Home" class="tab-pane" id="Intent">
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">value</label>
+                    <input type="text" class="form-control" id="meaning" name = "meaning"placeholder="Meaning" [(ngModel)]="addintent">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInput1">Priority</label>
+                    <input type="text" class="form-control" id="priority" name = "priority" placeholder="priority" [(ngModel)]="priority">
+                  </div>                   
+                </form>
+                <div>
+                  <button type="button" class="btn btn-primary" (click)="add.hide()">Close</button>
+                  <button type="button" class="btn btn-primary" (click)="addIntent()"><span >Add {{value}}</span></button>
+                </div>
+              </tab>
+              <tab heading="Synonym" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
+                <div class="home-container">
+                  <div>
+                    <h5>Add Synonyms for {{addintent}}</h5>
+                    <input type="text" class="form-control" id="synonym" name = "synonym" placeholder="Enter Synonyms" [(ngModel)]="temp" (keyup)="suggest()" (keyup.enter)="select(temp)">
+                  </div>
+                  <div class="existing">
+                    <h5>Added Synonyms</h5>
+                    <a class="btn badgebtn" *ngFor="let data1 of main"> 
+                      <span class="badge badge-pill text-white">
+                        {{data1}}
+                      </span>
+                    </a>
+                  </div>
+                  <div class="existing">
+                    <h5>Synonyms</h5>
+                    <a class="btn"> 
+                      <span class="badge badge-pill text-white"*ngFor="let data of synres" 
+                      (click)="select(data)">               
+                      {{data}}
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary" (click)="add.hide()">Close</button>
+                <button *ngIf ="addintent" type="button" class="btn btn-primary"><span (click)="add.hide()" (click)="addSynonym()">Add Synonyms</span></button>
+              </div>
+            </tab>
+          </div>
+        </tabset>
+      </div>
+    </div> <!-- /.modal-content -->
+  </div> <!-- /.modal-dialog -->
+ </div> <!-- /.modal -->

@@ -1,0 +1,47 @@
+.table td{
+  border: 0px;
+}
+.table th{
+  border: 0px;
+}
+.btn {
+    line-height:1;
+    margin-bottom:2%;
+    padding: 3px 6px;
+}
+.btn.btn-block {
+    width:85%;  
+}
+.btn.btn-secondary {
+    margin-bottom:0px;
+}
+.form-control {
+    height:50px;
+}
+.dropdown-item {
+    padding: 3px 10px;
+}
+@media (min-width: 300px) and (max-width: 1204px) {
+.d-md-down-none{
+  display: inline !important;
+}
+ }
+ @media (min-width: 300px) and (max-width: 1204px) {
+ .btn{
+      font-size: 0.820rem;
+ }
+}
+@media (min-width:  300px) and (max-width: 1204px) {
+.card-group .card {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    margin-bottom: 0;
+    float: right;
+}
+}
+@media screen and (max-width: 360px) {
+    .button-text {
+       font-size:7px;
+    }
+}

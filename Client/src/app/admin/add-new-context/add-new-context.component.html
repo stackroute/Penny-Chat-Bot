@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <h2>{{context.name}}</h2>
+      <div>
+        <h5>Add synonyms</h5>
+        <tag-input  [(ngModel)]="synonym"
+        [modelAsStrings]="true"
+        [theme]="'dark'"
+        [dragZone]="'zone1'"
+        [editable]="true"
+        name="test">
+      </tag-input>
+    </div>
+    <br>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" name="optradio" class="form-check-input" (click)="setdomain()">
+        &nbsp;&nbsp;&nbsp;&nbsp;Dependent to Context
+      </label>
+      <label class="form-check-label">
+        <input type="radio" name="optradio" class="form-check-input" (click)="resetDomain()" >
+        &nbsp;&nbsp;&nbsp;&nbsp;Independent Domain
+      </label>
+    </div>
+    <div class="btn-group" *ngIf = "setDomain">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        {{selectedContext.name}} ({{selectedContext.label}})
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" *ngFor="let context of contexts;let i=index" (click)="setContext(context)">{{context.name}} ({{context.label}})</a>
+      </div>
+    </div>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Intents</th>
+        </tr>
+        <tr *ngFor="let intent of intents;let i=index">
+          <th>{{intent.name}} :</th>
+          <th *ngIf="disableArray.indexOf(i)==disableValue"> <textarea class="form-control" rows="5" name="{{intent.name}}" id="{{intent.name}}" [(ngModel)]="intent.value"></textarea>
+          </th>
+          <th>
+            <button (click)="disable(i,intent)" name="{{intent.name}}" id="{{intent.name}}" class="btn btn-primary btn-block">{{disabled}}</button>
+            <button *ngIf="disableArray.indexOf(i)==disableValue" type="submit" class="btn btn-primary btn-block" (click)="addconfig.show()">Add Configuration </button>
+            <div bsModal #addconfig="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Add Node</h4>
+                    <button type="button" class="close" (click)="addconfig.hide()" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <tabset class="tab-container">
+                      <div class="tab-content">     
+                        <tab heading="Links" ng-reflect-heading="Home" class="tab-pane">
+                          <form>
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Video Links</label>
+                              <input type="text" class="form-control" name="{{intent.name}}" id="{{intent.name}}" aria-describedby="emailHelps"  [(ngModel)]="intent.videoLink">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Blog Links</label>
+                              <input type="text" class="form-control" name="{{intent.name}}" id="{{intent.name}}" [(ngModel)]="intent.blogLink">
+                            </div>
+                          </form>
+                        </tab>
+                        <tab heading="Advanced" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
+                            <!-- <div class="home-container">
+                                <div>
+                                    <h5>Add synonyms</h5>
+                                    <tag-input  [(ngModel)]="syn"
+                                    [modelAsStrings]="true"
+                                    [theme]="'dark'"
+                                    [dragZone]="'zone1'"
+                                    [editable]="true"
+                                    name="test"
+                                    (keyup.enter)="addSyn(syn)">
+                                </tag-input>
+                            </div>
+                            <div class="existing">
+                                <h5>Existing synonyms</h5>
+                                <span class="badge badge-pill text-white">what</span>
+                                <span class="badge badge-pill text-white" >about</span>
+                                <span class="badge badge-pill text-white" >how</span>
+                                <span class="badge badge-pill text-white" >tell</span>
+                                <span class="badge badge-pill text-white" >define</span>
+                            </div>
+                          </div> -->
+                        </tab>
+                      </div>
+                    </tabset>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="addconfig.hide()">Close</button>
+                    <button type="button" class="btn btn-primary"><span (click)="addconfig.hide();printintent(i,intent)">Next</span></button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+          </th>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button (click)="submitContext()" class="btn btn-primary btn-block">Create Node </button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+</div>
