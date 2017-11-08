@@ -24,3 +24,18 @@ It also checks the code coverage by using Istanbul.
 Minimum System requirements:
 
 S/W : Any Operating System H/W : 512 MB RAM, 100 GB Hard Disk, Web Browser, local server
+
+Contributors:
+1. Nihit Saxena
+2. Shivam GUpta
+3. Khushboo Rajput
+4. Sheetal Varshney
+5. Ankur Agarwal
+6. Preeti Singh
+7. shagun Sankla
+8. Naman Mahajan
+9. Abhishek Gupta
+10. Chandra Bhushan Tripathi
+11. Ishan Aggarwal
+12. Ashwin Kaur
+13. Mohit Garg 
