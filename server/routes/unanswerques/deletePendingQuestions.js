@@ -1,20 +1,23 @@
 let express = require('express');
 let router = express.Router();
 let demo=require('../../model/questionbank_schema');
+import staticConfig from './staticconfig' ;
 
 export default (req, res) => {
   
   demo.update({},{$pull : {questions :{question: req.body.ques}}},
     {multi:true},(err,data)=>{
       if(err)
-      {        
-        res.json({status:false,message:"Error Found",data:null});
+      {        //Error
+        res.json({status:false,message:staticconfig.deletependingques.Error,data:null});
       }
       else if(data==undefined){
-        res.json({status:false,message:"Data not found",data:null});
+        //data not found
+        res.json({status:false,message:staticconfig.deletependingques.DataNotFound,data:null});
       }
-      else{       
-        res.json({status:true,message:"Data found",data:data});
+      else{  
+      //data found     
+        res.json({status:true,message:staticconfig.deletependingques.DataFound,data:data});
       }
     })
 }
