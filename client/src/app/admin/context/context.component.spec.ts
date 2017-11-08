@@ -15,6 +15,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ContextService } from './context.service';
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import swal from 'sweetalert2';
+import { testConfig } from './context.config';
 describe('ContextComponent', () => {
   let component: ContextComponent;
   let fixture: ComponentFixture<ContextComponent>;
@@ -53,85 +54,7 @@ describe('ContextComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  //=============positive testcase delete context ==================================
- it('delete context positive',()=>{
-  let data={
-    status:true
-  }
-  const spy =spyOn(service,'deleteContext').and.returnValue(Observable.of(data));
-  component.deleteContext(data);
-    console.log('zzz',component.ref.status);
-  console.log('cc',data.status);
-  //fixture.detectChanges();
-  fixture.whenStable().then(()=>{
-     console.log('zzz---1',component.ref.status);
-  console.log('cc--1',data.status);
-expect(component.ref.status).toEqual(data.status);
-  })
-  
-})
-//=============negative testcase delete context ==================================
-it('delete context negative',()=>{
-  let data={
-    status:true
-  }
-  const spy =spyOn(service,'deleteContext').and.returnValue(Observable.of(data));
-  component.deleteContext(data);
-    console.log('zzz',component.ref.status);
-  console.log('cc',data.status);
-  //fixture.detectChanges();
-  fixture.whenStable().then(()=>{
-     console.log('zzz---1',component.ref.status);
-  console.log('cc--1',data.status);
-expect(component.ref.status).not.toEqual(null);
-  })
-  });
-//=============positive testcase delete context ==================================
-   it( "positive get context testcase", () => {
-     let mockResponse:any ={
-           identity: {
-           low:0,
-           high:1, 
-           },   
-           labels:[ "Domain"],
-           properties: {
-            name:"retirement plan"
-           },
-       }
-    const spy = spyOn(service, 'getContext' ).and.returnValue(
-      Observable.of(mockResponse)
-      )
-    //console.log('000000000000000000000000',component)
-   //  fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      component.getContext();
-    console.log('000000000000000000000000',component)
-      expect(component).toEqual(mockResponse);
-    })
-  });
-//=============negative testcase delete context ==================================
-   it( "positive get context testcase", () => {
-     let mockResponse:any ={
-           identity: {
-           low:0,
-           high:1, 
-           },   
-           labels:[ "Domain"],
-           properties: {
-            name:"retirement plan"
-           },
-       }
-    const spy = spyOn(service, 'getContext' ).and.returnValue(
-      Observable.of(mockResponse)
-      )
-   
-   //  fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      component.getContext();
-    
-      expect(component).not.toEqual(mockResponse);
-    })
-  });
+
    //=============positive testcase onItemSelectContext ============================
    it( "positive onItemSelectContext testcase", () => {
      let mockResponse={
@@ -213,4 +136,44 @@ expect(component.ref.status).not.toEqual(null);
       expect(component.selectedIntent[0].name).not.toEqual(null);
     })
   });
+   //------------positive test case for addInput()----------------
+it('addInput() positive test case', () => {
+expect(component.inputs).toEqual(testConfig.data);
+});
+
+
+//------------negative test case for addInput()----------------
+it('addInput() negative test case', () => {
+expect(component.inputs).not.toEqual(null);
+});
+
+//------------positive test case for addBlog()----------------
+it('addBlog() positive test case', () => {
+expect(component.blog).toEqual(testConfig.data);
+});
+
+//------------negative test case for addBlog()----------------
+it('addBlog() nagative test case', () => {
+expect(component.blog).not.toEqual(null);
+});
+
+//------------positive test case for removeVideo()----------------
+it('removeVideo() positive test case', () => {
+expect(component.addvideolink).toEqual(testConfig.dataremove);
+});
+
+//------------negative test case for removeVideo()----------------
+it('removeVideo() negative test case', () => {
+expect(component.addvideolink).not.toEqual(null);
+});
+
+//------------positive test case for removeBlog()----------------
+it('removeBlog() positive test case', () => {
+expect(component.addbloglink).toEqual(testConfig.dataremove);
+});
+
+//------------negative test case for removeBlog()----------------
+it('removeBlog() negative test case', () => {
+expect(component.addbloglink).not.toEqual(null);
+});
 });

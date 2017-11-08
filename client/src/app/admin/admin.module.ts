@@ -22,7 +22,7 @@ import {
 // Import directives
 import {
   //AsideToggleDirective,
-  NAV_DROPDOWN_DIRECTIVES,
+ // NAV_DROPDOWN_DIRECTIVES,
   ReplaceDirective,
   SIDEBAR_TOGGLE_DIRECTIVES
 } from './../directives';
@@ -71,7 +71,7 @@ import {TraindomainComponent} from './traindomain/traindomain.component';
   BottomChatComponent,
   TraindomainComponent,
  // AsideToggleDirective,
-  NAV_DROPDOWN_DIRECTIVES,
+ // NAV_DROPDOWN_DIRECTIVES,
   ReplaceDirective,
   AddNewContextComponent,
   AddtaskComponent,
