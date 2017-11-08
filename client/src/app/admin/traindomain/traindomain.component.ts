@@ -86,7 +86,7 @@ setnext(data) {
   console.log("00000000",data);
   this.nextquestion = data;
   this.productdata.question.map((data)=> {
-      if(data.genre == "Question") {
+      if(data.genre == "Question" || data.genre == "Conclusion") {
         this.questionarr.push(data);
       }
     })
