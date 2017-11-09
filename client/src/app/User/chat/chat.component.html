@@ -89,8 +89,9 @@
               <i class="fa fa-video-camera" aria-hidden="true" [id]="videoId" appAsideMenuToggler></i>
               </div>
               </div>
-          <div style="background-color: #e5eff5 ;border-radius: 20px" *ngIf="response!=null">
-<div class="card-block">
+          <div style="background-color: #e5eff5 ;border-radius: 20px" *ngIf="resp">
+ <div *ngFor="let response of resp">
+  <div class="card-block">
   <a href={{response.ogp.ogUrl}} target="_blank">{{response.ogp.ogUrl}}</a>
   <div>
   <div class="attachment_source">
@@ -104,8 +105,11 @@
     <div>
       <span class="attachment_ts">{{response.other.articlePublishedTime}}</span>  
     </div>
-  <img src={{response.ogp.ogImage[0].url}} >
+  <img src={{response.ogp.ogImage[0].url}} style="width: 150px;height: 100px">
+
+</div>
   </div>
+  <hr>
 </div>
 </div>
         </div>

@@ -240,7 +240,7 @@ export default (req,res) => {
           if(result.records.length > 0) {
             result.records.map((link)=>{
 
-              linksto.push({ [link._fields[0].labels[0]] : link._fields[0].properties})
+              linksto.push({ [link._fields[0].labels[0]] : link._fields[0].properties.value})
 
             })  
             if(links.length>0)
@@ -303,7 +303,7 @@ export default (req,res) => {
                   if(result.records.length > 0) {
                     result.records.map((link)=>{
 
-                      linksto.push({ [link._fields[0].labels[0]] : link._fields[0].properties})
+                      linksto.push({ [link._fields[0].labels[0]] : link._fields[0].properties.value})
 
                     })  
                     if(linksto.length>0) {
@@ -344,7 +344,7 @@ export default (req,res) => {
                   if(result.records.length > 0) {
                     result.records.map((link)=>{
 
-                      linksto.push({ [link._fields[0].labels[0]] : link._fields[0].properties})
+                      linksto.push({ [link._fields[0].labels[0]] : link._fields[0].properties.value})
 
                     })  
                     if(linksto.length>0) {

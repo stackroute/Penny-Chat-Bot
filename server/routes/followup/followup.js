@@ -3,10 +3,10 @@ import logger from '../../log4js';
 import flow_schema from './../../model/flow_schema';
 
 export default (req,res)=>{
-		
+		console.log("task===========",req.body.counter);
 flow_schema.find({task : req.body.counter},(error,data)=>{
-		if(data.length > 0){
-			
+		console.log("data==========",data);
+		if(data.length > 0) {
 			let main;
 			data[0].question.map((data) => {
 				if(data.genre == "Introduction") {

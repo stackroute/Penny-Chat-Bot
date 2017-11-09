@@ -56,7 +56,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   fetch(ans){ //fetching the response on different condition
     this.ans = ans;
-    this.response = null;
+    this.resp = null;
     this.answer="";
     if(!this.maincounter) {     //if no follow up questions
     this.chatService.fetch(ans).subscribe((res)=> {
@@ -87,38 +87,35 @@ export class ChatComponent implements OnInit, AfterViewChecked {
         console.log(this.question);
       }
     }
+    let linkend =[];
       res.links.map((data) => {
         console.log(data);
         if(data.Counter) {
            this.followup(data.Counter);
         } else if(data.Video) {
-          for(var property in data.Video){
-            if(data.Video.hasOwnProperty(property)){
-              if(data.Video[property]=="video"){
-                console.log("v",data.Video[property]);
-              }else{
-              console.log("video",data.Video[property]);
-              this.answ.Video = data.Video[property].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-              this.videoId.push(this.answ.Video);
-              console.log(this.videoId);
-              console.log(this.answ.Video[0]);
-              }
-            }
-          }
+          // for(var property in data.Video){
+          //   if(data.Video.hasOwnProperty(property)){
+          //     if(data.Video[property]=="video"){
+          //       console.log("v",data.Video[property]);
+          //     }else{
+          //     console.log("video",data.Video[property]);
+          //     this.answ.Video = data.Video[property].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+          //     this.videoId.push(this.answ.Video);
+          //     console.log(this.videoId);
+          //     console.log(this.answ.Video[0]);
+          //     }
+          //   }
+          // }
+          let video = data.Video.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+            this.videoId.push(video);
+            console.log(this.videoId);
           // this.answ.Video = data.Video.value2.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
           // this.videoId = this.answ.Video;
           // console.log(this.answ.Video[1]);
         } else {
-          for(var property in data.Link){
-            if(data.Link.hasOwnProperty(property)){
-              if(data.Link[property]=="link"){
-                console.log("l",data.Link[property]);
-              }else{
-                console.log("link",data.Link[property]);
-                this.answ.Link=data.Link[property];
-              }
-            }
-          }
+          linkend.push(data.Link);
+          this.answ.Link = linkend;
+          console.log("kwjvdijjsjndnjjjjjjjjjjj",this.answ.Link);
         }
       })
     })
@@ -210,10 +207,10 @@ getquestion() {
 }
 
 
-response:any;
+resp:any;
 next(ans:any){
    this.chatService.checklink(this.answ.Link).subscribe((resp)=>{
-     this.response = resp})
+     this.resp = resp})
    //resp contains the unfurled data from server
 }
 
