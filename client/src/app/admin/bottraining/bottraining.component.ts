@@ -57,7 +57,7 @@ export class BottrainingComponent implements OnInit {
   dropdownSettingsIntent:any = {};
   dropdownSettingsContext:any={};
   selectedItemsContext:any=[];
-
+  item:any[] = [];
   constructor(private bottrainingservice:BottrainingService, private router: Router) { }
 
   ngOnInit() {
@@ -86,6 +86,9 @@ export class BottrainingComponent implements OnInit {
     this.getIntent();
     this.getContext();
   }
+  
+
+
   //Function called when an item is selected in dropdown in intent
   onItemSelectIntent(item:any){                  
     this.relatedentity(item);

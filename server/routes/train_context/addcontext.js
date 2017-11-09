@@ -8,6 +8,7 @@ const session = driver.session();
 import createSynonym from './createSynonym';
 import createlink from './createlink';
 import staticconfig  from './staticconfig'; //config file
+import addflowcontext from './addflowContext';
 
 export default(req, res)=>{
 
@@ -21,7 +22,8 @@ export default(req, res)=>{
 				);
 			resultPromise.then(result => {
 				session.close();
-				createSynonym(req.body)
+				createSynonym(req.body);
+				addflowcontext()
 				res.json({status : true, result : result.records[0]})
 				driver.close();
 			});
