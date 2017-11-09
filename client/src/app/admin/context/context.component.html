@@ -165,16 +165,11 @@
         </collapsible-header>
         <collapsible-body [expanded]="false">
         <div>
-                                       <angular2-multiselect [data]="flowitem" [(ngModel)]="main.flow"
-                                    [settings]="flowdropdownSettings" 
-                                    (onSelect)="onItemFlowSelect($event,i)"
-                                    (onDeSelect)="OnItemFlowDeSelect($event)"
-                                    (onSelectAll)="onSelectAll($event)"
-                                    (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
-
-                                    <div>
-                                    </div>
-                                    </div>
+        <select [(ngModel)]="main.flow">
+          <option value=""></option>
+          <option *ngFor="let flo of flowitem" value="{{flo}}">{{flo}}</option>
+        </select>
+      </div>
     </collapsible-body>
 </collapsible-list-item>
 <!-- ===========end intent============= -->

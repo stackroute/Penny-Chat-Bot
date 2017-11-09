@@ -6,16 +6,21 @@ var driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.neo4
 const session = driver.session(); //config file
 
 
-export default(flowname,intentname,contextname)=>{
-	/*======================Query to delete context===========================*/
-	const resultPromise = session.run(
-		
-		);
-	resultPromise.then(result => {
-		session.close();
+export default(object,label)=>{
+	/*======================Query to add flow to context===========================*/
+
+	object.completeContext.map((intent) =>{
+		if(intent.flow) {
+			const resultPromise = session.run("MATCH (ee:"+label+") where ee.name ='"+object.context.name+"' MATCH (ee)-[:"+intent.name+"]->(xx) CREATE (ff:Counter {name : '"+intent.flow+"', value : '"+intent.flow+"'}), (xx)-[:answer]->(ff) return ee,ff,xx");
+		resultPromise.then(result => {
+		//session.close();
 		//closins session
-		res.json({status : true, result : result.records[0]})
-		driver.close();
+		//res.json({status : true, result : result.records[0]})
+		console.log(result);
+		//driver.close();
 		//closing driver
 	});
+	}
+	});
+	//session.close();
 };

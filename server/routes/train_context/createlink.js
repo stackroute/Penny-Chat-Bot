@@ -3,7 +3,7 @@ let router = express.Router();
 const neo4j = require('neo4j-driver').v1;
 import config from '../../config/config';
 var driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.neo4jurlpassword));
-
+import addflow from './addflowContext';
 import staticconfig  from './staticconfig'; //config file
 
 /*=====================context intent domain and subIntent and answer creation ===================================================*/
@@ -81,6 +81,7 @@ export default (body) => {
 												'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 
 											resultPromise.then((result) => {
+												addflow(body,"SubDomain");
 											})
 										})
 									})
@@ -118,7 +119,7 @@ export default (body) => {
 												'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:'+subInt.name+']->(s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d, s'
 												);
 											resultPromise.then((result) => {
-
+												addflow(body,"Entity");
 											})
 										})
 									})
@@ -131,13 +132,18 @@ export default (body) => {
 
 				/*=====================If Entity====================*/
 				else if(body.selectedContext.label == staticconfig.entity.entity) {
+
+					
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 						);
 					resultPromise.then((result) => {
 
+						console.log('hello', result)
+
 						/*================Querry for video links================*/
 						videoLink.map((vid)=>{
+							
 							const resultPromise = session.run(
 								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
 								);
@@ -157,6 +163,7 @@ export default (body) => {
 												'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:'+subInt.name+']->(s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s'
 												);
 											resultPromise.then((result) => {
+												addflow(body,"SubEntity");
 											})
 										})
 									})
@@ -197,6 +204,7 @@ export default (body) => {
 											'match (a:Domain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:'+subInt.name+']->(s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s'
 											);
 										resultPromise.then((result) => {
+											addflow(body,"Domain");
 										})
 									})
 								})
@@ -237,6 +245,7 @@ export default (body) => {
 									const resultPromise = session.run(
 										'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 									resultPromise.then((result) => {
+										addflow(body,"SubDomain");
 									})
 								})
 							})
@@ -264,6 +273,7 @@ export default (body) => {
 									const resultPromise = session.run(
 										'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 									resultPromise.then((result) => {
+										addflow(body,"Entity");
 									})
 								})
 							})
@@ -294,6 +304,7 @@ export default (body) => {
 										'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 
 									resultPromise.then((result) => {
+										addflow(body,"SubEntity");
 									})
 								})
 							})
@@ -323,6 +334,7 @@ export default (body) => {
 							const resultPromise = session.run(
 								'match (a:Domain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 							resultPromise.then((result) => {
+								addflow(body,"Domain");
 							})
 						})
 					})
@@ -356,6 +368,7 @@ export default (body) => {
 											'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 
 										resultPromise.then((result) => {
+											addflow(body,"SubDomain");
 										})
 									})
 								})
@@ -385,6 +398,7 @@ export default (body) => {
 								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 
 							resultPromise.then((result) => {
+								addflow(body,"Entity");
 							})
 						})
 					})
@@ -414,6 +428,7 @@ export default (body) => {
 								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 
 							resultPromise.then((result) => {
+								addflow(body,"SubEntity");
 							})
 						})
 					})
@@ -445,6 +460,7 @@ export default (body) => {
 										'match (a:Domain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 
 									resultPromise.then((result) => {
+										addflow(body,"Domain");
 									})
 								})
 							})
@@ -468,6 +484,7 @@ if((blogLink.length==0)&&(videoLink.length==0)&&(subIntent.length==0) && (con.va
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
 			resultPromise.then((result) => {
+				addflow(body,"SubDomain");
 			})
 		}
 
@@ -477,6 +494,7 @@ if((blogLink.length==0)&&(videoLink.length==0)&&(subIntent.length==0) && (con.va
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
 			resultPromise.then((result) => {
+				addflow(body,"Entity");
 			})
 		}
 
@@ -486,6 +504,7 @@ if((blogLink.length==0)&&(videoLink.length==0)&&(subIntent.length==0) && (con.va
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
 			resultPromise.then((result) => {
+				addflow(body,"SubEntity");
 			})
 		}
 	}
@@ -496,6 +515,7 @@ if((blogLink.length==0)&&(videoLink.length==0)&&(subIntent.length==0) && (con.va
 			'match (a:Domain {name:"'+body.context.name+'"}) merge (a)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 			);
 		resultPromise.then((result) => {
+			addflow(body,"Domain");
 		})
 	}}
 
@@ -518,6 +538,7 @@ if((blogLink.length==0)&&(videoLink.length==0) && (con.value!="") && (subIntent.
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 
 					resultPromise.then((result) => {
+						addflow(body,"SubDomain");
 					})
 				})
 			})
@@ -537,6 +558,7 @@ if((blogLink.length==0)&&(videoLink.length==0) && (con.value!="") && (subIntent.
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 					resultPromise.then((result) => {
+						addflow(body,"Entity");
 					})
 				})
 			})
@@ -555,6 +577,7 @@ if((blogLink.length==0)&&(videoLink.length==0) && (con.value!="") && (subIntent.
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 					resultPromise.then((result) => {
+						addflow(body,"SubEntity");
 					})
 				})
 			})
@@ -573,6 +596,7 @@ if((blogLink.length==0)&&(videoLink.length==0) && (con.value!="") && (subIntent.
 					const resultPromise = session.run(
 						'match (a:Domain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 					resultPromise.then((result) => {
+						addflow(body,"Domain");
 					})
 				})
 			})
@@ -602,6 +626,7 @@ if((videoLink.length!=0)&&(blogLink.length!=0)&&(con.value!="")&&(subIntent.leng
 							const resultPromise = session.run(
 								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:answer]-> (f:'+link+' {name : "link",value : "'+blog+'"}) return d,f');
 							resultPromise.then((result) => {
+								addflow(body,"SubDomain");
 							})
 						})
 					})
@@ -630,6 +655,7 @@ if((videoLink.length!=0)&&(blogLink.length!=0)&&(con.value!="")&&(subIntent.leng
 							'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d, f'
 							);
 						resultPromise.then((result) => {
+							addflow(body,"Entity");
 						})
 					})
 				})
@@ -657,6 +683,7 @@ if((videoLink.length!=0)&&(blogLink.length!=0)&&(con.value!="")&&(subIntent.leng
 								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
 								);
 							resultPromise.then((result) => {
+								addflow(body,"SubEntity");
 							})
 						})
 					})
@@ -686,6 +713,7 @@ if((videoLink.length!=0)&&(blogLink.length!=0)&&(con.value!="")&&(subIntent.leng
 							);
 
 						resultPromise.then((result) => {
+							addflow(body,"Domain");
 						})
 					})
 				})
@@ -711,6 +739,7 @@ if((videoLink.length!=0)&&(blogLink.length==0) &&(subIntent.length == 0) && (con
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e');
 					resultPromise.then((result) => {
+						addflow(body,"SubDomain");
 					})
 				})
 			})
@@ -729,6 +758,7 @@ if((videoLink.length!=0)&&(blogLink.length==0) &&(subIntent.length == 0) && (con
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
 						);
 					resultPromise.then((result) => {
+						addflow(body,"Entity");
 					})
 				})
 			})
@@ -746,6 +776,7 @@ if((videoLink.length!=0)&&(blogLink.length==0) &&(subIntent.length == 0) && (con
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
 						);
 					resultPromise.then((result) => {
+						addflow(body,"SubEntity");
 					})
 				})
 			})
@@ -765,6 +796,7 @@ if((videoLink.length!=0)&&(blogLink.length==0) &&(subIntent.length == 0) && (con
 						'match (a:Domain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
 						);
 					resultPromise.then((result) => {
+						addflow(body,"Domain");
 					})
 				})
 			})
@@ -788,6 +820,7 @@ if((videoLink.length==0)&&(blogLink.length!=0) && (subIntent.length!=0)&& (con.v
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
 						);
 					resultPromise.then((result) => {
+						addflow(body,"SubDomain");
 					})
 				})
 			})
@@ -806,6 +839,7 @@ if((videoLink.length==0)&&(blogLink.length!=0) && (subIntent.length!=0)&& (con.v
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
 						);
 					resultPromise.then((result) => {
+						addflow(body,"Entity");
 					})
 				})
 			})
@@ -823,6 +857,8 @@ if((videoLink.length==0)&&(blogLink.length!=0) && (subIntent.length!=0)&& (con.v
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
 						);
 					resultPromise.then((result) => {
+						addflow(body,"SubEntity");
+
 					})
 				})
 			})
@@ -841,6 +877,7 @@ if((videoLink.length==0)&&(blogLink.length!=0) && (subIntent.length!=0)&& (con.v
 						'match (a:Domain {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
 						);
 					resultPromise.then((result) => {
+						addflow(body,"Domain");
 					})
 				})
 			})
