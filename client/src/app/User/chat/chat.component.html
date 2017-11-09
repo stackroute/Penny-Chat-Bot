@@ -83,10 +83,12 @@
                 </div>
               </div>
           </div>
-               <div *ngIf = "moreInfoLink==1 || moreInfoLink==2 || moreInfoLink==3">
-                 <i class="fa fa-info-circle" aria-hidden="true" (click)="next(ans)"></i>
-                <i class="fa fa-video-camera" aria-hidden="true" [id]="videoId" appAsideMenuToggler></i>
-               </div>
+              <div *ngIf = "moreInfoLink!=undefined">
+              <div *ngIf = "moreInfoLink!=0">
+              <i class="fa fa-info-circle" aria-hidden="true" (click)="next(ans)"></i>
+              <i class="fa fa-video-camera" aria-hidden="true" [id]="videoId" appAsideMenuToggler></i>
+              </div>
+              </div>
           <div style="background-color: #e5eff5 ;border-radius: 20px" *ngIf="response!=null">
 <div class="card-block">
   <a href={{response.ogp.ogUrl}} target="_blank">{{response.ogp.ogUrl}}</a>

@@ -26,9 +26,10 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   links:any=0;
   moreInfoLink:any;
   ans;
-  videoId:any;
+  videoId:any[]=[];
   url:any;
   flowanswer:any[] = [];
+  id:any;
   constructor(private chatService:ChatService, private router: Router) { }
 
   scrollToBottom(): void { // scrolling with answers
@@ -46,7 +47,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     bot : "Hi "+value.data.name+"! How may I Help You?"
   }
   this.question.push(temp);
- 
+  
   }
 
   ngAfterViewChecked() {
@@ -87,14 +88,37 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       }
     }
       res.links.map((data) => {
+        console.log(data);
         if(data.Counter) {
            this.followup(data.Counter);
         } else if(data.Video) {
-          this.answ.Video = data.Video.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-          this.videoId = this.answ.Video;
-          console.log(this.answ.Video[1]);
+          for(var property in data.Video){
+            if(data.Video.hasOwnProperty(property)){
+              if(data.Video[property]=="video"){
+                console.log("v",data.Video[property]);
+              }else{
+              console.log("video",data.Video[property]);
+              this.answ.Video = data.Video[property].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+              this.videoId.push(this.answ.Video);
+              console.log(this.videoId);
+              console.log(this.answ.Video[0]);
+              }
+            }
+          }
+          // this.answ.Video = data.Video.value2.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+          // this.videoId = this.answ.Video;
+          // console.log(this.answ.Video[1]);
         } else {
-          this.answ.Link = data.Link;
+          for(var property in data.Link){
+            if(data.Link.hasOwnProperty(property)){
+              if(data.Link[property]=="link"){
+                console.log("l",data.Link[property]);
+              }else{
+                console.log("link",data.Link[property]);
+                this.answ.Link=data.Link[property];
+              }
+            }
+          }
         }
       })
     })
@@ -108,6 +132,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.setfollowup(res);
     })
   }
+  this.videoId=[];
   }
 
 judge(ans) {  //pushing the message to the chat application
@@ -183,7 +208,7 @@ getquestion() {
         console.log('+++++++++++++++++++++++++++++++',res);
 })
 }
-id:any;
+
 
 response:any;
 next(ans:any){

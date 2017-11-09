@@ -1,12 +1,12 @@
 <aside class="aside-menu">
    <h4 class="videoHeading">Related Videos</h4>
-   <div *ngFor="let yid of youid">
-   		<div *ngIf="yid.length==11">
+   <div *ngFor="let id of youid">
+   		<div *ngIf="id[1].length==11">
         <youtube-player
-    [videoId]="youtubeid"
+    [videoId]="id[1]"
      (ready)="savePlayer($event)"
      (change)="onStateChange($event)"
-   >  </youtube-player>
+   > </youtube-player>
  </div>
  </div>
       <!-- <img src={{response.ogp.ogImage[0].url}}> -->
