@@ -124,6 +124,7 @@ export class BottrainingComponent implements OnInit {
   getQues(ques){                        
     this.newgetQuestion = ques;
     this.bottrainingservice.getQues(ques).subscribe((res)=>{
+      this.rep=res;
       this.tableData = [];
       res.map((data)=>{
         if(data.word == "")

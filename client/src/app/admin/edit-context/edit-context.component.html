@@ -110,8 +110,8 @@
             
             <div class="input-group mb-2 mr-sm-2 mb-sm-0 video" *ngFor="let data of main.videoLink;let j=index ">
               <div >
-                <div class="input-group">
-                  <input type="text" class="form-control " placeholder="video links" [(ngModel)]="data.value"> 
+                <div class="input-group" *ngIf="data.delete==false">
+                  <input type="text" class="form-control " placeholder="video links" [(ngModel)]="data.value">
                   <span class="input-group-addon" id="basic-addon1" (click)="removeVideo(j,i)"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
                 </div>
                 
@@ -130,7 +130,7 @@
       <collapsible-body [expanded]="false">
       <div class="input-group mb-2 mr-sm-2 mb-sm-0 blog" *ngFor="let dataLink of main.blogLink; let k=index ">
         <div>
-          <div class="input-group">
+          <div class="input-group" *ngIf="dataLink.delete==false">
            <input type="text" class="form-control" placeholder=blog [(ngModel)]="dataLink.value" >
            <span class="input-group-addon" id="basic-addon2" (click)="removeBlog(k,i)"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
          </div>
