@@ -10,7 +10,8 @@ export default(object,label)=>{
 	/*======================Query to add flow to context===========================*/
 
 	object.completeContext.map((intent) =>{
-		const resultPromise = session.run("MATCH (ee:"+label+") where ee.name ='"+object.context.name+"' MATCH (ee)-[:"+intent.name+"]->(xx) CREATE (ff:Counter {name : '"+intent.flow+"', value : '"+intent.flow+"'}), (xx)-[:answer]->(ff) return ee,ff,xx");
+		if(intent.flow) {
+			const resultPromise = session.run("MATCH (ee:"+label+") where ee.name ='"+object.context.name+"' MATCH (ee)-[:"+intent.name+"]->(xx) CREATE (ff:Counter {name : '"+intent.flow+"', value : '"+intent.flow+"'}), (xx)-[:answer]->(ff) return ee,ff,xx");
 		resultPromise.then(result => {
 		//session.close();
 		//closins session
@@ -19,5 +20,7 @@ export default(object,label)=>{
 		//driver.close();
 		//closing driver
 	});
-	})
+	}
+	});
+	//session.close();
 };
