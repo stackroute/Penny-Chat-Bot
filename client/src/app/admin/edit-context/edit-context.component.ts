@@ -43,6 +43,7 @@ export class EditContextComponent implements OnInit {
   selectedItemsContext:any=[];
   selectedContext : any = {name : "Add to", label : ""};
   addSynonym:any;
+  removedVideo : any = [];
   getInfo:any=[];
   flag:any=0;
   
@@ -101,7 +102,6 @@ export class EditContextComponent implements OnInit {
   }
 
   deleteContext(context){
-    console.log(context)
         this.editContextService.deleteContext(context)
         .subscribe((res)=>{
           this.contextDropDown=[];
@@ -120,19 +120,17 @@ export class EditContextComponent implements OnInit {
      
 
       onEditItemSelect(item:any){
-        console.log("In context edit option " , item);
         this.getContextInfo(item);
         this.selectedIntent.push(item);
-        //this.intentData.splice(this.intentData.indexOf(item),1);
-        //this.intents.splice(this.intents.indexOf(item),1);
       }
 
-  onItemSelectContext(item:any){   
+  onItemSelectContext(item:any){ 
+
+
     this.contextval=item;
+  console.log("checkk...",this.contextval);
     this.getContextLabel=item.label;
     this.getContextName=item.itemName;
-    console.log("!!!!!!!!!!!!!!!!1",this.contextval);
-    // console.log("in selet",this.selectedIntent[0].itemName);
   }
 
  
@@ -140,13 +138,10 @@ export class EditContextComponent implements OnInit {
    this.contextSyn = [];
    this.editContextService.getContextSynonym(this.contextval)
    .subscribe((res)=>{
-     console.log(res);
      res.map((data)=>{
        data._fields.map((syn)=>{
          if(syn.labels[0]=='Synonym'){
-           // console.log(syn)
            this.contextSyn.push(syn);
-           console.log("-0-=0=-0=-s0fd=-ds0f=-sd0f=-0ds " , this.contextSyn );
          }
        })
      })
@@ -168,7 +163,8 @@ export class EditContextComponent implements OnInit {
            let blog = {
              id : answer.identity.low,
              name : "Link",
-             value : answer.properties.value
+             value : answer.properties.value,
+             delete: false
            }
            this.link.push(blog)
            blog = undefined;
@@ -180,7 +176,8 @@ export class EditContextComponent implements OnInit {
            let videolink = {
              id : answer.identity.low,
              name : "Video",
-             value : answer.properties.value
+             value : answer.properties.value,
+             delete: false
            }
            this.video.push(videolink)
            videolink = undefined;
@@ -203,7 +200,13 @@ export class EditContextComponent implements OnInit {
 
 
 updateContext(){
+  console.log("complete context here",this.contextval)
   console.log('updated value..=-=--=--',this.intentData);
+  this.editContextService.updateContext(this.contextval, this.intentData)
+  .subscribe((ref) => {
+    console.log(ref);
+  })
+
 }
 
  addMoreSynonym(syn){
@@ -223,35 +226,31 @@ updateContext(){
  }
 
  removeVideo(j,i){
-   this.intentData[i].videoLink.splice(j,1);
-   console.log("remove data", this.intentData[i]);
-   //console.log('data', this.addvideolink);
+  // let removedVideoLink:any = {}
+   //removedVideoLink=this.intentData[i].videoLink.splice(j,1);
+   //removedVideo.value = "";
+   //this.removedVideo.push(removedVideoLink);
+ this.intentData[i].videoLink[j].delete=true;
+ console.log('videoo..',this.intentData[i]);
+
  }
 
- inputs = [{link : ""}];
- addInput()  {
-   this.inputs.push({link: ''});
-   console.log('video', this.inputs);
- }
-
- blog = [{link : ""}];
- addBlog()  {
-   this.blog.push({link: ''});
-   console.log('video', this.blog);
- }
 
  removeBlog(k,i){
-  this.intentData[i].blogLink.splice(k,1);
-   console.log("remove data", this.intentData[i]);
+  /*this.intentData[i].blogLink.splice(k,1);
+   console.log("remove data", this.intentData[i]);*/
+
+    this.intentData[i].blogLink[k].delete=true;
+    console.log('bloggg..',this.intentData[i]);
  }
 
  addmoreVideoLinks(index){
-   this.intentData[index].videoLink.push({value : ""});
+   this.intentData[index].videoLink.push({ name : "Video",value : "",delete:false});
    console.log("added video", this.intentData[index]);
  }
 
  addmoreBlogLinks(index){
-    this.intentData[index].blogLink.push({value : ""});
+    this.intentData[index].blogLink.push({name : "Link",value : "",delete:false});
    console.log("added video", this.intentData[index]);
  }
 

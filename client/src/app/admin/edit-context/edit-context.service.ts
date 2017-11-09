@@ -99,4 +99,11 @@ return this.http
     })
 }
 
+updateContext(contextName, completeContext) {
+  let url: any = config.ip+"/editContext/editLink";
+  return this.http
+          .put(url,{context : contextName, completeContext : completeContext })
+          .map((res : Response) => res.json());
+}
+
 }

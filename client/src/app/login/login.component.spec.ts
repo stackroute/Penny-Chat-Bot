@@ -59,7 +59,7 @@ describe('LoginComponent test', () => {
     console.log(sp1);
     const navArgs = sp1.calls.first().args[0];
     fixture.detectChanges();
-    expect(navArgs).toBe('/admin');
+    expect(navArgs).toBe('/user/dashboardUser');
     expect(comp.ref).toEqual(resdata);
   }))
 
@@ -77,7 +77,7 @@ describe('LoginComponent test', () => {
     comp.loginUser();
     const navArgs = sp1.calls.first().args[0];
     fixture.detectChanges();
-    expect(navArgs).toBe('/admin');
+    expect(navArgs).toBe('/admin/dashboardAdmin');
     expect(comp.ref).toEqual(resdata);
   }))
 });
@@ -123,7 +123,7 @@ describe('LoginComponent test negative', () => {
       );
     comp.loginUser();
     fixture.detectChanges(); 
-    expect(comp.alert).toEqual(1);
+    expect(comp.alert).toEqual(0);
   })
 
 /*----------------test for wrong credentials------------------*/

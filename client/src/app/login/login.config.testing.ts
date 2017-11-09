@@ -51,7 +51,7 @@ export const testConfig={
       status: true,
       message: "Success",
       token: 'bearer 1234',
-      userdata : {
+      data : {
         status:true,
         type :"Admin"
       }
@@ -70,7 +70,7 @@ export const testConfig={
       status: true,
       message: "Success",
       token: 'bearer 1234',
-      userdata : {
+      data : {
         status:true,
         type :"User"
       }
