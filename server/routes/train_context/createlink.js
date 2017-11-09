@@ -132,14 +132,14 @@ export default (body) => {
 				/*=====================If Entity====================*/
 				else if(body.selectedContext.label == staticconfig.entity.entity) {
 					const resultPromise = session.run(
-						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
+						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 						);
 					resultPromise.then((result) => {
 
 						/*================Querry for video links================*/
 						videoLink.map((vid)=>{
 							const resultPromise = session.run(
-								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
+								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
 								);
 
 							resultPromise.then((result) => {
@@ -147,14 +147,14 @@ export default (body) => {
 								/*================Querry for blog link================*/				
 								blogLink.map((blog)=>{
 									const resultPromise = session.run(
-										'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
+										'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
 										);
 									resultPromise.then((result) => {
 
 										/*================Querry for subintent================*/				
 										subIntent.map((subInt)=>{
 											const resultPromise = session.run(
-												'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:'+subInt.name+']->(s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s'
+												'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:'+subInt.name+']->(s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s'
 												);
 											resultPromise.then((result) => {
 											})
@@ -275,7 +275,7 @@ export default (body) => {
 				else if(body.selectedContext.label == staticconfig.entity.entity) {
 
 					const resultPromise = session.run(
-						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
+						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 						);
 
 					resultPromise.then((result) => {
@@ -283,7 +283,7 @@ export default (body) => {
 						/*================Querry for blog links================*/				
 						blogLink.map((blog)=>{
 							const resultPromise = session.run(
-								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
+								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
 								);
 
 							resultPromise.then((result) => {
@@ -291,7 +291,7 @@ export default (body) => {
 								/*================Querry for subintent================*/						
 								subIntent.map((subInt)=>{
 									const resultPromise = session.run(
-										'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
+										'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 
 									resultPromise.then((result) => {
 									})
@@ -396,14 +396,14 @@ export default (body) => {
 		/*===================If Entity=====================*/
 		else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
 			const resultPromise = session.run(
-				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
+				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
 			resultPromise.then((result) => {
 
 				/*================Querry for video links================*/		
 				videoLink.map((vid)=>{
 					const resultPromise = session.run(
-						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"}) return d,e'
+						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"}) return d,e'
 						);
 
 					resultPromise.then((result) => {
@@ -411,7 +411,7 @@ export default (body) => {
 						/*================Querry for subintent================*/			
 						subIntent.map((subInt)=>{
 							const resultPromise = session.run(
-								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
+								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 
 							resultPromise.then((result) => {
 							})
@@ -483,7 +483,7 @@ if((blogLink.length==0)&&(videoLink.length==0)&&(subIntent.length==0) && (con.va
 	/*==================if context is Entity=====================*/	
 		else if(body.selectedContext.label == staticconfig.entity.entity) {
 			const resultPromise = session.run(
-				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
+				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
 			resultPromise.then((result) => {
 			})
@@ -545,7 +545,7 @@ if((blogLink.length==0)&&(videoLink.length==0) && (con.value!="") && (subIntent.
 	/*======================If Entity=========================*/
 		else if(body.selectedContext.label == staticconfig.entity.entity) {
 			const resultPromise = session.run(
-				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
+				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
 
 			resultPromise.then((result) => {
@@ -553,7 +553,7 @@ if((blogLink.length==0)&&(videoLink.length==0) && (con.value!="") && (subIntent.
 				/*================Querry for subintent================*/	
 				subIntent.map((subInt)=>{ 
 					const resultPromise = session.run(
-						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
+						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge(d)-[:'+subInt.name+']-> (s:Attribute {name : "'+subInt.name+'",value : "'+subInt.value+'"}) return d,s');
 					resultPromise.then((result) => {
 					})
 				})
@@ -641,20 +641,20 @@ if((videoLink.length!=0)&&(blogLink.length!=0)&&(con.value!="")&&(subIntent.leng
 	/*===================If Entity=========================*/
 		else if(body.selectedContext.label == staticconfig.entity.entity) {
 			const resultPromise = session.run(
-				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
+				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
 			resultPromise.then((result) => {
 				/*================Querry for video links================*/	
 				videoLink.map((vid)=>{
 					const resultPromise = session.run(
-						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
+						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
 						);
 
 					resultPromise.then((result) => {
 						/*================Querry for blog links================*/	
 						blogLink.map((blog)=>{
 							const resultPromise = session.run(
-								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
+								'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
 								);
 							resultPromise.then((result) => {
 							})
@@ -737,13 +737,13 @@ if((videoLink.length!=0)&&(blogLink.length==0) &&(subIntent.length == 0) && (con
 	/*=====================Entity=================*/
 		else if(body.selectedContext.label == staticconfig.entity.entity) {
 			const resultPromise = session.run(
-				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
+				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
 			resultPromise.then((result) => {
 				/*================Querry for video links================*/	
 				videoLink.map((vid)=>{
 					const resultPromise = session.run(
-						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
+						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  merge (d)-[:answer]->(e:'+video+' {name : "video",value : "'+vid+'"})  return d,e'
 						);
 					resultPromise.then((result) => {
 					})
@@ -814,13 +814,13 @@ if((videoLink.length==0)&&(blogLink.length!=0) && (subIntent.length!=0)&& (con.v
 		/*=================Entity================*/
 		else if(body.selectedContext.label == staticconfig.entity.entity) {
 			const resultPromise = session.run(
-				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
+				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
 			resultPromise.then((result) => {
 				/*================Querry for blog links================*/	
 				blogLink.map((blog)=>{
 					const resultPromise = session.run(
-						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Attribute {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
+						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"})-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) merge (d)-[:answer]->(f:'+link+' {name : "link",value : "'+blog+'"}) return d,f'
 						);
 					resultPromise.then((result) => {
 					})

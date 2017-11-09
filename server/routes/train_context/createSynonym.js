@@ -40,7 +40,7 @@ export default (body) => {
 			/*====================If Entity===========================*/
 			else if(body.selectedContext.label == staticconfig.entity.entity){  
 				const resultPromise = session.run(
-					'match(:'+body.selectedContext.label+' {name : "'+body.selectedContext.name+'"})-[:type]->(a:Attribute{name : "'+body.context.name+'"}) merge(a)<-[:SameAs]-(b:Synonym { name :"'+syn+'"}) return a,b'
+					'match(:'+body.selectedContext.label+' {name : "'+body.selectedContext.name+'"})-[:type]->(a:SubEntity{name : "'+body.context.name+'"}) merge(a)<-[:SameAs]-(b:Synonym { name :"'+syn+'"}) return a,b'
 					);
 				resultPromise.then(result => {
 					session.close();

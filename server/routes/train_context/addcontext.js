@@ -46,7 +46,7 @@ export default(req, res)=>{
 		else if(req.body.selectedContext.label ==staticconfig.entity.entity) {
 
 			const resultPromise = session.run(
-				'match(a:'+req.body.selectedContext.label+'{name : "'+req.body.selectedContext.name+'"}) merge(a)-[:type]->(b:Attribute {name :"'+req.body.context.name+'", value :"'+req.body.context.name+'"}) return b'
+				'match(a:'+req.body.selectedContext.label+'{name : "'+req.body.selectedContext.name+'"}) merge(a)-[:type]->(b:SubEntity {name :"'+req.body.context.name+'", value :"'+req.body.context.name+'"}) return b'
 				);
 			resultPromise.then(result => {
 				session.close();
