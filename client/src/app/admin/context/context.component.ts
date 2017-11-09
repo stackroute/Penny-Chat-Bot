@@ -116,7 +116,7 @@ flowflag:boolean = false;
     .subscribe((data) => {
       this.item = data;
       this.item.map((data) => {
-        this.flowitem.push({itemName : data.task});
+        this.flowitem.push(data.task);
       })
     })
   }
@@ -139,11 +139,12 @@ flowflag:boolean = false;
     this.intents.splice(this.intents.indexOf(item),1);
   }
   flowtask:any;
-
+  flowdata:any;
   onItemFlowSelect(item:any,index){
      console.log(item);
      this.selectedIntent[index].flow = item;
      console.log("sdfsdfsdfwsssssss",this.selectedIntent)
+     this.flowdata = "";
   }
 
 
@@ -229,6 +230,9 @@ flowflag:boolean = false;
 
   }
 
+OnItemFlowDeSelect(data) {
+
+}
 
   pushSubIntent(index,subIntent) {
     console.log("seleted context",subIntent);
