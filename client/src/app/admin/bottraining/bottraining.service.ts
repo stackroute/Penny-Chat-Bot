@@ -188,5 +188,8 @@ export class BottrainingService {
       return res.json();
     })
   }
+ 
 
+ 
+  
 }
