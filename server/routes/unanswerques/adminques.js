@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let demo=require('../../model/questionbank_schema');
+import staticConfig from './staticconfig' ;
 
 router.post('/', function(req, res) {
   
@@ -10,7 +11,7 @@ router.post('/', function(req, res) {
       
       demo.insertMany({questions : [{question : req.body.question}]},(err,data)=> {
         if(err) {
-          res.send(err);
+          res.json(err);
         } else {
           res.json({data:data});
         }
@@ -20,14 +21,16 @@ router.post('/', function(req, res) {
       demo.update({},{$addToSet : {questions : req.body}},(err,data)=>{
         if(err)
         {
-          
-          res.json({status:false,message:"Error",data:null});
+          //Error
+          res.json({status:false,message:staticconfig.adminques.Error,data:null});
         }
         else if(data==undefined){
-          res.json({status:false,message:"Data not found",data:null});
+          //data not found
+          res.json({status:false,message:staticconfig.adminques.DataNotFound,data:null});
         }
         else{
-          res.json({status:true,message:"Sucess",data:data});
+
+          res.json({status:true,message:staticconfig.adminques.Sucess,data:data});
         }
       })
     }

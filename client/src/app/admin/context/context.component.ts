@@ -45,9 +45,14 @@ export class ContextComponent implements OnInit {
   selectedContext : any = {name : "Add to", label : ""};
   addSynonym:any;
   getInfo:any=[];
-  
+  item:any[]=[];
+  flowdropdownSettings:any = {};
+  flowitem:any[] = [];
+flowflag:boolean = false;
   constructor(private contextService: ContextService, private router : Router) { }
   ngOnInit() {
+
+    this.getcontent();
     //this.getContext();
     this.contextService.getIntent().subscribe((ref) => {
       ref.map((intent)=> {
@@ -92,9 +97,29 @@ export class ContextComponent implements OnInit {
       unSelectAllText:'UnSelect All',
       enableSearchFilter: true,
       classes:"myclass custom-class"
-    };            
+    }; 
+
+    this.flowdropdownSettings = {
+      singleSelection: true, 
+      text:"Select SubIntent",
+      selectAllText:'Select All',
+      unSelectAllText:'UnSelect All',
+      enableSearchFilter: true,
+      classes:"myclass custom-class"
+    }             
   }
   
+
+//funtion to fetch flows
+ getcontent() {
+    this.contextService.fetchflow()
+    .subscribe((data) => {
+      this.item = data;
+      this.item.map((data) => {
+        this.flowitem.push({itemName : data.task});
+      })
+    })
+  }
 
   setdomain() {
     this.setDomain = true;
@@ -112,6 +137,13 @@ export class ContextComponent implements OnInit {
     this.selectedIntent.push(item);
     console.log('item here',this.selectedIntent);
     this.intents.splice(this.intents.indexOf(item),1);
+  }
+  flowtask:any;
+
+  onItemFlowSelect(item:any,index){
+     console.log(item);
+     this.selectedIntent[index].flow = item;
+     console.log("sdfsdfsdfwsssssss",this.selectedIntent)
   }
 
 
@@ -132,6 +164,14 @@ export class ContextComponent implements OnInit {
     this.blog = [{link : ""}];
     this.addvideolink=[];
     this.addbloglink=[];
+  }
+
+
+  addflowtask(flowname) {
+    this.contextService.addflowtask(flowname)
+    .subscribe((res)=> {
+      console.log("==========",res);
+    })
   }
 
   submitContext() {

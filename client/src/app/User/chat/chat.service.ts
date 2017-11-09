@@ -12,6 +12,7 @@ export class ChatService {
 
 	constructor(private http:Http) { }
 
+
 	fetch(answer:any):Observable<any>  {
 		console.log("In Service " , answer);
 		console.log(this.url);
@@ -81,8 +82,6 @@ export class ChatService {
 checklink(answer:any):Observable<any>  {
 		console.log("In Service checklink " , answer);
 		console.log(this.url+'/referlink');
-	/*	let userData = JSON.parse(localStorage.getItem('Userdata')).data;
-		let email : string = userData.email;*/
 		return this.http
 		.post(this.url+'/referlink',{message:answer})
 		.map((res:Response)=> 

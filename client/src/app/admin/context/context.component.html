@@ -69,16 +69,18 @@
                                     (onDeSelect)="OnItemDeSelect($event)"
                                     (onSelectAll)="onSelectAll($event)"
                                     (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+
                                     <div *ngIf="selectedIntent.length > 0"  >
                                         <br>
                                         
                                         <collapsible-list [type]="'accordion'" *ngFor = "let main of selectedIntent;let i=index">
+
                                         <collapsible-list-item>
                                         <collapsible-header class="waves-effect">
                                         {{main.itemName}}
                                     </collapsible-header>
                                     <collapsible-body [expanded]="true">
-                                    
+                                    <div>
                                     <!-- ===============Inner Collapse =============== -->
                                     <collapsible-list [type]="'accordion'">
                                     <!-- ========= intent ========= -->
@@ -156,9 +158,29 @@
         <textarea *ngIf="selectedSubIntent.name!='Select SubIntent'"  placeholder="description" rows="2" [(ngModel)]="selectedSubIntent.value" (blur)="pushSubIntent(i,selectedSubIntent)" ></textarea>
     </collapsible-body>
 </collapsible-list-item>
+
+<collapsible-list-item>
+            <collapsible-header class="waves-effect">
+            Add Flow
+        </collapsible-header>
+        <collapsible-body [expanded]="false">
+        <div>
+                                       <angular2-multiselect [data]="flowitem" [(ngModel)]="main.flow"
+                                    [settings]="flowdropdownSettings" 
+                                    (onSelect)="onItemFlowSelect($event,i)"
+                                    (onDeSelect)="OnItemFlowDeSelect($event)"
+                                    (onSelectAll)="onSelectAll($event)"
+                                    (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+
+                                    <div>
+                                    </div>
+                                    </div>
+    </collapsible-body>
+</collapsible-list-item>
 <!-- ===========end intent============= -->
 </collapsible-list>
 <!-- ============== inner collapse ============= -->
+</div>
 </collapsible-body>
 </collapsible-list-item>
 </collapsible-list>

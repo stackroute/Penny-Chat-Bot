@@ -95,7 +95,7 @@ setnext(data) {
       this.questionarr.splice(index,1);
     }
   if (data.answertype == "Yes/No") {
-    this.answerarr = ["Yes","No"];
+    this.answerarr = ["yes","no"];
   } else if(data.answertype = "MCQ") {
     for(let i=1;i<=data.option.length;i++) {
       this.answerarr.push(i);
@@ -111,7 +111,7 @@ next:any;
 addanswerflow(input,next) {
    let sample = {
       input : input,
-      next : next
+      next : parseInt(next)
     }
 
   console.log("sameplae",sample);
@@ -136,9 +136,9 @@ arrangeAnswer() {
       for(let i=0;i<this.productdata.question.length;i++) {
         if(this.productdata.question[i].id == this.nextquestion.id && this.productdata.question[i].type != "Q") {
           this.answerflow.map((data) => {
-            if(data.input == "Yes" && this.productdata.question[i].answer == "Yes") {
+            if(data.input == "yes" && this.productdata.question[i].answer == "Yes") {
               this.productdata.question[i].next = data.next;
-            } else if(data.input == "No" && this.productdata.question[i].answer == "No") {
+            } else if(data.input == "no" && this.productdata.question[i].answer == "No") {
                this.productdata.question[i].next = data.next;
             }
           })

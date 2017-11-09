@@ -55,7 +55,6 @@ export default (body) => {
 
 
 		if((videoLink.length!=0)&&(blogLink.length!=0)&&(subIntent.length != 0) && (con.value!=""))
-			console.log('hello2')
 			{if(body.selectedContext.label != "") {
 				if(body.selectedContext.label == staticconfig.domain.domain) {
 					const resultPromise = session.run(

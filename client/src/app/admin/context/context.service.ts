@@ -61,72 +61,22 @@ export class ContextService {
       return res.json();
     })
   }
+
+ /*=======================fetch flow =================================*/
+   url3:string=config.ip+"/followup"
+
+  fetchflow(): Observable<any> {
+      return this.http
+      .get(this.url3)
+      .map((res: Response)=> res.json())
+    }
+
+
+    /*========================add flow task =====================*/
+    
+    addflowtask(flowname):Observable<any> {
+      return this.http
+      .post(config.ip+"/addflowContext",{flow : flowname})
+      .map((res:Response)=>res.json());
+    }
 }
-
- /* getContext(){
-    //console.log('jkdgfkl')
-    let url:any = config.ip+"/train_intent/getContext";
-    return this.http.get(url)
-    .map((res:Response) =>{
-      //console.log("in response ",res);
-      return res.json();
-    })
-
-  }
-
-  deleteContext(context) : Observable<any> {
-    let url:any = config.ip+"/addcontext/deleteContext";
-    console.log('service..',context)
-    return this.http
-    .post(url,{data: context})
-    .map((res: Response)=>{
-      console.log(res)
-      return res.json()
-    })
-  }*/
-
-  
-/*
-  getContextSynonym(context):Observable<any>{
-    let url=config.ip+"/editContext";
-    //console.log('ssss..',context)
-    return this.http.post(url,context)
-    .map((res)=>{
-      //console.log('servi////',res.json());
-      return res.json();
-    })
-  }
-
-  getContextInfo(context , item) :Observable<any>{
-    console.log("Ek baar phir baja " , context);
-    let url=config.ip+"/editContext/getContextInfo";
-     return this.http.post(url,{context : context, intent : item})
-    .map((res)=>{
-      console.log('servi=-===============-=-=-',res.json());
-      return res.json();
-    })
-  }
-
-  addMoreSynonym(syn,context){
-  console.log(syn,context);
-  let url:any = config.ip+"/editContext/editAddSynonym";
-   return this.http
-    .post(url,{synonym:syn,context:context})
-    .map((res: Response)=>{
-      console.log('sersss  ==',res);
-      return res.json()
-    })
-}
-
-
-deleteSynonym(synonym,context){
-let url:any = config.ip+"/editContext/editDeleteSynonym";
-return this.http
-    .post(url,{synonym:synonym,context:context})
-    .map((res: Response)=>{
-      console.log(res)
-      return res.json()
-    })
-}
-*/
-
