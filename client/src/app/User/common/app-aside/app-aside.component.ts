@@ -13,14 +13,24 @@ export class AppAsideComponent implements OnInit{
 
   constructor(private asideService: AsideService) {
    }
+   // yid:any;
    youid:any;
    youtubeid:any;
    ngOnInit()
    {
    	this.asideService.idEmitter.subscribe((ids) => {
    		console.log(ids);
+      console.log(ids[0])
    		this.youid = ids;
-       this.youtubeid=ids[1];
+       console.log("pk",this.youid);
+       // this.youid.map((data)=>{
+       //   this.yid=data;
+       //   console.log("mg",this.yid)
+       //   this.youtubeid=this.yid[1];
+       //   console.log("-----------------------",this.youtubeid)
+       // })
+       // console.log("after yid",this.yid)
+       // this.youtubeid=ids[1];
        console.log("mohi",ids[1]);
        console.log("mohiiii",this.youid[1]);
        this.savePlayer(this.player);
@@ -33,7 +43,7 @@ player: YT.Player;
   savePlayer (player) {
   this.player = player;
   console.log("zero",this.player)
-  console.log("one",this.youid[1]);
+  console.log("one",this.youid);
   console.log('player instance', player)
   }
 onStateChange(event){
