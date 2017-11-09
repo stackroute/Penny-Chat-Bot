@@ -27,7 +27,7 @@ module.exports= ('/',(req, res) => {
     else {
     data.update({"email": req.body.email}, {$set:{
       "status":false}},(err1,data2) => {
-        console.log('body..',data2)
+        
         if(err1){ // error in update
           logger.info(staticConfig.forgotpassword.MessageErrorNotUpdate)
           res.json({status:false, message:staticConfig.forgotpassword.MessageErrorNotUpdate});
@@ -37,7 +37,7 @@ module.exports= ('/',(req, res) => {
           res.json({status:false, message:staticConfig.forgotpassword.MessageErrorNotUpdate});  
         }
         else {
-          console.log('body..',data1[0]._id)
+          
           mailOptions = {
          from: staticConfig.forgotpassword.MessageNodemailOptionEmail,// sender address
          to: data1[0].email,// list of receivers
