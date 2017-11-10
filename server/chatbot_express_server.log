@@ -5,6 +5,7 @@
 [2017-11-09 15:38:53.466] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-09 15:50:57.283] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-09 16:27:29.670] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+<<<<<<< HEAD
 [2017-11-10 11:07:11.158] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-10 11:11:55.512] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-10 11:12:31.223] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
@@ -79,3 +80,10 @@
 [2017-11-10 12:36:14.137] [INFO] chatbot_express_server - Verifications are undefined in /warning_page route
 [2017-11-10 12:36:14.140] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
 [2017-11-10 12:36:14.146] [INFO] chatbot_express_server - { message: 'Data Undefined in database' }
+=======
+[2017-11-10 12:04:43.093] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-10 12:04:45.770] [INFO] chatbot_express_server - Error in updating status to set password
+[2017-11-10 12:04:45.774] [INFO] chatbot_express_server - Verifications are undefined in /warning_page route
+[2017-11-10 12:04:45.777] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-10 12:04:45.783] [INFO] chatbot_express_server - { message: 'Data Undefined in database' }
+>>>>>>> da5adcab1af602637516c80859df5f1d2c6c4e8b
