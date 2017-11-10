@@ -4,7 +4,7 @@ import {BottrainingService} from './bottraining.service';
 import {Router} from '@angular/router';
 import swal from 'sweetalert2';
 import 'rxjs/add/operator/map';
-
+import { Config } from './bottraining_en_config';
 @Component({
   selector: 'app-bottraining',
   templateUrl: './bottraining.component.html',
@@ -13,11 +13,12 @@ import 'rxjs/add/operator/map';
 })
 export class BottrainingComponent implements OnInit {
   ref:any={};
+  Config:any=Config;
   arr:any=[];
   rep:any;
   intentName:any=[];
   contextName:any=[];
-  question:any = 'Question';
+  question:any = Config.bottraining.Question;
   intent:any;
   context:any;
   intentValue:any;
@@ -57,38 +58,30 @@ export class BottrainingComponent implements OnInit {
   dropdownSettingsIntent:any = {};
   dropdownSettingsContext:any={};
   selectedItemsContext:any=[];
-  item:any[] = [];
   constructor(private bottrainingservice:BottrainingService, private router: Router) { }
-
   ngOnInit() {
-
     //Value selection in dropdown in intent
     this.dropdownSettingsIntent = {           
       singleSelection: true, 
-      text:"Select Intent",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
+      text:Config.bottraining.SelectIntent,
+      selectAllText:Config.bottraining.SelectAll,
+      unSelectAllText:Config.bottraining.UnSelectAll,
       enableSearchFilter: true,
-      classes:"myclass custom-class"
+      classes:Config.bottraining.myclass
     };
-
     //Value selection in dropdown in context 
     this.dropdownSettingsContext = {              
       singleSelection: true, 
-      text:"Select Context",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
+      text:Config.bottraining.SelectContext,
+      selectAllText:Config.bottraining.SelectAll,
+      unSelectAllText:Config.bottraining.UnSelectAll,
       enableSearchFilter: true,
-      classes:"myclass custom-class"
+      classes:Config.bottraining.myclass
     };
-
     this.getunanswer();
     this.getIntent();
     this.getContext();
   }
-  
-
-
   //Function called when an item is selected in dropdown in intent
   onItemSelectIntent(item:any){                  
     this.relatedentity(item);
@@ -110,12 +103,9 @@ export class BottrainingComponent implements OnInit {
   getunanswer(){
     this.bottrainingservice.getunanswer()
     .subscribe((res)=>{
-      console.log("dfdsfsd fdsa sdfsda fsdfsd     "       ,    res    );
       this.arr = [];
       this.ref=res[0].questions;
-      console.log("gfsdgsdfgedsgfsdfsdf ",this.ref);
       res[0].questions.map((ques)=>{
-        console.log("dfsfdasfsadsacash   "  ,  ques  )
         this.arr.push(ques.question)
       })
     })
@@ -124,30 +114,26 @@ export class BottrainingComponent implements OnInit {
   getQues(ques){                        
     this.newgetQuestion = ques;
     this.bottrainingservice.getQues(ques).subscribe((res)=>{
-      this.rep=res;
       this.tableData = [];
       res.map((data)=>{
         if(data.word == "")
-          this.word = "Not Found";
+          this.word = Config.bottraining.NotFound;
         else
           this.word = data.word;
-
         if(data.type == "")
-          this.type = "Not Found";
+          this.type = Config.bottraining.NotFound;
         else
           this.type = data.type;
-
         if(data.typename == "")
-          this.typename = "Not Found";
+          this.typename = Config.bottraining.NotFound;
         else
           this.typename = data.typename;
-
         this.tableData.push({word : this.word , type : this.type , typename : this.typename})
       })
     })
     this.question = ques;
   }
-//When called function displays all the intents and subintents
+  //When called function displays all the intents and subintents
   getIntent(){
     this.bottrainingservice.getIntent()
     .subscribe((res)=>{
@@ -165,66 +151,59 @@ export class BottrainingComponent implements OnInit {
       this.res=res;
     })
   }
-//When called function displays all the contexts present in the database
+  //When called function displays all the contexts present in the database
   getContext(){
     this.bottrainingservice.getContext()
     .subscribe((res)=>{
-      console.log('827165223==========',res)
       res.map((data)=>{
         data._fields.map((name)=>{
-          if(name.labels[0] != 'Video' && name.labels[0] != 'Link' && name.labels[0] != 'Counter'){
+          if(name.labels[0] != Config.bottraining.Video && name.labels[0] != Config.bottraining.Link && name.labels[0] != Config.bottraining.Counter){
             this.contextName.push({id:this.contextName.length+1,label:name.labels[0],itemName:name.properties.name});
           }
         })
       })
       this.res=res;
-      console.log('00000000000000000================',res)
     })    
   }
-//When called function sets the synonyms of intent to the selected word from the unanswered question  
-setSynonym(intent){
-  this.bottrainingservice.setSynonym(intent,this.val)
-  .subscribe(res=>{    
-    this.ref=res;
-    this.getQues(this.newgetQuestion);
-    this.relatedentity(this.selectedItemsIntent[0]);
-    swal(
-      'Add successfully',
-      'success'
-      )
-  })
-}
-//When called function sets the synonym of the contexts to the seleted word from the unanswered question  
-contextSynonym(context){
-  console.log('############',context);
-  this.bottrainingservice.contextSynonym(context,this.val)
-  .subscribe(res =>{
-    swal(
-      'Add successfully',
-      'success'
-      )
-    this.getQues(this.newgetQuestion);
-    //  this.relatedentity(this.selectedItemsIntent[0]);
-    this.selectedItemsContext = [];
-    this.ref=res
-
-    console.log('**************888',res);
-  })
+  //When called function sets the synonyms of intent to the selected word from the unanswered question  
+  setSynonym(intent){
+    this.bottrainingservice.setSynonym(intent,this.val)
+    .subscribe(res=>{    
+      this.ref=res;
+      this.getQues(this.newgetQuestion);
+      this.relatedentity(this.selectedItemsIntent[0]);
+      swal(Config.bottraining.addedsucces,
+        'success'
+        )
+    })
   }
-//This fnction allows the admin to add any unanswered question
+  //When called function sets the synonym of the contexts to the seleted word from the unanswered question  
+  contextSynonym(context){
+    this.bottrainingservice.contextSynonym(context,this.val)
+    .subscribe(res =>{
+      alert(Config.bottraining.addedsucces);
+      swal(Config.bottraining.addedsucces,
+        'success'
+        )
+      this.getQues(this.newgetQuestion);
+      //  this.relatedentity(this.selectedItemsIntent[0]);
+      this.selectedItemsContext = [];
+      this.ref=res
+    })
+  }
+  //This fnction allows the admin to add any unanswered question
   sendques(question){
     this.newQuestion = "";
     this.bottrainingservice.sendques(question)
     .subscribe(res=>{
-      console.log('ankurrrr',res)
       this.getunanswer();
       this.ref=res})
   }
-//This function allows the admin to remove the word once admin has added the details to it
+  //This function allows the admin to remove the word once admin has added the details to it
   remove(index,data) {
     this.tableData.splice(this.tableData.indexOf(data),1);   
   }
-//This function is used to pass the selected value into modal
+  //This function is used to pass the selected value into modal
   call(value,type) {
     this.selectedItemsIntent = [];
     this.correspondSynonym = [];
@@ -233,7 +212,7 @@ contextSynonym(context){
     this.contexttype=type;
     this.getQues(this.newgetQuestion);
   }
-//This function is used to add a new intent into the database
+  //This function is used to add a new intent into the database
   addIntent(){
     let flag=0;
     const data={
@@ -241,44 +220,43 @@ contextSynonym(context){
       labelname:this.addintent,
       priority:this.priority
     }
-//This is o validate if all the fields are entered    
+    //This is o validate if all the fields are entered    
     if(this.addintent==undefined || this.priority ==undefined){
-      swal('',"please fill the fields",'error');
+      swal('',Config.bottraining.pleasefill,'error');
     }
-//To check if priority is already present in the database    
+    //To check if priority is already present in the database    
     else if(this.priority !=undefined){
       this.intentName.map((rep)=>{
         if(rep.priority == this.priority){
           flag++;
         }
       })
-    }
     if(flag==0){
       this.bottrainingservice.addIntent(data)
       .subscribe((res)=>{
         this.rep=res;
-        console.log('ankurrrr',res)
         if (res.status==true){
           this.resp=res;
-          swal('',"Successfully Added",'success');
+          swal('',Config.bottraining.SuccAdded,'success');
           this.getIntent();
         }  
       })
     }
+  }
     else{
-      swal('Already existing prority','error');
+      swal(Config.bottraining.alreadyexist,'error');
     }
   }
-//This function is used to add synonym to the newly created intent
+  //This function is used to add synonym to the newly created intent
   addSynonym(){
     const data= {
       label:this.value,
       labelname : this.addintent,
       syn:this.main
     }
-//This is o validate if all the fields are entered 
+    //This is o validate if all the fields are entered 
     if(this.addintent==undefined || this.main ==undefined){
-      swal('',"please fill the fields",'error');
+      swal('',Config.bottraining.pleasefill,'error');
     }else{
       this.bottrainingservice.addSynonym(data)
       .subscribe((ref)=>{
@@ -291,13 +269,14 @@ contextSynonym(context){
           this.refer=ref;
           this.priority="";
           this.temp = "";
-         swal('',"Successfully Added",'success');
+          swal(Config.bottraining.addedsucces,
+            'success')
           this.router.navigateByUrl('/admin/trainingbot');
         }    
       })
     }  
   }
-//This functon fetches all the synonyms of the selected intent
+  //This functon fetches all the synonyms of the selected intent
   relatedentity(intentName){
     this.intentname=intentName;
     this.bottrainingservice.getRelatedEntity(intentName)
@@ -305,17 +284,16 @@ contextSynonym(context){
       this.correspondSynonym=res;
     })
   }
-//This funcion adds all the synonym to the selected intent  
+  //This funcion adds all the synonym to the selected intent  
   addAdminSynonym()
   {  
     this.bottrainingservice.addMoreSynonym(this.adminSynonym,this.intentname)
     .subscribe((res)=>{
-     // console.log('%%%%%%%%%%%%%%55',res)
       this.adminSynonym = "";
       this.correspondSynonym.push(res._fields[0].properties.name);
     })
   }
-//This function deletes the synonym of the selected intent
+  //This function deletes the synonym of the selected intent
   deletesynonym(syno){  
     this.bottrainingservice.deleteSynonym(syno,this.intentname)
     .subscribe((res)=>{
@@ -323,25 +301,24 @@ contextSynonym(context){
       this.relatedentity(this.intentname);
     })
   }
-//This function suggests the synonym of the entered alphabet or word
+  //This function suggests the synonym of the entered alphabet or word
   suggest(){
     const data= {
       labelname : this.addintent,
       word:this.temp
     }
-    console.log(" " , data)
     this.bottrainingservice.suggest(data)
     .subscribe((ref)=>{
       this.synres=ref;
     })
   }
-//This function stores the entered synonym in a variable
+  //This function stores the entered synonym in a variable
   select(val){
     this.temp=val;
     this.main.push(val);
     this.temp="";
   }
-//This function deletes the selected intent from the database
+  //This function deletes the selected intent from the database
   deleteIntent(intent){  
     this.bottrainingservice.deleteIntent(intent)
     .subscribe((res)=>{
@@ -350,7 +327,6 @@ contextSynonym(context){
       this.correspondSynonym = [];
       this.intentname = "";
       this.getIntent();
-      swal('',"Successfully Deleted",'success');
     })
   }
   //This function remove the question from the table once the admin has answered 
@@ -359,6 +335,7 @@ contextSynonym(context){
     .subscribe((res) => {
       this.rep=res;
       this.getunanswer();
+     // swal('',Config.bottraining.deleted,'success');
     });
   }
   //This function is used to tell which button has been selected
