@@ -23,7 +23,7 @@ import {
 import {
   //AsideToggleDirective,
  // NAV_DROPDOWN_DIRECTIVES,
-  ReplaceDirective,
+  /*ReplaceDirective,*/
   SIDEBAR_TOGGLE_DIRECTIVES
 } from './../directives';
 // Import routing module
@@ -36,7 +36,6 @@ import { BottomChatComponent } from './bottom-chat/bottom-chat.component';
 import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 import { TagInputModule } from 'ngx-chips';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { AddNewContextComponent } from './add-new-context/add-new-context.component';
 import { ContextComponent } from './context/context.component';
 import { AddtaskComponent } from './addtask/addtask.component';
 import { BottrainingComponent } from './bottraining/bottraining.component';
@@ -72,8 +71,7 @@ import {TraindomainComponent} from './traindomain/traindomain.component';
   TraindomainComponent,
  // AsideToggleDirective,
  // NAV_DROPDOWN_DIRECTIVES,
-  ReplaceDirective,
-  AddNewContextComponent,
+  /*ReplaceDirective,*/
   AddtaskComponent,
   BottrainingComponent,
   ContextComponent,

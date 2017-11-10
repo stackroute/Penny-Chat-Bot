@@ -28,6 +28,7 @@
            <ul class="chat">
             <div class="left clearfix">
              <div *ngFor="let ans of question">
+             <div *ngIf="ans">
                <div class="gap" *ngIf="ans.bot">
                  <div class="message-data align-left">
                 <!-- <img src="../../assets/img/bot.png"> -->
@@ -110,6 +111,7 @@
 </div>
   </div>
   <hr>
+</div>
 </div>
 </div>
         </div>

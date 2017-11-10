@@ -402,35 +402,34 @@ describe('Method post success negative test for addtask', (done)=>{
 /*=====================start of ques_ans.js======================*/
 
 /*======================start of positive testing ================*/
-/*
+
 describe('Method of update ques_ans positive processed here',()=>{
 
-let question={ question:"what is retirement plan?", email: "stshivamtripathi7@gmail.com"}
+let question={ question:["What is retirement policy","what is retirement plan?"], email: "stshivamtripathi7@gmail.com"}
 let questions=[];
 questions.push(question)
 
 before(()=>{
 //yield is used to stub the info required by database
-questions.map((chat)=>{registerUpdate.yields(null,questions)})
+registerUpdate.yields(null,questions)
 
 });
 it('update must be a success',(done)=>{
 url
-
 .post('/ques_ans')
 .expect('Content-Type', /json/)
-.send({ question:"what is retirement plan?", email: "stshivamtripathi7@gmail.com"})
+.send({ question:["What is retirement policy","what is retirement plan?"], email: "stshivamtripathi7@gmail.com"})
 .end((err,res)=>{
   if(err){
     return err;
   } 
     else {
-   assert.equal(res.body,null);
+   assert.equal(res.body.status,true);
  done();
 };
 });
 });
-});*/
+});
 
 
 /*======================end of positive testing======================*/

@@ -3,13 +3,17 @@ import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import { Router } from '@angular/router';
 import {ContextService} from './context.service' ;
 import swal from 'sweetalert2';
+import Config from './context_en_config';
+
 @Component({
   selector: 'app-context',
   templateUrl: './context.component.html',
   styleUrls: ['./context.component.scss'],
   providers : [ ContextService ]
 })
+
 export class ContextComponent implements OnInit {
+  Config:any=Config;
   context:any ={};
   synonym:any;
   setDomain:any;
@@ -19,15 +23,9 @@ export class ContextComponent implements OnInit {
   dropdownSettings = {};
 
   dropdownSubIntentSettings = {};
-  dropdownSettingsContext:any={};
   completeContext : any =[];
-  addvideolink:any=[];
-  addbloglink:any=[];
-  selectIntent = [];
   videolink :any= [];
-  contextName:any=[];
   res:any={};
-  description :any=[];
   ref:any={};
   intents : any = [];
   subIntents : any = [];
@@ -37,81 +35,43 @@ export class ContextComponent implements OnInit {
   link : any = [];
   contextSyn:any=[];
   selectedIntent : any =[];
-  contextDropDown:any=[];
-  contextval:any;
-  getContextName:any;
-  getContextLabel:any;
-  selectedItemsContext:any=[];
-  selectedContext : any = {name : "Add to", label : ""};
-  addSynonym:any;
-  getInfo:any=[];
+  selectedContext : any = {name : Config.resetDomain.label, label : ""};
   item:any[]=[];
   flowdropdownSettings:any = {};
   flowitem:any[] = [];
-flowflag:boolean = false;
-  constructor(private contextService: ContextService, private router : Router) { }
-  ngOnInit() {
+  flowflag:boolean = false;
 
+  constructor(private contextService: ContextService, private router : Router) { }
+
+  ngOnInit() {
     this.getcontent();
-    //this.getContext();
     this.contextService.getIntent().subscribe((ref) => {
       ref.map((intent)=> {
-        if(intent._fields[0].labels[0] == "Intent" && intent._fields[0].properties.name != 'type'){
+        if(intent._fields[0].labels[0] == Config.intent.intent && intent._fields[0].properties.name != Config.type.type){
           this.intents.push({id:this.intents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : "", videoLink : [], blogLink : [], subIntent : []});
         }
-        else if(intent._fields[0].labels[0] == "SubIntent"){
+        else if(intent._fields[0].labels[0] == Config.subintent.subintent){
           this.subIntents.push({id:this.subIntents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : ""});
         }
       })
     })
     this.contextService.getAllContext().subscribe((ref) => {
       ref.map((context)=> {
-        if(context._fields[0].labels[0] == 'Entity' || context._fields[0].labels[0] == 'Domain' || context._fields[0].labels[0] == 'SubDomain'){
+        if(context._fields[0].labels[0] ==Config.entity.entity || context._fields[0].labels[0] == Config.domain.domain || context._fields[0].labels[0] == Config.subdomain.subdomain){
           this.contexts.push({name : context._fields[0].properties.name, label : context._fields[0].labels[0]});
         }
       })
-      console.log('Subintent', this.subIntents);
     })
-    this.dropdownSettings = { 
-      singleSelection: true, 
-      text:"Select Intent",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
-      enableSearchFilter: true,
-      classes:"myclass custom-class"
-    };    
 
-
-    this.dropdownSubIntentSettings = {
-      singleSelection: true, 
-      text:"Select SubIntent",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
-      enableSearchFilter: true,
-      classes:"myclass custom-class"
-    }  
-    this.dropdownSettingsContext = { 
-      singleSelection: true, 
-      text:"Select Context",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
-      enableSearchFilter: true,
-      classes:"myclass custom-class"
-    }; 
-
-    this.flowdropdownSettings = {
-      singleSelection: true, 
-      text:"Select SubIntent",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
-      enableSearchFilter: true,
-      classes:"myclass custom-class"
-    }             
+    /*==============dropdown settings=================*/
+    this.dropdownSettings = Config.dropdownSettings;
+    this.dropdownSubIntentSettings = Config.dropdownSubIntentSettings;
+    this.flowdropdownSettings =Config.flowdropdownSettings;
   }
   
 
-//funtion to fetch flows
- getcontent() {
+  //funtion to fetch flows
+  getcontent() {
     this.contextService.fetchflow()
     .subscribe((data) => {
       this.item = data;
@@ -121,67 +81,54 @@ flowflag:boolean = false;
     })
   }
 
+  /*============choosing independent dependency==============*/
   setdomain() {
     this.setDomain = true;
   }
+
+  /*============choosing dependency==============*/
   resetDomain() {
-    this.selectedContext.name = "Add to";
+    this.selectedContext.name =Config.resetDomain.label;
     this.setDomain = false;
   }
+
+  /*====================setting context after choosing dependency======================*/
   setContext(context) {
     this.selectedContext = context;
-
   }
 
+  /*=========fetching selected context from dropdown=========*/
   onItemSelect(item:any){
     this.selectedIntent.push(item);
-    console.log('item here',this.selectedIntent);
     this.intents.splice(this.intents.indexOf(item),1);
   }
-  flowtask:any;
+
+  /*================fetching selected flow from dropdown=================*/
   flowdata:any;
   onItemFlowSelect(item:any,index){
-     console.log(item);
      this.selectedIntent[index].flow = item;
-     console.log("sdfsdfsdfwsssssss",this.selectedIntent)
      this.flowdata = "";
   }
 
-
+  /*================deselecting context from dropdown=================*/
   OnItemDeSelect(item:any){
     this.selectSubInt = undefined;
     this.selectedSubIntent = undefined;
   }
 
-  onItemSelectContext(item:any){   
-    this.contextval=item;
-    this.getContextLabel=item.label;
-    this.getContextName=item.itemName;
-  }
-
-  addOneContext(selectedIntent) {
-    this.completeContext.push(selectedIntent);
-    this.inputs = [{link : ""}];
-    this.blog = [{link : ""}];
-    this.addvideolink=[];
-    this.addbloglink=[];
-  }
-
-
+  /*====================adding flow for context==========================*/
   addflowtask(flowname) {
     this.contextService.addflowtask(flowname)
     .subscribe((res)=> {
-      console.log("==========",res);
     })
   }
 
+  /*===================Adding new context======================*/
   submitContext() {
-    console.log('Complete intent', this.selectedIntent);
     if(this.setDomain != undefined) {
-      if((this.setDomain == true && this.selectedContext.name != "Add to") || this.setDomain == false) {
+      if((this.setDomain == true && this.selectedContext.name != Config.resetDomain.label) || this.setDomain == false) {
         this.contextService.submitContext(this.context,this.selectedIntent,this.synonym,this.selectedContext)
         .subscribe((ref) => {
-          console.log('ref', ref);
           if(ref.status == true){
             swal('',"Successfully Added",'success');
             this.context = {};
@@ -204,55 +151,50 @@ flowflag:boolean = false;
   }
 
 
+  /*===============foe removing video links=================*/
   removeVideo(i,j,video){
     this.inputs.splice(this.inputs.indexOf(video),1);
     this.selectedIntent[i].videoLink.splice(j,1);
   }
 
+  /*==================adding new input field foe more video links====================*/
   inputs = [{link : ""}];
   addInput()  {
     this.inputs.push({link: ''});
   }
 
+  /*==================adding new input field foe more blog links====================*/
   blog = [{link : ""}];
   addBlog()  {
     this.blog.push({link: ''});
   }
 
+  /*===============foe removing blog links=================*/
   removeBlog(i,k,blog){
     this.blog.splice(this.blog.indexOf(blog),1);
     this.selectedIntent[i].blogLink.splice(k,1);
   }
 
-
+  /*=====================setting subintent======================*/
   setsubIntent(subIntent) {
     this.selectedSubIntent = Object.assign({},subIntent);
-
   }
 
-OnItemFlowDeSelect(data) {
-
-}
-
+  /*==============adding subintnt to context==============*/
   pushSubIntent(index,subIntent) {
-    console.log("seleted context",subIntent);
-
     let suI =  this.selectedIntent[index].subIntent.find(x => x.name === subIntent.name );
-    console.log("find o/p", suI)
     if(suI==undefined){
       this.selectedIntent[index].subIntent.push({"name":subIntent.name, "value":subIntent.value})
     }
     else{
       this.selectedIntent[index].subIntent.map((suIn)=>{
-        console.log('hello3', suIn)
         if(suIn.name===suI.name){
           suIn.value=subIntent.value;
         }
 
       })
     }
-
     this.selectedSubIntent.value = "";
-    this.selectedSubIntent.name = "Select SubIntent";
+    this.selectedSubIntent.name = Config.pushSubintent.select;
   }
 }

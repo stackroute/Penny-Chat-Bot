@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {config} from '../../config/app.config';
+import { urlConfig } from '../../config/url.config';
 
 /*======================Service Class=================================*/
 @Injectable()
@@ -12,55 +13,43 @@ export class TraindomainService {
 
   constructor(private http:Http) { }
 
-
-
- url:string=config.ip+"/train_intent/traindomain"
- url1:string=config.ip+"/train_intent/getIntent"
- url2:string=config.ip+"/train_intent/updateIntent"
-/*================================Add Intent& Sentence====================*/
+  /*============================Add Intent& Sentence====================*/
   addSentence(object): Observable<any> {
-  	return this.http
-  	.post(this.url, {object:object})
-  	.map((res: Response)=>{
-      console.log('service.. ',res);
-  		 return res.json()
-    }
-  	)
+    let url=config.ip+urlConfig.AdminTrainDomainaddSentence;
+    return this.http
+    .post(url, {object:object})
+    .map((res: Response)=>{
+      return res.json()
+    })
   }
 
-
-/*============================Change Intent & Service======================*/
-
-
-changeIntent(object): Observable<any> {
-  	return this.http
-  	.put(this.url1,{object:object})
-  	.map((res: Response)=>
-  		 res.json()
-  	)
+  /*==========================Change Intent & Service======================*/
+  changeIntent(object): Observable<any> {
+    let url1=config.ip+urlConfig.AdminTrainDomainchangeIntent;
+    return this.http
+    .put(url1,{object:object})
+    .map((res: Response)=>res.json())
   }
 
-/*===========================Fetch Data in Service========================*/
-
-
-fetch(object): Observable<any> {
-  console.log('hii', object)
-  	return this.http
-  	.get(this.url2,object)
-  	.map((res: Response)=>
-  		 res.json()
-  	)
+  /*===========================Fetch Data in Service========================*/
+  fetch(object): Observable<any> {
+    let url2=config.ip+urlConfig.AdminTrainDomainfetch;
+    return this.http
+    .get(url2,object)
+    .map((res: Response)=>res.json())
   }
-/*============================Save at Mongo ==============================*/
-save(object):Observable<any> {
-  return this.http.post(config.ip+"/followup",object)
-  .map((res:Response) => res.json());
-}
 
-/* ==============================Get Data with prefilled value ======================*/
+  /*============================Save at Mongo ==============================*/
+  save(object):Observable<any> {
+    let saveurl=config.ip+urlConfig.AdminTrainDomainsave;
+    return this.http.post(saveurl,object)
+    .map((res:Response) => res.json());
+  }
 
-getdata(name):Observable<any> {
-  return this.http.get(config.ip+"/followup/getdata/"+name)
-  .map((res:Response) =>res.json());
-}
+  /* ========================Get Data with prefilled value===================*/
+  getdata(name):Observable<any> {
+    let getdataurl=config.ip+urlConfig.AdminTrainDomaingetdata+name;
+    return this.http.get(getdataurl)
+    .map((res:Response) =>res.json());
+  }
 }

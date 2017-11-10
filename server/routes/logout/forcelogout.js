@@ -7,10 +7,11 @@ export default (req,res) => {
     (err, data) => {
       if(err) {
       //error occured
-      res.json({status:true,message :staticconfig.forcelogout.Error, userdata : null}) 
+      res.json({status:false,message :staticconfig.forcelogout.Error, userdata : null}) 
     }
-
-    else {
+    else if(data==undefined){
+      res.json({status:false,message :staticconfig.forcelogout.Error, userdata : null})
+}    else {
       //reset bad count
       res.json({status : true, message:staticconfig.forcelogout.ResetBadCoun})
     }
