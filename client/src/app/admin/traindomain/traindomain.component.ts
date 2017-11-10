@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TraindomainService} from './traindomain.service';
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import { ActivatedRoute,Router } from '@angular/router';
+import  Config from './traindomain_en_config';
 
 /*Component for train Domain */
 @Component({
@@ -12,6 +13,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class TraindomainComponent implements OnInit {
  value:any;
+ Config:any=Config;
  productdata:any = {question : []};
  type:any[];
  ansType:any[] = [];
@@ -20,17 +22,17 @@ op:any;
 
 
   ngOnInit() {
-    this.type = [{value : "Introduction"},
-    {value : "Question"},
-      {value : "Conclusion"}]
-     this.ansType = [{value : "Yes/No"},
-    {value : "MCQ"},
-      {value : "Number"}]
+    this.type = [{value : Config.ques.intro},
+    {value : Config.ques.quest},
+      {value : Config.ques.conclusion}]
+     this.ansType = [{value : Config.ques.yesno},
+    {value : Config.ques.mcq},
+      {value : Config.ques.number}]
       this.value=this.routeparams.params.subscribe((para)=>{ 
       this.productdata.task=para.name;
       this.op = para.op;
-      console.log("op here",this.op);
-      if(this.op == "edit") {
+      //console.log("op here",this.op);
+      if(this.op == Config.ques.edit) {
         this.editdata(para.name);
       }
     })
@@ -39,7 +41,7 @@ op:any;
 editdata(name) {
   console.log(name);
   this.traindomainService.getdata(name).subscribe((res) => {
-    console.log("response",res);
+    //console.log("response",res);
     this.productdata = res;
   })
 }
@@ -48,18 +50,18 @@ editdata(name) {
   tempdata:any = {};
   getDetail(data) {
     console.log(data);
-    if (data=="Introduction") {
+    if (data==Config.ques.intro) {
       this.tempid = this.setId();
-      this.tempdata = {genre : "Introduction", id : this.tempid, type : "Q"};
+      this.tempdata = {genre : Config.ques.intro, id : this.tempid, type : Config.ques.type1};
    //  this.setNext();
       // this.productdata.question.push();
-    } else if (data == "Question") {
+    } else if (data == Config.ques.quest) {
       this.tempid = this.setId();
-      this.tempdata = {genre : "Question", id : this.tempid, type : "Q"};
+      this.tempdata = {genre : Config.ques.quest, id : this.tempid, type : Config.ques.type1};
      // this.setNext();
     } else {
       this.tempid = this.setId();
-      this.tempdata = {genre : "Conclusion", id : this.tempid, type : "Q"};
+      this.tempdata = {genre : Config.ques.conclusion, id : this.tempid, type :Config.ques.type1};
     //  this.setNext();
     }
   }
@@ -72,7 +74,7 @@ questionarr:any[] = [];
 setId() {
   let m = 0;
   this.productdata.question.map((data) => {
-    if(data.genre == "Question" || data.genre == "Introduction" || data.genre == "Conclusion") {
+    if(data.genre == Config.ques.quest || data.genre == Config.ques.intro || data.genre == Config.ques.conclusion) {
       m++;
       
     }
@@ -83,10 +85,10 @@ setId() {
 answerflow:any[] = [];
 
 setnext(data) {
-  console.log("00000000",data);
+  //console.log("00000000",data);
   this.nextquestion = data;
   this.productdata.question.map((data)=> {
-      if(data.genre == "Question" || data.genre == "Conclusion") {
+      if(data.genre == Config.ques.quest || data.genre == Config.ques.conclusion) {
         this.questionarr.push(data);
       }
     })
@@ -94,9 +96,9 @@ setnext(data) {
     if(index > -1) {
       this.questionarr.splice(index,1);
     }
-  if (data.answertype == "Yes/No") {
-    this.answerarr = ["yes","no"];
-  } else if(data.answertype = "MCQ") {
+  if (data.answertype == Config.ques.yesno) {
+    this.answerarr = [Config.ques.yes,Config.ques.no];
+  } else if(data.answertype = Config.ques.mcq) {
     for(let i=1;i<=data.option.length;i++) {
       this.answerarr.push(i);
     }
@@ -114,9 +116,9 @@ addanswerflow(input,next) {
       next : parseInt(next)
     }
 
-  console.log("sameplae",sample);
+  //console.log("sameplae",sample);
     this.answerflow.push(sample);
-    if(input == "Remains") {
+    if(input == Config.ques.remain) {
       this.answerarr = [];
     } else  {
     let index = this.answerarr.indexOf(parseInt(input));
@@ -132,13 +134,13 @@ addanswerflow(input,next) {
 
 arrangeAnswer() {
   if(this.answerflow.length > 0) {
-    if(this.nextquestion.genre == "Introduction") {
+    if(this.nextquestion.genre == Config.ques.intro) {
       for(let i=0;i<this.productdata.question.length;i++) {
-        if(this.productdata.question[i].id == this.nextquestion.id && this.productdata.question[i].type != "Q") {
+        if(this.productdata.question[i].id == this.nextquestion.id && this.productdata.question[i].type != Config.ques.type1) {
           this.answerflow.map((data) => {
-            if(data.input == "yes" && this.productdata.question[i].answer == "Yes") {
+            if(data.input == Config.ques.yes && this.productdata.question[i].answer == Config.ques.ayes) {
               this.productdata.question[i].next = data.next;
-            } else if(data.input == "no" && this.productdata.question[i].answer == "No") {
+            } else if(data.input == Config.ques.no && this.productdata.question[i].answer == Config.ques.ano) {
                this.productdata.question[i].next = data.next;
             }
           })
@@ -146,11 +148,11 @@ arrangeAnswer() {
       }
     } else {
     this.answerflow.map((data) => {
-      if(data.input != "Remains") {
+      if(data.input != Config.ques.remain) {
        let sample = {
       id : this.nextquestion.id,
       input : data.input,
-      type : "T",
+      type : Config.ques.type2,
       answer : true,
       next : data.next
     }
@@ -167,49 +169,49 @@ arrangeAnswer() {
 }
 
   setAnstype(data,main) {
-    console.log("Answertype",data);
+    //console.log("Answertype",data);
     this.tempdata.answertype = data;
-    if(data=="Yes/No" && main=="Introduction") {
+    if(data==Config.ques.yesno && main==Config.ques.intro) {
       let yes =  { id : this.tempid,
-         answer : "Yes",
+         answer : Config.ques.ayes,
          exit : false
       }
       let no =  { id : this.tempid,
-         answer : "No",
+         answer : Config.ques.ano,
          exit : false
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
       console.log(this.tempflow);
-    } else if(data=="Yes/No" && main == "Question") {
+    } else if(data==Config.ques.yesno&& main == Config.ques.quest) {
       let fall = {
         id : this.tempid,
         answer : false,
-        message : "Oops! Thats not a Valid Input. Kindly Enter Valid Input.",
-        type : "F",
+        message : Config.ques.msg1,
+        type : Config.ques.type3,
         next : this.tempid
       }
       //this.tempflow.push(main);
       this.tempflow.push(fall);
-    } else if(data=="MCQ") {
+    } else if(data==Config.ques.mcq) {
       this.tempdata.option = [{id : 1, value : ""},{id : 2, value : ""}]
      
       let fall = {
         id : this.tempid,
         answer : false,
-        message : "Oops! Thats not a Valid Input. Kindly Enter Valid Input.",
-        type : "F",
+        message : Config.ques.msg1,
+        type : Config.ques.type3,
         next : this.tempid
       }
      // this.tempflow.push(main);
       this.tempflow.push(fall);
-    } else if(data=="Yes/No" && main=="Conclusion") {
+    } else if(data==Config.ques.yesno && main==Config.ques.conclusion) {
        let yes =  { id : this.tempid,
-         answer : "Yes",
+         answer : Config.ques.ayes,
           exit : false
       }
       let no =  { id : this.tempid,
-         answer : "No",
+         answer : Config.ques.ano,
           exit : false
       }
       this.tempflow.push(yes);
@@ -224,9 +226,9 @@ arrangeAnswer() {
   }
 
   setIntro() {
-    console.log("skalfjkglfd",this.tempdata);
+    //console.log("skalfjkglfd",this.tempdata);
     this.productdata.question.push(this.tempdata);
-    console.log("ssssssssss",this.tempflow);
+    //console.log("ssssssssss",this.tempflow);
     this.tempflow.map((data) => {
       this.productdata.question.push(data);
     })
@@ -236,15 +238,15 @@ arrangeAnswer() {
 
 
   setQuestion() {
-    console.log("skalfjkglfd",this.tempdata);
+    //console.log("skalfjkglfd",this.tempdata);
     this.productdata.question.push(this.tempdata);
-    console.log("ssssssssss",this.tempflow);
+    //console.log("ssssssssss",this.tempflow);
     this.tempflow.map((data) => {
       this.productdata.question.push(data);
     })
     this.tempdata = {};
     this.tempflow = [];
-    console.log(this.productdata.question);
+    //console.log(this.productdata.question);
   }
 
 
@@ -255,7 +257,7 @@ arrangeAnswer() {
   save() {
     this.traindomainService.save(this.productdata)
     .subscribe((data) => {
-      console.log("server",data);
+      //console.log("server",data);
       this.router.navigateByUrl('/admin/createflow');
     })
   }

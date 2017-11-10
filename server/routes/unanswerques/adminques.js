@@ -22,15 +22,15 @@ router.post('/', function(req, res) {
         if(err)
         {
           //Error
-          res.json({status:false,message:staticconfig.adminques.Error,data:null});
+          res.json({status:false,message:staticConfig.adminques.Error,data:null});
         }
         else if(data==undefined){
           //data not found
-          res.json({status:false,message:staticconfig.adminques.DataNotFound,data:null});
+          res.json({status:false,message:staticConfig.adminques.DataNotFound,data:null});
         }
         else{
 
-          res.json({status:true,message:staticconfig.adminques.Sucess,data:data});
+          res.json({status:true,message:staticConfig.adminques.Sucess,data:data});
         }
       })
     }

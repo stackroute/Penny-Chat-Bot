@@ -1,0 +1,64 @@
+export default {
+  button:{
+    btn1:'Save',
+    btn2:'Add Question',
+    btn3:'Add' ,
+    btn4:'View More',
+    btn5:'Submit',
+    btn6:'Add Option',
+    btn7:'Add flow'
+  },
+  ques:{
+    question:'Pending Questions',
+    intro:"Introduction",
+    quest:"Question",
+    conclusion:"Conclusion",
+    yesno:"Yes/No",
+    mcq:"MCQ",
+    number:"Number",
+    edit:"edit",
+    remain:"Remains",
+    type1:"Q",
+    type2:"T",
+    type3:"F",
+    yes:"yes",
+    no:"no",
+    ayes:"Yes",
+    ano:"No",
+    msg1:"Oops! Thats not a Valid Input. Kindly Enter Valid Input.",
+
+
+  },
+  label:{
+    lbl1:'Result',
+    lbl2:'Some quick example text to build on the card title',
+    lbl3:'Question Type',
+    lbl4:'Answer Type',
+    lbl5:'Message:',
+    lbl6:'Exit',
+    lbl7:'Option :',
+    lbl8:'Answer : ',
+    lbl9:'Id :',
+    lbl10:'Type :',
+
+
+  },
+  head:{
+    heading1:'Context',
+    heading2:'Add Node',
+    heading3:'Intent',
+    heading4:'Answer Type :'
+
+  },
+
+  tabel:{
+    tb1:'S.No.',
+    tb2:'Input Answer',
+    tb3:'Next Question'
+  },
+  sp:{
+    del:'Delete'
+  },
+
+
+}
