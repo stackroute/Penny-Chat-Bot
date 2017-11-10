@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let demo=require('../../model/questionbank_schema');
-import staticConfig from './staticconfig' ;
+import staticConfig from './staticConfig' ;
 
 export default (req, res) => {
   

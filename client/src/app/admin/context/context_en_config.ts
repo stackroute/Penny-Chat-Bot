@@ -1,0 +1,80 @@
+export default {
+
+	/*============HTML============*/
+	html:{
+		title:"Context",
+		AddNewContext:"Add New Context",
+		AddContext:"Add Context",
+		ContextName:"Context Name",
+		Addsynonyms:"Add synonyms",
+		ChooseDependency:"Choose Dependency",
+		DependenttoContext:"Dependent to Context",
+		IndependentDomain:"Independent Domain",
+		Description:"Description",
+		VideoLink:" Video Link",
+		BlogLink:"Blog Link",
+		AddSubIntents:"Add Sub Intents",
+		CreateContext:"Create Context"
+	},
+
+	/*================Component=================*/
+		dropdownSettings:{
+			singleSelection: true, 
+      text:"Select Intent",
+      selectAllText:'Select All',
+      unSelectAllText:'UnSelect All',
+      enableSearchFilter: true,
+      classes:"myclass custom-class"
+		},
+
+		dropdownSubIntentSettings : {
+      singleSelection: true, 
+      text:"Select SubIntent",
+      selectAllText:'Select All',
+      unSelectAllText:'UnSelect All',
+      enableSearchFilter: true,
+      classes:"myclass custom-class"
+    },
+
+    flowdropdownSettings : {
+      singleSelection: true, 
+      text:"Select SubIntent",
+      selectAllText:'Select All',
+      unSelectAllText:'UnSelect All',
+      enableSearchFilter: true,
+      classes:"myclass custom-class"
+    },
+
+    domain:{
+    	domain:"Domain"
+    },
+
+    subdomain:{
+    	subdomain:"SubDomain"
+    },
+
+    intent:{
+    	intent:"Intent"
+    },
+
+    subintent:{
+    	subintent:"SubIntent"
+    },
+
+    entity:{
+    	entity:"Entity"
+    },
+
+    type:{
+    	type:'type'
+    },
+
+    resetDomain:{
+    	label:"Add to"
+    },
+
+    pushSubintent:{
+      select:"Select SubIntent"
+    },
+
+}

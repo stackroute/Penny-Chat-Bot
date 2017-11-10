@@ -19,8 +19,8 @@ import { testConfig } from './context.config';
 describe('ContextComponent', () => {
   let component: ContextComponent;
   let fixture: ComponentFixture<ContextComponent>;
-   let service : any;
-     let router = {
+  let service : any;
+  let router = {
     navigate: jasmine.createSpy('navigate')
   }
   beforeEach(async(() => {
@@ -32,7 +32,7 @@ describe('ContextComponent', () => {
       declarations: [ ContextComponent],
       providers : [
       { provide : ContextService },
-        { provide: Router, useValue: router },
+      { provide: Router, useValue: router },
       MockBackend,
       BaseRequestOptions,
       {
@@ -55,19 +55,10 @@ describe('ContextComponent', () => {
     expect(component).toBeTruthy();
   });
 
-   //=============positive testcase onItemSelectContext ============================
-   it( "positive onItemSelectContext testcase", () => {
-     let mockResponse={
-       id: 3, 
-       label: "Attriute", 
-       itemName: "individual"
-     }
+  //=============positive testcase onItemSelectContext ============================
+  it( "positive onItemSelectContext testcase", () => {
+    let mockResponse=testConfig.mockResponse;
     component.onItemSelectContext(mockResponse);
-    console.log('akaur0', component.contextval);
-     console.log('kaur000', mockResponse),
-     //console.log('00000', component.item)
-     
-   //  fixture.detectChanges();
     fixture.whenStable().then(() => {
       expect(component.contextval).toEqual(mockResponse);
       expect(component.contextval.id).toEqual(mockResponse.id);
@@ -75,19 +66,10 @@ describe('ContextComponent', () => {
       expect(component.contextval.itemName).toEqual(mockResponse.itemName);
     })
   });
-//=============negative testcase onItemSelectContext ============================
-   it( "negative onItemSelectContext testcase", () => {
-     let mockResponse={
-       id: 3, 
-       label: "Attriute", 
-       itemName: "individual"
-     }
+  //=============negative testcase onItemSelectContext ============================
+  it( "negative onItemSelectContext testcase", () => {
+    let mockResponse=testConfig.mockResponse;
     component.onItemSelectContext(mockResponse);
-    console.log('akaur0', component.contextval);
-     console.log('kaur000', mockResponse),
-     //console.log('00000', component.item)
-     
-   //  fixture.detectChanges();
     fixture.whenStable().then(() => {
       expect(component.contextval).not.toEqual(null);
       expect(component.contextval.id).not.toEqual(undefined);
@@ -95,40 +77,22 @@ describe('ContextComponent', () => {
       expect(component.contextval.itemName).not.toEqual(undefined);
     })
   });
-   //=============positivetestcase onItemSelect ===================================
-   it( "positive onItemSelect testcase", () => {
-     let mockResponse1={
-       id: 1, 
-       itemName: "type", 
-       name: "type", priority: "2"
-       }
+  //=============positivetestcase onItemSelect ===================================
+  it( "positive onItemSelect testcase", () => {
+    let mockResponse1=testConfig.mockResponse1;
     component.onItemSelect(mockResponse1);
-    console.log('akaur0', component.selectedIntent);
-     console.log('kaur000', mockResponse1),
-     //console.log('00000', component.item)
-     
-   //  fixture.detectChanges();
     fixture.whenStable().then(() => {
       expect(component.selectedIntent[0]).toEqual(mockResponse1);
       expect(component.selectedIntent[0].id).toEqual(mockResponse1.id);
       expect(component.selectedIntent[0].itemName).toEqual(mockResponse1.itemName);
       expect(component.selectedIntent[0].name).toEqual(mockResponse1.name);
-   
+
     })
   });
-   //=============negative testcase onItemSelect ===================================
-   it( "negative onItemSelect testcase", () => {
-     let mockResponse1={
-       id: 1, 
-       itemName: "type", 
-       name: "type", priority: "2"
-       }
+  //=============negative testcase onItemSelect ===================================
+  it( "negative onItemSelect testcase", () => {
+    let mockResponse1=testConfig.mockResponse1;
     component.onItemSelect(mockResponse1);
-    console.log('akaur0', component.selectedIntent[0]);
-     console.log('kaur000', mockResponse1),
-     //console.log('00000', component.item)
-     
-   //  fixture.detectChanges();
     fixture.whenStable().then(() => {
       expect(component.selectedIntent[0]).not.toEqual(null);
       expect(component.selectedIntent[0].id).not.toEqual(null);
@@ -136,44 +100,44 @@ describe('ContextComponent', () => {
       expect(component.selectedIntent[0].name).not.toEqual(null);
     })
   });
-   //------------positive test case for addInput()----------------
-it('addInput() positive test case', () => {
-expect(component.inputs).toEqual(testConfig.data);
-});
+  //------------positive test case for addInput()----------------
+  it('addInput() positive test case', () => {
+    expect(component.inputs).toEqual(testConfig.data);
+  });
 
 
-//------------negative test case for addInput()----------------
-it('addInput() negative test case', () => {
-expect(component.inputs).not.toEqual(null);
-});
+  //------------negative test case for addInput()----------------
+  it('addInput() negative test case', () => {
+    expect(component.inputs).not.toEqual(null);
+  });
 
-//------------positive test case for addBlog()----------------
-it('addBlog() positive test case', () => {
-expect(component.blog).toEqual(testConfig.data);
-});
+  //------------positive test case for addBlog()----------------
+  it('addBlog() positive test case', () => {
+    expect(component.blog).toEqual(testConfig.data);
+  });
 
-//------------negative test case for addBlog()----------------
-it('addBlog() nagative test case', () => {
-expect(component.blog).not.toEqual(null);
-});
+  //------------negative test case for addBlog()----------------
+  it('addBlog() nagative test case', () => {
+    expect(component.blog).not.toEqual(null);
+  });
 
-//------------positive test case for removeVideo()----------------
-it('removeVideo() positive test case', () => {
-expect(component.addvideolink).toEqual(testConfig.dataremove);
-});
+  //------------positive test case for removeVideo()----------------
+  it('removeVideo() positive test case', () => {
+    expect(component.addvideolink).toEqual(testConfig.dataremove);
+  });
 
-//------------negative test case for removeVideo()----------------
-it('removeVideo() negative test case', () => {
-expect(component.addvideolink).not.toEqual(null);
-});
+  //------------negative test case for removeVideo()----------------
+  it('removeVideo() negative test case', () => {
+    expect(component.addvideolink).not.toEqual(null);
+  });
 
-//------------positive test case for removeBlog()----------------
-it('removeBlog() positive test case', () => {
-expect(component.addbloglink).toEqual(testConfig.dataremove);
-});
+  //------------positive test case for removeBlog()----------------
+  it('removeBlog() positive test case', () => {
+    expect(component.addbloglink).toEqual(testConfig.dataremove);
+  });
 
-//------------negative test case for removeBlog()----------------
-it('removeBlog() negative test case', () => {
-expect(component.addbloglink).not.toEqual(null);
-});
+  //------------negative test case for removeBlog()----------------
+  it('removeBlog() negative test case', () => {
+    expect(component.addbloglink).not.toEqual(null);
+  });
 });

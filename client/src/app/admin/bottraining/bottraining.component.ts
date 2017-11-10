@@ -322,6 +322,7 @@ export class BottrainingComponent implements OnInit {
       labelname : this.addintent,
       word:this.temp
     }
+    console.log(" " , data)
     this.bottrainingservice.suggest(data)
     .subscribe((ref)=>{
       this.synres=ref;

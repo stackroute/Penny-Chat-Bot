@@ -2,21 +2,16 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable' ;
 import {config} from '../../config/app.config';
+import { urlConfig } from '../../config/url.config';
+
 @Injectable()
 export class BottrainingService {
 
   constructor(private http:Http) { }
 
-  // server urls
-  url:string=config.ip+"/train_intent/traindomain"
-  url1:string=config.ip+"/train_intent/getIntent"
-  url2:string=config.ip+"/train_intent/updateIntent"
-  trainurl:string=config.ip+"/train_intent";
-  suggesturl:string=config.ip+"/suggest";
-
   //getting all unanswered questions
   getunanswer():Observable<any>{
-    let url:any = config.ip+"/unques";
+    let url:any = config.ip+urlConfig.AdminBotTraininggetunanswer;
     let userData = JSON.parse(localStorage.getItem('Userdata')).data;
     return this.http.get(url)
     .map((res:Response) =>{
@@ -26,7 +21,7 @@ export class BottrainingService {
 
   //getting all the combinations of unanswered questions
   getQues(ques):Observable<any>{
-    let Quesurl:any = config.ip+"/questoken";
+    let Quesurl:any = config.ip+urlConfig.AdminBotTraininggetQues;
     return this.http.post(Quesurl,{ques}).map((res)=>{
       return res.json();
     })
@@ -34,7 +29,7 @@ export class BottrainingService {
 
   //getting all the intents present
   getIntent(){
-    let url:any = config.ip+"/train_intent";
+    let url:any = config.ip+urlConfig.AdminBotTraininggetIntent;
     return this.http.get(url)
     .map((res:Response) =>{
       return res.json();
@@ -43,7 +38,7 @@ export class BottrainingService {
 
   //getting all the context stored in database
   getContext(){
-    let url:any = config.ip+"/train_intent/getContext";
+    let url:any = config.ip+urlConfig.AdminBotTraininggetContext;
     return this.http.get(url)
     .map((res:Response) =>{
       return res.json();
@@ -52,9 +47,10 @@ export class BottrainingService {
 
   /*================================Add Intent& Sentence====================*/
   addSentence(object): Observable<any> {
-  	return this.http
-  	.post(this.url, {object:object})
-  	.map((res: Response)=>{
+     let url=config.ip+urlConfig.AdminBotTrainingaddSentence;
+    return this.http
+    .post(url, {object:object})
+    .map((res: Response)=>{
       return res.json()
     }
     )
@@ -62,9 +58,10 @@ export class BottrainingService {
 
   /*============================Change Intent & Service======================*/
   changeIntent(object): Observable<any> {
-  	return this.http
-  	.put(this.url1,{object:object})
-  	.map((res: Response)=>
+    let url1=config.ip+urlConfig.AdminBotTrainingchangeIntent;
+    return this.http
+    .put(url1,{object:object})
+    .map((res: Response)=>
       res.json()
       )
   }
@@ -72,9 +69,10 @@ export class BottrainingService {
   /*===========================Fetch Data in Service========================*/
 
   fetch(object): Observable<any> {
-  	return this.http
-  	.get(this.url2,object)
-  	.map((res: Response)=>
+    let url2=config.ip+urlConfig.AdminBotTrainingfetch;
+    return this.http
+    .get(url2,object)
+    .map((res: Response)=>
       res.json()
       )
   }
@@ -82,8 +80,7 @@ export class BottrainingService {
   /*======================set synonym==========================*/
 
   setSynonym(intent,word): Observable<any> {
-    let synUrl=config.ip+"/train_intent/setSynonym"
-
+    let synUrl=config.ip+urlConfig.AdminBotTrainingsetSynonym;
     return this.http
     .post(synUrl,{intent:intent,word:word})
     .map((res: Response)=>
@@ -93,7 +90,7 @@ export class BottrainingService {
 
   // adding synonyms of existing contexts
   contextSynonym(context,word): Observable<any> {
-    let synUrl=config.ip+"/train_intent/contextsynonym";
+    let synUrl=config.ip+urlConfig.AdminBotTrainingcontextSynonym;
     return this.http
     .post(synUrl,{context:context,word:word})
     .map((res: Response)=>{
@@ -105,7 +102,7 @@ export class BottrainingService {
 
   // adding new question to database
   sendques(question){
-    let synUrl=config.ip+"/unques"
+    let synUrl=config.ip+urlConfig.AdminBotTrainingsendques;
     return this.http
     .post(synUrl,{question:question})
     .map((res: Response)=>
@@ -115,7 +112,8 @@ export class BottrainingService {
 
   /*==========================Start of Adds New Intent==============================*/
   addIntent(intent):Observable<any> {
-    return this.http.post(this.trainurl,{data:intent})
+     let trainurl=config.ip+urlConfig.AdminBotTrainingaddIntent;
+    return this.http.post(trainurl,{data:intent})
     .map((res:Response)=>{
       return res.json();
     })
@@ -123,8 +121,9 @@ export class BottrainingService {
 
   /*==========================Start of Add Intent's Synonym==============================*/
   addSynonym(data): Observable<any> {
+    let trainurl=config.ip+urlConfig.AdminBotTrainingaddSynonym;
     return this.http
-    .put(this.trainurl,{data: data})
+    .put(trainurl,{data: data})
     .map((res: Response)=>{
       return res.json()
     })
@@ -132,7 +131,7 @@ export class BottrainingService {
 
   // getting all the synonym of an intent
   getRelatedEntity(intentName:any){
-    let url:any = config.ip+"/train_intent/getRelatedEntity";
+    let url:any = config.ip+urlConfig.AdminBotTraininggetRelatedEntity;
     return this.http
     .post(url,{intentName})
     .map((res:Response) =>{
@@ -142,7 +141,7 @@ export class BottrainingService {
 
   // adding more synonyms to existing intent
   addMoreSynonym(synonymname:any,intentName:any){
-    let url:any = config.ip+"/train_intent/addSynonym";
+    let url:any = config.ip+urlConfig.AdminBotTrainingaddMoreSynonym;
     return this.http.post(url,{synonymname,intentName})
     .map((res:Response) =>{
       return res.json();
@@ -151,7 +150,7 @@ export class BottrainingService {
 
   // deletes existing synonym of an intent
   deleteSynonym(synonymname:any,intentname:any){
-    let url:any = config.ip+"/train_intent/deleteSynonym";
+    let url:any = config.ip+urlConfig.AdminBotTrainingdeleteSynonym;
     return this.http.put(url,{synonymname,intentname})
     .map((res:Response) =>{
       return res.json();
@@ -160,8 +159,9 @@ export class BottrainingService {
 
   /*==========================Start of Suggest Synonym==============================*/
   suggest(data): Observable<any> {
+    let suggesturl=config.ip+urlConfig.AdminBotTrainingsuggest;
     return this.http
-    .put(this.suggesturl,{data: data})
+    .put(suggesturl,{data: data})
     .map((res: Response)=>{
       return res.json().data
     })
@@ -170,7 +170,7 @@ export class BottrainingService {
   /*=====================delete intent=========================*/
 
   deleteIntent(intent): Observable<any> {
-    let deleteIntentUrl=config.ip+"/train_intent/deleteIntent";
+    let deleteIntentUrl=config.ip+urlConfig.AdminBotTrainingdeleteIntent;
     return this.http
     .put(deleteIntentUrl,{data: intent})
     .map((res: Response)=>{
@@ -181,15 +181,11 @@ export class BottrainingService {
   /*=====================delete pending questions=========================*/
 
   deletePendingQuestions(ques): Observable<any> {
-    let deletePendingQuestions=config.ip+"/unques/delete"
+    let deletePendingQuestions=config.ip+urlConfig.AdminBotTrainingdeletePendingQuestions;
     return this.http
     .put(deletePendingQuestions,{ques: ques})
     .map((res: Response)=>{
       return res.json();
     })
   }
- 
-
- 
-  
 }

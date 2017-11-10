@@ -9,15 +9,13 @@
   </div>
   <div *ngIf="contextval">
     <button type="button" class="btn btn-primary add" aria-label="Close" 
-    (click)="deleteContext(contextval)">Delete
+    (click)="deleteContext(contextval)">{{Config.html.deletebutton}}
   </button>
   <button type="button" class="btn btn-primary add" aria-label="Close" 
-  (click)="myModal.show()" (click)="getContextSynonym()" >Edit
+  (click)="myModal.show()" (click)="getContextSynonym();getAllIntent()" >{{Config.html.editbutton}}
 </button>
 </div>
 </div>
-
-
 
 
 <!-- ==============Edit Context Modal=============== -->
@@ -25,8 +23,8 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Add Context</h4>
-        <button type="button" class="close" (click)="addContext.hide()" aria-label="Close">
+        <h4 class="modal-title">{{Config.html.AddContext}}</h4>
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -36,13 +34,13 @@
             <tab heading="Context" ng-reflect-heading="Home" class="tab-pane">
               <form>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Context Name</label>
+                  <label for="exampleInputPassword1">{{Config.html.ContextName}}</label>
                   {{getContextName}}<br>
-                  <label for="exampleInputPassword1">Context Type</label>
+                  <label for="exampleInputPassword1">{{Config.html.ContextType}}</label>
                   {{getContextLabel}}
                   
                   <div><hr>
-                    <label for="exampleInputPassword1">Existing synonyms</label>
+                    <label for="exampleInputPassword1">{{Config.html.Existingsynonyms}}</label>
                     <div>
                      <span class="badge subintbadge badge-pill text-white" *ngFor="let a of contextSyn">{{a.properties.name}}
                       <a (click)="deleteSynonym(a)">
@@ -51,7 +49,7 @@
                   </div>
                 </div><hr>
 
-                <label for="exampleInputPassword1">Add More Synonyms</label>
+                <label for="exampleInputPassword1">{{Config.html.AddMoreSynonyms}}</label>
                     <tag-input  [(ngModel)]="addSynonym"
                     [modelAsStrings]="true"
                     [theme]="'dark'"
@@ -59,7 +57,7 @@
                     [editable]="true"
                     name="test">
                   </tag-input><br>
-                  <button class='btn btn-primary' (click)="addMoreSynonym(addSynonym)">Add Synonyms</button>
+                  <button class='btn btn-primary' (click)="addMoreSynonym(addSynonym)">{{Config.html.AddSynonyms}}</button>
                   <button type="button" class="btn btn-md btn-primary dropdown-toggle" *ngIf = "setDomain" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                     {{selectedContext.name}} ({{selectedContext.label}})
                   </button>
@@ -90,7 +88,7 @@
                     <collapsible-list [type]="'accordion'" >
                     <collapsible-list-item>
                     <collapsible-header class="waves-effect">
-                    Description
+                    {{Config.html.Description}}
                   </collapsible-header>
                   <collapsible-body [expanded]="true">
                   <div class="form-group">
@@ -104,7 +102,7 @@
               </collapsible-list-item>
               <collapsible-list-item>
               <collapsible-header class="waves-effect">
-              Video Link
+              {{Config.html.VideoLink}}
             </collapsible-header>
             <collapsible-body [expanded]="false">
             
@@ -118,14 +116,14 @@
               </div>
             </div> 
             <br>
-        <button type="button" class="btn btn-primary" (click)="addmoreVideoLinks(i)">Add more links</button>
+        <button type="button" class="btn btn-primary" (click)="addmoreVideoLinks(i)">{{Config.html.Addmorelinks}}</button>
             <br><br>
 
           </collapsible-body>
         </collapsible-list-item>
         <collapsible-list-item>
         <collapsible-header class="waves-effect">
-        Blog Link
+       {{Config.html.BlogLink}}
       </collapsible-header>
       <collapsible-body [expanded]="false">
       <div class="input-group mb-2 mr-sm-2 mb-sm-0 blog" *ngFor="let dataLink of main.blogLink; let k=index ">
@@ -138,7 +136,7 @@
        </div>
 
      </div>  <br>
-<button type="button" class="btn btn-primary" (click)="addmoreBlogLinks(i)">Add more links</button>
+<button type="button" class="btn btn-primary" (click)="addmoreBlogLinks(i)">{{Config.html.Addmorelinks}}</button>
    
      <br><br>
 
@@ -161,7 +159,7 @@
 </tabset>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary add" ><span (click)="updateContext()">Edit Context</span></button>
+  <button type="button" class="btn btn-primary add" ><span (click)="updateContext()">{{Config.html.EditContext}}</span></button>
 </div>
 </div> 
 </div>

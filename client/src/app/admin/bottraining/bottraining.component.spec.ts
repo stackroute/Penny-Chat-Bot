@@ -309,6 +309,7 @@ describe('Bot training Component', () => {
       expect(component.res._fields[0].labels).not.toEqual(testConfig.mockResponseAddAdminSynonymNeg._fields[0].labels);
     })   
   });
+
   //========Start of Positive test for deletesynonym in bot training==========//
   it("Positive test for deletesynonym in bot training", () => {
     const data = testConfig.datadeletesynonym;
@@ -323,6 +324,7 @@ describe('Bot training Component', () => {
       expect(component.rep.status).toEqual(true);
     })   
   });
+
   /*=======End of Positive test for deletesynonym in bot training*==========/
   /*=========Start of Negative test for deletesynonym in bot training========*/
   it("Negative test for deletesynonym in bot training", () => {
@@ -339,6 +341,7 @@ describe('Bot training Component', () => {
     })   
   });
   /*============End of Negative test for deletesynonym in bot training============*/
+
   /*=========Positive test for getQues(bottraining========*/
   it("Positive test for getQues in bot training", () => {
     const ques = testConfig.quesgetQues;
