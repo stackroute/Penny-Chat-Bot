@@ -183,23 +183,23 @@ flowflag:boolean = false;
         .subscribe((ref) => {
           console.log('ref', ref);
           if(ref.status == true){
-            alert("Context added successfully");
+            swal('',"Successfully Added",'success');
             this.context = {};
             this.synonym = [];
             this.selectedContext = [];
             this.completeContext = [];
           }
           else {
-            alert("error in creating a context node");
+            swal('',"error in creating a context node",'warning');
           }
         })
       }
       else {
-        alert("Please add dependent context first");
+        swal('',"Please add dependent context first",'warning');
       }
     }
     else {
-      alert("Please select any Option Domain/Add to Context");
+      swal('',"Please select any Option Domain/Add to Context",'warning');
     }
   }
 

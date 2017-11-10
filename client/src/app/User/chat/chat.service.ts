@@ -79,7 +79,7 @@ export class ChatService {
 		.map((res:Response) => res.json())
 	}
 
-checklink(answer:any):Observable<any>  {
+   checklink(answer:any):Observable<any>  {
 		console.log("In Service checklink " , answer);
 		console.log(this.url+'/referlink');
 		return this.http
