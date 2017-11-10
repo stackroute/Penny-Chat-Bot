@@ -9,15 +9,15 @@ export default (req, res) => {
     {multi:true},(err,data)=>{
       if(err)
       {        //Error
-        res.json({status:false,message:staticconfig.deletependingques.Error,data:null});
+        res.json({status:false,message:staticConfig.deletependingques.Error,data:null});
       }
       else if(data==undefined){
         //data not found
-        res.json({status:false,message:staticconfig.deletependingques.DataNotFound,data:null});
+        res.json({status:false,message:staticConfig.deletependingques.DataNotFound,data:null});
       }
       else{  
       //data found     
-        res.json({status:true,message:staticconfig.deletependingques.DataFound,data:data});
+        res.json({status:true,message:staticConfig.deletependingques.DataFound,data:data});
       }
     })
 }
