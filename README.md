@@ -28,8 +28,7 @@ A step by step series of examples that tell you have to get a development env ru
  <a title="CII Best Practices" href="https://bestpractices.coreinfrastructure.org/projects/29"><img src="https://bestpractices.coreinfrastructure.org/projects/29/badge"></a>
 </p>
 ```Binaries, installers, and source tarballs are available at https://nodejs.org.
-`
-``
+```
 ### Installing Angular 4
 ```1. Make sure you have node version above 6.9 and npm above 3
    2. Check the version by using node --version and npm --version
@@ -44,7 +43,6 @@ Make sure to upgrade the typescript version by running command- npm install type
 Ignore whatever warning it shows up and now check the angular version by 'ng -v' The version has changed from 2.2.4 to 4.1.0
 You can also check all the info about your angular cli in package.json file.
 ```
-
 ### Installing MongoDB
 ```Run this command to install mongoDB-
 npm install --save mongodb
