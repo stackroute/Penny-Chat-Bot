@@ -1,14 +1,9 @@
-# Glib App
-
-A Web Chat Application which provide user with various features :
-
-* One to One Chatting
-* Open Channel where anyone can chat
-* A private channel whose contents are visible only to the channel members
-* File sharing(.png|.jpeg|.txt|.mp3|.mp4|.pdf|.zip|Code Snippets etc) 
-* Upload Profile picture
-* Video Calling with a better UI and Ux where user can chat and recieve video call simuntaneouly
-* Provide snapshots of websites with the provided links(eg. youtube video links and can also play at the same time.)
+# Learning Bot
+It is a web based learning bot which will answer all your queries regarding any specific domain. The bot will be trained by admin.
+Features :
+* user to Bot Chatting
+* Training the bot using admin dashboard 
+* Provide snapshots of websites for more information with the provided links(eg. youtube video links and can also play at the same time.)
 
 ## Getting Started
 
@@ -22,6 +17,7 @@ What things you need to install the software and how to install them
 * Updated version of Node.js
 * Angular 4
 * MongoDB 
+* Neo4j
 ```
 ### Installing
 
@@ -87,4 +83,21 @@ npm install
 # run
 npm start to start client side
 node app.js to start server side
+sudo neo4j start to start neo4j in client side
 ```
+
+Contributors:
+
+Nihit Saxena
+Shivam GUpta
+Khushboo Rajput
+Sheetal Varshney
+Ankur Agarwal
+Preeti Singh
+shagun Sankla
+Naman Mahajan
+Abhishek Gupta
+Chandra Bhushan Tripathi
+Ishan Aggarwal
+Ashwin Kaur
+Mohit Garg
