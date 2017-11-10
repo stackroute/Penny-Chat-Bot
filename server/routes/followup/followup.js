@@ -3,9 +3,7 @@ import logger from '../../log4js';
 import flow_schema from './../../model/flow_schema';
 
 export default (req,res)=>{
-		console.log("task===========",req.body.counter);
 flow_schema.find({task : req.body.counter},(error,data)=>{
-		console.log("data==========",data);
 		if(data.length > 0) {
 			let main;
 			data[0].question.map((data) => {
@@ -16,9 +14,7 @@ flow_schema.find({task : req.body.counter},(error,data)=>{
 			res.json(main);
 		}
 		else{
-			res.json({'error' : error })
+			res.json({status:false,message:"Data Undefined",data:null})
 		}
-
 	})
-
 }
