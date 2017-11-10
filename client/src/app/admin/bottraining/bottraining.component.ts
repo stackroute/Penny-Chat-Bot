@@ -191,6 +191,7 @@ export class BottrainingComponent implements OnInit {
       this.ref=res
     })
   }
+
   //This fnction allows the admin to add any unanswered question
   sendques(question){
     this.newQuestion = "";
