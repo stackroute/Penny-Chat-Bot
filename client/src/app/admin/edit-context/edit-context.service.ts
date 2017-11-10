@@ -5,105 +5,93 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {config} from '../../config/app.config';
-
+import { urlConfig } from '../../config/url.config';
 
 @Injectable()
 export class EditContextService {
 
   constructor(private http:Http) { }
 
-  
-  url:string=config.ip+"/addcontext";
-  urlIntent:string=config.ip+"/train_intent";
-  urlContext:string=config.ip+"/train_intent/getContext";
-  createContextUrl : string = config.ip+"/addcontext";
-  
-  getIntent():Observable<any> {
-    return this.http.get(this.urlIntent)
+  /*==============get all intents for dropdown=================*/
+  getIntent(context):Observable<any> {
+    let urlIntent=config.ip+urlConfig.AdminEditContextgetIntent;
+    return this.http.post(urlIntent,{context : context})
     .map((res:Response)=>{
       return res.json();
     })
-
   }
+
+  /*==============get all context for dropdown=================*/
   getAllContext():Observable<any> {
-    return this.http.get(this.urlContext)
+    let urlContext=config.ip+urlConfig.AdminEditContextgetAllContext;
+    return this.http.get(urlContext)
     .map((res:Response)=>{
-      console.log('contexts',res.json());
       return res.json();
     })
   }
 
- 
-
+  /*==============get selected context=================*/
   getContext(){
-    //console.log('jkdgfkl')
-    let url:any = config.ip+"/train_intent/getContext";
+    let url:any = config.ip+urlConfig.AdminEditContextgetContext;
     return this.http.get(url)
     .map((res:Response) =>{
-      //console.log("in response ",res);
       return res.json();
     })
-
   }
 
+  /*==============delete selected context=================*/
   deleteContext(context) : Observable<any> {
-    let url:any = config.ip+"/addcontext/deleteContext";
-    console.log('service..',context)
+    let url:any = config.ip+urlConfig.AdminEditContextdeleteContext;
     return this.http
     .post(url,{data: context})
     .map((res: Response)=>{
-      console.log(res)
       return res.json()
     })
   }
 
+  /*==============get selected context synonym=================*/
   getContextSynonym(context):Observable<any>{
-    let url=config.ip+"/editContext";
-    //console.log('ssss..',context)
+    let url=config.ip+urlConfig.AdminEditContextgetContextSynonym;
     return this.http.post(url,context)
     .map((res)=>{
-      //console.log('servi////',res.json());
       return res.json();
     })
   }
 
+  /*==============get selected context details=================*/
   getContextInfo(context , item) :Observable<any>{
-    console.log("Ek baar phir baja " , context);
-    let url=config.ip+"/editContext/getContextInfo";
-     return this.http.post(url,{context : context, intent : item})
+    let url=config.ip+urlConfig.AdminEditContextgetContextInfo;
+    return this.http.post(url,{context : context, intent : item})
     .map((res)=>{
-      console.log('servi=-===============-=-=-',res.json());
       return res.json();
     })
   }
 
+  /*==============add more synonyms for context synonym=================*/
   addMoreSynonym(syn,context){
-  console.log(syn,context);
-  let url:any = config.ip+"/editContext/editAddSynonym";
-   return this.http
+    let url:any = config.ip+urlConfig.AdminEditContextaddMoreSynonym;
+    return this.http
     .post(url,{synonym:syn,context:context})
     .map((res: Response)=>{
-      console.log('sersss  ==',res);
       return res.json()
     })
-}
+  }
 
-
-deleteSynonym(synonym,context){
-let url:any = config.ip+"/editContext/editDeleteSynonym";
-return this.http
+  /*==============delete synonym for selected context=================*/
+  deleteSynonym(synonym,context){
+    let url:any = config.ip+urlConfig.AdminEditContextdeleteSynonym;
+    return this.http
     .post(url,{synonym:synonym,context:context})
     .map((res: Response)=>{
-      console.log(res)
       return res.json()
     })
-}
+  }
 
-updateContext(contextName, completeContext) {
-  let url: any = config.ip+"/editContext/editLink";
-  return this.http
-          .put(url,{context : contextName, completeContext : completeContext })
-          .map((res : Response) => res.json());
-}
-
+  /*==============update selected context=================*/
+  updateContext(contextName, completeContext) {
+    let url: any = config.ip+urlConfig.AdminEditContextupdateContext;
+    return this.http
+    .put(url,{context : contextName, completeContext : completeContext })
+    .map((res : Response) => res.json());
+  }
 }

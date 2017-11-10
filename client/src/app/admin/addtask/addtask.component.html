@@ -1,51 +1,43 @@
-<app-header></app-header>
-  <app-sidebar></app-sidebar>
-	<div class="container" id="top">
-    <form role="form">
-	 <div class="row justify-content-center main">
-	      <div class="col-md-10">
-	Task Name :  <input class="form-control border no-shadow no-rounded" name="name" [(ngModel)]="task.name" placeholder="Type your message here"><br>
+<!-- start of container -->
+<div class="container" id="top">
+  <!-- start of form -->
+  <form role="form">
+   <div class="row justify-content-center main">
+    <div class="col-md-10 form">
+      <!-- start textfields of the form -->
+      {{Config.addtask.TaskName}}  <input class="form-control border no-shadow no-rounded" name="name" [(ngModel)]="task.name" placeholder="Type your message here"><br>
 
-	Question :  <input class="form-control border no-shadow no-rounded" name="ques" [(ngModel)]="task.question" placeholder="Type your message here"><br>
+      {{Config.addtask.Question}}  <input class="form-control border no-shadow no-rounded" name="ques" [(ngModel)]="task.question" placeholder="Type your message here"><br>
 
-Answer Type:
-<div class="form-group">
-<select class="form-control" id="sel1">
- <option>{{item1}}</option>
- <option>{{item2}}</option>
- <option>{{item3}}</option>
-</select>
+      {{Config.addtask.AnswerType}}
+      <div class="form-group">
+        <select class="form-control" id="sel1">
+         <option>{{item1}}</option>
+         <option>{{item2}}</option>
+         <option>{{item3}}</option>
+       </select>
+     </div>
+
+     {{Config.addtask.Answer}}  <input class="form-control border no-shadow no-rounded" name="answer" [(ngModel)]="task.answer" placeholder="Type your message here"><br>
+
+     {{Config.addtask.AnswerNextStep}} <input class="form-control border no-shadow no-rounded" name="nextans" [(ngModel)]="task.nextstep" placeholder="Type your message here"><br>
+
+     {{Config.addtask.AnswerResponse}} <input class="form-control border no-shadow no-rounded" name="res" [(ngModel)]="task.response" placeholder="Type your message here"><br>
+
+     {{Config.addtask.NegativeAnswer}}  <input class="form-control border no-shadow no-rounded" name="negative" [(ngModel)]="task.nanswer" placeholder="Type your message here"><br>
+
+     {{Config.addtask.NegativeNextStep}} <input class="form-control border no-shadow no-rounded" name="nextneg" [(ngModel)]="task.negativenextstep" placeholder="Type your message here"><br>
+
+     {{Config.addtask.NegativeResponse}}<input class="form-control border no-shadow no-rounded" name="negres" [(ngModel)]="task.negativeResponse" placeholder="Type your message here"><br>
+     <!-- button for add Question -->
+     <button class="btn btn-primary" (click) = AddQuestion()>{{Config.addtask.AddQuestion}}</button>
+
+     <!-- button for Submit -->
+     <button class="btn btn-primary" (click) = Submit()>{{Config.addtask.Submit}}</button>
+     <!-- end of input fields -->
+   </div>
+ </div>
+</form>
+<!-- end of form -->
 </div>
-<!-- <input class="form-control border no-shadow no-rounded" name="ques" [(ngModel)]="task.answertype" placeholder="Type your message here"><br> -->
-	 <!-- <div class="btn-group"> -->
-
-	<!--  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-	   Action
-	 </button>
-	   -->
-	 <!-- <div class="dropdown-menu" >
-	   <a class="dropdown-item" name="item1" >{{item1}}</a>
-	   <a class="dropdown-item" name="item2" >{{item2}}</a>
-	   <a class="dropdown-item" name="item3" >{{item3}}</a>
-	 </div> -->
-	<!-- </div> -->
-	Answer :  <input class="form-control border no-shadow no-rounded" name="answer" [(ngModel)]="task.answer" placeholder="Type your message here"><br>
-
-	Answer Next Step : <input class="form-control border no-shadow no-rounded" name="nextans" [(ngModel)]="task.nextstep" placeholder="Type your message here"><br>
-
-	Answer Response : <input class="form-control border no-shadow no-rounded" name="res" [(ngModel)]="task.response" placeholder="Type your message here"><br>
-
-	Negative Answer :  <input class="form-control border no-shadow no-rounded" name="negative" [(ngModel)]="task.nanswer" placeholder="Type your message here"><br>
-
-	Negative Next Step : <input class="form-control border no-shadow no-rounded" name="nextneg" [(ngModel)]="task.negativenextstep" placeholder="Type your message here"><br>
-
-	Negative Response : <input class="form-control border no-shadow no-rounded" name="negres" [(ngModel)]="task.negativeResponse" placeholder="Type your message here"><br>
-
-	<button class="btn btn-primary" (click) = AddQuestion()>Add Question</button>
-
-	<button class="btn btn-primary" (click) = Submit()>Submit</button>
-	</div>
-	</div>
-	</form>
-	</div>
-<app-bottom-chat></app-bottom-chat>
+<!-- end of container -->

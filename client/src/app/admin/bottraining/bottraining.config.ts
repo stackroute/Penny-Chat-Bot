@@ -140,7 +140,9 @@ export const testConfig={
         }
       }
       ,
+
       intentsetSynonym:"Intent",
+
       deldata:{
         label:"Intent",
         itemName:"about",
@@ -190,6 +192,7 @@ export const testConfig={
         properties: {}}], _fieldLookup: {n: 0}
       }
       ],
+
       quesdeletependingques:"Tell me about Retirement Plan",
       datadeletependingques:{ok: 1, nModified: 1, n: 1},
       questionsendques:"what is policy",
@@ -212,7 +215,6 @@ export const testConfig={
       mockResponseAddSynonymNegative : {status: false, message: "Not Created"},
       deleteIntentData : {id: 3, label: "Intent", itemName: "test", priority: "21"},
       deleteIntentResponse : {records: Array(0), summary: {statement: {text: "MATCH (a:Intent {name:'test'}) detach delete a"}, statementType: "w"}},
-    
       suggestData : ["kind", "tolerant"],
       suggestKind : "kind",
       suggestTol : "tolerant"

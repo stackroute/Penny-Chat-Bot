@@ -1,5 +1,5 @@
 .main{
-	margin-top:8%;
+	margin-top:4%;
 }
 
 .btn {
@@ -15,17 +15,23 @@
 }
 .sidebar{
 	margin-top:30px;
+	margin-left: 80px;
 }
 
 select.form-control:not([size]):not([multiple]) {
  height: calc(3.3rem + 0px);
 }
 .btn.btn-primary {
-  background-color: #375372 
-
-;
+  background-color: #375372;
 }
+
 
 #top{
 	margin-top: 30px;
 }
+
+.form {
+	margin-right:50%;
+}
+
+>>>>>>> 93be0e0cb457a7e5242f9fb7c78a4646a4652c8e

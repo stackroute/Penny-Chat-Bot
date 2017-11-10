@@ -1,303 +1,303 @@
- 
 <div class="container">
-<br>
-<div class="row">
-	<h3 class=" nm col-md-9">{{productdata.task}}</h3>
-	<div class="col-md-3">
-	<button class="pull-right btt btn btn-primary btn-block" (click)="save()">Save</button>
-	</div>
+  <br>
+  <div class="row">
+  <!-- ============Add task============= -->
+    <h3 class=" nm col-md-9">{{productdata.task}}</h3>
+    <div class="col-md-3">
+      <button class="pull-right btt btn btn-primary btn-block" (click)="save()">{{Config.button.btn1}}</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <span class="glyphicon glyphicon-comment"></span> {{Config.ques.question}}
+        </div>
+        <div class="panel-body">
+          <ul class="chat">
+            <li *ngFor="let quest of productdata.question">
+              <div class="left clearfix">
+                <div *ngIf="quest.type=='Q'" class="chat-body clearfix">
+                  <div class="header">
+                    <strong class="primary-font">{{Config.label.lbl9}} {{quest.id}}</strong> 
+                    <strong class="primary-font pull-right">{{Config.label.lbl10}} {{quest.genre}}</strong> 
+                  </div>
+                  <p>
+                    {{quest.message}}
+                  </p>
+                  <a class="setflow" (click)="setnext(quest)"><b (click)="nextModal.show()">Set Flow</b></a>
+                  <strong class="primary-font pull-right">{{Config.label.lbl8}}{{quest.answertype}}</strong>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+        <div class="panel-footer">
+          <div class="input-group">
+            <button class="btn btn-primary btn-block" (click)="largeModal.show()">{{Config.button.btn2}}</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div id="c_card" class="card pi-draggable" draggable="true">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">{{Config.label.lbl1}}</label>
+            <div class="col-sm-10">
+              <textarea rows="3" cols="10" type="email" [(ngModel)]="productdata.result" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-default" (click)="result(resultmain)">{{Config.button.btn1}}</button>
+
+
+        </div>
+      </div>
+      <div id="c_card" class="card pi-draggable" draggable="true">
+
+        <div class="card-body">
+          <h4>{{Config.head.headind3}}</h4>
+
+          <p class=" p-y-1">{{Config.label.lbl2}}</p>
+
+          <a id="c_button" class="btn btn-primary pi-draggable" (click)="largeModal.show()" draggable="true">{{Config.button.btn3}} </a>
+
+          <a href="" class="pull-right">{{Config.button.btn4}}</a>
+
+        </div>
+      </div>
+      <div id="c_card" class="card pi-draggable" draggable="true">
+
+        <div class="card-body">
+          <h4>{{Config.head.heading}}</h4>
+
+          <p class=" p-y-1">{{Config.label.lbl2}}</p>
+          <a id="c_button" class="btn btn-primary pi-draggable"  draggable="true">{{Config.button.btn3}}</a>
+          <a href="" class="pull-right">{{Config.button.btn4}}</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
-	<div class="row">
-		<div class="col-md-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<span class="glyphicon glyphicon-comment"></span> Pending Questions
-				</div>
-				<div class="panel-body">
-					<ul class="chat">
-						<li *ngFor="let quest of productdata.question">
-						<div class="left clearfix">
-							<div *ngIf="quest.type=='Q'" class="chat-body clearfix">
-								<div class="header">
-									<strong class="primary-font">Id : {{quest.id}}</strong> 
-									<strong class="primary-font pull-right">Type : {{quest.genre}}</strong> 
-								</div>
-								<p>
-									{{quest.message}}
-								</p>
-								<a class="setflow" (click)="setnext(quest)"><b (click)="nextModal.show()">Set Flow</b></a>
-								<strong class="primary-font pull-right">Answer : {{quest.answertype}}</strong>
-							</div>
-							</div>
-						</li>
-						
-					</ul>
-
-				</div>
-				<div class="panel-footer">
-					<div class="input-group">
-						<button class="btn btn-primary btn-block" (click)="largeModal.show()">Add Question</button>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<div class="col-md-7">
-				<div id="c_card" class="card pi-draggable" draggable="true">
-					<div class="card-header">
-											</div>
-					<div class="card-body">
-						<div class="form-group">
-									      <label class="control-label col-sm-2" for="email">Result</label>
-									      <div class="col-sm-10">
-									        <textarea rows="3" cols="10" type="email" [(ngModel)]="productdata.result" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
-									      </div>
-									    </div>
-									    <button class="btn btn-default" (click)="result(resultmain)">Save</button>
-						
-
-					</div>
-				</div>
-					<div id="c_card" class="card pi-draggable" draggable="true">
-							
-							<div class="card-body">
-								<h4>Intent</h4>
-								
-								<p class=" p-y-1">Some quick example text to build on the card title .</p>
-
-								<a id="c_button" class="btn btn-primary pi-draggable" (click)="largeModal.show()" draggable="true">Add </a>
-
-									<a href="" class="pull-right">View More </a>
-								
-							</div>
-						</div>
-						<div id="c_card" class="card pi-draggable" draggable="true">
-							
-							<div class="card-body">
-								<h4>Context</h4>
-								
-								<p class=" p-y-1">Some quick example text to build on the card title .</p>
-								<a id="c_button" class="btn btn-primary pi-draggable"  draggable="true">Add</a>
-								<a href="" class="pull-right">View More </a>
-							</div>
-						</div>
-			</div>
-
-		</div>
-	</div>
 
 
 
+<!-- =================Modal================== -->
+<div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{Config.head.heading2}}</h4>
+        <button type="button" class="close" (click)="largeModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
-	<div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Add Node</h4>
-					<button type="button" class="close" (click)="largeModal.hide()" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					
-									<div class="form-group">
-										<label >Question Type</label>
-										<select name="type" ngModel (ngModelChange)="getDetail($event)">
-											<option [value]=""></option>
-											<option *ngFor="let event of type" [value]="event.value">{{event.value}}</option>
-										</select>
-									</div>
-									<!-- Start of Question Part with Introduction -->
-									<div *ngIf="tempdata.genre == 'Introduction'" >
-										<form class="form-horizontal" >
-									    <div class="form-group">
-									      <label class="control-label col-sm-2" for="email">Message:</label>
-									      <div class="col-sm-10">
-									        <textarea rows="3" cols="10" type="email" [(ngModel)]="tempdata.message" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
-									      </div>
-									    </div>
-									    <div class="form-group">
-									      <label class="control-label col-sm-2" for="pwd">Answer Type</label>
-									      <div class="col-sm-10">          
-									        <select name="type" ngModel (ngModelChange)="setAnstype($event,tempdata.genre)">
-											<option [value]=""></option>
-											<option *ngFor="let event of ansType" [value]="event.value">{{event.value}}</option>
-										</select>
-									      </div>
-									    </div>
+        <div class="form-group">
+          <label >{{Config.label.lbl3}}</label>
+          <select name="type" ngModel (ngModelChange)="getDetail($event)">
+            <option [value]=""></option>
+            <option *ngFor="let event of type" [value]="event.value">{{event.value}}</option>
+          </select>
+        </div>
+        <!-- Start of Question Part with Introduction -->
+        <div *ngIf="tempdata.genre == 'Introduction'" >
+          <form class="form-horizontal" >
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">{{Config.label.lbl5}}</label>
+              <div class="col-sm-10">
+                <textarea rows="3" cols="10" type="email" [(ngModel)]="tempdata.message" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">{{Config.label.lbl4}}</label>
+              <div class="col-sm-10">          
+                <select name="type" ngModel (ngModelChange)="setAnstype($event,tempdata.genre)">
+                  <option [value]=""></option>
+                  <option *ngFor="let event of ansType" [value]="event.value">{{event.value}}</option>
+                </select>
+              </div>
+            </div>
 
-									    <div *ngIf="tempdata.answertype=='Yes/No'">
-									    									   
-									    <div *ngFor="let flow of tempflow">
-									    	<b class="col-sm-12">If {{flow.answer}}</b>
-									    	<br>
-									    	<div class="form-group">
-									      	<label class="control-label col-sm-2" for="email">Message:</label>
-									     	 <div class="col-sm-10">
-									        <textarea rows="3" cols="10" type="email" [(ngModel)]="flow.message" class="form-control" id="email" placeholder="Enter Message" name="{{flow.answer}}"></textarea>
-									     	 </div>
-									   		 </div>
-									   		 <div class="form-group">
-									      	<label class="control-label col-sm-2" for="email">Exit</label>
-									     	 <div class="col-sm-10">
-									        	<input type="checkbox" name="exit" [(ngModel)]="flow.exit">
-									     	 </div>
-									   		 </div>
-									   	</div>
-									    </div>
-									    <div class="form-group">        
-									      <div class="col-sm-offset-2 col-sm-10">
-									        <button type="submit" class="btn btn-default" (click)="setIntro()"><span (click)="largeModal.hide()">Submit</span></button>
-									      </div>
-									    </div>
-									  </form>
-									</div>
+            <div *ngIf="tempdata.answertype=='Yes/No'">
 
-								<!-- End of Question Part with Introduction -->
-								<!-- Start of Question Part with Conclusion-->
-								<div *ngIf="tempdata.genre == 'Conclusion'" >
-										<form class="form-horizontal" >
-									    <div class="form-group">
-									      <label class="control-label col-sm-2" for="email">Message:</label>
-									      <div class="col-sm-10">
-									        <textarea rows="3" cols="10" type="email" [(ngModel)]="tempdata.message" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
-									      </div>
-									    </div>
-									    <div class="form-group">
-									      <label class="control-label col-sm-2" for="pwd">Answer Type</label>
-									      <div class="col-sm-10">          
-									        <select name="type" ngModel (ngModelChange)="setAnstype($event,tempdata.genre)">
-											<option [value]=""></option>
-											<option *ngFor="let event of ansType" [value]="event.value">{{event.value}}</option>
-										</select>
-									      </div>
-									    </div>
+              <div *ngFor="let flow of tempflow">
+                <b class="col-sm-12">If {{flow.answer}}</b>
+                <br>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">{{Config.label.lbl5}}</label>
+                  <div class="col-sm-10">
+                    <textarea rows="3" cols="10" type="email" [(ngModel)]="flow.message" class="form-control" id="email" placeholder="Enter Message" name="{{flow.answer}}"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">{{Config.label.lbl6}}</label>
+                  <div class="col-sm-10">
+                    <input type="checkbox" name="exit" [(ngModel)]="flow.exit">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">        
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default" (click)="setIntro()"><span (click)="largeModal.hide()">{{Config.button.btn5}}</span></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- End of Question Part with Introduction -->
 
-									    <div *ngIf="tempdata.answertype=='Yes/No'">
-									    									   
-									    <div *ngFor="let flow of tempflow">
-									    	<b class="col-sm-12">If {{flow.answer}}</b>
-									    	<br>
-									    	<div class="form-group">
-									      	<label class="control-label col-sm-2" for="email">Message:</label>
-									     	 <div class="col-sm-10">
-									        <textarea rows="3" cols="10" type="email" [(ngModel)]="flow.message" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
-									     	 </div>
-									   		 </div>
-									   		 <div class="form-group">
-									      	<label class="control-label col-sm-2" for="email">Exit</label>
-									     	 <div class="col-sm-10">
-									        	<input type="checkbox" name="exit" [(ngModel)]="flow.exit">
-									     	 </div>
-									   		 </div>
-									   		 <div class="form-group">
-									      	<label class="control-label col-sm-2" for="email">Trigger Result</label>
-									     	 <div class="col-sm-10">
-									        	<input type="checkbox" name="exit" [(ngModel)]="flow.result">
-									     	 </div>
-									   		 </div>
-									   	</div>
-									    </div>
-									    <div class="form-group">        
-									      <div class="col-sm-offset-2 col-sm-10">
-									        <button type="submit" class="btn btn-default" (click)="setIntro()"><span (click)="largeModal.hide()">Submit</span></button>
-									      </div>
-									    </div>
-									  </form>
-									</div>
-								<!-- End of Question Part with Conclusion-->
-									<div *ngIf="tempdata.genre == 'Question'">
-										<form class="form-horizontal" >
-									    <div class="form-group">
-									      <label class="control-label col-sm-2" for="email">Message:</label>
-									      <div class="col-sm-10">
-									        <textarea rows="3" cols="10" type="email" [(ngModel)]="tempdata.message" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
-									      </div>
-									    </div>
-									    <div class="form-group">
-									      <label class="control-label col-sm-2" for="pwd">Answer Type</label>
-									      <div class="col-sm-10">          
-								<select name="type" ngModel (ngModelChange)="setAnstype($event,tempdata.genre)">
-											<option [value]=""></option>
-											<option *ngFor="let event of ansType" [value]="event.value">{{event.value}}</option>
-										</select>
-									      </div>
-									    </div>
-									     <div class="form-group" *ngIf="tempdata.answertype == 'MCQ'">
-									      <label class="control-label col-sm-2" for="email">Option:</label>
-									      <div class="col-sm-10">
-									       <div class="input-group" *ngFor="let opt of tempdata.option">
-									       <span class="input-group-addon" id="basic-addon2">{{opt.id}}</span>
-											  <input type="text" class="form-control" placeholder="Option" name="{{opt.id}}" [(ngModel)]="opt.value">
-											  <span class="input-group-addon" id="basic-addon2">Delete</span>
-											</div>
-											<button class="btn btn-default" (click)="addOption()">Add Option</button>
-									      </div>
-									    </div>
-									    <div class="form-group">        
-									      <div class="col-sm-offset-2 col-sm-10">
-									        <button type="submit" class="btn btn-default" (click)="setQuestion()"><span (click)="largeModal.hide()">Submit</span></button>
-									      </div>
-									    </div>
-									  </form>
-									</div>
-							
-			</div>
-			<div class="modal-footer">
-			
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
+        <!-- Start of Question Part with Conclusion-->
+        <div *ngIf="tempdata.genre == 'Conclusion'" >
+          <form class="form-horizontal" >
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">{{Config.label.lbl5}}</label>
+              <div class="col-sm-10">
+                <textarea rows="3" cols="10" type="email" [(ngModel)]="tempdata.message" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">{{Config.label.lbl4}}</label>
+              <div class="col-sm-10">          
+                <select name="type" ngModel (ngModelChange)="setAnstype($event,tempdata.genre)">
+                  <option [value]=""></option>
+                  <option *ngFor="let event of ansType" [value]="event.value">{{event.value}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div *ngIf="tempdata.answertype=='Yes/No'">
+
+              <div *ngFor="let flow of tempflow">
+                <b class="col-sm-12">If {{flow.answer}}</b>
+                <br>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">{{Config.label.lbl5}}</label>
+                  <div class="col-sm-10">
+                    <textarea rows="3" cols="10" type="email" [(ngModel)]="flow.message" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">{{Config.label.lbl6}}</label>
+                  <div class="col-sm-10">
+                    <input type="checkbox" name="exit" [(ngModel)]="flow.exit">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">Trigger Result</label>
+                  <div class="col-sm-10">
+                    <input type="checkbox" name="exit" [(ngModel)]="flow.result">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">        
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default" (click)="setIntro()"><span (click)="largeModal.hide()">{{Config.button.btn5}}</span></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- End of Question Part with Conclusion-->
+        <div *ngIf="tempdata.genre == 'Question'">
+          <form class="form-horizontal" >
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">{{Config.label.lbl5}}</label>
+              <div class="col-sm-10">
+                <textarea rows="3" cols="10" type="email" [(ngModel)]="tempdata.message" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">{{Config.label.lbl4}}</label>
+              <div class="col-sm-10">          
+                <select name="type" ngModel (ngModelChange)="setAnstype($event,tempdata.genre)">
+                  <option [value]=""></option>
+                  <option *ngFor="let event of ansType" [value]="event.value">{{event.value}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="tempdata.answertype == 'MCQ'">
+              <label class="control-label col-sm-2" for="email">{{Config.label.lbl7}}</label>
+              <div class="col-sm-10">
+               <div class="input-group" *ngFor="let opt of tempdata.option">
+                 <span class="input-group-addon" id="basic-addon2">{{opt.id}}</span>
+                 <input type="text" class="form-control" placeholder="Option" name="{{opt.id}}" [(ngModel)]="opt.value">
+                 <span class="input-group-addon" id="basic-addon2">{{Config.sp.del}}</span>
+               </div>
+               <button class="btn btn-default" (click)="addOption()">{{Config.button.btn6}}</button>
+             </div>
+           </div>
+           <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default" (click)="setQuestion()"><span (click)="largeModal.hide()">{{Config.button.btn5}}</span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 
-
+<!-- ===============Modal=================== -->
 <div bsModal #nextModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header" *ngIf="nextquestion">
-					<h4 class="modal-title">Answer Type : {{nextquestion.answertype}}</h4>
-					<button type="button" class="close" (click)="nextModal.hide()" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-				<div class="row">
-				<div class="col-md-4 select_join">
-					<select [(ngModel)]="input">
-						<option value=""></option>
-						<option *ngFor="let ans of answerarr" value="{{ans}}">{{ans}}</option>
-					</select>
-					</div>
-					<div class="col-md-4 select_join">
-					<select id="solflow" [(ngModel)]="next">
-						<option value=""></option>
-						<option *ngFor="let quest of questionarr" value="{{quest.id}}">{{quest.id}} - {{quest.message}} -- {{quest.genre}}</option>
-					</select>
-					</div>
-					<div class="col-md-4">
-						<button class="btn btn-default" (click)="addanswerflow(input,next)">Add flow</button>
-					</div>
-				</div>
-				<br>
-				<div class="row">
-				<table class="col-sm-10 table" *ngIf="answerflow.length >0">
-					<tr>
-						<th>S.No.</th>
-						<th>Input Answer</th>
-						<th>Next Question</th>
-					</tr>
-					<tr *ngFor="let row of answerflow;let i=index">
-					<td>{{i+1}}</td>
-						<td>{{row.input}}</td>
-						<td>{{row.next}}</td>
-					</tr>
-				</table>
-				</div>
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-default" (click)="arrangeAnswer()"><span (click)="nextModal.hide()">Submit</span></button>
-				</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" *ngIf="nextquestion">
+        <h4 class="modal-title">{{Config.head.heading}} {{nextquestion.answertype}}</h4>
+        <button type="button" class="close" (click)="nextModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 select_join">
+            <select [(ngModel)]="input">
+              <option value=""></option>
+              <option *ngFor="let ans of answerarr" value="{{ans}}">{{ans}}</option>
+            </select>
+          </div>
+          <div class="col-md-4 select_join">
+            <select id="solflow" [(ngModel)]="next">
+              <option value=""></option>
+              <option *ngFor="let quest of questionarr" value="{{quest.id}}">{{quest.id}} - {{quest.message}} -- {{quest.genre}}</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-default" (click)="addanswerflow(input,next)">{{Config.button.btn7}}</button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <table class="col-sm-10 table" *ngIf="answerflow.length >0">
+            <tr>
+              <th>{{Config.tabel.tb1}}</th>
+              <th>{{Config.tabel.tb2}}</th>
+              <th>{{Config.tabel.tb3}}</th>
+            </tr>
+            <tr *ngFor="let row of answerflow;let i=index">
+              <td>{{i+1}}</td>
+              <td>{{row.input}}</td>
+              <td>{{row.next}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-default" (click)="arrangeAnswer()"><span (click)="nextModal.hide()">{{Config.button.btn5}}</span></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

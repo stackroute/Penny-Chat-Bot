@@ -14,7 +14,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   answer:any;
-  question:any=[];
+  question:any[]=[];
   res: any;
   ref:any;
   rep:any;
@@ -40,14 +40,16 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   ngOnInit() { //introduction message to start the chat
     let value;
     value = JSON.parse(localStorage.getItem("Userdata"));
-    console.log(value.data.name);
-    
     this.scrollToBottom();
+    this.getquestion();
+    setTimeout(() =>{
       let temp = {
     bot : "Hi "+value.data.name+"! How may I Help You?"
   }
   this.question.push(temp);
-  
+  console.log(this.question);
+    },1000)
+
   }
 
   ngAfterViewChecked() {
@@ -83,7 +85,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
           bot : res.message[0].message
         }
       this.question.push(temp);  
-       this.getquestion();
         console.log(this.question);
       }
     }
@@ -134,6 +135,8 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
 judge(ans) {  //pushing the message to the chat application
   this.question[this.question.length-1].user = ans;
+  this.questiontemp = this.question[this.question.length -1];
+  this.getquestion();
   this.fetch(ans);
 }
 
@@ -196,12 +199,13 @@ setfollowup(question) {   // pushing data to chat based on type
   }
 }
 
+questiontemp:any ;
 
 getquestion() {   
-  console.log("result",this.question);
-  this.chatService.getquestions(this.question)
+  console.log("result",this.questiontemp);
+  this.chatService.getquestions(this.questiontemp)
       .subscribe((res)=>{
-        this.rep=res;
+        this.question=res.data;
         console.log('+++++++++++++++++++++++++++++++',res);
 })
 }

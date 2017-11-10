@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {config} from '../../config/app.config';
+import { urlConfig } from '../../config/url.config';
 
 @Injectable()
 
@@ -12,71 +13,75 @@ export class ContextService {
 
   constructor(private http:Http) { }
 
-  url:string=config.ip+"/addcontext";
-  urlIntent:string=config.ip+"/train_intent";
-  urlContext:string=config.ip+"/train_intent/getContext";
-  createContextUrl : string = config.ip+"/addcontext";
-
+/*=================fetching intents==================*/
   getIntent():Observable<any> {
-    return this.http.get(this.urlIntent)
+    let urlIntent=config.ip+urlConfig.AdminContextgetIntent;
+    return this.http.get(urlIntent)
     .map((res:Response)=>{
       return res.json();
     })
-
   }
+
+/*===============fetching all context===================*/  
   getAllContext():Observable<any> {
-    return this.http.get(this.urlContext)
+    let urlContext=config.ip+urlConfig.AdminContextgetAllContext;
+    return this.http.get(urlContext)
     .map((res:Response)=>{
-      console.log('contexts',res.json());
       return res.json();
     })
   }
 
+/*===============adding new context===================*/  
   addContext(intent):Observable<any> {
-  	return this.http.post(this.url,{data:intent})
-  	.map((res:Response)=>{
-  		return res.json();
-  	})
+    let url=config.ip+urlConfig.AdminContextaddContext;
+    return this.http.post(url,{data:intent})
+    .map((res:Response)=>{
+      return res.json();
+    })
   }
 
+/*===============adding synonyms to context===================*/  
   addSynonym(data): Observable<any> {
+    let url=config.ip+urlConfig.AdminContextaddSynonym;
     return this.http
-    .put(this.url,{data: data})
+    .put(url,{data: data})
     .map((res: Response)=>{
       return res.json()
     })
   }
 
+/*===============adding new context===================*/
   submitContext(context:any,completeContext:any,synonym:any, selectedContext:any):Observable<any> {
+    let  createContextUrl= config.ip+urlConfig.AdminContextsubmitContext;
     let createContext = {
       context : context,
       completeContext : completeContext,
       synonym : synonym,
       selectedContext : selectedContext
     }
-    console.log('createContext in service',createContext);
-    return this.http.post(this.createContextUrl,createContext)
+    return this.http.post(createContextUrl,createContext)
     .map((res:Response)=>{
-      console.log('contexts',res.json());
       return res.json();
     })
   }
 
- /*=======================fetch flow =================================*/
-   url3:string=config.ip+"/followup"
+  /*=======================fetch flow =================================*/
+  
 
   fetchflow(): Observable<any> {
-      return this.http
-      .get(this.url3)
-      .map((res: Response)=> res.json())
-    }
+    let url3=config.ip+urlConfig.AdminContextfetchflow;
+    return this.http
+    .get(url3)
+    .map((res: Response)=> res.json())
+  }
 
 
-    /*========================add flow task =====================*/
-    
-    addflowtask(flowname):Observable<any> {
-      return this.http
-      .post(config.ip+"/addflowContext",{flow : flowname})
-      .map((res:Response)=>res.json());
-    }
+  /*========================add flow task =====================*/
+
+  addflowtask(flowname):Observable<any> {
+    let addflowtaskurl=config.ip+urlConfig.AdminContextaddflowtask;
+    return this.http
+    .post(addflowtaskurl,{flow : flowname})
+    .map((res:Response)=>res.json());
+  }
 }

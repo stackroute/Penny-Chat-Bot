@@ -15,94 +15,75 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { CreateFlowService } from './create-flow.service';
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import swal from 'sweetalert2';
+import {testConfig } from './create-flow.config' ;
 
 describe('CreateFlow Component', () => {
-let component: CreateFlowComponent;
-let fixture: ComponentFixture<CreateFlowComponent>;
- let service : any;
- let data:any;
-   let router = {
-  navigate: jasmine.createSpy('navigate')
-}
+  let component: CreateFlowComponent;
+  let fixture: ComponentFixture<CreateFlowComponent>;
+  let service : any;
+  let data:any;
+  let router = {
+    navigate: jasmine.createSpy('navigate')
+  }
 
-
-beforeEach(async(() => {
-  TestBed.configureTestingModule({
-    imports : [
-    ModalModule.forRoot(),TabsModule.forRoot(),
-    FormsModule, HttpModule, RouterTestingModule
-    ],
-    declarations: [ CreateFlowComponent],
-    providers : [
-    { provide : CreateFlowService },
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports : [
+      ModalModule.forRoot(),TabsModule.forRoot(),
+      FormsModule, HttpModule, RouterTestingModule
+      ],
+      declarations: [ CreateFlowComponent],
+      providers : [
+      { provide : CreateFlowService },
       { provide: Router, useValue: router },
-    MockBackend,
-    BaseRequestOptions,
-    {
-      provide: Http,
-      deps: [MockBackend, BaseRequestOptions],
-      useFactory:
-      (backend: XHRBackend, defaultOptions: BaseRequestOptions) => {
-        return new Http(backend, defaultOptions);
+      MockBackend,
+      BaseRequestOptions,
+      {
+        provide: Http,
+        deps: [MockBackend, BaseRequestOptions],
+        useFactory:
+        (backend: XHRBackend, defaultOptions: BaseRequestOptions) => {
+          return new Http(backend, defaultOptions);
+        }
       }
-    }
-    ],      
-    schemas: [ NO_ERRORS_SCHEMA ]
+      ],      
+      schemas: [ NO_ERRORS_SCHEMA ]
+    })
+    .compileComponents();
+    fixture = TestBed.createComponent(CreateFlowComponent);
+    component = fixture.componentInstance;
+    service = fixture.debugElement.injector.get(CreateFlowService);
+
+  }));
+
+/*======================component exists========================*/
+  it('should create', () => {
+    expect(component).toBeTruthy();
   })
-  .compileComponents();
-  fixture = TestBed.createComponent(CreateFlowComponent);
-  component = fixture.componentInstance;
-  service = fixture.debugElement.injector.get(CreateFlowService);
-
-}));
-
-it('should create', () => {
-  expect(component).toBeTruthy();
-})
 
 
-//=============positive testcase get content ==================================
+  //=============positive testcase get content ==================================
   it( "positive get content testcase", () => {
-    let mockResponse1:any={
-      task:"aish",
-      _id:"5a017fde72ab183f986f1d28"
-
-    }
-   const spy = spyOn(service, 'fetch' ).and.returnValue(
-     Observable.of(mockResponse1)
-     )
-   //console.log('000000000000000000000000',component)
-  //  fixture.detectChanges();
-   fixture.whenStable().then(() => {
-     component.getcontent();
-   console.log('00',component)
-    expect(component.item).toEqual(mockResponse1);
-   
-   })
- });
+    let mockResponse1:any=testConfig.mockResponse1;
+    const spy = spyOn(service, 'fetch' ).and.returnValue(
+      Observable.of(mockResponse1)
+      )
+    fixture.whenStable().then(() => {
+      component.getcontent();
+      expect(component.item).toEqual(mockResponse1);
+    })
+  });
 
 
   //=============negative testcase get content ==================================
   it( "negative get content testcase", () => {
-    let mockResponse1:any={
-      task:"aish",
-      _id:"5a017fde72ab183f986f1d28"
-
-    }
-   const spy = spyOn(service, 'fetch' ).and.returnValue(
-     Observable.of(mockResponse1)
-     )
-   //console.log('000000000000000000000000',component)
-  //  fixture.detectChanges();
-   fixture.whenStable().then(() => {
-     component.getcontent();
-   console.log('00',component)
-    expect(component.item).not.toEqual(null);
-   
-   })
- });
-
-
-
-
+    let mockResponse1:any=testConfig.mockResponse1;
+    const spy = spyOn(service, 'fetch' ).and.returnValue(
+      Observable.of(mockResponse1)
+      )
+    fixture.whenStable().then(() => {
+      component.getcontent();
+      expect(component.item).not.toEqual(null);
+    })
+  });
 });

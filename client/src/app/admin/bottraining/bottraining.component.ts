@@ -182,27 +182,34 @@ export class BottrainingComponent implements OnInit {
     })    
   }
 //When called function sets the synonyms of intent to the selected word from the unanswered question  
-  setSynonym(intent){
-    this.bottrainingservice.setSynonym(intent,this.val)
-    .subscribe(res=>{    
-      this.ref=res;
-      this.getQues(this.newgetQuestion);
-      this.relatedentity(this.selectedItemsIntent[0]);
-      alert('added succesfully');
-    })
-  }
+setSynonym(intent){
+  this.bottrainingservice.setSynonym(intent,this.val)
+  .subscribe(res=>{    
+    this.ref=res;
+    this.getQues(this.newgetQuestion);
+    this.relatedentity(this.selectedItemsIntent[0]);
+    swal(
+      'Add successfully',
+      'success'
+      )
+  })
+}
 //When called function sets the synonym of the contexts to the seleted word from the unanswered question  
-  contextSynonym(context){
-    console.log('############',context);
-    this.bottrainingservice.contextSynonym(context,this.val)
-    .subscribe(res =>{
-      alert('added successfully');
-      this.getQues(this.newgetQuestion);
+contextSynonym(context){
+  console.log('############',context);
+  this.bottrainingservice.contextSynonym(context,this.val)
+  .subscribe(res =>{
+    swal(
+      'Add successfully',
+      'success'
+      )
+    this.getQues(this.newgetQuestion);
     //  this.relatedentity(this.selectedItemsIntent[0]);
-      this.selectedItemsContext = [];
-      this.ref=res
-      console.log('**************888',res);
-    })
+    this.selectedItemsContext = [];
+    this.ref=res
+
+    console.log('**************888',res);
+  })
   }
 //This fnction allows the admin to add any unanswered question
   sendques(question){
@@ -259,7 +266,7 @@ export class BottrainingComponent implements OnInit {
       })
     }
     else{
-      alert('Already existing prority');
+      swal('Already existing prority','error');
     }
   }
 //This function is used to add synonym to the newly created intent
@@ -284,7 +291,7 @@ export class BottrainingComponent implements OnInit {
           this.refer=ref;
           this.priority="";
           this.temp = "";
-          alert('add succesfully')
+         swal('',"Successfully Added",'success');
           this.router.navigateByUrl('/admin/trainingbot');
         }    
       })
@@ -322,6 +329,7 @@ export class BottrainingComponent implements OnInit {
       labelname : this.addintent,
       word:this.temp
     }
+    console.log(" " , data)
     this.bottrainingservice.suggest(data)
     .subscribe((ref)=>{
       this.synres=ref;
@@ -342,6 +350,7 @@ export class BottrainingComponent implements OnInit {
       this.correspondSynonym = [];
       this.intentname = "";
       this.getIntent();
+      swal('',"Successfully Deleted",'success');
     })
   }
   //This function remove the question from the table once the admin has answered 
