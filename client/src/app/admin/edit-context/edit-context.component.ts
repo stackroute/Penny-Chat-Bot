@@ -107,6 +107,7 @@ export class EditContextComponent implements OnInit {
 /*======================seleted context from Dropdown========================*/
   onItemSelectContext(item:any){ 
     this.intents = [];
+    this.intentData = [];
     this.contextval=item;
     this.getContextLabel=item.label;
     this.getContextName=item.itemName;
@@ -239,5 +240,11 @@ addMoreSynonym(syn){
      })
    })
  }
+
+ /*================ method call when context is deselected from multi dropdown ==============*/
+
+OnItemDeSelectContext(item:any) {
+  this.contextval = null;
+}
 
 }

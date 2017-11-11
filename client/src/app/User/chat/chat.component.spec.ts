@@ -65,7 +65,6 @@ describe('Chat  Component', () => {
     const spy = spyOn(service,'getquestions').and.returnValue(
       Observable.of(mockResponse)
       )
-    console.log('------------------------------',component.ref);
     component.getquestion();
     fixture.whenStable().then( ()=> {
       expect(component.rep).toEqual(mockResponse);
@@ -91,7 +90,6 @@ describe('Chat  Component', () => {
       )
     component.unansweredquestion();
     fixture.whenStable().then( ()=> {
-      console.log(component.rep);
       expect(component.rep.ok).toEqual(1);
     })   
   });
@@ -105,7 +103,6 @@ describe('Chat  Component', () => {
       )
     component.unansweredquestion();
     fixture.whenStable().then( ()=> {
-      console.log(component.rep);
       expect(component.rep.ok).not.toEqual(0);
     })   
   });

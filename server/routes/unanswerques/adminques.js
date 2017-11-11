@@ -7,7 +7,7 @@ router.post('/', function(req, res) {
   
   demo.find((err,data)=> {
     
-    if(data.length === 0) {
+    if(data.length == 0) {
       
       demo.insertMany({questions : [req.body]},(err,data)=> {
         if(err) {

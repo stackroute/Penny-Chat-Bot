@@ -1,14 +1,14 @@
 export const urlConfig= {
 	
 	/*===========User chat=========*/
-	UserChatFetchUrl:"/answerbot",
+	UserChatfetch:"/answerbot",
 	UserChatgetSentiment:"/sentiment",
 	UserChatforceLogout:"/forceLogout",
-	UserCahtgetquestions:"/ques_ans",
+	UserChatgetquestions:"/ques_ans",
 	UserChattriggerfollowup:"/followup/selectfollow",
 	UserChatnextfollowup:"/followup",
-	UserChatchecklink:'/referlink',
-	UserChatunansweredquestion:"/answerbot/unanswerQues",
+	UserChatchecklink:"/answerbot/referlink",
+	UserChatunansweredquestion:"/unques",
 	
 	/*=============Admin Add Task================*/
 	AdminAddTaskSubmit:"/addtask",
