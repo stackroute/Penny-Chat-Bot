@@ -49,7 +49,7 @@ describe('RedirectComponent', () => {
     fixture = TestBed.createComponent(RedirectComponent);
     comp = fixture.componentInstance;
     service = fixture.debugElement.injector.get(RedirectService);
-    mockActivatedRoute.testParams={id:"59c38de81f0a19213741e83d"}
+    mockActivatedRoute.testParams=testConfig.id.id;
   }));
 
 
