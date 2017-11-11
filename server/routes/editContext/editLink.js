@@ -4,7 +4,7 @@ const neo4j = require('neo4j-driver').v1;
 import staticconfig from './Config';
 import config from '../../config/config';
 import logger from '../../log4js';
-
+import editFlow from './editflow';
 
 const driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.neo4jurlpassword));
 
@@ -43,7 +43,7 @@ let intent=[];
 			})
 		}
 
-
+    editFlow(completeContext,context);
 if((videoLink.length!=0||videoLink.length==0)&&(blogLink.length!=0||blogLink.length==0)&&(con.value!=undefined))
 
 {

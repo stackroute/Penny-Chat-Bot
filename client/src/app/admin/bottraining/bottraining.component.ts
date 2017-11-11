@@ -58,6 +58,7 @@ export class BottrainingComponent implements OnInit {
   dropdownSettingsIntent:any = {};
   dropdownSettingsContext:any={};
   selectedItemsContext:any=[];
+  
   constructor(private bottrainingservice:BottrainingService, private router: Router) { }
   ngOnInit() {
     //Value selection in dropdown in intent
@@ -103,13 +104,16 @@ export class BottrainingComponent implements OnInit {
   getunanswer(){
     this.bottrainingservice.getunanswer()
     .subscribe((res)=>{
-      this.arr = [];
+      if(res.length > 0) {
+        this.arr = [];
       this.ref=res[0].questions;
       res[0].questions.map((ques)=>{
         this.arr.push(ques.question)
       })
+      }
     })
   }
+
   //Displays the selected quesion in the table
   getQues(ques){                        
     this.newgetQuestion = ques;

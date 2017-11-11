@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
-import {DashboardService} from './dashboard.service';
 import { Config } from './dashboard_en_config';
 
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
-  providers: [DashboardService]
+  styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+
+export class DashboardComponent { 
+  Config:any=Config;
+  constructor(){};
+  ngOnInit(){};
+
+}
+/*export class DashboardComponent implements OnInit {
   Config:any=Config;
   ref:any={};
   arr:any=[];
@@ -47,12 +52,14 @@ resp:any;
 
   constructor(private dashboardservice:DashboardService, private router: Router) { }
 
+//----------ngOnInIt-------------
   ngOnInit() {
     this.getunanswer();
     this.getIntent();
     this.getContext();
   }
 
+//----------getunanswer method-------------
   getunanswer(){
     this.dashboardservice.getunanswer()
     .subscribe((res)=>{
@@ -64,14 +71,13 @@ resp:any;
       })
     })
   }
+
+//----------getQues method------------
 getQues(ques){
 
    this.dashboardservice.getQues(ques).subscribe((res)=>{
      this.tableData = [];
-    // console.log(res[0].word);
-
      res.map((data)=>{
-       //console.log(data);
        if(data.word == "")
          this.word = "Not Found";
        else
@@ -156,10 +162,7 @@ setSynonym(intent){
 }
 
 contextSynonym(context){
- /* this.tableData.map((data)=>{
-    console.log(data.type)
 
-  })*/
  console.log(this.tableData);
   this.dashboardservice.contextSynonym(this.contexttype,this.val)
   .subscribe(res =>{
@@ -228,4 +231,4 @@ select(val){
   this.temp=val;
   this.main.push(val);
 }
-}
+}*/

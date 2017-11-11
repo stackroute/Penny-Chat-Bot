@@ -6,7 +6,7 @@ import staticconfig from './Config';
 import logger from '../../log4js';
 
 router.post('/', function(req, res) {
-  
+
   let data = req.body.question;
   if(data != undefined) {
     demo.update({email : req.body.email},
