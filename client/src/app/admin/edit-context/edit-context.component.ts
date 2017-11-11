@@ -255,7 +255,7 @@ OnItemDeSelectContext(item:any) {
   this.contextval = null;
 }
 
-//funtion to fetch flows
+//==========funtion to fetch flows============//
  getcontent() {
    this.editContextService.fetchflow()
    .subscribe((data) => {
@@ -265,13 +265,13 @@ OnItemDeSelectContext(item:any) {
      })
    })
  }
-
+//==================method to delete existing flow=============//
  deleteFlow(index) {
    this.intentData[index].deleteFlow = true;
    this.intentData[index].hiddenFlow  = this.intentData[index].flow;
    this.intentData[index].flow = null;
  }
-
+//===============method to set the delete flow as false===========//
  undeleteFlow(index) {
    console.log("delete undo",this.intentData[index].deleteFlow);
    
