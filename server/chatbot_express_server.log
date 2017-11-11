@@ -18,3 +18,28 @@
 [2017-11-11 15:17:01.116] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
 [2017-11-11 15:17:01.124] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
 [2017-11-11 15:17:01.183] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:38:09.665] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 15:38:16.427] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-11 15:38:56.286] [INFO] chatbot_express_server - Error in Sending Mail.
+[2017-11-11 15:39:07.042] [INFO] chatbot_express_server - verified
+[2017-11-11 15:39:14.252] [INFO] chatbot_express_server - Successfull Login
+[2017-11-11 15:39:25.805] [INFO] chatbot_express_server - data found
+[2017-11-11 15:39:45.634] [INFO] chatbot_express_server - Success
+[2017-11-11 15:39:59.933] [INFO] chatbot_express_server - Success
+[2017-11-11 15:40:59.748] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 15:41:21.500] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-11 15:41:30.172] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-11 15:41:52.444] [INFO] chatbot_express_server - Password successfully updated.
+[2017-11-11 15:42:05.591] [INFO] chatbot_express_server - failure in /warning_page route
+[2017-11-11 15:42:05.666] [INFO] chatbot_express_server - Sorry, verification failed in /verify_user route
+[2017-11-11 15:42:13.951] [INFO] chatbot_express_server - failure in /warning_page route
+[2017-11-11 15:42:14.035] [INFO] chatbot_express_server - Sorry, verification failed in /verify_user route
+[2017-11-11 15:43:54.214] [INFO] chatbot_express_server - failure in /warning_page route
+[2017-11-11 15:43:54.234] [INFO] chatbot_express_server - Sorry, verification failed in /verify_user route
+[2017-11-11 15:43:54.826] [INFO] chatbot_express_server - failure in /warning_page route
+[2017-11-11 15:43:54.846] [INFO] chatbot_express_server - Sorry, verification failed in /verify_user route
+[2017-11-11 15:44:15.865] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-11 15:44:24.865] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-11 15:44:38.978] [INFO] chatbot_express_server - Password successfully updated.
+[2017-11-11 15:44:47.898] [INFO] chatbot_express_server - failure in /warning_page route
+[2017-11-11 15:44:47.985] [INFO] chatbot_express_server - Sorry, verification failed in /verify_user route
