@@ -111,13 +111,15 @@ export class BottrainingComponent implements OnInit {
     this.bottrainingservice.getunanswer()
     .subscribe((res)=>{
       console.log("dfdsfsd fdsa sdfsda fsdfsd     "       ,    res    );
-      this.arr = [];
+      if(res.length > 0) {
+        this.arr = [];
       this.ref=res[0].questions;
       console.log("gfsdgsdfgedsgfsdfsdf ",this.ref);
       res[0].questions.map((ques)=>{
         console.log("dfsfdasfsadsacash   "  ,  ques  )
         this.arr.push(ques.question)
       })
+      }
     })
   }
   //Displays the selected quesion in the table

@@ -47,39 +47,22 @@
                    <div *ngIf="ans.image">
                      <img src="{{ans.image}}">
                    </div>
-                   <small class="pull-right text-muted"><i class="fa fa-clock-o">12 mins ago</i> </small>
+                   <!-- <small class="pull-right text-muted"><i class="fa fa-clock-o">12 mins ago</i> </small> -->
                    <div class="example-sidenav-content">
                   </div>
-          
-                <!-- <button type="button" mat-button (click)="sidenav.open()" (click)="next(ans)">
-                  view more
-                  </button> -->
-                 <!--  <div *ngIf="response!=null">
-                    <p>{{response.ogp.ogDescription}}</p>
-                    <p><a href={{response.ogp.ogUrl}} target="_blank">Click here to know more</a></p>
-                    <p><b>keywords:</b>{{response.other.keywords}}</p>
-                  </div> -->
-
-
-
-  
-    
-                        
-
-
                    </div>
                 </div>
                </div>
                 <!-- Answers -->
                 <div *ngIf="ans.user">
                   <div class="message-data align-right">
-                   <span class="message-data-name">User</span> <i class="fa fa-circle me"></i>
+                   <span class="message-data-name">{{username}}</span> <i class="fa fa-circle me"></i>
                  </div>
                  <div class="chat-body clearfix">
                    <div class="message me-message float-right">
                    {{ans.user}}
                     
-                    <small class="pull-right text-muted"><i class="fa fa-clock-o"> 13 mins ago</i></small>
+                    <!-- <small class="pull-right text-muted"><i class="fa fa-clock-o"> 13 mins ago</i></small> -->
                   </div>
                 </div>
               </div>

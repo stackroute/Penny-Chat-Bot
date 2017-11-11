@@ -30,6 +30,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   url:any;
   flowanswer:any[] = [];
   id:any;
+  username:any;
   constructor(private chatService:ChatService, private router: Router) { }
 
   scrollToBottom(): void { // scrolling with answers
@@ -40,8 +41,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   ngOnInit() { //introduction message to start the chat
     let value;
     value = JSON.parse(localStorage.getItem("Userdata"));
+    this.username = value.data.name;
     this.scrollToBottom();
-    this.getquestion();
+   // this.getquestion();
     setTimeout(() =>{
       let temp = {
     bot : "Hi "+value.data.name+"! How may I Help You?"
@@ -94,29 +96,11 @@ export class ChatComponent implements OnInit, AfterViewChecked {
         if(data.Counter) {
            this.followup(data.Counter);
         } else if(data.Video) {
-          // for(var property in data.Video){
-          //   if(data.Video.hasOwnProperty(property)){
-          //     if(data.Video[property]=="video"){
-          //       console.log("v",data.Video[property]);
-          //     }else{
-          //     console.log("video",data.Video[property]);
-          //     this.answ.Video = data.Video[property].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-          //     this.videoId.push(this.answ.Video);
-          //     console.log(this.videoId);
-          //     console.log(this.answ.Video[0]);
-          //     }
-          //   }
-          // }
           let video = data.Video.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
             this.videoId.push(video);
-            console.log(this.videoId);
-          // this.answ.Video = data.Video.value2.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-          // this.videoId = this.answ.Video;
-          // console.log(this.answ.Video[1]);
         } else {
           linkend.push(data.Link);
           this.answ.Link = linkend;
-          console.log("kwjvdijjsjndnjjjjjjjjjjj",this.answ.Link);
         }
       })
     })
@@ -126,7 +110,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     }
     this.chatService.nextfollowup(this.maincounter,this.tempfollowquestion,ans)
     .subscribe((res) => {
-      //console.log("next response ------------",res);
       this.setfollowup(res);
     })
   }
@@ -136,7 +119,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 judge(ans) {  //pushing the message to the chat application
   this.question[this.question.length-1].user = ans;
   this.questiontemp = this.question[this.question.length -1];
-  this.getquestion();
+  //this.getquestion();
   this.fetch(ans);
 }
 
@@ -206,7 +189,6 @@ getquestion() {
   this.chatService.getquestions(this.questiontemp)
       .subscribe((res)=>{
         this.question=res.data;
-        console.log('+++++++++++++++++++++++++++++++',res);
 })
 }
 
@@ -219,9 +201,9 @@ next(ans:any){
 }
 
 unansweredquestion(){ //saving unanswered question
-  this.chatService.unansweredquestion(this.answer)
+  this.chatService.unansweredquestion(this.ans)
   .subscribe ((ref)=>{
-      console.log("hey===",ref);
+      
   })
 }
 

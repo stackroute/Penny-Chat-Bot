@@ -13,7 +13,7 @@ export class ChatService {
 	constructor(private http:Http) { }
 
 
-	fetch(answer:any):Observable<any>  {
+	fetch(answer:any):Observable<any>  { //fetch answers
 		console.log("In Service " , answer);
 		console.log(this.url);
 		let userData = JSON.parse(localStorage.getItem('Userdata')).data;
@@ -27,7 +27,7 @@ export class ChatService {
 	}
 
 
-	getSentiment(plan):Observable<any>{
+	getSentiment(plan):Observable<any>{  //getting the sentiment
   let sentimentUrl=config.ip+"/sentiment";
      console.log(plan)
      return this.http.post(sentimentUrl,{plan}).map((res)=>{
@@ -38,7 +38,7 @@ export class ChatService {
  }
 
 
-	forceLogout() {
+	forceLogout() { //forcing logout
 		let url:any = config.ip+"/forceLogout";
 		let userData = JSON.parse(localStorage.getItem('Userdata')).data;
 		let email : string = userData.email;
@@ -50,7 +50,7 @@ export class ChatService {
 		})
 	}
 
-	getquestions(question:any):Observable<any>{
+	getquestions(question:any):Observable<any>{   //getting questions for history
 		console.log("serviceeee",question)
 	let url:any = config.ip+"/ques_ans";
 		let userData = JSON.parse(localStorage.getItem('Userdata')).data;
@@ -59,7 +59,7 @@ export class ChatService {
     .map((res:Response) =><any>res.json());
 	}
 
-	triggerfollowup(counter) : Observable<any> {
+	triggerfollowup(counter) : Observable<any> {   //trigger followup question
 		let url = config.ip+"/followup/selectfollow";
 		return this.http
 		.post(url,{counter : counter})
@@ -67,7 +67,7 @@ export class ChatService {
 	}
 
 
-	nextfollowup(countertype,question,answer):Observable<any> {
+	nextfollowup(countertype,question,answer):Observable<any> { //next followup
 		let main = {
 			countertype : countertype,
 			question  : question,
@@ -79,7 +79,7 @@ export class ChatService {
 		.map((res:Response) => res.json())
 	}
 
-   checklink(answer:any):Observable<any>  {
+   checklink(answer:any):Observable<any>  {   //checking the link
 		console.log("In Service checklink " , answer);
 		console.log(this.url+'/referlink');
 		return this.http
@@ -88,11 +88,11 @@ export class ChatService {
 	    res.json()
 		)
 	}
-	unansweredquestion(answer){
+	unansweredquestion(answer){  //getting unanswered
 		console.log("answerrrr", answer)
-		let url = config.ip+"/answerbot/unanswerQues";
+		let url = config.ip+"/unques";
 			return this.http
-		.post(url,{answer : answer})
+		.post(url,{question : answer})
 		.map((res:Response) => res.json());
 	}
 }

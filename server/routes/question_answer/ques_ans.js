@@ -5,7 +5,6 @@ let demo=require('../../model/register_schema');
 import staticconfig from './staticconfig';
 
 router.post('/', function(req, res) {
-  console.log("sdddddddjjjjjjjjjjjdjjdjdjdj",req.body.question);
   let data = req.body.question;
   if(data != undefined) {
     demo.update({email : req.body.email},
