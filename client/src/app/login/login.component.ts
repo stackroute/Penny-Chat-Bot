@@ -60,10 +60,13 @@ export class LoginComponent implements OnInit {
         }
         return ref;
       }
-      },
+      },(dataError)=>{         /*error handling*/
+       this.alert=2;
+           
+     })
 
 
-   ) }
+    }
   }
   disappear() {
     this.alert = 0;

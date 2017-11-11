@@ -8,6 +8,7 @@ export default {
     btn6:'Add Option',
     btn7:'Add flow'
   },
+  flow:'Test Flow',
   ques:{
     question:'Pending Questions',
     intro:"Introduction",
@@ -59,6 +60,25 @@ export default {
   sp:{
     del:'Delete'
   },
+  instruction:{
+  heading:'INSTRUCTIONS',
+  flow:'RULES FOR TEST FLOW',
+  ins1:'Add Questions ,Introduction And Conclusion',
+  ins2:'You can also select the Answer Type',
+  ins3:'You can also trigger the conslusion ',
+  ins4:'Questions can be Yes/No,MCQ or Number'
+},
+save:{
+intro:"Introduction",
+q:"Q",
+yesorno:"Yes/No",
+conclusion:"Conclusion",
+yes:"Yes",
+no:"No",
+question:"Question",
+mcq:"MCQ",
+
+}
 
 
 }
