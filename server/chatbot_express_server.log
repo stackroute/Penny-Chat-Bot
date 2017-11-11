@@ -10,3 +10,5 @@
 [2017-11-11 16:45:46.954] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
 [2017-11-11 16:45:54.788] [INFO] chatbot_express_server - Success getContextInfo
 [2017-11-11 16:45:54.814] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-11 16:48:33.374] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 16:49:16.866] [INFO] chatbot_express_server - Successfull Login
