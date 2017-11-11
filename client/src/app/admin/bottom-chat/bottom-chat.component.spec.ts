@@ -25,7 +25,6 @@ describe('Chat  Component', () => {
   let router = {
     navigate: jasmine.createSpy('navigate')
   }
-  //let data= {questions:[{question:"what is chutiya?"}]}
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports : [

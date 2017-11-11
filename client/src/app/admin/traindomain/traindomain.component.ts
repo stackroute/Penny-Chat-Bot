@@ -31,7 +31,6 @@ op:any;
       this.value=this.routeparams.params.subscribe((para)=>{ 
       this.productdata.task=para.name;
       this.op = para.op;
-      //console.log("op here",this.op);
       if(this.op == Config.ques.edit) {
         this.editdata(para.name);
       }
@@ -39,9 +38,7 @@ op:any;
   }
 
 editdata(name) {
-  console.log(name);
   this.traindomainService.getdata(name).subscribe((res) => {
-    //console.log("response",res);
     this.productdata = res;
   })
 }
@@ -49,16 +46,12 @@ editdata(name) {
   tempid:any=0;
   tempdata:any = {};
   getDetail(data) {
-    console.log(data);
     if (data==Config.ques.intro) {
       this.tempid = this.setId();
       this.tempdata = {genre : Config.ques.intro, id : this.tempid, type : Config.ques.type1};
-   //  this.setNext();
-      // this.productdata.question.push();
     } else if (data == Config.ques.quest) {
       this.tempid = this.setId();
       this.tempdata = {genre : Config.ques.quest, id : this.tempid, type : Config.ques.type1};
-     // this.setNext();
     } else {
       this.tempid = this.setId();
       this.tempdata = {genre : Config.ques.conclusion, id : this.tempid, type :Config.ques.type1};
@@ -85,7 +78,6 @@ setId() {
 answerflow:any[] = [];
 
 setnext(data) {
-  //console.log("00000000",data);
   this.nextquestion = data;
   this.productdata.question.map((data)=> {
       if(data.genre == Config.ques.quest || data.genre == Config.ques.conclusion) {
@@ -102,7 +94,6 @@ setnext(data) {
     for(let i=1;i<=data.option.length;i++) {
       this.answerarr.push(i);
     }
-   // this.answerarr[this.answerarr.length] = "Remains";
   }
 }
 
@@ -115,15 +106,12 @@ addanswerflow(input,next) {
       input : input,
       next : parseInt(next)
     }
-
-  //console.log("sameplae",sample);
     this.answerflow.push(sample);
     if(input == Config.ques.remain) {
       this.answerarr = [];
     } else  {
     let index = this.answerarr.indexOf(parseInt(input));
 
-    console.log(input,this.answerarr);
             if(index > -1) {
               this.answerarr.splice(index,1);
             }  
@@ -157,10 +145,8 @@ arrangeAnswer() {
       next : data.next
     }
     this.productdata.question.push(sample);
-    console.log(this.productdata)
     }
     })
-    console.log(this.productdata.question);
   }
 }
   this.questionarr = [];
@@ -169,7 +155,6 @@ arrangeAnswer() {
 }
 
   setAnstype(data,main) {
-    //console.log("Answertype",data);
     this.tempdata.answertype = data;
     if(data==Config.ques.yesno && main==Config.ques.intro) {
       let yes =  { id : this.tempid,
@@ -182,7 +167,6 @@ arrangeAnswer() {
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
-      console.log(this.tempflow);
     } else if(data==Config.ques.yesno&& main == Config.ques.quest) {
       let fall = {
         id : this.tempid,
@@ -216,7 +200,6 @@ arrangeAnswer() {
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
-      console.log(this.tempflow);
     }
   }
 
@@ -226,9 +209,7 @@ arrangeAnswer() {
   }
 
   setIntro() {
-    //console.log("skalfjkglfd",this.tempdata);
     this.productdata.question.push(this.tempdata);
-    //console.log("ssssssssss",this.tempflow);
     this.tempflow.map((data) => {
       this.productdata.question.push(data);
     })
@@ -238,15 +219,12 @@ arrangeAnswer() {
 
 
   setQuestion() {
-    //console.log("skalfjkglfd",this.tempdata);
     this.productdata.question.push(this.tempdata);
-    //console.log("ssssssssss",this.tempflow);
     this.tempflow.map((data) => {
       this.productdata.question.push(data);
     })
     this.tempdata = {};
     this.tempflow = [];
-    //console.log(this.productdata.question);
   }
 
 
@@ -257,7 +235,6 @@ arrangeAnswer() {
   save() {
     this.traindomainService.save(this.productdata)
     .subscribe((data) => {
-      //console.log("server",data);
       this.router.navigateByUrl('/admin/createflow');
     })
   }

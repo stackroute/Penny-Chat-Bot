@@ -52,7 +52,7 @@
                 <td>{{data.type}}</td>
                 <td>{{data.typename}}</td>
                 <td *ngIf="data.type=='Not Found' ">
-                  <a class="fa fa-plus-square pi-draggable btn-block icon" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
+                  <a class="fa fa-plus-square pi-draggable btn-block addicon" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
                 </td>
 
                 <td *ngIf="data.type!= 'Not Found'"  class="greentick"> &#x2713;</td>
