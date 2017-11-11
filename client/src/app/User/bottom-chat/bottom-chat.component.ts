@@ -12,12 +12,12 @@ export class BottomChatComponent implements OnInit {
   {
     iconClass: 'fa fa-home',
     label: 'Home',
-    onClick: function() {
+    onClick: ()=> {
       this.router.navigateByUrl('user/dashboardUser');
     }
   },
   {
-    iconClass: 'fa fa-comments',
+    iconClass: 'fa fa-comment',
     label: 'Chat with us',
     onClick: () => {
       this.router.navigateByUrl('user/chat');
@@ -27,7 +27,7 @@ export class BottomChatComponent implements OnInit {
   {
     iconClass: 'fa fa-sign-out',
     label: 'Logout',
-    onClick: function() {
+    onClick: ()=> {
       localStorage.removeItem('Userdata');
       localStorage.removeItem('key');
       localStorage.removeItem('isLoggedin');
@@ -84,7 +84,7 @@ export class BottomChatComponent implements OnInit {
       placment: 'br',
       effect: 'mfb-slidein-spring',
       label: 'main button label',
-      iconClass: 'icon ion-plus-round',
+      iconClass: 'fa fa-bars',
       activeIconClass: 'ion-close-round',
       toggle: 'hover'
     }

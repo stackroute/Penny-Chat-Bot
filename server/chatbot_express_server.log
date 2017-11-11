@@ -1,1 +1,10 @@
-[2017-11-11 14:37:02.175] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 14:40:26.767] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 14:42:42.162] [INFO] chatbot_express_server - undefined
+[2017-11-11 14:43:09.489] [INFO] chatbot_express_server - undefined
+[2017-11-11 14:52:00.131] [INFO] chatbot_express_server - Error in Sending Mail.
+[2017-11-11 14:52:58.378] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-11 14:54:13.146] [INFO] chatbot_express_server - Successfull Login
+[2017-11-11 15:56:58.700] [INFO] chatbot_express_server - undefined
+[2017-11-11 15:57:01.549] [INFO] chatbot_express_server - undefined
+[2017-11-11 16:08:30.774] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-11 16:09:09.717] [INFO] chatbot_express_server - Successfully Verified in /warning_page route

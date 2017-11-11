@@ -8,7 +8,7 @@ export const urlConfig= {
 	UserChattriggerfollowup:"/followup/selectfollow",
 	UserChatnextfollowup:"/followup",
 	UserChatchecklink:"/answerbot/referlink",
-	UserChatunansweredquestion:"/answerbot/unanswerQues",
+	UserChatunansweredquestion:"/unques",
 	
 	/*=============Admin Add Task================*/
 	AdminAddTaskSubmit:"/addtask",
