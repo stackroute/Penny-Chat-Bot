@@ -12,7 +12,7 @@
               <div class="chat-body clearfix">
                 <p *ngFor="let ques of arr">
                   <a (click)="getQues(ques)">{{ques}}</a>
-                  <a><i (click)=deletePendingQuestions(ques) class="fa fa-times" aria-hidden="true" style="float: right;"></i></a>
+                  <a class="queDelete"><i (click)=deletePendingQuestions(ques) class="fa fa-times" aria-hidden="true" style="float: right;"></i></a>
                 </p>
               </div>
             </li>
@@ -43,7 +43,7 @@
                   <th>{{Config.bottraining.Word}}</th>
                   <th>{{Config.bottraining.Type}}</th>
                   <th>{{Config.bottraining.Value}}</th>
-                  <th>{{Config.bottraining.Status}}</th>
+                  <th><!-- {{Config.bottraining.Status}} --></th>
                 </tr>
               </thead>
               <tbody>
@@ -52,10 +52,10 @@
                 <td>{{data.type}}</td>
                 <td>{{data.typename}}</td>
                 <td *ngIf="data.type=='Not Found' ">
-                  <a class=" btn btn-primary pi-draggable btn-block" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)">{{Config.bottraining.Add}}</a>
+                  <a class="fa fa-plus-square pi-draggable btn-block" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
                 </td>
                 <td *ngIf="data.type!= 'Not Found'" style="font-size: 23px;color:#00FF00 "> &#x2713;</td>
-                <td><a (click)="remove(i,data)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                <td><a (click)="remove(i,data)"><i class="fa fa-trash quesDelete" aria-hidden="true"></i></a></td>
               </tr>
               <tr>
                 <td>{{contextWord}}</td>
@@ -96,8 +96,9 @@
           <h4>{{Config.bottraining.ExistingSyn}} {{intentname.itemName}}</h4>
           <span class="disp" *ngFor="let intent of correspondSynonym">
             <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
-              <a>{{intent}}</a>
+              <a class="cross">{{intent}}</a>
               <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
+       
               <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">
                 <a>{{intent}}</a>
                 <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>

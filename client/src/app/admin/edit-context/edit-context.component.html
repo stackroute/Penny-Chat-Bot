@@ -80,14 +80,14 @@
                      
                       <collapsible-list [type]="'accordion'" >
                       <collapsible-list-item>
-                      <collapsible-header class="waves-effect">
+                      <collapsible-header class="waves-effect main-collapsible-header">
                       {{main.name}}
                     </collapsible-header>
                     <collapsible-body [expanded]="true">
 
                     <collapsible-list [type]="'accordion'" >
                     <collapsible-list-item>
-                    <collapsible-header class="waves-effect">
+                    <collapsible-header class="waves-effect collapsible-header">
                     {{Config.html.Description}}
                   </collapsible-header>
                   <collapsible-body [expanded]="true">
@@ -101,7 +101,7 @@
                 </collapsible-body>
               </collapsible-list-item>
               <collapsible-list-item>
-              <collapsible-header class="waves-effect">
+              <collapsible-header class="waves-effect collapsible-header">
               {{Config.html.VideoLink}}
             </collapsible-header>
             <collapsible-body [expanded]="false">
@@ -122,7 +122,7 @@
           </collapsible-body>
         </collapsible-list-item>
         <collapsible-list-item>
-        <collapsible-header class="waves-effect">
+        <collapsible-header class="waves-effect collapsible-header">
        {{Config.html.BlogLink}}
       </collapsible-header>
       <collapsible-body [expanded]="false">

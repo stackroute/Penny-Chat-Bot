@@ -1,6 +1,5 @@
-headingbutton{
-    
-}
+
+
 .chat
 {
     list-style: none;
@@ -74,8 +73,13 @@ headingbutton{
 .btn.btn-block {
     width:50%;
     padding:6px 1px;
-    
 }
+
+.fa.fa-plus-square,.fa.fa-trash {
+     font-size: 140%;
+    color: #375372;
+}
+
 .btn.headingbtn {
     background-color:#375372;
 }
@@ -101,11 +105,11 @@ a {
     text-decoration:none;
 }
 
-.badge.badge-pill.intbadge{
-    background-color:#4F88C5;
-}
 .badge.badge-pill.subintbadge{
-    background-color:#B87736;
+    background-color:#a3586d;
+}
+.badge.badge-pill.intbadge{
+    background-color:#118c8b;
 }
 
 .add {
@@ -120,15 +124,18 @@ a {
     margin-bottom:2%;
     margin-top:2%;
 }
+
 .fa.fa-circle {
     margin-right:2%;
 }
-.int {
-    color:#4F88C5;
+
+.subint {
+    color:#a3586d;
     
 }
-.subint {
-    color:#B87736;
+
+.int {
+    color:#118c8b;
  
     margin-left:6%
 }
@@ -141,6 +148,10 @@ a {
 
  #c_button {
     font-size: inherit;
+}
+
+.queDelete {
+    margin-right:5%;
 }
 
 #btn-chat {
@@ -171,6 +182,9 @@ a {
     transition: all 0.4s ease;
 }
 
+badge.intbadge.badge-pill.text-white{
+   margin-left:2%;
+}
 
 
 @media (min-width: 300px) and (max-width: 1204px) {
@@ -215,3 +229,7 @@ a {
     background-color: #375372;
     border-color: #375372;
 }
+
+.btn-label {position: relative;left: 12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0;}
+.btn { margin-bottom:10px; }

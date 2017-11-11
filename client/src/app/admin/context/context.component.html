@@ -84,7 +84,7 @@
                 <collapsible-list [type]="'accordion'" *ngFor = "let main of selectedIntent;let i=index ">
 
                 <collapsible-list-item>
-                <collapsible-header class="waves-effect">
+                <collapsible-header class="waves-effect main-collapsible-header">
                 {{main.itemName}}
               </collapsible-header>
               <collapsible-body [expanded]="true">
@@ -93,7 +93,7 @@
                 <collapsible-list [type]="'accordion'">
                 <!-- ========= Description of Intents ========= -->
                 <collapsible-list-item>
-                <collapsible-header class="waves-effect">
+                <collapsible-header class="waves-effect collapsible-header">
                 {{Config.html.Description}}
               </collapsible-header>
               <collapsible-body [expanded]="true">
@@ -104,7 +104,7 @@
           </collapsible-list-item>
           <!-- =============adding video links============== -->
           <collapsible-list-item>
-          <collapsible-header class="waves-effect">
+          <collapsible-header class="waves-effect collapsible-header">
           {{Config.html.VideoLink}}
         </collapsible-header>
         <collapsible-body [expanded]="false">
@@ -125,7 +125,7 @@
     </collapsible-list-item>
     <!-- =============adding blog links============= -->
     <collapsible-list-item>
-    <collapsible-header class="waves-effect">
+    <collapsible-header class="waves-effect collapsible-header">
     {{Config.html.BlogLink}}
   </collapsible-header>
   <collapsible-body [expanded]="false">
@@ -146,7 +146,7 @@
 </collapsible-list-item>
 <!-- ==============Adding sub intents============= -->
 <collapsible-list-item>
-<collapsible-header class="waves-effect">
+<collapsible-header class="waves-effect collapsible-header">
 {{Config.html.AddSubIntents}}
 </collapsible-header>
 <collapsible-body [expanded]="false">
@@ -162,7 +162,7 @@
 <!-- ===================Adding flow================== -->
 <collapsible-list-item>
 
-            <collapsible-header class="waves-effect">
+            <collapsible-header class="waves-effect collapsible-header">
             Add Flow
         </collapsible-header>
         <collapsible-body [expanded]="false">
@@ -172,6 +172,7 @@
           <option *ngFor="let flo of flowitem" value="{{flo}}">{{flo}}</option>
         </select>
       </div>
+
     </collapsible-body>
 </collapsible-list-item>
 <!-- ===========end intent============= -->

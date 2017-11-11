@@ -21,6 +21,16 @@ a {
     padding: 10px 15px;
 }
 
+.collapsible-header {
+    background-color: #7a99bc;
+    color: white;
+}
+
+.main-collapsible-header {
+    background-color: #375372;
+    color: white;
+}
+
 @media (min-width: 300px) and (max-width: 1204px) {
 .d-md-down-none{
   display: inline !important;
