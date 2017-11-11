@@ -94,4 +94,15 @@ export class EditContextService {
     .put(url,{context : contextName, completeContext : completeContext })
     .map((res : Response) => res.json());
   }
+
+  /*=======================fetch flow =================================*/
+ 
+   fetchflow(): Observable<any> {
+     let url=config.ip+urlConfig.AdminEditContexttfetchflow;
+     return this.http
+     .get(url)
+     .map((res: Response)=> {
+         console.log("fetch flow",res.json())
+       return res.json()})
+   }
 }

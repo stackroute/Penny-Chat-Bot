@@ -4,7 +4,7 @@ const neo4j = require('neo4j-driver').v1;
 import staticconfig from './Config';
 import config from '../../config/config';
 import logger from '../../log4js';
-
+import editFlow from './editflow';
 
 const driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.neo4jurlpassword));
 
@@ -18,36 +18,34 @@ export default  (req, res)=> {
   let context = req.body.context;
 
   completeContext.map((con) => {
-
+    
     let videoLink=[];
-
+    
     let blogLink=[];
-
+    
     let vid;
     let blog;
     if(con.videoLink != undefined)
     {
      con.videoLink.map(video => {
-
+       
        videoLink.push(video);
      })
    }
 
    if(con.blogLink != undefined)
    {
-
+     
      con.blogLink.map(blog => {
-
+      
        blogLink.push(blog);
-
+       
      })
    }
 
-
+   editFlow(completeContext,context);
    if((videoLink.length!=0||videoLink.length==0)&&(blogLink.length!=0||blogLink.length==0)&&(con.value!=undefined))
-
    {
-
      const resultPromise = session.run(
        'match (a:'+context.label+' {name:"'+context.itemName+'"})-[:'+con.name+']->(b:Attribute {name:"'+con.name+'"})  Set b.value="'+con.value+'" '
 

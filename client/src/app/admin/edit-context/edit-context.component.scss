@@ -21,6 +21,17 @@ a {
     padding: 10px 15px;
 }
 
+.collapsible-header {
+    background-color: #7a99bc;
+    color: white;
+}
+
+.main-collapsible-header {
+    background-color: #375372;
+    color: white;
+}
+
+
 @media (min-width: 300px) and (max-width: 1204px) {
 .d-md-down-none{
   display: inline !important;
@@ -202,3 +213,11 @@ a {
      padding: 12px 12px;
      margin-top: 1%;
  }
+ .btn.btn-primnary.deleteflowbtn {
+   background-color: #375372 ;
+   color: #fff;
+   margin-left: 2%;
+   padding: 12px;
+
+ }
+ 

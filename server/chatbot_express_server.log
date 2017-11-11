@@ -1,1 +1,21 @@
-[2017-11-11 16:13:59.785] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 16:26:17.609] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 16:27:07.843] [INFO] chatbot_express_server - Successfull Login
+[2017-11-11 16:27:23.280] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-11 16:27:42.626] [INFO] chatbot_express_server - Successfull Login
+[2017-11-11 16:29:01.291] [INFO] chatbot_express_server - Successfull Login
+[2017-11-11 16:29:13.450] [INFO] chatbot_express_server - Success
+[2017-11-11 16:29:13.460] [INFO] chatbot_express_server - Success
+[2017-11-11 16:29:13.478] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:29:13.482] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:29:13.518] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:29:13.522] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:29:13.543] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:29:13.568] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:29:55.656] [INFO] chatbot_express_server - Success
+[2017-11-11 16:29:55.674] [INFO] chatbot_express_server - Success
+[2017-11-11 16:29:55.680] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:29:55.683] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:29:55.713] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:29:55.720] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:29:55.765] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:29:55.816] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
