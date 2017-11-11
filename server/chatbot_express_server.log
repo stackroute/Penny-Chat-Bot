@@ -1,0 +1,8 @@
+[2017-11-11 16:02:08.621] [INFO] chatbot_express_server - Successfull Login
+[2017-11-11 16:02:26.468] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:02:26.470] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:02:33.000] [INFO] chatbot_express_server - Success
+[2017-11-11 16:16:00.742] [INFO] chatbot_express_server - Successfull Login
+[2017-11-11 16:16:14.431] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:16:14.441] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:16:29.594] [INFO] chatbot_express_server - Success

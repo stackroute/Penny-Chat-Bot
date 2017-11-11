@@ -1,7 +1,7 @@
 module.exports={
 	secret : 'nodeauthsecret',
 	url : 'mongodb://localhost:27017/learningbot',
-	neo4jurlpassword: 'Bindiya@123',
+	neo4jurlpassword: 'P@ssw0rd',
 	neo4jUrl : "bolt://localhost",
 	//clientRedirectUrl : "http://13.90.139.94:4200"
 	clientRedirectUrl : "http://localhost:4200" 
