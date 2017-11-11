@@ -19,3 +19,19 @@
 [2017-11-11 16:29:55.720] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
 [2017-11-11 16:29:55.765] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
 [2017-11-11 16:29:55.816] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:31:22.971] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 16:32:19.471] [INFO] chatbot_express_server - Success
+[2017-11-11 16:32:19.493] [INFO] chatbot_express_server - Success
+[2017-11-11 16:32:19.510] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:32:19.517] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:32:19.539] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:32:19.554] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:32:19.608] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:32:19.678] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:40:52.696] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-11 16:40:52.708] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-11 16:41:43.671] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-11 16:41:46.004] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-11 16:42:10.827] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-11 16:46:40.352] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-11 16:46:40.354] [INFO] chatbot_express_server - Success getContextInfo
