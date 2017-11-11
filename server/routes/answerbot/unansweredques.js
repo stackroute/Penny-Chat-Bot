@@ -12,8 +12,7 @@ export default (questions) => {
        //res.send(err);
      }
      else{
-       console.log('hello', data)
-       console.log("update successfully");
+       
    //res.json({data:data});
  }
 })

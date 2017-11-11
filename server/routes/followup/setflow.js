@@ -1,17 +1,21 @@
 import express from 'express'; // File for messages
 import logger from '../../log4js';
 import flow_schema from './../../model/flow_schema';
+import staticConfig from './Config';
 
 export default (req,res)=>{
 flow_schema.insertMany(req.body,{upsert:true},(error,data)=>{
 		if(data==undefined){
-			res.json({status:false,message:"Data Undefined",data : null });			
+			logger.info(staticConfig.setFlow.messageNotfound)		//making logs
+			res.json({status:false,message:staticConfig.setFlow.messageNotfound,data : null });			
 		}
 		else if(data){
-			res.json({status:true,message:"Data Found",data : data});
+			logger.info(staticConfig.setFlow.messageFound)		//making logs
+			res.json({status:true,message:staticConfig.setFlow.messageFound,data : data});
 		}
 		else{
-			res.json({status:false,message:"Error in inserting",'error' : error });
+			logger.info(staticConfig.setFlow.error)		//making logs
+			res.json({status:false,message:staticConfig.setFlow.error,'error' : error });
 		}
 	})
 }

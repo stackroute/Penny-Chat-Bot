@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import {DashboardService} from './dashboard.service';
+import { Config } from './dashboard_en_config';
 
 import {Router} from '@angular/router';
 @Component({
@@ -10,6 +11,7 @@ import {Router} from '@angular/router';
   providers: [DashboardService]
 })
 export class DashboardComponent implements OnInit {
+  Config:any=Config;
   ref:any={};
   arr:any=[];
   intentName:any=[];

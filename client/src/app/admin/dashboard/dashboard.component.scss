@@ -1,115 +1,3 @@
-.chat
-{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.chat li
-{
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px dotted #B3A9A9;
-}
-
-.chat li.left .chat-body
-{
-    margin-left: 0px;
-}
-
-.chat li.right .chat-body
-{
-    margin-right: 60px;
-}
-
-
-.chat li .chat-body p
-{
-    margin: 0;
-    color: #777777;
-}
-
-.panel .slidedown .glyphicon, .chat .glyphicon
-{
-    margin-right: 5px;
-}
-
-.panel-body
-{
-    overflow-y: scroll;
-    height: 500px;   
-}
-.panel-body.tablepanel {
-  overflow-y: scroll;
-    height: 170px;   
-}
-
-::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar
-{
-    width: 12px;
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar-thumb
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
-}
-
-.btn {
-     line-height:0.5;
-
-}
-.btn.btn-block {
-    width:50%;
-    padding:6px 1px;
-    
-}
-.btn.btn-primary {
-    color:white;
-}
-.btn.btn-primary:hover {
-    color:white;
-}
-.badge {
-    padding:7px 15px;
-        border-radius: 5px;
-    margin-left: 1%;
-}
-a {
-    text-decoration:none;
-}
-
-.badge.badge-pill {
-    background-color:#375372;
-}
-
-.add {
-    margin-top:2%;
-    font-size: inherit;
-    margin-left: 1%;
-    background-color:#fa9040;
-    border-color: #fa9040;
-}
-
- #c_button {
-    font-size: inherit;
-}
-
-#btn-chat {
-    color: #fff;
-    background-color: #fa9040;
-    padding: 10px 7px;
-    font-size: initial;
-}
-
-
 @media (min-width: 300px) and (max-width: 1204px) {
 .d-md-down-none{
   display: inline !important;
@@ -135,19 +23,35 @@ a {
        font-size:7px;
     }
 }
-.badge {
-   padding:7px 15px;
+
+@media screen and (max-width: 1024px) {
+    .card {
+       min-height:95%;
+    }
 }
-.badge.badge-pill {
-   margin-top:1.5%;
+
+.card-header {
+    font-weight: 600;
+    font-size:20px;
+    background-color:#375372;
+    color:white;
+    width:100.2%;
+    padding: 1rem 1.25rem;
 }
-.panel-primary>.panel-heading {
-    color: #fff;
-    background-color: #375372;
-    border-color: #375372;
+
+.card.pi-draggable {
+   box-shadow: 2px 2px 2px 1.7px rgba(17, 25, 35, 0.3);
+   border:0px;
+} 
+
+.row {
+    margin-top:2%;
 }
-.btn.btn-primary.pi-draggable.btn-block {
-    color: #fff;
-    background-color: #375372;
-    border-color: #375372;
+
+.card-text {
+    margin:15px 0 10px;
+}
+a {
+    text-decoration:none;
+    color:#375372;
 }

@@ -3,7 +3,8 @@ const fs = require('fs');
 const router = express.Router();
 const neo4j = require('neo4j-driver').v1;
 import config from '../../config/config';
-import staticconfig  from './staticconfig';
+import staticconfig  from './Config';
+import logger from '../../log4js';
 const uri = config.neo4jUrl;
 const driver = neo4j.driver(uri,neo4j.auth.basic("neo4j",config.neo4jurlpassword));
 
@@ -33,12 +34,13 @@ export default (req, res)=> {
     
     let file = fs.createWriteStream('./dataset.json');
     file.on('error', (err)=> {
-      console.log("Error in writing");             /* error handling */
+     /* error handling */
     }); 
     file.write(JSON.stringify( main,null,2));
     file.end();
     // on application exit:
     driver.close();
-    res.json({status:true,message:staticconfig.getdata.Label,data:main});
+    logger.info(staticconfig.getdata.Label)    //making logs
+    res.json({status:true,message:staticconfig.getdata.Label,data:main});     //response to client
   });
 };

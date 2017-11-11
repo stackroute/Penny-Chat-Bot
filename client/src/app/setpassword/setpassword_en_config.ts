@@ -8,11 +8,11 @@ export const Config = {
 
         name:"email",
 
-        placeholderPass:"New Password",
+        placeholderPass:" New Password",
 
         confirmPassName:"email",
 
-        confirmPassPlaceholder:"Confirm Password",
+        confirmPassPlaceholder:" Confirm Password",
 
         link:"Set Password",
 
@@ -28,6 +28,7 @@ export const Config = {
 
         thankYou : 'Thank You, your password has been changed succesfully',
 
-        redirect : 'server error'
+        redirect : 'server error',
+        password: 'password'
     }
 }
