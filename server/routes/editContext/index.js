@@ -8,11 +8,11 @@ import getIntentContext from './getIntentContext';
 
 let router = express.Router();
 
-router.post('/',getContextSynonym);
-router.post('/editAddSynonym',editAddSynonym);
-router.post('/editDeleteSynonym',editDeleteSynonym);
-router.post('/getContextInfo',getContextInfo);
-router.put('/editLink',editLink);
-router.post('/getIntentContext',getIntentContext);
+router.post('/',getContextSynonym);				//calls getContextSynonym route 
+router.post('/editAddSynonym',editAddSynonym);			//calls editAddSynonym route
+router.post('/editDeleteSynonym',editDeleteSynonym);		//calls editDeleteSynonym route
+router.post('/getContextInfo',getContextInfo);				//calls getContextInfo route
+router.put('/editLink',editLink);							//calls editLink route 
+router.post('/getIntentContext',getIntentContext);			//calls getIntentContext route 
 
 export default router;

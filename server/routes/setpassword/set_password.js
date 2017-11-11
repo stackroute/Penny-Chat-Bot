@@ -1,6 +1,6 @@
 import express from 'express';
 import data from '../../model/register_schema';
-import  staticConfig from './staticconfig';          // File for static message
+import  staticConfig from './Config';          // File for static message
 import logger from '../../log4js';
 import bcrypt from 'bcrypt'
 
@@ -12,11 +12,11 @@ export default (req, res) => {
     data.find({_id:req.params.id},(err,user) => {
     // handle error 
     if(err){                            //When error
-      logger.info({message:staticConfig.setpassword.updateMessageErr});
-      res.json({message:staticConfig.setpassword.updateMessageErr});
+      logger.info(staticConfig.setpassword.updateMessageErr);   //making logs
+      res.json({message:staticConfig.setpassword.updateMessageErr});    //response to client
     }
     else if(user==undefined){                   //When data returned is undefined
-      logger.info({message:staticConfig.setpassword.messageUndefined});
+      logger.info(staticConfig.setpassword.messageUndefined);   //making logs 
       res.json({message:staticConfig.setpassword.messageUndefined,status:false,"userdata":null});
     }    
         // after find check specific user and update its password
@@ -29,33 +29,32 @@ export default (req, res) => {
             {$set:{status:true,password:hash}},(err,data1) => {
               if(err)
               {
-                logger.info(staticConfig.setpassword.updateMessageErr)
-                res.json({message:staticConfig.setpassword.updateMessageErr});
+                logger.info(staticConfig.setpassword.updateMessageErr)      //making logs
+                res.json({message:staticConfig.setpassword.updateMessageErr});    //response to client
               }
               else if(data1==undefined){
-                logger.info(staticConfig.setpassword.updateMessageErr)
+                logger.info(staticConfig.setpassword.updateMessageErr)    //making logs
                 res.json({message:staticConfig.setpassword.updateMessageErr,status:false,data:null});
               }
               else
               {
-               logger.info(staticConfig.setpassword.updateMessageScs)
-
-               res.json({status : true, message:staticConfig.setpassword.updateMessageScs,"userdata" : user[0]});
+               logger.info(staticConfig.setpassword.updateMessageScs)     //making logs
+               res.json({status : true, message:staticConfig.setpassword.updateMessageScs,"userdata" : user[0]});   //response to client
 
              }
            })}
 
           else {
-            logger.info(staticConfig.setpassword.finalMessageErr)
-            res.json({status : false, message:staticconfig.setpassword.finalMessageErr});
+            logger.info(staticConfig.setpassword.finalMessageErr)     //making logs
+            res.json({status : false, message:staticconfig.setpassword.finalMessageErr});   //response to client
           }
         });
 
   }
   
   catch(error){
-    logger.info({message:staticConfig.errorMessage.val});
-    res.json({status:false, message:staticConfig.errorMessage.val,data:error});
+    logger.info(staticConfig.errorMessage.val);   //making logs
+    res.json({status:false, message:staticConfig.errorMessage.val,data:error});   //response to client
 
   }
 

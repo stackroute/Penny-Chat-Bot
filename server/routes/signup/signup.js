@@ -1,29 +1,31 @@
+/*================Signup===========*/
 let express = require('express');
   let router = express.Router();
   let RegisterUser = require('../../model/register_schema');
   import logger from '../../log4js';
   const nodemailer = require('nodemailer');
-  let staticConfig = require('./staticconfig');
+  let staticConfig = require('./Config');
   import mailSent from '../../util/mail';
-
+ 
   export default (req, res, next)=> {
 
-     console.log('a');
+     
   RegisterUser.findOne({"email" :req.body.email },(err,data)=>{
     if(err){
-      console.log('1',data);
-      res.json({status:false,message:'not found',userdata:null});
+      logger.info(staticConfig.signup.messageNotFound);  // making logs
+      res.json({status:false,message:staticConfig.signup.messageNotFound,userdata:null});   //response to client
     }
     else{
-      console.log('2');
+      
 
         if(data){
-           res.json({status:false, message:staticConfig.signup.messageAlreadyExist});
-           console.log('data',data);
+          logger.info(staticConfig.signup.messageAlreadyExist);  // making logs
+           res.json({status:false, message:staticConfig.signup.messageAlreadyExist});  //response to client
+          
 
         }
         else{
-          console.log('3');
+         
             let registerUser = new RegisterUser({
             name : req.body.name,
             /*username : req.body.username,*/
@@ -37,18 +39,20 @@ let express = require('express');
       
             registerUser.save((err, user)=>{
                if(err) {
-           // logger.info(staticConfig.signup.messageErrorNotFind)
-                res.json({status:false, message : error});
+            logger.info(staticConfig.signup.messageNotFound)      // making logs
+                res.json({status:false, message : error});      //response to client
               }
                else {
                let emailStaus = mailSent(user);
                if(emailStaus)
                {
-                 res.json({status:true, message : staticConfig.signup.messageSuccessFind});
+                logger.info(staticConfig.signup.messageSuccessFind);  // making logs
+                 res.json({status:true, message : staticConfig.signup.messageSuccessFind});   //response to client
                }
                else
                {
-                 res.json({status:true, message : staticConfig.signup.messageNodemailErrorEmail});
+                logger.info(staticConfig.signup.messageNodemailErrorEmail);  // making logs
+                 res.json({status:true, message : staticConfig.signup.messageNodemailErrorEmail});      //response to client
                }
 
               }

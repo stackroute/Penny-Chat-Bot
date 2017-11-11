@@ -4,5 +4,5 @@ import sentiment from './sentiment';
 
 //Calls answer route
 
-router.post('/',sentiment);
+router.post('/',sentiment);			//calls sentiment route
 export default router;
