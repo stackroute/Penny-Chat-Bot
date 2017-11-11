@@ -6,7 +6,7 @@ module.exports={
 		Sorry:"Sorry i am not able to understand "
 	},
 	getdata:{
-		Error:"Error in answerbot's getdata"
+		Error:"Error in answerbot's getdata",
 		Label:"Label Values"
 
 	},
