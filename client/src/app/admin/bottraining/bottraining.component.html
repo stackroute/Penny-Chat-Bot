@@ -52,11 +52,11 @@
                 <td>{{data.type}}</td>
                 <td>{{data.typename}}</td>
                 <td *ngIf="data.type=='Not Found' ">
-                  <a class="fa fa-plus-square pi-draggable btn-block" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
+                  <a class="fa fa-plus-square pi-draggable btn-block icon" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
                 </td>
 
                 <td *ngIf="data.type!= 'Not Found'"  class="greentick"> &#x2713;</td>
-                <td><a (click)="remove(i,data)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                <td><a (click)="remove(i,data)"><i class="fa fa-trash-o icon" aria-hidden="true"></i></a></td>
               </tr>
               <tr>
                 <td>{{contextWord}}</td>
@@ -263,7 +263,7 @@
                   <div class="existing">
                     <h5>{{Config.bottraining.Synonyms}}</h5>
                     <a class="btn"> 
-                      <span class="badge badge-pill text-white suggestsynonym"*ngFor="let data of synres" 
+                    <span class="badge badge-pill text-white suggestsynonym"*ngFor="let data of synres"
                       (click)="select(data)">               
                       {{data}}
                     </span>
