@@ -54,13 +54,15 @@
                 <td *ngIf="data.type=='Not Found' ">
                   <a class=" btn btn-primary pi-draggable btn-block" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)">{{Config.bottraining.Add}}</a>
                 </td>
-                <td *ngIf="data.type!= 'Not Found'" style="font-size: 23px;color:#00FF00 "> &#x2713;</td>
+                <td *ngIf="data.type!= 'Not Found'"  class="greentick"> &#x2713;</td>
                 <td><a (click)="remove(i,data)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
               </tr>
               <tr>
                 <td>{{contextWord}}</td>
                 <td>{{context}}</td>
                 <td>{{contextValue}}</td>
+                <td></td>
+                <td></td>
               </tr>
             </tbody>
           </table>
@@ -80,7 +82,7 @@
       </div>
       <div class="card-body">
         <div class = "row ">
-          <div class = "col-md-9">
+          <div class = "col-md-9 dropdownfirst">
             <angular2-multiselect [data]="intentName" [(ngModel)]="selectedItemsIntent" 
             [settings]="dropdownSettingsIntent" 
             (onSelect)="onItemSelectIntent($event)" 
@@ -89,7 +91,7 @@
             (onDeSelectAll)="onDeSelectAllIntent($event)"></angular2-multiselect>
           </div>
           <div class = "col-md-3" *ngIf = "intentname">
-            <button type="button" class="btn btn-primary add"  (click)="deleteIntent(intentname)">Delete {{intentname.label}}</button>
+            <button type="button" class="btn btn-primary add deleteIntentbtn"  (click)="deleteIntent(intentname)">Delete {{intentname.label}}</button>
           </div>
         </div>
         <div class="existing " *ngIf="correspondSynonym.length>0">
@@ -104,7 +106,7 @@
               </span>            
               <div class="row searchsyn">
                 <div class="col-md-8">
-                  <input class="form-control" name="name" placeholder="Add Synonyms" [(ngModel)]="adminSynonym" (keyup.enter)="addAdminSynonym()">
+                  <input class="form-control addsynonyminput" name="name" placeholder="Add Synonyms" [(ngModel)]="adminSynonym" (keyup.enter)="addAdminSynonym()">
                 </div>
                 <div class="col-md-4">
                   <button type="button" class="btn btn-primary add"  (click)="addAdminSynonym()"
@@ -113,7 +115,7 @@
               </div>  
             </div>
             <div class="addIntent">
-             <button type="button" (click)="add.show()" class="btn btn-primary add" (click)="ifselected('Intent')" 
+             <button type="button" (click)="add.show()" class="btn btn-primary add addintentbtn" (click)="ifselected('Intent')" 
              >{{Config.bottraining.AddInt}}</button>
              <button type="button" (click)="add.show()" class="btn btn-primary add" (click)="ifselected('SubIntent')" 
              >{{Config.bottraining.AddSubint}}</button> 
@@ -225,7 +227,7 @@
           <tabset class="tab-container" *ngIf="value">
             <div class="tab-content">     
               <tab heading={{value}} ng-reflect-heading="Home" class="tab-pane" id="Intent">
-              <form role="form" #addval="ngForm">
+                <form role="form" #addval="ngForm">
                   <div class="form-group">
 
                     <label for="exampleInputPassword1">{{Config.bottraining.Value}}</label>

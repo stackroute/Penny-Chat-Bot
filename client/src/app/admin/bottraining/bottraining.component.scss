@@ -67,6 +67,7 @@ headingbutton{
 
 .btn {
      line-height:0.5;
+    padding: 12px 12px;
 }
 .btn.badgebtn {
     margin-right:-2%;
@@ -87,7 +88,7 @@ headingbutton{
     color:white;
     background-color: #375372;
     border-color: #375372;
-
+     margin-top: auto;
 }
 .btn.btn-primary:hover {
     color:white;
@@ -114,6 +115,7 @@ a {
     margin-left: 1%;
     background-color:#375372;
     border-color: #375372;
+        border-radius: 4px;
 }
 
 .searchsyn {
@@ -171,18 +173,17 @@ a {
     transition: all 0.4s ease;
 }
 
-
+.greentick {
+    font-size: 23px;
+    color:#00FF00 
+}
 
 @media (min-width: 300px) and (max-width: 1204px) {
 .d-md-down-none{
   display: inline !important;
 }
  }
- @media (min-width: 300px) and (max-width: 1204px) {
- .btn{
-      font-size: 0.820rem;
- }
-}
+
 
 @media (min-width:  300px) and (max-width: 1204px) {
 .card-group .card {
@@ -214,4 +215,25 @@ a {
     color: #fff;
     background-color: #375372;
     border-color: #375372;
+}
+.dropdownfirst{
+    margin-bottom:2%;
+    margin-left:2%;
+ 
+}
+.btn.btn-primary.add.deleteIntentbtn {
+    margin-top:4%;
+    margin-left: 9%;
+
+}
+.btn-primary.add.addintentbtn {
+     margin-left: 2%;
+     }
+     .addsynonyminput{
+     margin-left:2%;
+     }
+    
+     .h4, h4 {
+    font-size: 18px;
+      margin-left: 2%;
 }
