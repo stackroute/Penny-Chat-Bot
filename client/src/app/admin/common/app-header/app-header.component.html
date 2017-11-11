@@ -1,4 +1,4 @@
-<header class="app-header navbar">
+<!-- <header class="app-header navbar">
   <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,10 +8,34 @@
  
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item dropdown" dropdown placement="bottom right">
-      <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false" style="font-size: 18px">
+      <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false" style="font-size: 18px"> -->
         <!-- <img src={{"assets/img/avatars/6.jpg"}} class="img-avatar" alt="admin@bootstrapmaster.com"/> -->
-        Welcome {{initialCharacter}} !!
+       <!--  Welcome {{initialCharacter}} !!
       </a>
     </li>
   </ul>
-</header>
+</header> -->
+
+
+
+
+<!-- start of header component -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+     <a >
+      <!--  icon of penny chatbot -->
+      <img src = "../../../../../assets/img/logonames.png">
+    </a>
+  </div>
+  <div class="col-md-6">
+    <!-- name of user -->
+    <a class="nav-link pull-right"  href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+
+      Welcome {{initialCharacter}}!!
+    </a>
+  </div>
+</div>
+</div>
+<!-- end of header component -->
+<hr>

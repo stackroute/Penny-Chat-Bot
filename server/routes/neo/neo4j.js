@@ -9,7 +9,7 @@ import tokenizer from 'sbd';
 import pos from 'pos';
 import neo4j from 'neo4j-driver';
 import config from '../../config/config';
-import staticconfig  from './Config';
+import staticConfig  from './Config';
 
 const uri = config.neo4jUrl;
 
@@ -17,21 +17,21 @@ const driver = neo4j.driver(uri,neo4j.auth.basic("neo4j",config.neo4jurlpassword
 
 const sess = driver.session();
 export default (req,res) => {
-
- let optional_options = {
-  "newline_boundaries" : false,
-  "html_boundaries"    : false,
-  "sanitize"           : false,
-  "allowed_tags"       : false,
-  "abbreviations"      : null
-};
-let message = req.body.message.toLowerCase();
-let correct;
-let corrected = [];
-let stemword;
-let combinationwords = [];
-let mainpart = [];
-let total;
+  try{
+    let optional_options = {
+      "newline_boundaries" : false,
+      "html_boundaries"    : false,
+      "sanitize"           : false,
+      "allowed_tags"       : false,
+      "abbreviations"      : null
+    };
+    let message = req.body.message.toLowerCase();
+    let correct;
+    let corrected = [];
+    let stemword;
+    let combinationwords = [];
+    let mainpart = [];
+    let total;
     message = numerizer(message); //numerize data
     let token = new natural.WordTokenizer();
     gingerbread(message,(error,text,result,corrections)=>{
@@ -138,8 +138,7 @@ let total;
                 flag++;
               }
             })
-            if(flag==0) {
-              
+            if(flag==0) {              
               mainpart.push(main.data);
             }
           }
@@ -152,19 +151,18 @@ let total;
     }
 
     let checktemp = (temp) => {
-      
+
       if(temp == total) {
-       
+
         if(mainpart.length == 0) {
-          logger.info(staticconfig.neo.TroubleUnderstanding);   //making logs
-          res.json({message : [{message : staticconfig.neo.TroubleUnderstanding}],links : []})
+          logger.info(staticConfig.neo.TroubleUnderstanding);   //making logs
+          res.json({message : [{message : staticConfig.neo.TroubleUnderstanding}],links : []})
         } else {
-          
+
           giveresponse(mainpart);
         }
       }
-    }
-    
+    }    
     let giveresponse = (main) => {   //response giving according to priority
       let intent = [];
       let context = [];
@@ -190,6 +188,8 @@ let total;
       
       res.json({intent : intent, context : context})
     }
-
-    
-  }
+  }catch(error){                                                      // error handle if suddenly error occur in database
+    logger.info(staticConfig.neo.Error);                        // making logs
+    res.json({status:false, message:staticConfig.neo.Error,data:error});
+  }    
+}

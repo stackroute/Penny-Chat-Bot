@@ -1,5 +1,5 @@
 import register from '../../model/register_schema';
-import staticConfig from './staticconfig';
+import staticConfig from './Config';
 import express from 'express';
 import logger from '../../log4js';
 
@@ -41,7 +41,7 @@ module.exports = (req, res) => {
         //if status is true 
       }
     })
-  }catch(error){
+  }catch(error){                      // error handle if suddenly error occur in database
     logger.info(staticConfig.errorMessage.val)
     res.json({status:false, message:staticConfig.errorMessage.val,data:error});     //response to client
   }
