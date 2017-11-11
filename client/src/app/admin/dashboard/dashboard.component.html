@@ -1,17 +1,47 @@
-<div class="row">
+<!-- <div class="row">
 <div class="card col-md-3">
   <div class="card-block">
-    <h4 class="card-title">Training</h4>
+   <div class="card-item-left">
+             <h4 class="card-title">Training</h4>
+          </div>
+   <div class="card-item-right">
     <p class="card-text">You can train your Bot.....</p>
     <a [routerLink]="['/admin/trainingbot']">Train your bot!!</a>
+    </div>
   </div>
 </div>
 
 <div class="card col-md-3">
   <div class="card-block">
     <h4 class="card-title">Add Flow</h4>
+    <hr>
     <p class="card-text">You can add Counter Question.....</p>
     <a [routerLink]="['/admin/createflow']">Start here</a>
   </div>
 </div>
-</div>
+</div> -->
+
+<div class="row">
+<div class="col-md-4">
+<div id="c_card" class="card pi-draggable" draggable="true">
+    <div class="card-header">
+      {{Config.dashboard.Training}}
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{Config.dashboard.trainyourbot}}</p>
+    <a [routerLink]="['/admin/trainingbot']">{{Config.dashboard.trainbot}}</a>
+    </div>
+  </div>
+  </div>
+  <div class="col-md-4">
+<div id="c_card" class="card pi-draggable" draggable="true">
+    <div class="card-header">
+     {{Config.dashboard.addflow}}
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{Config.dashboard.addquestion}}</p>
+    <a [routerLink]="['/admin/createflow']">{{Config.dashboard.starthere}}</a>
+    </div>
+  </div>
+  </div>
+  </div>
