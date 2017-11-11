@@ -12,28 +12,21 @@ export class BottomChatComponent implements OnInit {
     {
     iconClass: 'fa fa-home',
     label: 'Home',
-    onClick: function() {
-      this.router.navigateByUrl('dashboardAdmin');
-    }
-  },
-   {
-    iconClass: 'fa fa-book',
-    label: 'Train Domain',
-    onClick: function() {
-      this.router.navigateByUrl('traindomain');
+    onClick: ()=> {
+      this.router.navigateByUrl('admin/dashboardAdmin');
     }
   },
    {
     iconClass: 'fa fa-location-arrow',
     label: 'Add Flow',
-    onClick: function() {
+    onClick: ()=> {
       this.router.navigateByUrl('admin/createflow');
     }
   },
   {
     iconClass: 'fa fa-sign-out',
     label: 'Logout',
-    onClick: function() {
+    onClick: ()=> {
       localStorage.removeItem('Userdata');
       localStorage.removeItem('key');
       localStorage.removeItem('isLoggedin');
@@ -90,7 +83,7 @@ export class BottomChatComponent implements OnInit {
       placment: 'br',
       effect: 'mfb-slidein-spring',
       label: 'main button label',
-      iconClass: 'icon ion-plus-round',
+      iconClass: 'fa fa-bars',
       activeIconClass: 'ion-close-round',
       toggle: 'hover'
   }

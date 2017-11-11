@@ -1,18 +1,5 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<mat-sidenav-container class="example-container" >
-  <mat-sidenav position="end" #sidenav class="example-sidenav">
-    <h4 class="videoHeading">{{Config.html.RelatedVideos}}</h4>
-    <div *ngIf="id!=null">
-      <youtube-player
-      [videoId]="id"
-      (ready)="savePlayer($event)"
-      (change)="onStateChange($event)"
-      >  </youtube-player>
-      <!-- <img src={{response.ogp.ogImage[0].url}}> -->
-    </div>
-  </mat-sidenav>
-
   <div class="row">
 
     <!--=========================================================-->
@@ -20,6 +7,7 @@
 
     <!-- ===================================================== -->
     <div class="col-md-12">
+    <span class="pull-right" (click)="fetchHistory()" style="margin-top: 20px;color: #003366;font-weight: 600;cursor:pointer;">{{Config.html.History}}</span>
      <div class="chat-panel card1 card-default"> 
       <!-- Card -->
       <h3><strong>{{Config.html.Penny}}</strong></h3>
@@ -47,27 +35,27 @@
                    <div *ngIf="ans.image">
                      <img src="{{ans.image}}">
                    </div>
-                   <small class="pull-right text-muted"><i class="fa fa-clock-o">{{Config.html.time}}</i> </small>
+                   <!-- <small class="pull-right text-muted"><i class="fa fa-clock-o">12 mins ago</i> </small> -->
                    <div class="example-sidenav-content">
+                  </div>
                    </div>
+                </div>
+               </div>
+                <!-- Answers -->
+                <div *ngIf="ans.user">
+                  <div class="message-data align-right">
+                   <span class="message-data-name">{{username}}</span> <i class="fa fa-circle me"></i>
                  </div>
-               </div>
-             </div>
-             <!-- Answers -->
-             <div *ngIf="ans.user">
-              <div class="message-data align-right">
-               <span class="message-data-name">{{Config.html.User}}</span> <i class="fa fa-circle me"></i>
-             </div>
-             <div class="chat-body clearfix">
-               <div class="message me-message float-right">
-               {{ans.user}}
-                 <small class="pull-right text-muted"><i class="fa fa-clock-o"> 13 mins ago</i></small>
-               </div>
-             </div>
-           </div>
+                 <div class="chat-body clearfix">
+                   <div class="message me-message float-right">
+                   {{ans.user}}
+                    <!-- <small class="pull-right text-muted"><i class="fa fa-clock-o"> 13 mins ago</i></small> -->
+                  </div>
+                </div>
+              </div>
          </div>
-         <div *ngIf = "moreInfoLink!=undefined">
-          <div *ngIf = "moreInfoLink!=0">
+         <div *ngIf="ans.link">
+          <div *ngIf="ans.link.length > 0">
             <i class="fa fa-info-circle" aria-hidden="true" (click)="next(ans)"></i>
             <i class="fa fa-video-camera" aria-hidden="true" [id]="videoId" appAsideMenuToggler></i>
           </div>
@@ -114,7 +102,6 @@
 </div>
 </div>
 </div>
-</mat-sidenav-container>
 <div class="container-fluid bootstrap snippet">
 
 </div>

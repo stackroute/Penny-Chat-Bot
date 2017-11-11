@@ -1,6 +1,3 @@
-/*Preeti Singh
-22/10/2017*/
-
 module.exports = {
 	warning_page: {
   messageOnVerificationSuccess : "Successfully Verified in /warning_page route",

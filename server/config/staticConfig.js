@@ -13,4 +13,17 @@ export default {
     failureRedirect : config.clientRedirectUrl,
     redirect : config.clientRedirectUrl+'/socialloginredirect'
   },
+
+  updateUserdata : {
+ errorMessage : "Error in access",
+ successMessage : "Success in update User",
+ user : 'User',
+ admin : 'Admin'
+},
+reset_password: {
+    UserNotFindMessage:"username does not exist",
+    OldPasswordNotMatch:"old password doesnot match",
+    UpdatePasswordError: "password is not updated",
+    successMessage : "Successfully done"
+  }
 }
