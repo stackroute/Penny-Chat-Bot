@@ -7,8 +7,8 @@ import unanswerQues from './unansweredques';
 
 //Calls answer route
 
-router.post('/',answer);
-router.get('/',getdata);
-router.post('/referlink',referlink);
-router.post('/unanswerQues',unanswerQues);
+router.post('/',answer);				//calls answer route
+router.get('/',getdata);				//calls getdata route
+router.post('/referlink',referlink);		//calls referlink route
+router.post('/unanswerQues',unanswerQues);		//calls unanswerQues route
 export default router;

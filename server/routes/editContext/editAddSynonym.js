@@ -1,8 +1,9 @@
 let express = require('express');
 let router = express.Router();
 const neo4j = require('neo4j-driver').v1;
-
 import config from '../../config/config';
+import staticConfig from './Config';
+import logger from '../../log4js';
 const driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.neo4jurlpassword));
 
 const session = driver.session();
@@ -10,12 +11,13 @@ const session = driver.session();
 export default (req, res)=> {
 
 	req.body.synonym.map((data)=>{
-		const resultPromise = session.run(
+		const resultPromise = session.run(				//Query to editSynonym
 			"match (n:"+req.body.context.label+" {name:'"+req.body.context.itemName+"'}) with n create (n)<-[:SameAs]-(s:Synonym {name:'"+data+"'}) return s"
 			);
 		resultPromise.then(result => {
 			session.close();
-			res.json(result.records);
+			logger.info(staticConfig.editAddSynonym.messageSuccess)    //making logs
+			res.json(result.records);			//response to client
   // on application exit:
   driver.close();
 		});

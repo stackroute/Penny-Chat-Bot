@@ -83,7 +83,7 @@ export class BottomChatComponent implements OnInit {
       placment: 'br',
       effect: 'mfb-slidein-spring',
       label: 'main button label',
-      iconClass: 'icon ion-plus-round',
+      iconClass: 'fa fa-bars',
       activeIconClass: 'ion-close-round',
       toggle: 'hover'
   }

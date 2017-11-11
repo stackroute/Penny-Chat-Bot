@@ -1,5 +1,5 @@
 import data from './../../model/register_schema';
-import staticConfig from './staticconfig' ;   //file for error messages
+import staticConfig from './Config' ;   //file for error messages
 import passport from 'passport';
 import logger from './../../log4js';
 import config from './../../config/config';

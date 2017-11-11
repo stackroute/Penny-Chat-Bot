@@ -1,6 +1,3 @@
-/*Preeti Singh
-22/10/2017*/
-
 module.exports = {
 	forgotpassword:{
     MessageNodemailAuthEmail : 'dummyid20@gmail.com',
