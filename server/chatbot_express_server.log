@@ -20,3 +20,15 @@
 [2017-11-11 16:29:55.765] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
 [2017-11-11 16:29:55.816] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
 [2017-11-11 16:40:59.353] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 16:42:20.273] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 16:43:05.568] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 16:43:11.963] [INFO] chatbot_express_server - Not Found
+[2017-11-11 16:43:11.982] [INFO] chatbot_express_server - Not Found
+[2017-11-11 16:43:12.006] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:43:12.016] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:43:12.085] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:43:12.095] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:43:12.146] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:43:12.188] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:45:49.218] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-11 16:46:22.495] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
