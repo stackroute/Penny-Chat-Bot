@@ -1,13 +1,25 @@
+<!-- aside bar for showing videos -->
 <aside class="aside-menu">
-   <h4 class="videoHeading">Related Videos</h4>
-   <div *ngFor="let id of youid">
-   		<div *ngIf="id[1].length==11">
-        <youtube-player
-    [videoId]="id[1]"
-     (ready)="savePlayer($event)"
-     (change)="onStateChange($event)"
-   > </youtube-player>
- </div>
- </div>
-      <!-- <img src={{response.ogp.ogImage[0].url}}> -->
+
+<!-- heading protion of video and close icon -->
+	<div class="videoHeading">
+		<h4>{{Config.videoheading}}
+			<i class="fa fa-times float-right" aria-hidden="true" appAsideMenuToggler></i>
+		</h4>
+	</div>
+
+	<!-- render videos -->
+	<div class="video">
+		<div *ngFor="let id of youid">
+			<div *ngIf="id[1].length==11">
+				<youtube-player width="223" height="205"
+				[videoId]="id[1]"
+				(ready)="savePlayer($event)"
+				(change)="onStateChange($event)"
+				> </youtube-player>
+			</div>
+			<br>
+		</div>
+	</div>
+
 </aside>
