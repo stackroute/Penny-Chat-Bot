@@ -5,7 +5,7 @@ import {expressUrl} from './url';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class RegisterService {
+export class RegisterService { //register service 
 
   constructor(private http:Http) { }
   post(data:any){

@@ -102,7 +102,6 @@ export class EditContextService {
      return this.http
      .get(url)
      .map((res: Response)=> {
-         console.log("fetch flow",res.json())
        return res.json()})
    }
 }
