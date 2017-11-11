@@ -154,11 +154,14 @@
 <button type="button" class="btn btn-md btn-primary dropdown-toggle" *ngIf = "subIntents" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
   {{selectedSubIntent.name}}
 </button>
-<div class="dropdown-menu">
+<div class="dropdown-menu dropdownsubintent">
   <a class="dropdown-item " *ngFor="let subInt of subIntents; let l=index "  (click)="setsubIntent(subInt)">{{subInt.name}} </a>
 </div>   
-</div>                        
-<textarea *ngIf="selectedSubIntent.name!='Select SubIntent'"  placeholder="description" rows="2" [(ngModel)]="selectedSubIntent.value" (blur)="pushSubIntent(i,selectedSubIntent)" ></textarea>
+</div> <!--          
+ <textarea class="form-control" id="exampleTextarea" rows="3"></textarea> -->
+
+
+<textarea class="form-control textarea" id="exampleTextarea" rows="3" *ngIf="selectedSubIntent.name!='Select SubIntent'"  placeholder="description" [(ngModel)]="selectedSubIntent.value" (blur)="pushSubIntent(i,selectedSubIntent)" ></textarea>
 </collapsible-body>
 </collapsible-list-item>
 <!-- ===================Adding flow================== -->
@@ -168,13 +171,42 @@
 Add Flow
 </collapsible-header>
 <collapsible-body [expanded]="false">   
-
+<!-- 
  
-        <select [(ngModel)]="main.flow">
+        <select [(ngModel)]="main.flow" >
           <option>Select flow</option>
           <option *ngFor="let flo of flowitem" value="{{flo}}">{{flo}}</option>
         </select>
       
+ -->
+<!-- 
+
+    <div class="select_style">
+       <select [(ngModel)]="main.flow">
+          <option selected="selected" *ngFor="let flo of flowitem" value="{{flo}}">{{flo}}</option>
+        </select>
+     </div>
+
+ -->
+<!-- <div class="styled-select">
+   <select [(ngModel)]="main.flow">
+   <i class=""></i>
+      <option>Select Flow</option>
+      <option *ngFor="let flo of flowitem" value="{{flo}}">{{flo}}</option>
+   </select>
+</div>
+
+ -->
+
+
+
+<select [(ngModel)]="main.flow">
+<i class="fa fa-caret-down" aria-hidden="true"></i>
+    <option selected>----Select Flow----</option>
+    <option *ngFor="let flo of flowitem" value="{{flo}}">{{flo}}</option>
+</select>
+
+
 
 
     </collapsible-body>

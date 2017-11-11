@@ -199,9 +199,7 @@ a {
        font-size:7px;
     }
 }
-.badge {
-   padding:7px 15px;
-}
+
 .badge.badge-pill {
    margin-top:1.5%;
    background-color: #375372;
@@ -236,4 +234,17 @@ a {
      .h4, h4 {
     font-size: 18px;
       margin-left: 2%;
+}
+.badge.intbadge.badge-pill.text-white{
+    margin-left:2%;
+}
+.badge.badge-pill.text-white.suggestsynonym {
+    padding: 7px 15px;
+    padding-top: 7px;
+    padding-right: 15px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+}
+.btn .badge {
+    font-size: 12px;
 }
