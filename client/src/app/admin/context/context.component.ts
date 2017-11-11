@@ -130,23 +130,23 @@ export class ContextComponent implements OnInit {
         this.contextService.submitContext(this.context,this.selectedIntent,this.synonym,this.selectedContext)
         .subscribe((ref) => {
           if(ref.status == true){
-            swal('',"Successfully Added",'success');
+            swal('',Config.swal.msg1,'success');
             this.context = {};
             this.synonym = [];
             this.selectedContext = [];
             this.completeContext = [];
           }
           else {
-            swal('',"error in creating a context node",'warning');
+            swal('',Config.swal.msg2,'warning');
           }
         })
       }
       else {
-        swal('',"Please add dependent context first",'warning');
+        swal('',Config.swal.msg3,'warning');
       }
     }
     else {
-      swal('',"Please select any Option Domain/Add to Context",'warning');
+      swal('',Config.swal.msg4,'warning');
     }
   }
 

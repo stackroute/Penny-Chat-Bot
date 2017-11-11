@@ -77,4 +77,10 @@ export default {
       select:"Select SubIntent"
     },
 
+    swal:{
+      msg1:"Successfully Added",
+      msg2:"error in creating a context node",
+      msg3:"Please add dependent context first",
+      msg4:"Please select any Option Domain/Add to Context",
+    }
 }
