@@ -1,21 +1,28 @@
-import express from 'express'; // File for messages
+import express from 'express'; 
 import logger from '../../log4js';
 import add_task from './../../model/add_task';
-import staticconfig  from './staticconfig';
+import staticConfig  from './Config';														// File for static message
 export default (req,res)=>{
-	add_task.update({taskname : req.body.message[0].TaskName},
+	try
+	{
+		add_task.update({taskname : req.body.message[0].TaskName},
 		{$addToSet :{data : req.body.message}},{upsert:true},
 		(error,data)=>{
-		if(data){//If data found
-			res.json({status:true,message:staticconfig.addtask.DataFound,data : data})
+		if(data){																											//If data found
+    	logger.info(staticConfig.addtask.DataFound); 							 // Log file
+			res.json({status:true,message:staticConfig.addtask.DataFound,data : data})
 		}
-		else if(data==undefined){//if data is undefined
-		res.json({status:false,message:staticconfig.addtask.DataNull,data :null })
+		else if(data==undefined){																			//if data is undefined
+    	logger.info(staticConfig.addtask.DataNull); 							 // Log file
+		res.json({status:false,message:staticConfig.addtask.DataNull,data :null })
 		}
-		else{//If data not found
-			res.json({status:false,message:staticconfig.addtask.DataNotFound,'error' : error })
+		else{																													//else if error
+    	logger.info(staticConfig.addtask.DataNotFound); 					 // Log file
+			res.json({status:false,message:staticConfig.addtask.DataNotFound,'error' : error })
 		}
-
 	})
-
+	}catch(error){																	// error handle if suddenly error occur in database
+  	logger.info(staticConfig.addtask.DataNotFound); 					 // making logs
+  	res.json({status:false, message:staticConfig.addtask.DataNotFound,data:error});
+	}	
 }

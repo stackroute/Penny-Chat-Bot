@@ -3,7 +3,7 @@ const fs = require('fs');
 const router = express.Router();
 const neo4j = require('neo4j-driver').v1;
 import config from '../../config/config';
-import staticconfig  from './staticconfig';
+import staticconfig  from './Config';
 const uri = config.neo4jUrl;
 const driver = neo4j.driver(uri,neo4j.auth.basic("neo4j",config.neo4jurlpassword));
 

@@ -1,4 +1,4 @@
-import express from 'express'; // File for messages
+import express from 'express'; 
 import logger from '../../log4js';
 import numerizer from 'numerizer';
 import gingerbread from 'gingerbread';
@@ -10,7 +10,7 @@ import pos from 'pos';
 import neo4j from 'neo4j-driver';
 import unAns from './unansweredques.js';
 import config from '../../config/config';
-import staticconfig  from './staticconfig';
+import staticconfig  from './Config';
 
 const uri = config.neo4jUrl;
 

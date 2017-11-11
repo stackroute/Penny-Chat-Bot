@@ -28,5 +28,15 @@ module.exports={
 	subintent:{
 		subintent:'subIntent'
 	},
-
+	addcontext:{
+		success:"Sucess in trainContext's addcontext",
+		Error:"Error in trainContext's addcontext"
+	},
+	addcontextsyn:{
+		success:"Sucess in trainContext's addcontextsyn",
+		Error:"Error in trainContext's addcontextsyn"
+	},
+	deleteContext:{
+		Error:"Error in trainContext's deleteContext"
+	}
 }

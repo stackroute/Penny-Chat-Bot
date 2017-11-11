@@ -1,1 +1,12 @@
 [2017-11-10 16:43:36.138] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 09:12:17.207] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 14:57:43.012] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 14:59:16.619] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 15:01:12.722] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 15:06:42.970] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 15:06:50.711] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 15:06:50.740] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:06:50.771] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 15:06:50.843] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:06:50.890] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:06:50.970] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
