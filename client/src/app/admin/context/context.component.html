@@ -11,7 +11,7 @@
  <app-edit-context></app-edit-context>
 
 
- <div class="col-md-3">
+ <div class="col-md-3 ">
   <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show()" draggable="true">{{Config.html.AddNewContext}}</a>
 </div><br>
 </div>
@@ -21,7 +21,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <!-- =================Modal Title================= -->
+        <!-- =================Modal Title================= -->
         <h4 class="modal-title">{{Config.html.AddContext}}</h4>
         <button type="button" class="close" (click)="addContext.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -33,11 +33,11 @@
             <tab heading="Context" ng-reflect-heading="Home" class="tab-pane">
               <form>
                 <div class="form-group">
-                <!-- ================Context Details=============== -->
+                  <!-- ================Context Details=============== -->
                   <label for="exampleInputPassword1">{{Config.html.ContextName}}</label>
                   <input type="text" class="form-control" id="contextname" name="contextname" placeholder="Meaning" [(ngModel)]="context.name">
                   <div><hr>
-                  <!-- ===================Synonyms=================== -->
+                    <!-- ===================Synonyms=================== -->
                     <label for="exampleInputPassword1">{{Config.html.Addsynonyms}}</label>
                     <tag-input  [(ngModel)]="synonym"
                     [modelAsStrings]="true"
@@ -150,31 +150,36 @@
 {{Config.html.AddSubIntents}}
 </collapsible-header>
 <collapsible-body [expanded]="false">
+<div class="dropdownbtn">
 <button type="button" class="btn btn-md btn-primary dropdown-toggle" *ngIf = "subIntents" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
   {{selectedSubIntent.name}}
 </button>
 <div class="dropdown-menu">
-  <a class="dropdown-item" *ngFor="let subInt of subIntents; let l=index "  (click)="setsubIntent(subInt)">{{subInt.name}} </a>
-</div>                           
+  <a class="dropdown-item " *ngFor="let subInt of subIntents; let l=index "  (click)="setsubIntent(subInt)">{{subInt.name}} </a>
+</div>   
+</div>                        
 <textarea *ngIf="selectedSubIntent.name!='Select SubIntent'"  placeholder="description" rows="2" [(ngModel)]="selectedSubIntent.value" (blur)="pushSubIntent(i,selectedSubIntent)" ></textarea>
 </collapsible-body>
 </collapsible-list-item>
 <!-- ===================Adding flow================== -->
 <collapsible-list-item>
 
-            <collapsible-header class="waves-effect">
-            Add Flow
-        </collapsible-header>
-        <collapsible-body [expanded]="false">
-        <div>
+<collapsible-header class="waves-effect">
+Add Flow
+</collapsible-header>
+<collapsible-body [expanded]="false">   
+
+ 
         <select [(ngModel)]="main.flow">
-          <option value=""></option>
+          <option>Select flow</option>
           <option *ngFor="let flo of flowitem" value="{{flo}}">{{flo}}</option>
         </select>
-      </div>
+      
+
+
     </collapsible-body>
-</collapsible-list-item>
-<!-- ===========end intent============= -->
+  </collapsible-list-item>
+  <!-- ===========end intent============= -->
 </collapsible-list>
 <!-- ==============end of inner collapse ============= -->
 </div>

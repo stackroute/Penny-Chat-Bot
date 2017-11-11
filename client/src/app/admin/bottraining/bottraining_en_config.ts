@@ -21,7 +21,7 @@ export const Config = {
         'Priority' : 'Priority',
         'AddSyno' : 'Add Synonyms for',
         'Synonyms' : 'Synonyms',
-        'AddedSyn' : 'Added Synonyms',
+        'AddedSyn' : 'Suggested Synonyms',
         'SelectIntent' : 'Select Intent',
         'SelectAll' : 'Select All',
         'UnSelectAll' : 'UnSelect All',

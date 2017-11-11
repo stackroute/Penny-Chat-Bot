@@ -4,19 +4,22 @@ import jwt  from 'jsonwebtoken';
 import config from '../../config/config';
 import passport  from 'passport';
 import nodemailer  from 'nodemailer';
-import staticConfig  from './staticconfig';
+import staticConfig  from './Config';
 import comparePassword from './../../util/comparePassword';
+import logger from '../../log4js';
 
 let router = express.Router();
 
 router.post('/login', passport.authenticate('local-login'), (req, res, next)=> {
  try
  {
-   res.json({status: true, message: staticConfig.signin.messagePasswordSuccessCheck, data: req.user});
+ 	logger.info(staticConfig.signin.messagePasswordSuccessCheck);           //making logs  
+   res.json({status: true, message: staticConfig.signin.messagePasswordSuccessCheck, data: req.user});			//response to client
  }
- catch(error)
+ catch(error)			// error handle if suddenly error occur in database
  {
-   res.json({status:false, message:staticConfig.errorMessage.val,data:error});
+ 	logger.info(staticConfig.errorMessage.val);           //making logs  
+   res.json({status:false, message:staticConfig.errorMessage.val,data:error});			//response to client
  }
 });
 

@@ -48,6 +48,7 @@ export class SetpasswordComponent implements OnInit {
         //validation meassge for empty fields  
       }
       else if(object.password != object.confirmpassword) {
+        swal(Config.setpassword.passwordMatchErrorMessage)
         this.error =Config.setpassword.passwordMatchErrorMessage;
         //validations for password and confirm password matching
       }

@@ -1,4 +1,4 @@
-import signinConfig from './staticconfig'; // importing signinconfig file
+import signinConfig from './Config'; // importing signinconfig file
 import passport from 'passport';
 import config from '../../config/config';
 import logger from '../../log4js';
@@ -24,8 +24,8 @@ export default (app, passport) => {
     res.cookie(signinConfig.googleLogin.userData,{status : true,userdata : req.user});
      res.redirect(signinConfig.url.redirect);  //after request success
   });
- 	}catch(error){
-    logger.info({message:signinConfig.errorMessage});       // error handle if suddenly error occur in database
-    res.json({status:false, message:signinConfig.errorMessage,data:error});
+ 	}catch(error){        // error handle if suddenly error occur in database
+    logger.info(signinConfig.errorMessage);           //making logs    
+    res.json({status:false, message:signinConfig.errorMessage,data:error});       //response to client
   }
 }

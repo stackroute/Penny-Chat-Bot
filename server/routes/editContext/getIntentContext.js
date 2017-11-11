@@ -2,9 +2,11 @@ let express = require('express');
 let router = express.Router();
 const neo4j = require('neo4j-driver').v1;
 
+import staticConfig from './Config';
+import logger from '../../log4js';
 import config from '../../config/config';
-const driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.neo4jurlpassword));
 
+const driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.neo4jurlpassword));
 const session = driver.session();
 
 
@@ -20,7 +22,8 @@ export default (req, res)=> {
        intents.push(result._fields[0]);
      }
    })
-   res.json(intents);
+    logger.info(staticConfig.getIntentContext.messageSuccess)    //making logs
+   res.json(intents);     //response to client
  // on application exit:
  driver.close();
 });

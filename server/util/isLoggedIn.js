@@ -7,6 +7,6 @@ module.exports =function(req, res, next){
 	}
 	else
 	{
-	   res.send({status: false; message: 'Not Authenticated User'});
+	   res.json({status: false; message: 'Not Authenticated User'});
 	}
 };

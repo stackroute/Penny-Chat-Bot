@@ -5,8 +5,8 @@ import deleteContext from './deleteContext'
 
 let router = express.Router();
 
-router.post('/',addcontext);
-router.put('/',addsynonyms);
-router.post('/deleteContext',deleteContext);
+router.post('/',addcontext);																//Calls addcontext route
+router.put('/',addsynonyms);																//Calls addsynonyms route
+router.post('/deleteContext',deleteContext);								//Calls deleteContext route
 
 export default router;

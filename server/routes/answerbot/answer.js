@@ -1,4 +1,4 @@
-import express from 'express'; // File for messages
+import express from 'express'; 
 import logger from '../../log4js';
 import numerizer from 'numerizer';
 import gingerbread from 'gingerbread';
@@ -10,7 +10,7 @@ import pos from 'pos';
 import neo4j from 'neo4j-driver';
 import unAns from './unansweredques.js';
 import config from '../../config/config';
-import staticconfig  from './staticconfig';
+import staticconfig  from './Config';
 
 const uri = config.neo4jUrl;
 
@@ -162,7 +162,8 @@ export default (req,res) => {
       if(temp == total) {
 
         if(mainpart.length == 0) {
-          res.json({message : [{message : staticconfig.answer.Sorry}],links : []})
+          logger.info(staticconfig.answer.Sorry)    //making logs
+          res.json({message : [{message : staticconfig.answer.Sorry}],links : []})      //response to client
         } else {
 
           giveresponse(mainpart);
@@ -205,10 +206,12 @@ export default (req,res) => {
       let links = [];
 
       if(context.length == 0) {
-        res.json({message :staticconfig.answer.WhatPolicy })
+        logger.info(staticconfig.answer.WhatPolicy)    //making logs
+        res.json({message :staticconfig.answer.WhatPolicy })        //response to client
       }
       else if(intent.length == 0 && context.length > 0) {
-        res.json({message : staticconfig.answer.Help +context[0].name+"?"});
+        logger.info(staticconfig.answer.Help)    //making logs
+        res.json({message : staticconfig.answer.Help +context[0].name+"?"});      //response to client
       } 
       else if (intent.length > 1 ) {
         multipleIntent(intent,context);
@@ -263,8 +266,8 @@ export default (req,res) => {
       temp['subIntent'] = 0;
       temp['intent'] = 0;
       if(context.length == 0){
-
-        res.json({message : staticconfig.answer.Sorry});
+        logger.info(staticconfig.answer.Sorry)       //making logs
+        res.json({message : staticconfig.answer.Sorry});        //response to client
       } 
       else{
         intent.sort((a,b)=>{

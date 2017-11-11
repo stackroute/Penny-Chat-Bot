@@ -6,20 +6,20 @@ import {YoutubePlayerModule} from 'ng2-youtube-player';
 import {ResetPasswordComponent } from './reset-password/reset-password.component';
 import {EditprofileComponent } from './editprofile/editprofile.component';
 import {
- AppAsideComponent,
-AppFooterComponent,
-AppHeaderComponent,
-//AppSidebarMinimizerComponent,
-AppSidebarComponent,
-//APP_SIDEBAR_NAV
+  AppAsideComponent,
+  AppFooterComponent,
+  AppHeaderComponent,
+  //AppSidebarMinimizerComponent,
+  AppSidebarComponent,
+  //APP_SIDEBAR_NAV
 } from './common';
 // Import directives
 import {MatSidenavModule} from '@angular/material';
 import {
-AsideToggleDirective,
-NAV_DROPDOWN_DIRECTIVES,
-ReplaceDirective,
-SIDEBAR_TOGGLE_DIRECTIVES,
+  AsideToggleDirective,
+  NAV_DROPDOWN_DIRECTIVES,
+  ReplaceDirective,
+  SIDEBAR_TOGGLE_DIRECTIVES,
 } from './../directives';
 import { LayoutComponent } from './layout.component';
 import { DashboardUserComponent} from './dashboard-user/dashboard-user.component';
@@ -28,12 +28,12 @@ import { BottomChatComponent } from './bottom-chat/bottom-chat.component';
 import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 @NgModule({
   imports: [
-      CommonModule,
-      LayoutRoutingModule,
-      YoutubePlayerModule,
-      FormsModule,
-      FloatingActionMenuModule,
-      MatSidenavModule
+  CommonModule,
+  LayoutRoutingModule,
+  YoutubePlayerModule,
+  FormsModule,
+  FloatingActionMenuModule,
+  MatSidenavModule
   ],
   declarations: [
   LayoutComponent,
@@ -52,6 +52,7 @@ AsideToggleDirective,
 NAV_DROPDOWN_DIRECTIVES,
 ReplaceDirective,
 SIDEBAR_TOGGLE_DIRECTIVES
+
   ]
 })
 export class LayoutModule { }
