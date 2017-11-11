@@ -4,5 +4,5 @@ import forcelogout from './forcelogout';
 
 //Calls forceLogout route
 
-router.put('/',forcelogout);
+router.put('/',forcelogout);			//calls forcelogout route
 export default router;

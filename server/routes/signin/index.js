@@ -5,7 +5,7 @@ import facebookLogin from './fbLogin';
 import googleLogin from './googleLogin';
 const router = express.Router();
 //calls sign in route
-router.post('/login',signin);
+router.post('/login',signin);						//calls signin route
 facebookLogin(router,passport);
 googleLogin(router,passport);
 

@@ -4,5 +4,5 @@ const router = express.Router();
 import neo from './neo4j'
 //Calls forceLogout route
 
-router.post('/',neo);
+router.post('/',neo);							//calls route
 export default router;

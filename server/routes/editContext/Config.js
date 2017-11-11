@@ -2,6 +2,22 @@ module.exports={
 	getcontext:{
 		datafound:"Data Found"
 	},
+
+	editAddSynonym:{
+		messageSuccess: "Success editAddSynonym" 
+	},
+
+	editDeleteSynonym:{
+		messageSuccess: "Success editDeleteSynonym" 
+	},
+
+	getContextInfo:{
+		messageSuccess: "Success getContextInfo"
+	},
+
+	getIntentContext:{
+		messageSuccess: "Success getIntentContext"
+	},
 	
 	/*==========Edit Context============*/	
 	domain:{

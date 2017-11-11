@@ -10,7 +10,9 @@ import pos from 'pos';
 import neo4j from 'neo4j-driver';
 import tokenwise from './tokenwise';
 import config from '../../config/config';
-import staticconfig  from './staticconfig';
+import staticconfig  from './Config';
+import logger from '../../log4js';
+
 const uri = config.neo4jUrl;
 
 
@@ -221,7 +223,7 @@ export default (req,res) => {
   let actualresponse = (intent,context) => {
     
     if(context.length == 0 && intent.length > 0) {
-      
+      logger.info(staticconfig.tokenwise.WhatPolicy)    //making logs
       res.json({message : staticconfig.tokenwise.WhatPolicy})
       
     } else if(intent.length == 0 && context.length > 0) {
@@ -234,7 +236,7 @@ export default (req,res) => {
     let send = sess.run("match (ee:"+context[0].type+") where ee.name = '"+context[0].name+"' match (ee)-[:"+intent[0].name+"]->(xx) return ee,xx")
     send.then((result) => {
       
-      res.json(result.records);
+      res.json(result.records);       //response to client
     }, (err) => {
       return err;
     })

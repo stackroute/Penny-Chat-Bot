@@ -2,6 +2,7 @@ import express from 'express';
 import task from './task';
 import yesno from './yesno';
 import flow_schema from './../../model/flow_schema';
+import staticConfig from './Config';
 
 let checkanswer = (answer, question) => {
   let result;
@@ -65,7 +66,7 @@ export default (req,res) => {
             flow_schema.find({task : req.body.countertype},{question : {$elemMatch : { id : req.body.question.id, answer : validity}}},(err,datamain)=> {
               if(datamain.length > 0) {
                 
-                res.json(datamain[0].question[0]);
+                res.json(datamain[0].question[0]);          //response to client
               }
             })
           } else {
@@ -79,7 +80,7 @@ export default (req,res) => {
                 flow_schema.find({task : req.body.countertype},{question : {$elemMatch : { id : next, type : "Q"}}},(err,datamain)=> {
                   if(datamain.length > 0) {
                     
-                    res.json(datamain[0].question[0]);
+                    res.json(datamain[0].question[0]);        //response to client
                   }
                 })
               }
@@ -98,7 +99,7 @@ export default (req,res) => {
     flow_schema.find({task : req.body.countertype},{question : {$elemMatch : { id : req.body.question.next, type : "Q"}}},(err,datamain)=> {
       if(datamain.length > 0) {
         
-        res.json(datamain[0].question[0]);
+        res.json(datamain[0].question[0]);          //response to client
       }
     })
   }

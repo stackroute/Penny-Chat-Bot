@@ -2,5 +2,5 @@ import express from 'express';
 const router = express.Router();
 import addtask from './addtask';
 
-router.post('/',addtask);		//Calls the route
+router.post('/',addtask);				// calls addtask route
 export default router;
