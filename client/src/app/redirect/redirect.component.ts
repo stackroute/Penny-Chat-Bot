@@ -30,7 +30,7 @@ export class RedirectComponent implements OnInit {
 
   	this.redirectService.redirectUrl(this.id)
   	.subscribe((params) => {
-      if(params.message=="verified"){
+      if(params.message==Config.data.message){
         //if verified set data to localstorage
         this.flag=1;
         //set data to localstorage
