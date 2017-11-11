@@ -14,7 +14,9 @@ import { Config } from './edit-context_en_config';
 export class EditContextComponent implements OnInit {
   intentData : any=[];
   Config:any=Config;
-
+  flowitem : any[] = [];
+  item:any[]=[];
+  flow:any;
   context:any ={};
   synonym:any;
   setDomain:any;
@@ -53,6 +55,7 @@ export class EditContextComponent implements OnInit {
 
   ngOnInit() {
     this.getContext();
+    this.getcontent();
     this.editContextService.getAllContext().subscribe((ref) => {
       ref.map((context)=> {
         if(context._fields[0].labels[0] == Config.component.Entity || context._fields[0].labels[0] == Config.component.Domain || context._fields[0].labels[0] == Config.component.SubDomain){
@@ -161,13 +164,18 @@ export class EditContextComponent implements OnInit {
             this.video.push(videolink)
             videolink = undefined;
           }
+          if(answer.labels[0] == 'Counter') {
+           this.flow = answer.properties.value
+          }
         })
       })
       let intent = {
         name : res.intentData.name,
         value : res.intentData.value,
         videoLink : Object.assign([],this.video),
-        blogLink : Object.assign([],this.link)
+        blogLink : Object.assign([],this.link),
+        flow : this.flow,
+        deleteFlow : false
       }
       this.intentData.push(intent);
       intent = undefined;
@@ -246,5 +254,28 @@ addMoreSynonym(syn){
 OnItemDeSelectContext(item:any) {
   this.contextval = null;
 }
+
+//==========funtion to fetch flows============//
+ getcontent() {
+   this.editContextService.fetchflow()
+   .subscribe((data) => {
+     this.item = data;
+     this.item.map((data) => {
+       this.flowitem.push(data.task);
+     })
+   })
+ }
+//==================method to delete existing flow=============//
+ deleteFlow(index) {
+   this.intentData[index].deleteFlow = true;
+   this.intentData[index].hiddenFlow  = this.intentData[index].flow;
+   this.intentData[index].flow = null;
+ }
+//===============method to set the delete flow as false===========//
+ undeleteFlow(index) {
+   console.log("delete undo",this.intentData[index].deleteFlow);
+   
+   this.intentData[index].deleteFlow = false;
+ }
 
 }

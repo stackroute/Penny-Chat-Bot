@@ -38,7 +38,7 @@ op:any;
     })
   }
 
-editdata(name) {
+editdata(name) { //edit data
   console.log(name);
   this.traindomainService.getdata(name).subscribe((res) => {
     //console.log("response",res);
@@ -132,7 +132,7 @@ addanswerflow(input,next) {
     this.next = "";
  }
 
-arrangeAnswer() {
+arrangeAnswer() {  //arrage answers
   if(this.answerflow.length > 0) {
     if(this.nextquestion.genre == Config.ques.intro) {
       for(let i=0;i<this.productdata.question.length;i++) {
@@ -168,7 +168,7 @@ arrangeAnswer() {
   this.answerflow= [];
 }
 
-  setAnstype(data,main) {
+  setAnstype(data,main) {  //set Answertype
     //console.log("Answertype",data);
     this.tempdata.answertype = data;
     if(data==Config.ques.yesno && main==Config.ques.intro) {
@@ -261,4 +261,161 @@ arrangeAnswer() {
       this.router.navigateByUrl('/admin/createflow');
     })
   }
+  testflag:boolean = false;
+  testflow:any[] = [];
+  triggerFlow() {   //check the flow of created answer
+     this.testflag = true;
+     this.productdata.question.map((data) => {
+       if(data.genre == "Introduction" && data.type == "Q" && data.id == this.testflag) {
+         this.chatadd(data,"");
+       }
+     })
+  }
+
+  testanswertype:any;
+  currentflow:any;
+  chatadd(data,ans) {
+    console.log(this.productdata);
+    this.currentflow = data;
+    this.testanswertype = data.answertype
+    if(this.currentflow.result) {
+      this.testflag = false;
+    }
+
+    if(data.message) {
+      if(data.option) {
+         let temp = {
+      bot : data.message,
+      option : data.option
+        }
+         this.testflow.push(temp);
+      } else {
+         let temp = {
+      bot : data.message
+        }
+         this.testflow.push(temp);
+      }
+      } else {
+        this.testanswer(ans)
+      }
+   }
+   ans:any;
+
+   testanswer(ans) { //test the answer
+     this.testflow[this.testflow.length -1].user = ans;
+     this.ans = ""
+     console.log(this.currentflow);
+     if(!this.currentflow.genre) {
+       let next = this.productdata.question.find((data) => {
+          if(data.id == this.currentflow.next && data.type == "Q") {
+            return data;
+          }
+       })
+       console.log("here answer next",next);
+       this.chatadd(next,ans);
+
+     } else if(this.testanswertype == "Yes/No") {
+       let valid = this.checkansyesno(ans);
+       console.log(valid);
+       if(this.currentflow.genre == "Introduction" || this.currentflow.genre == "Conclusion") {
+         if(valid) {
+           let next = this.productdata.question.find((data) => {
+           if(data.answer == "Yes" && this.currentflow.id == data.id) {
+             return data;
+           }
+         })
+           console.log(next);
+            this.chatadd(next,ans);
+         } else {
+           let next = this.productdata.question.find((data) => {
+           if(data.answer == "No" && this.currentflow.id == data.id) {
+             return data;
+           }
+         })
+          this.chatadd(next,ans);
+         }
+       } else if(this.currentflow.genre == "Question") {
+          if(valid) {
+            let next = this.productdata.question.find((data) => {
+           if(data.answer == valid && this.currentflow.id == data.id && data.input == ans) {
+             return data;
+             }
+           })
+            console.log(next);
+          this.chatadd(next,ans);
+          } else {
+             let next = this.productdata.question.find((data) => {
+           if(data.answer == valid && this.currentflow.id == data.id) {
+             return data;
+             }
+           })
+            console.log(next);
+          this.chatadd(next,ans);
+          }
+       }
+     } else if(this.testanswertype == "MCQ") {
+       let valid = this.checkansmcq(ans);
+      if(valid) {
+         let next = this.productdata.question.find((data) => {
+           if(data.input == ans && this.currentflow.id == data.id && data.answer == valid) {
+             return data;
+           }
+         })
+         console.log("mcq",next);
+          this.chatadd(next,ans);
+      } else {
+         let next = this.productdata.question.find((data) => {
+           if(data.answer == valid && this.currentflow.id == data.id) {
+             return data;
+             }
+           })
+            console.log(next);
+          this.chatadd(next,ans);
+      }
+     }
+   }
+
+   checkansyesno(ans) { //check yesno type answer
+     let yes = ["yes"];
+     let no = ["no"]
+     let flag;
+     yes.map((data) => {
+       if(data == ans) {
+         flag = "yes";
+       }
+     })
+     no.map((data) => {
+       if(data == ans) {
+         flag = "no";
+       }
+     })
+     if(this.currentflow.genre == "Introduction" && flag!=undefined) {
+       if(flag == "yes") {
+         return true;
+       } else {
+         return false;
+       }
+     } else if(this.currentflow.genre == "Question" && flag != undefined) {
+       return true;
+     } else if(this.currentflow.genre == "Conclusion" && flag != undefined) {
+       if(flag == "yes") {
+         return true;
+       } else {
+         return false;
+       }
+     } else {
+       return false;
+     }
+
+   }
+
+   checkansmcq(ans) { //check mcq
+     let length = this.currentflow.option.length;
+     if(ans <= length) {
+       return true;
+     } else {
+       return false;
+     }
+   }
+
 }

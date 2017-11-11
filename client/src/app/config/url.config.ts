@@ -64,5 +64,6 @@ export const urlConfig= {
 	AdminEditContextaddMoreSynonym:"/editContext/editAddSynonym",
 	AdminEditContextdeleteSynonym:"/editContext/editDeleteSynonym",
 	AdminEditContextupdateContext:"/editContext/editLink",
+	AdminEditContexttfetchflow : "/followup"
 
 }

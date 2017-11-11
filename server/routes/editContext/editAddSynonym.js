@@ -9,7 +9,7 @@ const driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.ne
 const session = driver.session();
 
 export default (req, res)=> {
-
+try{
 	req.body.synonym.map((data)=>{
 		const resultPromise = session.run(				//Query to editSynonym
 			"match (n:"+req.body.context.label+" {name:'"+req.body.context.itemName+"'}) with n create (n)<-[:SameAs]-(s:Synonym {name:'"+data+"'}) return s"
@@ -22,4 +22,8 @@ export default (req, res)=> {
   driver.close();
 		});
 	})
+}catch(error){                                            // error handle if suddenly error occur in database
+    logger.info(staticConfig.editAddSynonym.Error);                  // making logs
+    res.json({status:false, message:staticConfig.editAddSynonym.Error,data:error});
+  }
 };
