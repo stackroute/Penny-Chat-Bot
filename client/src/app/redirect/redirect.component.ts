@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RedirectService } from './redirect.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Config } from './redirect_en_config';
+import { testConfig } from './redirect.config';
 @Component({
   selector: 'app-redirect',
   templateUrl: './redirect.component.html',
@@ -30,7 +31,7 @@ export class RedirectComponent implements OnInit {
 
   	this.redirectService.redirectUrl(this.id)
   	.subscribe((params) => {
-      if(params.message==Config.data.message){
+      if(params.message==testConfig.data.message){
         //if verified set data to localstorage
         this.flag=1;
         //set data to localstorage
