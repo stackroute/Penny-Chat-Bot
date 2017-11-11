@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Config } from './bottom-chat_en_config';
 @Component({
   selector: 'app-bottom-chat',
   templateUrl: './bottom-chat.component.html',
@@ -7,87 +8,49 @@ import { Router } from '@angular/router';
 })
 export class BottomChatComponent implements OnInit {
 
-	config;
+  Config:any=Config;
+  config;
+  //--------- start of buttons-------------
   buttons: any= [
   {
-    iconClass: 'fa fa-home',
-    label: 'Home',
+    iconClass: Config.bottomchat.fahome,
+    label: Config.bottomchat.Home,
     onClick: ()=> {
       this.router.navigateByUrl('user/dashboardUser');
     }
   },
   {
-    iconClass: 'fa fa-comment',
-    label: 'Chat with us',
+    iconClass: Config.bottomchat.facomment,
+    label: Config.bottomchat.chatwithus,
     onClick: () => {
+      //--------open route for user chat-----------
       this.router.navigateByUrl('user/chat');
-      //window.open(document.URL, '/user/chat', 'location=yes,height=570,width=520,scrollbars=yes,status=no');
+      
     }
   },
   {
-    iconClass: 'fa fa-sign-out',
-    label: 'Logout',
+    iconClass: Config.bottomchat.fasignout,
+    label: Config.bottomchat.Logout,
     onClick: ()=> {
-      localStorage.removeItem('Userdata');
-      localStorage.removeItem('key');
-      localStorage.removeItem('isLoggedin');
+      localStorage.removeItem(Config.bottomchat.Userdata);
+      localStorage.removeItem(Config.bottomchat.key);
+      localStorage.removeItem(Config.bottomchat.isLoggedin);
       this.router.navigateByUrl('/login');
     }
   },
   ];
+  //-----------------end of buttons---------------
 
-  placements = [
-  {
-    value: 'br',
-    key: 'bottom right'
-  },
-  {
-    value: 'bl',
-    key: 'bottom left'
-  },
-  {
-    value: 'tr',
-    key: 'top right'
-  },
-  {
-    value: 'tl',
-    key: 'top left'
-  },
-  ];
+  placements = Config.bottomchat.placements;
 
-  effects = [
-  /*{
-    value: 'mfb-zoomin',
-    key: 'Zoom In'
-  },*/
- /* {
-    value: 'mfb-slidein',
-    key: 'Slide In + Fade'
-  },*/
-  /*{
-    value: 'mfb-fountain',
-    key: 'Fountain'
-  },*/
-  /*{
-    value: 'mfb-slidein-spring',
-    key: 'Slide In (Spring)'
-  }*/
-  ];
+  effects = Config.bottomchat.effects;
 
-  toggles = [
-  'click',
-  'hover'
-  ];
+  toggles = Config.bottomchat.toggle;
 
+  //-----------------placement effects toggle button---------------
   constructor(private router : Router) { 
-  	this.config = {
-      placment: 'br',
-      effect: 'mfb-slidein-spring',
-      label: 'main button label',
-      iconClass: 'fa fa-bars',
-      activeIconClass: 'ion-close-round',
-      toggle: 'hover'
-    }
+    //----------------set configuration for floating menu------------
+    this.config = Config.bottomchat.thisconfig
   }
 
   ngOnInit() {
