@@ -60,9 +60,9 @@ export default (req,res) => {
         stemsentence(sentences);
         singlesentence(sentences[0]);
       }
-     }
+    }
 
-     let ngrams = () => {
+    let ngrams = () => {
       let meaningWord = "";
       for(let i = 2; i<=5;i++){
         let nGrams = natural.NGrams;
@@ -75,13 +75,13 @@ export default (req,res) => {
           meaningWord = "";
         }    
       }
-     }
-     let stemsentence   = (sentences) => {
+    }
+    let stemsentence   = (sentences) => {
       natural.PorterStemmer.attach()
       sentences.map((sentence)=>{
         stemword = sentence.tokenizeAndStem()
       })
-     }
+    }
   let singlesentence = (sentences) => { //handle single sentence
     let maintoken = token.tokenize(sentences);
     let withoutstopword = [];
