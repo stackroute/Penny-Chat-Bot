@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bottom-chat',
@@ -9,12 +10,29 @@ export class BottomChatComponent implements OnInit {
 	config;
  buttons: any= [
     {
-      iconClass: 'ion-social-github',
-      label: 'follow me on github',
-      onClick: function() {
-      	window.open(document.URL, '/', 'location=yes,height=570,width=520,scrollbars=yes,status=no');
-      }
-    },
+    iconClass: 'fa fa-home',
+    label: 'Home',
+    onClick: ()=> {
+      this.router.navigateByUrl('admin/dashboardAdmin');
+    }
+  },
+   {
+    iconClass: 'fa fa-location-arrow',
+    label: 'Add Flow',
+    onClick: ()=> {
+      this.router.navigateByUrl('admin/createflow');
+    }
+  },
+  {
+    iconClass: 'fa fa-sign-out',
+    label: 'Logout',
+    onClick: ()=> {
+      localStorage.removeItem('Userdata');
+      localStorage.removeItem('key');
+      localStorage.removeItem('isLoggedin');
+      this.router.navigateByUrl('/login');
+    }
+  },
   ];
 
   placements = [
@@ -41,10 +59,10 @@ export class BottomChatComponent implements OnInit {
       value: 'mfb-zoomin',
       key: 'Zoom In'
     },
-    {
+   /* {
       value: 'mfb-slidein',
       key: 'Slide In + Fade'
-    },
+    },*/
     {
       value: 'mfb-fountain',
       key: 'Fountain'
@@ -60,7 +78,7 @@ export class BottomChatComponent implements OnInit {
     'hover'
   ];
 
-  constructor() { 
+  constructor(private router:Router) { 
   	this.config = {
       placment: 'br',
       effect: 'mfb-slidein-spring',

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Output, EventEmitter} from '@angular/core';
 import {DashboardUserService} from '../dashboard-user/dashboard-user.service';
 import {Router} from '@angular/router';
+import { Config } from './dashboard-user_en_config';
 
 @Component({
   selector: 'app-dashboard-user',
@@ -14,6 +15,7 @@ import {Router} from '@angular/router';
 
 export class DashboardUserComponent implements OnInit {
   @Output() childEvent=new EventEmitter();
+  Config:any=Config;
   definition:string;
   product :any=[];
   data:any;

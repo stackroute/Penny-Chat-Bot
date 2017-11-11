@@ -1,1 +1,5 @@
-[2017-11-11 09:27:52.475] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 12:20:46.528] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 12:25:45.110] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-11 12:26:02.917] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-11 12:26:30.897] [INFO] chatbot_express_server - Password successfully updated.
+[2017-11-11 14:31:18.300] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
