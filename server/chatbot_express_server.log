@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2017-11-10 16:43:36.138] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-11 09:59:06.633] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-11 12:51:32.831] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
@@ -11,3 +12,5 @@
 [2017-11-11 13:45:01.659] [INFO] chatbot_express_server - undefined
 [2017-11-11 13:46:52.360] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-11 13:47:02.881] [INFO] chatbot_express_server - undefined
+=======
+>>>>>>> 0a273cd10b3d75811c9a03c45043227bfb8e330a
