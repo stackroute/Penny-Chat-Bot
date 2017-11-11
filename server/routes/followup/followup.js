@@ -1,6 +1,7 @@
 import express from 'express'; // File for messages
 import logger from '../../log4js';
 import flow_schema from './../../model/flow_schema';
+import staticConfig from './Config';
 
 export default (req,res)=>{
 flow_schema.find({task : req.body.counter},(error,data)=>{
@@ -14,7 +15,8 @@ flow_schema.find({task : req.body.counter},(error,data)=>{
 			res.json(main);
 		}
 		else{
-			res.json({status:false,message:"Data Undefined",data:null})
+			logger.info(staticConfig.followup.messageUndefined)		//making logs
+			res.json({status:false,message:staticConfig.followup.messageUndefined,data:null})			//response to client
 		}
 	})
 }
