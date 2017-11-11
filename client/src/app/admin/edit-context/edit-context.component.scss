@@ -123,6 +123,12 @@ a {
 }
 .btn.btn-primary {
     color:white;
+background-color:#375372 ;
+    padding: 12px 12px;
+    padding-top: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
 }
 .btn.btn-primary:hover {
     color:white;
@@ -144,6 +150,7 @@ a {
    margin-left: 1%;
    background-color:#375372 ;
    border-color: #375372 ;
+
 }
  #c_button {
     font-size: inherit;
@@ -194,3 +201,23 @@ a {
     background-color: #375372;
     border-color: #375372;
 }
+ .contextDropDownbtn
+ {
+ margin-bottom:2%;
+ }
+ .btn.btn-primary.add.deletebtn{
+     padding: 12px 12px;
+     margin-top: 1%;
+ }
+ .btn.btn-primary.add.editbtn{
+     padding: 12px 12px;
+     margin-top: 1%;
+ }
+ .btn.btn-primnary.deleteflowbtn {
+   background-color: #375372 ;
+   color: #fff;
+   margin-left: 2%;
+   padding: 12px;
+
+ }
+ 

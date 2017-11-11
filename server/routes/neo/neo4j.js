@@ -9,7 +9,7 @@ import tokenizer from 'sbd';
 import pos from 'pos';
 import neo4j from 'neo4j-driver';
 import config from '../../config/config';
-import staticconfig  from './staticconfig';
+import staticconfig  from './Config';
 
 const uri = config.neo4jUrl;
 
@@ -156,7 +156,8 @@ let total;
       if(temp == total) {
        
         if(mainpart.length == 0) {
-          res.json({message : [{message : staticconfig.neo.TrobleUnderstanding}],links : []})
+          logger.info(staticconfig.neo.TroubleUnderstanding);   //making logs
+          res.json({message : [{message : staticconfig.neo.TroubleUnderstanding}],links : []})
         } else {
           
           giveresponse(mainpart);

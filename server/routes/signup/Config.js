@@ -1,6 +1,7 @@
 module.exports={
      signup : {
     messageAlreadyExist : "You are already registered user.",
+    messageNotFound : "Not Found",
     messageSuccessFind : "Successfuly Registered. Please verify your email to login into the system.",
     messageNodemailService : 'Gmail',
     messageNodemailAuthEmail : 'dummyid20@gmail.com',

@@ -1,5 +1,5 @@
 <div class="card-body">
-  <div class = "col-md-9">
+  <div class = "col-md-9 contextDropDownbtn">
     <angular2-multiselect [data]="contextDropDown" [(ngModel)]="selectedItemsContext" 
     [settings]="dropdownSettingsContext" 
     (onSelect)="onItemSelectContext($event)" 
@@ -8,10 +8,10 @@
     (onDeSelectAll)="onDeSelectAllContext($event)"></angular2-multiselect>
   </div>
   <div *ngIf="contextval">
-    <button type="button" class="btn btn-primary add" aria-label="Close" 
+    <button type="button" class="btn btn-primary add deletebtn" aria-label="Close" 
     (click)="deleteContext(contextval)">{{Config.html.deletebutton}}
   </button>
-  <button type="button" class="btn btn-primary add" aria-label="Close" 
+  <button type="button" class="btn btn-primary add editbtn" aria-label="Close" 
   (click)="myModal.show()" (click)="getContextSynonym();getAllIntent()" >{{Config.html.editbutton}}
 </button>
 </div>
@@ -35,7 +35,7 @@
               <form>
                 <div class="form-group">
                   <label for="exampleInputPassword1">{{Config.html.ContextName}}</label>
-                  {{getContextName}}<br>
+                  {{getContextName}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                   <label for="exampleInputPassword1">{{Config.html.ContextType}}</label>
                   {{getContextLabel}}
                   
@@ -142,19 +142,28 @@
 
    </collapsible-body>
  </collapsible-list-item>
+ <collapsible-list-item>
+  <collapsible-header class="waves-effect collapsible-header">
+           Add Flow
+       </collapsible-header>
+       <collapsible-body [expanded]="false">
+       <div>
+       <select [(ngModel)]="main.flow" (ngModelChange)="undeleteFlow(i)">
+         <option *ngFor="let flo of flowitem" value="{{flo}}">{{flo}}</option>
+       </select>
+        <button class="btn btn-primnary deleteflowbtn" *ngIf="main.flow" (click)="deleteFlow(i)">Delete</button>
+     </div>
+
+   </collapsible-body>
+</collapsible-list-item>
 </collapsible-list>
 </collapsible-body>
 </collapsible-list-item>
 </collapsible-list>
-
-
 </div>
-
 </div>
 </div>
 </tab>
-
-
 </div>
 </tabset>
 </div>

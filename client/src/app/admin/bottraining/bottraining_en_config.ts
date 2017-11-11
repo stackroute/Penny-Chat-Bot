@@ -20,7 +20,7 @@ export const Config = {
         'SameAs' : 'same as',
         'Priority' : 'Priority',
         'AddSyno' : 'Add Synonyms for',
-        'Synonyms' : 'Synonyms',
+        'Synonyms' : 'Suggestions',
         'AddedSyn' : 'Added Synonyms',
         'SelectIntent' : 'Select Intent',
         'SelectAll' : 'Select All',

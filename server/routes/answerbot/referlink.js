@@ -2,9 +2,11 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router();
 var unfurl = require('unfurled')
+import staticconfig  from './Config';
+import logger from '../../log4js';
 
 export default (req,res) => {   
-	console.log(req.body.message);
+	
 	// (async function () {
 	// 	let result = await unfurl(req.body.message)
 		
@@ -25,6 +27,7 @@ export default (req,res) => {
 	})
 
 	let setoutput = () => {
+
 		res.json(main);
 	}
 }
