@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LayoutRoutingModule } from './layout-routing.module';
 import {YoutubePlayerModule} from 'ng2-youtube-player';
+import {ResetPasswordComponent } from './reset-password/reset-password.component';
+import {EditprofileComponent } from './editprofile/editprofile.component';
 import {
  AppAsideComponent,
 AppFooterComponent,
@@ -39,6 +41,8 @@ import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
   ChatComponent,
   BottomChatComponent,
   AppFooterComponent,
+  ResetPasswordComponent,
+  EditprofileComponent,
 AppHeaderComponent,
 AppSidebarComponent,
 //AppSidebarMinimizerComponent,
