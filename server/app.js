@@ -26,6 +26,8 @@ import unques from './routes/unanswerques';
 import questokenize from './routes/questiontokenize';
 import followup from './routes/followup';
 import editContext from './routes/editContext';
+import updateUserdata from './routes/updateUserdata';
+import reset_password from './routes/reset_password';
 // end importing of routes
 
 import http from 'http';
@@ -117,6 +119,8 @@ app.use('/suggest',suggest);
 app.use('/questoken',questokenize);
 app.use('/sentiment',sentiment);
 app.use('/editContext',editContext);
+app.use('/updateUserdata', updateUserdata);
+app.use('/reset_password', reset_password);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
