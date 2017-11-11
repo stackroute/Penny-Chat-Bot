@@ -4,8 +4,9 @@ import flow_schema from './../../model/flow_schema';
 import staticConfig from './Config';
 
 export default (req,res)=>{
-flow_schema.insertMany(req.body,{upsert:true},(error,data)=>{
-		if(data==undefined){
+	try{
+		flow_schema.insertMany(req.body,{upsert:true},(error,data)=>{
+			if(data==undefined){
 			logger.info(staticConfig.setFlow.messageNotfound)		//making logs
 			res.json({status:false,message:staticConfig.setFlow.messageNotfound,data : null });			
 		}
@@ -18,4 +19,8 @@ flow_schema.insertMany(req.body,{upsert:true},(error,data)=>{
 			res.json({status:false,message:staticConfig.setFlow.error,'error' : error });
 		}
 	})
+	}catch(error){                                            // error handle if suddenly error occur in database
+    logger.info(staticConfig.getFollow.error);                  // making logs
+    res.json({status:false, message:staticConfig.getFollow.error,data:error});
+  }
 }
