@@ -1,4 +1,4 @@
-import express from 'express'; // File for messages
+import express from 'express'; 
 import logger from '../../log4js';
 import numerizer from 'numerizer';
 import gingerbread from 'gingerbread';

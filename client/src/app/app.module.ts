@@ -8,7 +8,6 @@ import { DndModule, DragDropService, DragDropConfig, DragDropSortableService } f
 import { ErrorComponent } from './error/error.component';
 import {SocialLoginRedirectComponent} from './social-login-redirect/social-login-redirect.component';
 import {AsideService} from './User/common/app-aside/app-aside.service';
-
 import {RegisterComponent} from './register/register.component'
 import {RedirectComponent} from './redirect/redirect.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
@@ -52,7 +51,6 @@ import {Http,HttpModule} from '@angular/http';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-
 
     ErrorComponent,
     RedirectComponent,

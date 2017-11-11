@@ -4,7 +4,7 @@ import adminques from './adminques';
 import deletePendingQuestions from './deletePendingQuestions';
 let router = express.Router();
 
-router.get('/',unans)
-router.post('/',adminques)
-router.put('/delete',deletePendingQuestions)
+router.get('/',unans);																			//Calls unanswerques route
+router.post('/',adminques);																	//Calls adminques route
+router.put('/delete',deletePendingQuestions);								//Calls deletePendingQuestions route
 export default router;
