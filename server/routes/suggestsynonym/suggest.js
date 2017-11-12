@@ -18,13 +18,15 @@ export default (req, res, next)=>{
       });
       if(results[0]!=undefined){                                      //When synonym is found
         logger.info(staticConfig.suggest.SynonymFound);                  // making logs
+
+    console.log(word,"naman@@@@",results[0].synonyms  );
         res.json({status:true,message:staticConfig.suggest.SynonymFound,data : results[0].synonyms});    
       }
       else{                                                       //When synonym is not found
       logger.info(staticConfig.suggest.SynonymNotFound);                  // making logs  
       res.json({status:false,message:staticConfig.suggest.SynonymNotFound,data:null});
     }
-  });a
+  });
   }catch(error){                                            // error handle if suddenly error occur in database
     logger.info(staticConfig.suggest.Error);                  // making logs
     res.json({status:false, message:staticConfig.suggest.Error,data:error});

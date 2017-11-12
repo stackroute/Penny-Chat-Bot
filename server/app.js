@@ -59,11 +59,11 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
- app.use(session({
+app.use(session({
   secret : config.secret,
   resave : true,
   saveUninitialized : true
- }));
+}));
 
 app.use(cors());
 app.use(cookieParser());
@@ -72,54 +72,78 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(config.url, {server:{auto_reconnect:true}});
 let db = mongoose.connection;
-  db.on('connecting', ()=>{
-    logger.debug(staticConfig.db.mongoose_Connecting);
-  });
-  db.on('error', (error)=>{
-    logger.debug(staticConfig.db.mongoose_Error+ error);
-    mongoose.disconnect();
-  });
-  db.on('connected', ()=>{
-    logger.debug(staticConfig.db.mongoose_Connected);
-  });
-  db.once('open', ()=>{
-    logger.debug(staticConfig.db.mongoose_Open);
-  });
-  db.on('reconnected',()=>{
-    logger.debug(staticConfig.db.mongoose_Reconnected);
-  });
-  db.on('disconnected', ()=>{
-    logger.debug(staticConfig.db.mongoose_Disconnected);
-  });
- 
+db.on('connecting', ()=>{
+  logger.debug(staticConfig.db.mongoose_Connecting);
+});
+db.on('error', (error)=>{
+  logger.debug(staticConfig.db.mongoose_Error+ error);
+  mongoose.disconnect();
+});
+db.on('connected', ()=>{
+  logger.debug(staticConfig.db.mongoose_Connected);
+});
+db.once('open', ()=>{
+  logger.debug(staticConfig.db.mongoose_Open);
+});
+db.on('reconnected',()=>{
+  logger.debug(staticConfig.db.mongoose_Reconnected);
+});
+db.on('disconnected', ()=>{
+  logger.debug(staticConfig.db.mongoose_Disconnected);
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 //=======================log4js Implementation==========================================
 
-//logger.debug(staticConfig.loggerDebugAppjs.beforeSigninroute);
+logger.debug(staticConfig.loggerDebugAppjs.Signin);
 app.use('/signin',signin);
+logger.debug(staticConfig.loggerDebugAppjs.AddTask);
 app.use('/addtask',addtask);
+logger.debug(staticConfig.loggerDebugAppjs.ForgetPassword);
 app.use('/forgot_password',forgotPassword);
+logger.debug(staticConfig.loggerDebugAppjs.SetPassword);
 app.use('/set_password',setPassword);
+logger.debug(staticConfig.loggerDebugAppjs.WarningPage);
 app.use('/warning_page',warningPage);
+logger.debug(staticConfig.loggerDebugAppjs.WarningPage);
 app.use('/warning_page',warning_page); 
+logger.debug(staticConfig.loggerDebugAppjs.Neo);
 app.use('/neo',neo);
+logger.debug(staticConfig.loggerDebugAppjs.Signin);
 app.use('/',signin);
+logger.debug(staticConfig.loggerDebugAppjs.Signup);
 app.use('/register',signup);
+logger.debug(staticConfig.loggerDebugAppjs.Tokenise);
 app.use('/tokenise',tokenise);
+logger.debug(staticConfig.loggerDebugAppjs.Logout);
 app.use('/forcelogout',logout);
+logger.debug(staticConfig.loggerDebugAppjs.VerifyUser);
 app.use('/verify_user',verifyuser);
+logger.debug(staticConfig.loggerDebugAppjs.AnswerBot);
 app.use('/answerbot',answerbot);
+logger.debug(staticConfig.loggerDebugAppjs.TrainIntent);
 app.use('/train_intent',trainIntent);
+logger.debug(staticConfig.loggerDebugAppjs.Question);
 app.use('/ques_ans',ques);
+logger.debug(staticConfig.loggerDebugAppjs.UnAnswerQuestion);
 app.use('/unques',unques);
+logger.debug(staticConfig.loggerDebugAppjs.Synonym);
 app.use('/synonym',synonym);
+logger.debug(staticConfig.loggerDebugAppjs.FollowUp);
 app.use('/followup',followup);
+logger.debug(staticConfig.loggerDebugAppjs.AddContext);
 app.use('/addcontext',addcontext);
+logger.debug(staticConfig.loggerDebugAppjs.Suggest);
 app.use('/suggest',suggest);
+logger.debug(staticConfig.loggerDebugAppjs.QusetionTokenize);
 app.use('/questoken',questokenize);
+logger.debug(staticConfig.loggerDebugAppjs.Sentiment);
 app.use('/sentiment',sentiment);
+logger.debug(staticConfig.loggerDebugAppjs.EditContext);
 app.use('/editContext',editContext);
+logger.debug(staticConfig.loggerDebugAppjs.UpdateUserData);
 app.use('/updateUserdata', updateUserdata);
+logger.debug(staticConfig.loggerDebugAppjs.ResetPassword);
 app.use('/reset_password', reset_password);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
