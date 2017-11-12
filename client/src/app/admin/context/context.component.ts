@@ -45,24 +45,8 @@ export class ContextComponent implements OnInit {
 
   ngOnInit() {
     this.getcontent();
-    this.contextService.getIntent().subscribe((ref) => {
-      ref.map((intent)=> {
-        if(intent._fields[0].labels[0] == Config.intent.intent && intent._fields[0].properties.name != Config.type.type){
-          this.intents.push({id:this.intents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : "", videoLink : [], blogLink : [], subIntent : []});
-        }
-        else if(intent._fields[0].labels[0] == Config.subintent.subintent){
-          this.subIntents.push({id:this.subIntents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : ""});
-        }
-      })
-    })
-    this.contextService.getAllContext().subscribe((ref) => {
-      ref.map((context)=> {
-        if(context._fields[0].labels[0] ==Config.entity.entity || context._fields[0].labels[0] == Config.domain.domain || context._fields[0].labels[0] == Config.subdomain.subdomain){
-          this.contexts.push({name : context._fields[0].properties.name, label : context._fields[0].labels[0]});
-        }
-      })
-    })
-
+    this.getIntent();
+    this.getContext();
     /*==============dropdown settings=================*/
     this.dropdownSettings = Config.dropdownSettings;
     this.dropdownSubIntentSettings = Config.dropdownSubIntentSettings;
@@ -77,6 +61,31 @@ export class ContextComponent implements OnInit {
       this.item = data;
       this.item.map((data) => {
         this.flowitem.push(data.task);
+      })
+    })
+  }
+
+  getContext(){
+    this.contextService.getAllContext().subscribe((ref) => {
+      ref.map((context)=> {
+        if(context._fields[0].labels[0] ==Config.entity.entity || context._fields[0].labels[0] == Config.domain.domain || context._fields[0].labels[0] == Config.subdomain.subdomain){
+          this.contexts.push({name : context._fields[0].properties.name, label : context._fields[0].labels[0]});
+        }
+      })
+    })
+  }
+
+  //===========method to get all the Intents========//
+  getIntent(){
+    this.contextService.getIntent().subscribe((ref) => {
+      this.intents = [];
+      ref.map((intent)=> {
+        if(intent._fields[0].labels[0] == Config.intent.intent && intent._fields[0].properties.name != Config.type.type){
+          this.intents.push({id:this.intents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : "", videoLink : [], blogLink : [], subIntent : []});
+        }
+        else if(intent._fields[0].labels[0] == Config.subintent.subintent){
+          this.subIntents.push({id:this.subIntents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : ""});
+        }
       })
     })
   }
@@ -106,8 +115,8 @@ export class ContextComponent implements OnInit {
   /*================fetching selected flow from dropdown=================*/
   flowdata:any;
   onItemFlowSelect(item:any,index){
-     this.selectedIntent[index].flow = item;
-     this.flowdata = "";
+    this.selectedIntent[index].flow = item;
+    this.flowdata = "";
   }
 
   /*================deselecting context from dropdown=================*/
@@ -123,6 +132,11 @@ export class ContextComponent implements OnInit {
     })
   }
 
+  /*=================flow Part=========================================*/
+  flowpart(data,index) {
+    this.selectedIntent[index].flow = data;
+  }
+
   /*===================Adding new context======================*/
   submitContext() {
     if(this.setDomain != undefined) {
@@ -135,6 +149,8 @@ export class ContextComponent implements OnInit {
             this.synonym = [];
             this.selectedContext = [];
             this.completeContext = [];
+            this.getIntent();
+            this.getContext();
           }
           else {
             swal('',Config.swal.msg2,'warning');

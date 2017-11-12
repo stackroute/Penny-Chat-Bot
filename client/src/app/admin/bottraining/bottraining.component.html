@@ -117,7 +117,7 @@
             <div class="addIntent">
              <button type="button" (click)="add.show()" class="btn btn-primary add addintentbtn" (click)="ifselected('Intent')" 
              >{{Config.bottraining.AddInt}}</button>
-             <button type="button" (click)="add.show()" class="btn btn-primary add" (click)="ifselected('SubIntent')" 
+             <button type="button" (click)="add.show()" class="btn btn-primary add addintentbtn" (click)="ifselected('SubIntent')" 
              >{{Config.bottraining.AddSubint}}</button> 
            </div>
          </div>
@@ -246,11 +246,11 @@
               <tab heading="Synonym" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
                 <div class="home-container">
                   <div>
-                    <h5>{{Config.bottraining.AddSyno}} {{addintent}}</h5>
+                    <h5><b>{{Config.bottraining.AddSyno}}</b> {{addintent}}</h5>
                     <input type="text" class="form-control" id="synonym" name = "synonym" placeholder="Enter Synonyms" [(ngModel)]="temp" (keyup)="suggest()" (keyup.enter)="select(temp)">
                   </div>
                   <div class="existing">
-                    <h5>{{Config.bottraining.AddedSyn}}</h5>
+                    <h5><b>{{Config.bottraining.AddedSyn}}</b></h5>
                     <a class="btn badgebtn" *ngFor="let data1 of main"> 
                       <span class="badge badge-pill text-white">
                         {{data1}}
@@ -258,7 +258,7 @@
                     </a>
                   </div>
                   <div class="existing">
-                    <h5>{{Config.bottraining.Synonyms}}</h5>
+                    <h5><b>{{Config.bottraining.Synonyms}}</b></h5>
                     <a class="btn suggestsynonym" *ngFor="let data of synres"> 
                     <span class="badge badge-pill text-white " (click)="select(data)">               
                       {{data}}

@@ -10,60 +10,58 @@ import { Config } from './addtask_en_config';
 })
 export class AddtaskComponent implements OnInit {
   Config:any=Config;
-    task:any={};
-    data:any=[];
+  task:any={};
+  data:any=[];
   res:any;
-    question : any ;
-    postitiveresponse : any;
-    negativeresponse : any;
+  question : any ;
+  postitiveresponse : any;
+  negativeresponse : any;
   item1:any=Config.addtask.YesNo;
-    item2:any=Config.addtask.Alphabetic;
-      item3:any=Config.addtask.Numeric;
+  item2:any=Config.addtask.Alphabetic;
+  item3:any=Config.addtask.Numeric;
 
   constructor(private addtaskservice : AddtaskService) { }
-//----------ngOnInit--------
+  //----------ngOnInit--------
   ngOnInit() {
-    console.log(this.item1,this.item2)
   }
 
-//-----------start of AddQuestion-----------
+  //-----------start of AddQuestion-----------
   AddQuestion(){
 
-      if(this.data.length ==0){
-          this.data.push({'TaskName' : this.task.name});
-      }
+    if(this.data.length ==0){
+      this.data.push({'TaskName' : this.task.name});
+    }
 
-      let question = {
-          id : this.data.length,
-          question : this.task.question,
-          answertype : this.task.answertype,
-          type : 'Q'
-      }
+    let question = {
+      id : this.data.length,
+      question : this.task.question,
+      answertype : this.task.answertype,
+      type : 'Q'
+    }
 
-      let positiveresponse = {
-          id : this.data.length ,
-          answer : this.task.answer,
-          question : this.task.response,
-          next : this.task.nextstep
-      }
+    let positiveresponse = {
+      id : this.data.length ,
+      answer : this.task.answer,
+      question : this.task.response,
+      next : this.task.nextstep
+    }
 
-      let negativeresponse = {
-          id : this.data.length ,
-          answer : this.task.nanswer,
-          question : this.task.negativeResponse,
-          next : this.task.negativenextstep
-      }
+    let negativeresponse = {
+      id : this.data.length ,
+      answer : this.task.nanswer,
+      question : this.task.negativeResponse,
+      next : this.task.negativenextstep
+    }
 
 
-      this.data.push({question},{positiveresponse},{negativeresponse});
-      console.log(this.data);
-      this.task = "";
+    this.data.push({question},{positiveresponse},{negativeresponse});
+    this.task = "";
   }
   //---------------end of AddQuestion----------------
 
   //---------------start of Submit-------------------
   Submit(){
-      this.addtaskservice.Submit(this.data).subscribe((res)=>res)
+    this.addtaskservice.Submit(this.data).subscribe((res)=>res)
   }
   //--------------end of Submit----------------------
 

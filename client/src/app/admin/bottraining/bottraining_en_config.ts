@@ -1,6 +1,6 @@
 export const Config = {
     bottraining : {
-        'PendingQuestions': 'Pending Questions',
+        'PendingQuestions': 'UnAnswered Questions',
         'Send' : 'Send',
         'Word' : 'Word',
         'Type' : 'Type',

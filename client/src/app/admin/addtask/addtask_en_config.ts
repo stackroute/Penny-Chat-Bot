@@ -14,5 +14,5 @@ export const Config = {
         'YesNo' : 'Yes/No',
         'Alphabetic' : 'Alphabetic',
         'Numeric' : 'Numeric'
-            }
+    }
 }
