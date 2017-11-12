@@ -68,6 +68,10 @@ export class EditContextComponent implements OnInit {
     this.dropdownSettingsContext = Config.dropdownSettingsContext;
   }
   
+check(){
+  console.log('hdghkdf')
+}
+
   /*==================get all context==================*/
   getContext(){
     this.editContextService.getContext()

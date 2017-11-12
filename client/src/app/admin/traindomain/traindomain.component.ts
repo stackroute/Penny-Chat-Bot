@@ -47,7 +47,6 @@ export class TraindomainComponent implements OnInit {
   }
 
   editdata(name) { //edit data
-    console.log(name);
     this.traindomainService.getdata(name).subscribe((res) => {
       this.productdata = res;
     })
@@ -56,7 +55,6 @@ export class TraindomainComponent implements OnInit {
   tempdata:any = {};
   tempvalue:any;
   getDetail(data) {
-    console.log(data);
     this.tempvalue = data;
 
     if (data==Config.ques.intro) {
@@ -110,13 +108,11 @@ export class TraindomainComponent implements OnInit {
       input : input,
       next : parseInt(next)
     }
-    //console.log("sameplae",sample);
     this.answerflow.push(sample);
     if(input == Config.ques.remain) {
       this.answerarr = [];
     } else  {
       let index = this.answerarr.indexOf(parseInt(input));
-      console.log(input,this.answerarr);
       if(index > -1) {
         this.answerarr.splice(index,1);
       }  
@@ -150,10 +146,8 @@ export class TraindomainComponent implements OnInit {
               next : data.next
             }
             this.productdata.question.push(sample);
-            console.log(this.productdata)
           }
         })
-        console.log(this.productdata.question);
       }
     }
     this.questionarr = [];
@@ -182,7 +176,6 @@ export class TraindomainComponent implements OnInit {
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
-      console.log(this.tempflow);
     } else if(data==Config.ques.yesno&& main == Config.ques.quest) {
       let fall = {
         id : this.tempid,
@@ -213,7 +206,6 @@ export class TraindomainComponent implements OnInit {
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
-      console.log(this.tempflow);
     }
   }
 
@@ -238,7 +230,6 @@ export class TraindomainComponent implements OnInit {
     this.tempdata = {};
     this.tempflow = [];
     this.tempvalue = "";
-    //console.log(this.productdata.question);
   }
   result(data) {
     this.productdata.result = data;
@@ -262,7 +253,6 @@ export class TraindomainComponent implements OnInit {
   testanswertype:any;
   currentflow:any;
   chatadd(data,ans) {
-    console.log(this.productdata);
     this.currentflow = data;
     this.testanswertype = data.answertype
     if(this.currentflow.result) {
@@ -305,7 +295,6 @@ export class TraindomainComponent implements OnInit {
               return data;
             }
           })
-          console.log(next);
           this.chatadd(next,ans);
         } else {
           let next = this.productdata.question.find((data) => {

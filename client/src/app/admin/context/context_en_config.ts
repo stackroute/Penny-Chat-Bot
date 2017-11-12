@@ -27,6 +27,15 @@ export default {
     classes:"myclass custom-class"
   },
 
+  dependencyDropdownSettings:{
+    singleSelection: true, 
+    text:"Select Dependency",
+    selectAllText:'Select All',
+    unSelectAllText:'UnSelect All',
+    enableSearchFilter: true,
+    classes:"myclass custom-class"
+  },
+
   dropdownSubIntentSettings : {
     singleSelection: true, 
     text:"Select SubIntent",

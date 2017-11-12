@@ -11,18 +11,34 @@ hr {
 	margin-top:0.5%;
 	margin-bottom:-3%;
 }
-h3{
+a.logo{
 	font-family: Comic Sans MS;
-	color:#fff;
+	color:white;
+	margin-top: 20%;
 	font-size: 32px;
 	margin-bottom: 3%;
 	margin-left: 2%;
+	margin-right: 10%;
+
 }
 p{
 	color:#fff;
 	font-size: 17px;
-	margin-top: 3.5%;
+	margin-top: 2.5%;
+	margin-right: 5%;
 }
 .navbar-light{
 background-color: #375372;
+}
+
+a.links {
+	margin-left: 7%;
+	color:white;
+}
+
+a.logoutlinks{
+	color:white;
+}
+a{
+	cursor:pointer;
 }
