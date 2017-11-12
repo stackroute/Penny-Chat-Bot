@@ -16,6 +16,8 @@ export class TraindomainComponent implements OnInit {
  productdata:any = {question : []};
  type:any[];
  ansType:any[] = [];
+ testflagon:boolean = false;
+
   constructor(private traindomainService:TraindomainService, private routeparams:ActivatedRoute, private router:Router) { }
 op:any;
   ngOnInit() {
@@ -43,8 +45,11 @@ editdata(name) { //edit data
 }
   tempid:any=0;
   tempdata:any = {};
+  tempvalue:any;
   getDetail(data) {
     console.log(data);
+    this.tempvalue = data;
+
     if (data==Config.ques.intro) {
       this.tempid = this.setId();
       this.tempdata = {genre : Config.ques.intro, id : this.tempid, type : Config.ques.type1};
@@ -69,7 +74,6 @@ setId() {
   this.productdata.question.map((data) => {
     if(data.genre == Config.ques.quest || data.genre == Config.ques.intro || data.genre == Config.ques.conclusion) {
       m++;
-      
     }
   })
   return ++m;
@@ -118,6 +122,7 @@ addanswerflow(input,next) {
     this.next = "";
  }
 arrangeAnswer() {  //arrage answers
+  this.testflagon = true;
   if(this.answerflow.length > 0) {
     if(this.nextquestion.genre == Config.ques.intro) {
       for(let i=0;i<this.productdata.question.length;i++) {
@@ -152,6 +157,14 @@ arrangeAnswer() {  //arrage answers
   this.answerarr = [];
   this.answerflow= [];
 }
+
+  setInput(ans) {
+    this.input = ans;
+  }
+
+   setNextpart(ans) {
+    this.next = ans;
+  }
   setAnstype(data,main) {  //set Answertype
     //console.log("Answertype",data);
     this.tempdata.answertype = data;
@@ -216,9 +229,11 @@ arrangeAnswer() {  //arrage answers
     })
     this.tempdata = {};
     this.tempflow = [];
+    this.tempvalue = "";
   }
   setQuestion() {
     //console.log("skalfjkglfd",this.tempdata);
+
     this.productdata.question.push(this.tempdata);
     //console.log("ssssssssss",this.tempflow);
     this.tempflow.map((data) => {
@@ -226,6 +241,7 @@ arrangeAnswer() {  //arrage answers
     })
     this.tempdata = {};
     this.tempflow = [];
+    this.tempvalue = "";
     //console.log(this.productdata.question);
   }
   result(data) {
