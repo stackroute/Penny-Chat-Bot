@@ -130,6 +130,11 @@ export class ContextComponent implements OnInit {
     })
   }
 
+  /*=================flow Part=========================================*/
+  flowpart(data,index) {
+    this.selectedIntent[index].flow = data;
+  }
+
   /*===================Adding new context======================*/
   submitContext() {
     if(this.setDomain != undefined) {
