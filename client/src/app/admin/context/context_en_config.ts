@@ -18,69 +18,78 @@ export default {
 	},
 
 	/*================Component=================*/
-		dropdownSettings:{
-			singleSelection: true, 
-      text:"Select Intent",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
-      enableSearchFilter: true,
-      classes:"myclass custom-class"
-		},
+  dropdownSettings:{
+    singleSelection: true, 
+    text:"Select Intent",
+    selectAllText:'Select All',
+    unSelectAllText:'UnSelect All',
+    enableSearchFilter: true,
+    classes:"myclass custom-class"
+  },
 
-		dropdownSubIntentSettings : {
-      singleSelection: true, 
-      text:"Select SubIntent",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
-      enableSearchFilter: true,
-      classes:"myclass custom-class"
-    },
+  dependencyDropdownSettings:{
+    singleSelection: true, 
+    text:"Select Dependency",
+    selectAllText:'Select All',
+    unSelectAllText:'UnSelect All',
+    enableSearchFilter: true,
+    classes:"myclass custom-class"
+  },
 
-    flowdropdownSettings : {
-      singleSelection: true, 
-      text:"Select SubIntent",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
-      enableSearchFilter: true,
-      classes:"myclass custom-class"
-    },
+  dropdownSubIntentSettings : {
+    singleSelection: true, 
+    text:"Select SubIntent",
+    selectAllText:'Select All',
+    unSelectAllText:'UnSelect All',
+    enableSearchFilter: true,
+    classes:"myclass custom-class"
+  },
 
-    domain:{
-    	domain:"Domain"
-    },
+  flowdropdownSettings : {
+    singleSelection: true, 
+    text:"Select SubIntent",
+    selectAllText:'Select All',
+    unSelectAllText:'UnSelect All',
+    enableSearchFilter: true,
+    classes:"myclass custom-class"
+  },
 
-    subdomain:{
-    	subdomain:"SubDomain"
-    },
+  domain:{
+    domain:"Domain"
+  },
 
-    intent:{
-    	intent:"Intent"
-    },
+  subdomain:{
+    subdomain:"SubDomain"
+  },
 
-    subintent:{
-    	subintent:"SubIntent"
-    },
+  intent:{
+    intent:"Intent"
+  },
 
-    entity:{
-    	entity:"Entity"
-    },
+  subintent:{
+    subintent:"SubIntent"
+  },
 
-    type:{
-    	type:'type'
-    },
+  entity:{
+    entity:"Entity"
+  },
 
-    resetDomain:{
-    	label:"Add to"
-    },
+  type:{
+    type:'type'
+  },
 
-    pushSubintent:{
-      select:"Select SubIntent"
-    },
+  resetDomain:{
+    label:"Add to"
+  },
 
-    swal:{
-      msg1:"Successfully Added",
-      msg2:"error in creating a context node",
-      msg3:"Please add dependent context first",
-      msg4:"Please select any Option Domain/Add to Context",
-    }
+  pushSubintent:{
+    select:"Select SubIntent"
+  },
+
+  swal:{
+    msg1:"Successfully Added",
+    msg2:"error in creating a context node",
+    msg3:"Please add dependent context first",
+    msg4:"Please select any Option Domain/Add to Context",
+  }
 }

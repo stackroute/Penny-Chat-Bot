@@ -23,6 +23,7 @@ export class ContextComponent implements OnInit {
   dropdownSettings = {};
 
   dropdownSubIntentSettings = {};
+  dependencyDropdownSettings={};
   completeContext : any =[];
   videolink :any= [];
   res:any={};
@@ -45,30 +46,23 @@ export class ContextComponent implements OnInit {
 
   ngOnInit() {
     this.getcontent();
-    this.contextService.getIntent().subscribe((ref) => {
-      ref.map((intent)=> {
-        if(intent._fields[0].labels[0] == Config.intent.intent && intent._fields[0].properties.name != Config.type.type){
-          this.intents.push({id:this.intents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : "", videoLink : [], blogLink : [], subIntent : []});
-        }
-        else if(intent._fields[0].labels[0] == Config.subintent.subintent){
-          this.subIntents.push({id:this.subIntents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : ""});
-        }
-      })
-    })
-    this.contextService.getAllContext().subscribe((ref) => {
-      ref.map((context)=> {
-        if(context._fields[0].labels[0] ==Config.entity.entity || context._fields[0].labels[0] == Config.domain.domain || context._fields[0].labels[0] == Config.subdomain.subdomain){
-          this.contexts.push({name : context._fields[0].properties.name, label : context._fields[0].labels[0]});
-        }
-      })
-    })
-
+    this.getIntent();
     /*==============dropdown settings=================*/
     this.dropdownSettings = Config.dropdownSettings;
     this.dropdownSubIntentSettings = Config.dropdownSubIntentSettings;
     this.flowdropdownSettings =Config.flowdropdownSettings;
+    this.dependencyDropdownSettings = Config.dependencyDropdownSettings;
   }
   
+  getAllContext() {
+        this.contextService.getAllContext().subscribe((ref) => {
+      ref.map((context)=> {
+        if(context._fields[0].labels[0] ==Config.entity.entity || context._fields[0].labels[0] == Config.domain.domain || context._fields[0].labels[0] == Config.subdomain.subdomain){
+          this.contexts.push({id:this.contexts.length+1,itemName : context._fields[0].properties.name,name : context._fields[0].properties.name , label : context._fields[0].labels[0]});
+         }
+      })
+    })
+  }
 
   //funtion to fetch flows
   getcontent() {
@@ -77,6 +71,22 @@ export class ContextComponent implements OnInit {
       this.item = data;
       this.item.map((data) => {
         this.flowitem.push(data.task);
+      })
+    })
+  }
+
+
+  //===========method to get all the Intents========//
+  getIntent(){
+    this.contextService.getIntent().subscribe((ref) => {
+      this.intents = [];
+      ref.map((intent)=> {
+        if(intent._fields[0].labels[0] == Config.intent.intent && intent._fields[0].properties.name != Config.type.type){
+          this.intents.push({id:this.intents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : "", videoLink : [], blogLink : [], subIntent : []});
+        }
+        else if(intent._fields[0].labels[0] == Config.subintent.subintent){
+          this.subIntents.push({id:this.subIntents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : ""});
+        }
       })
     })
   }
@@ -106,14 +116,25 @@ export class ContextComponent implements OnInit {
   /*================fetching selected flow from dropdown=================*/
   flowdata:any;
   onItemFlowSelect(item:any,index){
-     this.selectedIntent[index].flow = item;
-     this.flowdata = "";
+    this.selectedIntent[index].flow = item;
+    this.flowdata = "";
   }
 
   /*================deselecting context from dropdown=================*/
   OnItemDeSelect(item:any){
     this.selectSubInt = undefined;
     this.selectedSubIntent = undefined;
+  }
+
+/*=====================dependency dropdown======================*/
+onDependencyItemSelect(item:any){
+   this.setContext(item);
+  }
+
+/*=========================Dependency delselect=========================*/
+ OnDependencyItemDeSelect(item:any){
+    this.selectedContext = undefined;
+   // this.selectedSubIntent = undefined;
   }
 
   /*====================adding flow for context==========================*/
@@ -135,6 +156,7 @@ export class ContextComponent implements OnInit {
             this.synonym = [];
             this.selectedContext = [];
             this.completeContext = [];
+            this.getIntent();
           }
           else {
             swal('',Config.swal.msg2,'warning');

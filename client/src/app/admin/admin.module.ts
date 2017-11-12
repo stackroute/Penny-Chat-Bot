@@ -22,7 +22,7 @@ import {
 // Import directives
 import {
   //AsideToggleDirective,
- // NAV_DROPDOWN_DIRECTIVES,
+  // NAV_DROPDOWN_DIRECTIVES,
   /*ReplaceDirective,*/
   SIDEBAR_TOGGLE_DIRECTIVES
 } from './../directives';
@@ -50,37 +50,37 @@ import {TraindomainComponent} from './traindomain/traindomain.component';
   FormsModule,
   AngularMultiSelectModule,
   DndModule.forRoot(),
-    AdminRoutingModule,
-    BsDropdownModule.forRoot(),
-    TabsModule.forRoot(),
-    ChartsModule,
-    FloatingActionMenuModule,
+  AdminRoutingModule,
+  BsDropdownModule.forRoot(),
+  TabsModule.forRoot(),
+  ChartsModule,
+  FloatingActionMenuModule,
     TagInputModule,/*
      BrowserModule,
-    BrowserAnimationsModule,*/  // <-- include required BrowserAnimationsModule
-    CollapsibleModule,
-    ModalModule.forRoot()
-  ],
-  declarations: [
-  AdminComponent,
-   DashboardComponent,
-   AppFooterComponent,
-  AppHeaderComponent,
-  AppSidebarComponent,
-  BottomChatComponent,
-  TraindomainComponent,
- // AsideToggleDirective,
- // NAV_DROPDOWN_DIRECTIVES,
-  /*ReplaceDirective,*/
-  AddtaskComponent,
-  BottrainingComponent,
-  ContextComponent,
-  EditContextComponent,
-  CreateFlowComponent
-  ],
-  providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
-})
+     BrowserAnimationsModule,*/  // <-- include required BrowserAnimationsModule
+     CollapsibleModule,
+     ModalModule.forRoot()
+     ],
+     declarations: [
+     AdminComponent,
+     DashboardComponent,
+     AppFooterComponent,
+     AppHeaderComponent,
+     AppSidebarComponent,
+     BottomChatComponent,
+     TraindomainComponent,
+     // AsideToggleDirective,
+     // NAV_DROPDOWN_DIRECTIVES,
+     /*ReplaceDirective,*/
+     AddtaskComponent,
+     BottrainingComponent,
+     ContextComponent,
+     EditContextComponent,
+     CreateFlowComponent
+     ],
+     providers: [{
+       provide: LocationStrategy,
+       useClass: HashLocationStrategy
+     }],
+   })
 export class AdminModule { }

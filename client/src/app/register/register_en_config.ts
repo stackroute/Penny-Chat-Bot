@@ -1,7 +1,6 @@
 export const Config={
     signup:{
    firstname:"Register",
-   create:"Create a New Account",
    errorname:"Name is required",
    erroralphabet:"Only alphabets allowed",
    erroruser:"*Username is required",
@@ -28,6 +27,7 @@ export const Config={
    errorhandle: 'Server error',
    haveAcc: 'Have Account ?',
    fb:'Facebook',
-   google:'Google+'
+   google:'Google+',
+   createAccount:'Register'
   }
 }
