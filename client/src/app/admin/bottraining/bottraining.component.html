@@ -53,7 +53,6 @@
                 <td *ngIf="data.type=='Not Found' ">
                   <a class="fa fa-plus-square pi-draggable btn-block addicon" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
                 </td>
-
                 <td *ngIf="data.type!= 'Not Found'"  class="greentick"> &#x2713;</td>
                 <td><a (click)="remove(i,data)"><i class="fa fa-trash-o icon" aria-hidden="true"></i></a></td>
               </tr>
@@ -189,9 +188,7 @@
                     </button>
                   </tab>
                   <tab heading="Context" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
-
                    {{Config.bottraining.Add}} {{val}} {{Config.bottraining.SameAs}}
-
                    <div class="existing " >
                     <angular2-multiselect [data]="contextName" 
                     [(ngModel)]="selectedItemsContext" 
@@ -230,7 +227,6 @@
               <tab heading={{value}} ng-reflect-heading="Home" class="tab-pane" id="Intent">
                 <form role="form" #addval="ngForm">
                   <div class="form-group">
-
                     <label for="exampleInputPassword1">{{Config.bottraining.Value}}</label>
                     <input type="text" class="form-control" id="meaning" name = "meaning"placeholder="Meaning" [(ngModel)]="addintent">
                   </div>
@@ -245,7 +241,6 @@
                 <div>
                   <button type="button" class="btn btn-primary" (click)="add.hide()">{{Config.bottraining.Close}}</button>
                   <button type="button" class="btn btn-primary" [disabled]="!addval.form.valid" (click)="addIntent()"><span >{{Config.bottraining.Add}} {{value}}</span></button>
-
                 </div>
               </tab>
               <tab heading="Synonym" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
