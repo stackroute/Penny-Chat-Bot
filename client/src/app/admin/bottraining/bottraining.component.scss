@@ -100,7 +100,7 @@ a {
     margin-left: 1%;
     background-color:#375372;
     border-color: #375372;
-        border-radius: 4px;
+    border-radius: 4px;
 }
 .searchsyn {
     margin-bottom:2%;
@@ -112,6 +112,11 @@ a {
 
 .icon {
     font-size: large;
+    color: #375372;
+}
+
+.fa.fa-plus-square.pi-draggable.btn-block.icon {
+     font-size: large;
     color: #375372;
 }
 
@@ -161,25 +166,7 @@ a {
     font-size: 23px;
     color:#00FF00 
 }
-@media (min-width: 300px) and (max-width: 1204px) {
-.d-md-down-none{
-  display: inline !important;
-}
- }
-@media (min-width:  300px) and (max-width: 1204px) {
-.card-group .card {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 0%;
-    flex: 1 0 0%;
-    margin-bottom: 0;
-    float: right;
-}
-}
-@media screen and (max-width: 360px) {
-    .button-text {
-       font-size:7px;
-    }
-}
+
 
 .badge.badge-pill {
    margin-top:1.5%;
@@ -203,6 +190,7 @@ a {
 .btn.btn-primary.add.deleteIntentbtn {
     margin-top:4%;
     margin-left: 9%;
+    margin-bottom: 8%;
 }
 .btn-primary.add.addintentbtn {
      margin-left: 2%;
@@ -218,13 +206,42 @@ a {
 .badge.intbadge.badge-pill.text-white{
     margin-left:2%;
 }
-.badge.badge-pill.text-white.suggestsynonym {
+
+.suggestsynonym {
+    padding: 1px 1px;
+}
+/*.badge.badge-pill.text-white.suggestsynonym {
     padding: 7px 15px;
     padding-top: 7px;
     padding-right: 15px;
     padding-bottom: 7px;
     padding-left: 15px;
-}
+}*/
 .btn .badge {
     font-size: 12px;
+}
+
+.row {
+    margin-left: 3%;
+    margin-right: -5%;    
+}
+
+@media (min-width: 300px) and (max-width: 1204px) {
+.d-md-down-none{
+  display: inline !important;
+}
+ }
+@media (min-width:  300px) and (max-width: 1204px) {
+.card-group .card {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    margin-bottom: 0;
+    float: right;
+}
+}
+@media screen and (max-width: 360px) {
+    .button-text {
+       font-size:7px;
+    }
 }

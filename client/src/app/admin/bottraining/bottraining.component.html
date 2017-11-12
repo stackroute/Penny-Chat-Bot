@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="">
   <div class="row">
     <div class="col-md-4">
       <div class="panel panel-primary">
@@ -99,12 +99,12 @@
           <h4>{{Config.bottraining.ExistingSyn}} {{intentname.itemName}}</h4>
           <span class="disp" *ngFor="let intent of correspondSynonym">
             <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
-              <a class="cross">{{intent}}</a>
-              <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
+              <!-- <a class="cross"> -->{{intent}}<!-- </a> -->
+              <a><i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
        
-              <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">
-                <a>{{intent}}</a>
-                <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
+              <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">{{intent}}
+                <a>
+                <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
               </span>            
               <div class="row searchsyn">
                 <div class="col-md-8">
@@ -262,8 +262,8 @@
                   </div>
                   <div class="existing">
                     <h5>{{Config.bottraining.Synonyms}}</h5>
-                    <a class="btn"> 
-                    <span class="badge badge-pill text-white suggestsynonym"*ngFor="let data of synres"
+                    <a class="btn suggestsynonym" *ngFor="let data of synres"> 
+                    <span class="badge badge-pill text-white " 
                       (click)="select(data)">               
                       {{data}}
                     </span>

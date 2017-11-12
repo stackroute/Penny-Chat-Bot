@@ -71,7 +71,6 @@
                   <angular2-multiselect [data]="intents" [(ngModel)]="selectIntent"
                   [settings]="dropdownSettings" 
                   (onSelect)="onEditItemSelect($event)" 
-                  (onDeSelect)="OnItemDeSelect($event)"
                   (onSelectAll)="onSelectAll($event)"
                   (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
                   <div  *ngIf="intentData.length>0">
