@@ -399,39 +399,36 @@ describe('Method post success negative test for addtask', (done)=>{
 
 
 
-/*=====================start of ques_ans.js======================*/
+// =====================start of ques_ans.js======================
 
 /*======================start of positive testing ================*/
 
 describe('Method of update ques_ans positive processed here',()=>{
 
-let question={ question:"what is retirement plan?", email: "stshivamtripathi7@gmail.com"}
-let questions=[];
-questions.push(question)
-
-before(()=>{
+  let question=testconfig.ques.data
+  let questions=[];
+  questions.push(question)
+  before(()=>{
 //yield is used to stub the info required by database
 registerUpdate.yields(null,questions)
-
+registerFind.yields(null,testconfig.ques.findyield.data)
 });
-it('update must be a success',(done)=>{
-url
-.post('/ques_ans')
-.expect('Content-Type', /json/)
-.send({ question:["What is retirement policy","what is retirement plan?"], email: "stshivamtripathi7@gmail.com"})
-.end((err,res)=>{
-  if(err){
-    return err;
-  } 
-    else {
-      console.log(res.body)
-   assert.equal(res.body.status,true);
- done();
-};
+  it('update must be a success',(done)=>{
+    url
+    .post('/ques_ans')
+    .expect('Content-Type', /json/)
+    .send(testconfig.ques.data)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      } 
+      else {
+       assert.equal(res.body.status,true);
+       done();
+     };
+   });
+  });
 });
-});
-});
-
 
 /*======================end of positive testing======================*/
 
@@ -787,24 +784,73 @@ it("Response check for questionType 0" , (done) => {
 });
 /*=================================End Positive nextFollowup========================================*/
 
-/*=======Positive test case for followup getdata============*/
-describe('followUp getData data processed here',() => {
-  before(() => {
-    flowschemafind.yields(null, [testconfig.getdata.findyield]);
-  })
-  it('getData must work',() => {
+// /*=======Positive test case for followup getdata============*/
+// describe('followUp getData data processed here',() => {
+//   before(() => {
+//     flowschemafind.yields(null, [testconfig.getdata.findyield]);
+//   })
+//   it('getData must work',() => {
+//     url
+//     .get('/followup/getdata/:ishan')
+//     .send(testconfig.getdata.send)
+//   //.set('Authorization').expect(200)
+//   .end((err,res) => {
+//     if(err) {
+//       return done(err);
+//     }
+//     else{
+//       assert.equal(res.body.name,"ishan")
+//     }
+//   })
+// });
+// });
+// /*=======End Positive test case for followup getdata============*/
+
+/*Start of updateUesrdata*/
+/*=======Start of Positive test case for updateUesrdata============*/
+describe('Method of updateUserdata positive processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+registerUpdate.yields(null,testconfig.updateuserdata.updateyield)
+});
+  it('update must be a success',(done)=>{
     url
-    .get('/followup/getdata/:ishan')
-    .send(testconfig.getdata.send)
-  //.set('Authorization').expect(200)
-  .end((err,res) => {
-    if(err) {
-      return done(err);
-    }
-    else{
-      assert.equal(res.body.name,"ishan")
-    }
-  })
+    .put('/updateUserdata')
+    .expect('Content-Type', /json/)
+    .send(testconfig.updateuserdata.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      } 
+      else {
+        assert.equal(res.body.status,true);
+        done();
+      };
+    });
+  });
 });
+/*=======End of Positive test case for updateUesrdata============*/
+/*=======Start of Negative test case for updateUesrdata============*/
+describe('Method of updateUserdata negative processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+registerUpdate.yields(null,null)
 });
-/*=======End Positive test case for followup getdata============*/
+  it('update must be a success',(done)=>{
+    url
+    .put('/updateUserdata')
+    .expect('Content-Type', /json/)
+    .send(testconfig.updateuserdata.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      } 
+      else {
+        assert.equal(res.body.status,false);
+        done();
+      };
+    });
+  });
+});
+/*=======End of Negative test case for updateUesrdata============*/
+/*End of updateUserdata*/

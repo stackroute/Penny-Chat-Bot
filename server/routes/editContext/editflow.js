@@ -9,21 +9,18 @@ const session = driver.session(); //config file
 export default(object,context)=>{
     /*======================Query to add flow to context===========================*/
     object.map((intent) =>{
-        console.log("intent here", intent.deleteFlow);
         if(intent.deleteFlow === false) {
-            console.log("false");
             const resultPromise = session.run("MATCH (ee:"+context.label+" { name : '"+context.itemName+"' })-[:"+intent.name+"]->(xx) merge (xx)-[:answer]->(ff:Counter {name : '"+intent.flow+"', value : '"+intent.flow+"'}) return ee,ff,xx");
             resultPromise.then(result => {
                 let flow = result.records;
-    });
-    }
+            });
+        }
 
-    else if(intent.deleteFlow === true){
-        console.log("true",intent.flow);
-        const resultPromise = session.run("MATCH (ee:"+context.label+" { name : '"+context.itemName+"' })-[:"+intent.name+"]->(xx)-[ans:answer]->(ff:Counter {name : '"+intent.hiddenFlow+"', value : '"+intent.hiddenFlow+"'}) detach delete ans,ff");
-        resultPromise.then(result => {
-            let flow = result.records;
-    });
-    }
+        else if(intent.deleteFlow === true){
+            const resultPromise = session.run("MATCH (ee:"+context.label+" { name : '"+context.itemName+"' })-[:"+intent.name+"]->(xx)-[ans:answer]->(ff:Counter {name : '"+intent.hiddenFlow+"', value : '"+intent.hiddenFlow+"'}) detach delete ans,ff");
+            resultPromise.then(result => {
+                let flow = result.records;
+            });
+        }
     });
 };
