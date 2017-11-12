@@ -4,3 +4,43 @@
 [2017-11-11 15:39:01.609] [INFO] chatbot_express_server - Successfull Login
 [2017-11-11 15:39:58.692] [INFO] chatbot_express_server - Successfull Login
 [2017-11-11 15:40:25.136] [INFO] chatbot_express_server - undefined
+[2017-11-11 15:46:56.519] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 15:47:47.642] [INFO] chatbot_express_server - undefined
+[2017-11-11 15:47:48.215] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 15:47:48.330] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 15:47:48.423] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:47:48.574] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:47:48.667] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:47:48.759] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:47:51.340] [INFO] chatbot_express_server - Data found in unanswerques's deletependingques
+[2017-11-11 15:50:30.965] [INFO] chatbot_express_server - Sucess in trainContext's addcontext
+[2017-11-11 15:53:25.229] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 15:53:40.606] [INFO] chatbot_express_server - undefined
+[2017-11-11 15:53:40.654] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 15:53:40.694] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:53:40.731] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 15:53:40.774] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:53:40.833] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:53:40.893] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:55:23.714] [INFO] chatbot_express_server - Error in trainContext's addcontextsyn
+[2017-11-11 15:56:46.949] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 15:58:24.573] [INFO] chatbot_express_server - undefined
+[2017-11-11 15:58:24.681] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:58:24.688] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 15:58:24.737] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 15:58:24.767] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:58:24.837] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 15:58:24.895] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:05:37.956] [INFO] chatbot_express_server - undefined
+[2017-11-11 16:05:37.987] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:05:38.034] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:05:38.068] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-11 16:05:38.093] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:05:38.168] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:05:38.220] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-11 16:08:24.017] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-11 16:08:24.019] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-11 16:09:14.915] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-11 16:09:14.916] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-11 16:09:34.930] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-11 16:09:34.932] [INFO] chatbot_express_server - Success getContextInfo
