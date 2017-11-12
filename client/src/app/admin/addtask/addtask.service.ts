@@ -6,6 +6,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import {config} from '../../config/app.config';
 import { urlConfig } from '../../config/url.config';
+import {Config} from './addtask_en_config'
 
 @Injectable()
 export class AddtaskService {
@@ -18,8 +19,13 @@ export class AddtaskService {
 		.post(url,{message:data})
 		.map((res:Response)=> {
 			return res.json()
-		})
-
+		}).catch(this._errorHandler);
 	}
+
+	_errorHandler(error: Response){  /* error handling */
+		return Observable.throw(error||Config.addtask.Server)
+	}
+
+	
 	//------------end of Submit method----------------
 }

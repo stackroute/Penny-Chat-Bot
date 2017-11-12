@@ -47,6 +47,8 @@ export class CreateFlowComponent implements OnInit {
     this.service.fetch()
     .subscribe((data) => {
       this.item = data;
+    },(dataError)=>{
+      this.router.navigateByUrl('/error')
     })
   }
   //---------------end of getcontent method--------------

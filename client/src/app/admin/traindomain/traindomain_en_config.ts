@@ -55,7 +55,7 @@ export default {
     del:'Delete'
   },
   instruction:{
-    heading:'INSTRUCTIONS',
+ heading:'INSTRUCTIONS',
     flow:'RULES FOR TEST FLOW',
     ins1:'Add Questions ,Introduction And Conclusion',
     ins2:'You can also select the Answer Type',
@@ -71,5 +71,13 @@ export default {
     no:"No",
     question:"Question",
     mcq:"MCQ",
-  }
+  },
+
+Server:{
+
+  Error:"Server Error"
+}
+
+
+
 }

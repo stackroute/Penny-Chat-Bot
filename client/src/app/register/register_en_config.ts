@@ -28,6 +28,8 @@ export const Config={
    haveAcc: 'Have Account ?',
    fb:'Facebook',
    google:'Google+',
+   ServerError:"Server Error",
    createAccount:'Register'
+
   }
 }

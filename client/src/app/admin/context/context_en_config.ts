@@ -82,6 +82,11 @@ export default {
     label:"Add to"
   },
 
+
+    Server:{
+      ServerError:"Error in Server"
+    },
+
   pushSubintent:{
     select:"Select SubIntent"
   },
@@ -92,4 +97,5 @@ export default {
     msg3:"Please add dependent context first",
     msg4:"Please select any Option Domain/Add to Context",
   }
+
 }

@@ -24,6 +24,7 @@ export const Config = {
     errorInFinfind:'Error in finding email',
     alreadyExists:'Credentials already Exists in /signup route',
     mail:"Send Mail",
-    GoTo: "Go to Login Page"
+    GoTo: "Go to Login Page",
+    localStorage:'Userdata'
   },
 }
