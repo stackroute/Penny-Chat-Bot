@@ -82,5 +82,8 @@ export default {
       msg2:"error in creating a context node",
       msg3:"Please add dependent context first",
       msg4:"Please select any Option Domain/Add to Context",
+    },
+    Server:{
+      ServerError:"Error in Server"
     }
 }

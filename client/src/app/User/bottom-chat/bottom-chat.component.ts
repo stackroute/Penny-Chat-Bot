@@ -30,8 +30,8 @@ export class BottomChatComponent implements OnInit {
   },
 
  {
-    iconClass: 'fa fa-pencil',
-    label: 'Edit profile',
+    iconClass: Config.bottomchat.editprofile,
+    label: Config.bottomchat.profile,
     onClick: () => {
       this.router.navigateByUrl('user/editprofile');
       //window.open(document.URL, '/user/chat', 'location=yes,height=570,width=520,scrollbars=yes,status=no');

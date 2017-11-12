@@ -53,7 +53,8 @@ export const Config = {
     user:"User",
 
     admin:"Admin",
-    serverError:"Server error"
+    serverError:"Server error",
+    localStorage:'Userdata'
 
 }
 }

@@ -37,5 +37,7 @@ export const Config = {
         'alreadyexist' : 'Already existing prority',
         'deleted':"Successfully Deleted",
         'Question':'Question',
+        'localStorage':'Userdata',
+        'Server':'Server Error'
     }
 }

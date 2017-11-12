@@ -42,6 +42,8 @@ export class TraindomainComponent implements OnInit {
     console.log(name);
     this.traindomainService.getdata(name).subscribe((res) => {
       this.productdata = res;
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error')
     })
   }
 
@@ -255,7 +257,9 @@ save() {
   .subscribe((data) => {
 
     this.router.navigateByUrl('/admin/createflow');
-  })
+  }, (dataError)=>{
+      this.router.navigateByUrl('/error')
+    })
 }
 testflag:boolean = false;
 testflow:any[] = [];

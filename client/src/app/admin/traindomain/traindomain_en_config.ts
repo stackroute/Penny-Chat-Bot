@@ -78,6 +78,10 @@ no:"No",
 question:"Question",
 mcq:"MCQ",
 
+},
+Server:{
+
+  Error:"Server Error"
 }
 
 

@@ -51,7 +51,7 @@ export class ForgotpasswordComponent implements OnInit {
         }
       },(dataError)=>{
         //error handling
-        localStorage.removeItem('Userdata');
+        localStorage.removeItem(Config.forgotpassword.localStorage);
         this.router.navigateByUrl('/error');
         //navigating to error page if any error occurs
       });

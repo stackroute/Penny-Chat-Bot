@@ -111,6 +111,8 @@ export class BottrainingComponent implements OnInit {
         this.arr.push(ques.question)
       })
       }
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
   }
 
@@ -134,6 +136,8 @@ export class BottrainingComponent implements OnInit {
           this.typename = data.typename;
         this.tableData.push({word : this.word , type : this.type , typename : this.typename})
       })
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
     this.question = ques;
   }
@@ -153,6 +157,8 @@ export class BottrainingComponent implements OnInit {
         })
       })
       this.res=res;
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
   }
   //When called function displays all the contexts present in the database
@@ -167,6 +173,8 @@ export class BottrainingComponent implements OnInit {
         })
       })
       this.res=res;
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })    
   }
   //When called function sets the synonyms of intent to the selected word from the unanswered question  
@@ -179,6 +187,8 @@ export class BottrainingComponent implements OnInit {
       swal(Config.bottraining.addedsucces,
         'success'
         )
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
   }
   //When called function sets the synonym of the contexts to the seleted word from the unanswered question  
@@ -193,6 +203,8 @@ export class BottrainingComponent implements OnInit {
       //  this.relatedentity(this.selectedItemsIntent[0]);
       this.selectedItemsContext = [];
       this.ref=res
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
   }
 
@@ -202,7 +214,9 @@ export class BottrainingComponent implements OnInit {
     this.bottrainingservice.sendques(question)
     .subscribe(res=>{
       this.getunanswer();
-      this.ref=res})
+      this.ref=res}, (dataError)=>{
+        this.router.navigateByUrl('/error'); 
+      })
   }
   //This function allows the admin to remove the word once admin has added the details to it
   remove(index,data) {
@@ -278,6 +292,8 @@ export class BottrainingComponent implements OnInit {
             'success')
           this.router.navigateByUrl('/admin/trainingbot');
         }    
+      }, (dataError)=>{
+        this.router.navigateByUrl('/error'); 
       })
     }  
   }
@@ -287,6 +303,8 @@ export class BottrainingComponent implements OnInit {
     this.bottrainingservice.getRelatedEntity(intentName)
     .subscribe((res)=>{
       this.correspondSynonym=res;
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
   }
   //This funcion adds all the synonym to the selected intent  
@@ -296,6 +314,8 @@ export class BottrainingComponent implements OnInit {
     .subscribe((res)=>{
       this.adminSynonym = "";
       this.correspondSynonym.push(res._fields[0].properties.name);
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
   }
   //This function deletes the synonym of the selected intent
@@ -304,6 +324,8 @@ export class BottrainingComponent implements OnInit {
     .subscribe((res)=>{
       this.rep=res;
       this.relatedentity(this.intentname);
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
   }
   //This function suggests the synonym of the entered alphabet or word
@@ -315,6 +337,8 @@ export class BottrainingComponent implements OnInit {
     this.bottrainingservice.suggest(data)
     .subscribe((ref)=>{
       this.synres=ref;
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
   }
   //This function stores the entered synonym in a variable
@@ -332,6 +356,8 @@ export class BottrainingComponent implements OnInit {
       this.correspondSynonym = [];
       this.intentname = "";
       this.getIntent();
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     })
   }
   //This function remove the question from the table once the admin has answered 
@@ -341,6 +367,8 @@ export class BottrainingComponent implements OnInit {
       this.rep=res;
       this.getunanswer();
      // swal('',Config.bottraining.deleted,'success');
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error'); 
     });
   }
   //This function is used to tell which button has been selected

@@ -28,6 +28,7 @@ export const Config={
    errorhandle: 'Server error',
    haveAcc: 'Have Account ?',
    fb:'Facebook',
-   google:'Google+'
+   google:'Google+',
+   ServerError:"Server Error"
   }
 }

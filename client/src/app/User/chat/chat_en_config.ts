@@ -18,5 +18,11 @@ export default {
     sorryMsg1:"Sorry I am Facing trouble understanding that",
     question:"Question",
     tempfollowquestiontype:"Q",
+    localStorage:'Userdata'
+  },
+
+  Server:{
+    errorhandle:"Server Error"
   }
+
 }

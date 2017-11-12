@@ -3,6 +3,7 @@ import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable' ;
 import {config} from '../../config/app.config';
 import { urlConfig } from '../../config/url.config';
+import {Config} from  './bottraining_en_config';
 
 @Injectable()
 export class BottrainingService {
@@ -12,20 +13,30 @@ export class BottrainingService {
   //getting all unanswered questions
   getunanswer():Observable<any>{
     let url:any = config.ip+urlConfig.AdminBotTraininggetunanswer;
-    let userData = JSON.parse(localStorage.getItem('Userdata')).data;
+    let userData = JSON.parse(localStorage.getItem(Config.bottraining.localStorage)).data;
     return this.http.get(url)
     .map((res:Response) =>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
+
+  /*error handling*/
+  _errorHandler(error: Response){
+    return Observable.throw(error || Config.bottraining.Server);
+  }
+  
 
   //getting all the combinations of unanswered questions
   getQues(ques):Observable<any>{
     let Quesurl:any = config.ip+urlConfig.AdminBotTraininggetQues;
     return this.http.post(Quesurl,{ques}).map((res)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
+
+  /*error handling*/
+
+  
 
   //getting all the intents present
   getIntent(){
@@ -33,8 +44,12 @@ export class BottrainingService {
     return this.http.get(url)
     .map((res:Response) =>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
+
+  /*error handling*/
+ 
+  
 
   //getting all the context stored in database
   getContext(){
@@ -42,8 +57,11 @@ export class BottrainingService {
     return this.http.get(url)
     .map((res:Response) =>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
+
+ 
+  
 
   /*================================Add Intent& Sentence====================*/
   addSentence(object): Observable<any> {
@@ -53,8 +71,11 @@ export class BottrainingService {
     .map((res: Response)=>{
       return res.json()
     }
-    )
+    ).catch(this._errorHandler);
   }
+
+
+  
 
   /*============================Change Intent & Service======================*/
   changeIntent(object): Observable<any> {
@@ -63,8 +84,11 @@ export class BottrainingService {
     .put(url1,{object:object})
     .map((res: Response)=>
       res.json()
-      )
+      ).catch(this._errorHandler);
   }
+
+
+  
 
   /*===========================Fetch Data in Service========================*/
 
@@ -74,8 +98,12 @@ export class BottrainingService {
     .get(url2,object)
     .map((res: Response)=>
       res.json()
-      )
+      ).catch(this._errorHandler);
   }
+
+  /*error handling*/
+ 
+  
 
   /*======================set synonym==========================*/
 
@@ -85,8 +113,12 @@ export class BottrainingService {
     .post(synUrl,{intent:intent,word:word})
     .map((res: Response)=>
       res.json()
-      )
+      ).catch(this._errorHandler);
   }
+
+  /*error handling*/
+ 
+  
 
   // adding synonyms of existing contexts
   contextSynonym(context,word): Observable<any> {
@@ -97,8 +129,12 @@ export class BottrainingService {
       res.json()
     }
     
-    )
+    ).catch(this._errorHandler);
   }
+
+  /*error handling*/
+ 
+ 
 
   // adding new question to database
   sendques(question){
@@ -107,8 +143,11 @@ export class BottrainingService {
     .post(synUrl,{question:question})
     .map((res: Response)=>
       res.json()
-      )
+      ).catch(this._errorHandler);
   }
+
+  /*error handling*/
+
 
   /*==========================Start of Adds New Intent==============================*/
   addIntent(intent):Observable<any> {
@@ -116,8 +155,12 @@ export class BottrainingService {
     return this.http.post(trainurl,{data:intent})
     .map((res:Response)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
+
+  /*error handling*/
+  
+ 
 
   /*==========================Start of Add Intent's Synonym==============================*/
   addSynonym(data): Observable<any> {
@@ -126,8 +169,11 @@ export class BottrainingService {
     .put(trainurl,{data: data})
     .map((res: Response)=>{
       return res.json()
-    })
+    }).catch(this._errorHandler);
   }
+
+ 
+
 
   // getting all the synonym of an intent
   getRelatedEntity(intentName:any){
@@ -136,8 +182,12 @@ export class BottrainingService {
     .post(url,{intentName})
     .map((res:Response) =>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
+
+  /*error handling*/
+
+
 
   // adding more synonyms to existing intent
   addMoreSynonym(synonymname:any,intentName:any){
@@ -145,8 +195,12 @@ export class BottrainingService {
     return this.http.post(url,{synonymname,intentName})
     .map((res:Response) =>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
+
+  /*error handling*/
+ 
+  
 
   // deletes existing synonym of an intent
   deleteSynonym(synonymname:any,intentname:any){
@@ -154,8 +208,11 @@ export class BottrainingService {
     return this.http.put(url,{synonymname,intentname})
     .map((res:Response) =>{
       return res.json();
-    })
-  }  
+    }).catch(this._errorHandler);
+  }
+
+
+   
 
   /*==========================Start of Suggest Synonym==============================*/
   suggest(data): Observable<any> {
@@ -164,8 +221,11 @@ export class BottrainingService {
     .put(suggesturl,{data: data})
     .map((res: Response)=>{
       return res.json().data
-    })
+    }).catch(this._errorHandler);
   }
+
+ 
+  
 
   /*=====================delete intent=========================*/
 
@@ -175,8 +235,10 @@ export class BottrainingService {
     .put(deleteIntentUrl,{data: intent})
     .map((res: Response)=>{
       return res.json()
-    })
+    }).catch(this._errorHandler);
   }
+
+ 
 
   /*=====================delete pending questions=========================*/
 
@@ -186,6 +248,9 @@ export class BottrainingService {
     .put(deletePendingQuestions,{ques: ques})
     .map((res: Response)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
+
+ 
+  
 }

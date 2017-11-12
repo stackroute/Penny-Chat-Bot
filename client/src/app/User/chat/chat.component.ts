@@ -45,7 +45,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() { //introduction message to start the chat
     let value;
-    value = JSON.parse(localStorage.getItem("Userdata"));
+    value = JSON.parse(localStorage.getItem(Config.component.localStorage));
     this.scrollToBottom();
    // this.getquestion();
    this.username = value.data.name;
@@ -75,7 +75,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
             'warning'
             )
           this.chatService.forceLogout().subscribe((res)=> this.res = res)
-          localStorage.removeItem('Userdata');
+          localStorage.removeItem(Config.component.localStorage);
           this.router.navigateByUrl('/');
         } else {
           if(res.message.length == 0) {
@@ -107,6 +107,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
             this.answ.Link = linkend;
           }
         })
+      }, (dataError)=>{
+         //localStorage.removeItem(Config.component.localStorage);
+        this.router.navigateByUrl('/error'); 
       })
     } 
     else { //if at the time of followup questions
@@ -195,17 +198,26 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.question.push(temp);
     },1000)
       }
+    }, (dataError)=>{
+       //localStorage.removeItem(Config.component.localStorage);
+        this.router.navigateByUrl('/error'); 
     })
   }
   resp:any;
   next(ans:any){
     this.chatService.checklink(this.answ.Link).subscribe((resp)=>{
-      this.resp = resp})
+      this.resp = resp}, (dataError)=>{
+
+        this.router.navigateByUrl('/error'); 
+      })
     //resp contains the unfurled data from server
   }
   unansweredquestion(){ //saving unanswered question
     this.chatService.unansweredquestion(this.answer)
     .subscribe ((ref)=>{
+    }, (dataError)=>{
+       
+        this.router.navigateByUrl('/error'); 
     })
   }
 }

@@ -51,6 +51,9 @@ export const Config = {
       msgsynonymadd:'Added Succesfully',
       msgsynonymdelete:'Deleted Succesfully',
       msgUpdateContext:'Context Updated Succesfully'
+    },
+    Server:{
+      Error:'Server Error'
     }
 
 }

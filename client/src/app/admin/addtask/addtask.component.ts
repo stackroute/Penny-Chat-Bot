@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddtaskService } from './addtask.service';
 import { Config } from './addtask_en_config';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-addtask',
@@ -20,7 +21,7 @@ export class AddtaskComponent implements OnInit {
     item2:any=Config.addtask.Alphabetic;
       item3:any=Config.addtask.Numeric;
 
-  constructor(private addtaskservice : AddtaskService) { }
+  constructor(private addtaskservice : AddtaskService, private router: Router) { }
 //----------ngOnInit--------
   ngOnInit() {
     console.log(this.item1,this.item2)
@@ -63,7 +64,9 @@ export class AddtaskComponent implements OnInit {
 
   //---------------start of Submit-------------------
   Submit(){
-      this.addtaskservice.Submit(this.data).subscribe((res)=>res)
+      this.addtaskservice.Submit(this.data).subscribe((res)=>{res}, (dataError)=>{
+         this.router.navigateByUrl('/error'); 
+      })
   }
   //--------------end of Submit----------------------
 

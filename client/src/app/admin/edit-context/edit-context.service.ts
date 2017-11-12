@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {config} from '../../config/app.config';
 import { urlConfig } from '../../config/url.config';
+import {Config} from './edit-context_en_config';
 
 @Injectable()
 export class EditContextService {
@@ -18,8 +19,14 @@ export class EditContextService {
     return this.http.post(urlIntent,{context : context})
     .map((res:Response)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
+
+  /*error handling*/
+  _errorHandler(error: Response){
+    return Observable.throw(error || Config.Server.Error);
+  }
+  
 
   /*==============get all context for dropdown=================*/
   getAllContext():Observable<any> {
@@ -27,7 +34,7 @@ export class EditContextService {
     return this.http.get(urlContext)
     .map((res:Response)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
 
   /*==============get selected context=================*/
@@ -36,7 +43,7 @@ export class EditContextService {
     return this.http.get(url)
     .map((res:Response) =>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
 
   /*==============delete selected context=================*/
@@ -46,7 +53,7 @@ export class EditContextService {
     .post(url,{data: context})
     .map((res: Response)=>{
       return res.json()
-    })
+    }).catch(this._errorHandler);
   }
 
   /*==============get selected context synonym=================*/
@@ -55,7 +62,7 @@ export class EditContextService {
     return this.http.post(url,context)
     .map((res)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
 
   /*==============get selected context details=================*/
@@ -64,7 +71,7 @@ export class EditContextService {
     return this.http.post(url,{context : context, intent : item})
     .map((res)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
 
   /*==============add more synonyms for context synonym=================*/
@@ -74,7 +81,7 @@ export class EditContextService {
     .post(url,{synonym:syn,context:context})
     .map((res: Response)=>{
       return res.json()
-    })
+    }).catch(this._errorHandler);
   }
 
   /*==============delete synonym for selected context=================*/
@@ -84,7 +91,7 @@ export class EditContextService {
     .post(url,{synonym:synonym,context:context})
     .map((res: Response)=>{
       return res.json()
-    })
+    }).catch(this._errorHandler);
   }
 
   /*==============update selected context=================*/
@@ -92,7 +99,7 @@ export class EditContextService {
     let url: any = config.ip+urlConfig.AdminEditContextupdateContext;
     return this.http
     .put(url,{context : contextName, completeContext : completeContext })
-    .map((res : Response) => res.json());
+    .map((res : Response) => res.json()).catch(this._errorHandler);
   }
 
   /*=======================fetch flow =================================*/
@@ -102,6 +109,6 @@ export class EditContextService {
      return this.http
      .get(url)
      .map((res: Response)=> {
-       return res.json()})
+       return res.json()}).catch(this._errorHandler);
    }
 }
