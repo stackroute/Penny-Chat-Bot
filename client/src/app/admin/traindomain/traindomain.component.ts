@@ -11,12 +11,13 @@ import  Config from './traindomain_en_config';
   providers:[TraindomainService]
 })
 export class TraindomainComponent implements OnInit {
- value:any;
- Config:any=Config;
- productdata:any = {question : []};
- type:any[];
- ansType:any[] = [];
- testflagon:boolean = false;
+  value:any;
+  Config:any=Config;
+  productdata:any = {question : []};
+  type:any[];
+  ansType:any[] = [];
+  testflagon:boolean = false;
+  helpFlag:number = 0;
 
   constructor(private traindomainService:TraindomainService, private routeparams:ActivatedRoute, private router:Router) { }
   op:any;
@@ -36,6 +37,15 @@ export class TraindomainComponent implements OnInit {
       }
     })
   }
+  //======OnClick Instructions=======//
+  instructions(){
+    this.helpFlag = 1;
+  }
+  //=====removing Instructions==========//
+  instructionsClose(){
+    this.helpFlag = 0;
+  }
+
   editdata(name) { //edit data
     console.log(name);
     this.traindomainService.getdata(name).subscribe((res) => {
@@ -60,23 +70,23 @@ export class TraindomainComponent implements OnInit {
       this.tempdata = {genre : Config.ques.conclusion, id : this.tempid, type :Config.ques.type1};
     }
   }
-tempflow:any[] = [];
-nextquestion:any;  
-answerarr:any[] = [];
-questionarr:any[] = [];
-setId() {
-  let m = 0;
-  this.productdata.question.map((data) => {
-    if(data.genre == Config.ques.quest || data.genre == Config.ques.intro || data.genre == Config.ques.conclusion) {
-      m++;
-    }
-  })
-  return ++m;
-}
-answerflow:any[] = [];
-setnext(data) {
-  this.nextquestion = data;
-  this.productdata.question.map((data)=> {
+  tempflow:any[] = [];
+  nextquestion:any;  
+  answerarr:any[] = [];
+  questionarr:any[] = [];
+  setId() {
+    let m = 0;
+    this.productdata.question.map((data) => {
+      if(data.genre == Config.ques.quest || data.genre == Config.ques.intro || data.genre == Config.ques.conclusion) {
+        m++;
+      }
+    })
+    return ++m;
+  }
+  answerflow:any[] = [];
+  setnext(data) {
+    this.nextquestion = data;
+    this.productdata.question.map((data)=> {
       if(data.genre == Config.ques.quest || data.genre == Config.ques.conclusion) {
         this.questionarr.push(data);
       }
@@ -113,21 +123,21 @@ setnext(data) {
     }
     this.input = "",
     this.next = "";
- }
-arrangeAnswer() {  //arrage answers
-  this.testflagon = true;
-  if(this.answerflow.length > 0) {
-    if(this.nextquestion.genre == Config.ques.intro) {
-      for(let i=0;i<this.productdata.question.length;i++) {
-        if(this.productdata.question[i].id == this.nextquestion.id && this.productdata.question[i].type != Config.ques.type1) {
-          this.answerflow.map((data) => {
-            if(data.input == Config.ques.yes && this.productdata.question[i].answer == Config.ques.ayes) {
-              this.productdata.question[i].next = data.next;
-            } else if(data.input == Config.ques.no && this.productdata.question[i].answer == Config.ques.ano) {
-               this.productdata.question[i].next = data.next;
-            }
-          })
-        }
+  }
+  arrangeAnswer() {  //arrage answers
+    this.testflagon = true;
+    if(this.answerflow.length > 0) {
+      if(this.nextquestion.genre == Config.ques.intro) {
+        for(let i=0;i<this.productdata.question.length;i++) {
+          if(this.productdata.question[i].id == this.nextquestion.id && this.productdata.question[i].type != Config.ques.type1) {
+            this.answerflow.map((data) => {
+              if(data.input == Config.ques.yes && this.productdata.question[i].answer == Config.ques.ayes) {
+                this.productdata.question[i].next = data.next;
+              } else if(data.input == Config.ques.no && this.productdata.question[i].answer == Config.ques.ano) {
+                this.productdata.question[i].next = data.next;
+              }
+            })
+          }
         }
       } else {
         this.answerflow.map((data) => {
@@ -155,7 +165,7 @@ arrangeAnswer() {  //arrage answers
     this.input = ans;
   }
 
-   setNextpart(ans) {
+  setNextpart(ans) {
     this.next = ans;
   }
 
