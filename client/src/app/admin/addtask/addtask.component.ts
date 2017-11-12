@@ -23,7 +23,6 @@ export class AddtaskComponent implements OnInit {
   constructor(private addtaskservice : AddtaskService) { }
 //----------ngOnInit--------
   ngOnInit() {
-    console.log(this.item1,this.item2)
   }
 
 //-----------start of AddQuestion-----------
@@ -56,7 +55,6 @@ export class AddtaskComponent implements OnInit {
 
 
       this.data.push({question},{positiveresponse},{negativeresponse});
-      console.log(this.data);
       this.task = "";
   }
   //---------------end of AddQuestion----------------
