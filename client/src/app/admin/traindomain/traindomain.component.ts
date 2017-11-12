@@ -16,6 +16,9 @@ export class TraindomainComponent implements OnInit {
   productdata:any = {question : []};
   type:any[];
   ansType:any[] = [];
+  testflagon:boolean = false;
+  helpFlag:number = 0;
+
   constructor(private traindomainService:TraindomainService, private routeparams:ActivatedRoute, private router:Router) { }
   op:any;
   ngOnInit() {
@@ -34,16 +37,26 @@ export class TraindomainComponent implements OnInit {
       }
     })
   }
+  //======OnClick Instructions=======//
+  instructions(){
+    this.helpFlag = 1;
+  }
+  //=====removing Instructions==========//
+  instructionsClose(){
+    this.helpFlag = 0;
+  }
+
   editdata(name) { //edit data
-    console.log(name);
     this.traindomainService.getdata(name).subscribe((res) => {
       this.productdata = res;
     })
   }
   tempid:any=0;
   tempdata:any = {};
+  tempvalue:any;
   getDetail(data) {
-    console.log(data);
+    this.tempvalue = data;
+
     if (data==Config.ques.intro) {
       this.tempid = this.setId();
       this.tempdata = {genre : Config.ques.intro, id : this.tempid, type : Config.ques.type1};
@@ -64,7 +77,6 @@ export class TraindomainComponent implements OnInit {
     this.productdata.question.map((data) => {
       if(data.genre == Config.ques.quest || data.genre == Config.ques.intro || data.genre == Config.ques.conclusion) {
         m++;
-        
       }
     })
     return ++m;
@@ -96,13 +108,11 @@ export class TraindomainComponent implements OnInit {
       input : input,
       next : parseInt(next)
     }
-    //console.log("sameplae",sample);
     this.answerflow.push(sample);
     if(input == Config.ques.remain) {
       this.answerarr = [];
     } else  {
       let index = this.answerarr.indexOf(parseInt(input));
-      console.log(input,this.answerarr);
       if(index > -1) {
         this.answerarr.splice(index,1);
       }  
@@ -111,6 +121,7 @@ export class TraindomainComponent implements OnInit {
     this.next = "";
   }
   arrangeAnswer() {  //arrage answers
+    this.testflagon = true;
     if(this.answerflow.length > 0) {
       if(this.nextquestion.genre == Config.ques.intro) {
         for(let i=0;i<this.productdata.question.length;i++) {
@@ -135,16 +146,23 @@ export class TraindomainComponent implements OnInit {
               next : data.next
             }
             this.productdata.question.push(sample);
-            console.log(this.productdata)
           }
         })
-        console.log(this.productdata.question);
       }
     }
     this.questionarr = [];
     this.answerarr = [];
     this.answerflow= [];
   }
+
+  setInput(ans) {
+    this.input = ans;
+  }
+
+  setNextpart(ans) {
+    this.next = ans;
+  }
+
   setAnstype(data,main) {  //set Answertype
     this.tempdata.answertype = data;
     if(data==Config.ques.yesno && main==Config.ques.intro) {
@@ -158,7 +176,6 @@ export class TraindomainComponent implements OnInit {
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
-      console.log(this.tempflow);
     } else if(data==Config.ques.yesno&& main == Config.ques.quest) {
       let fall = {
         id : this.tempid,
@@ -189,9 +206,9 @@ export class TraindomainComponent implements OnInit {
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
-      console.log(this.tempflow);
     }
   }
+
   addOption() {
     let main = {id : this.tempdata.option.length + 1,value : ""}
     this.tempdata.option.push(main);
@@ -203,6 +220,7 @@ export class TraindomainComponent implements OnInit {
     })
     this.tempdata = {};
     this.tempflow = [];
+    this.tempvalue = "";
   }
   setQuestion() {
     this.productdata.question.push(this.tempdata);
@@ -211,6 +229,7 @@ export class TraindomainComponent implements OnInit {
     })
     this.tempdata = {};
     this.tempflow = [];
+    this.tempvalue = "";
   }
   result(data) {
     this.productdata.result = data;
@@ -234,7 +253,6 @@ export class TraindomainComponent implements OnInit {
   testanswertype:any;
   currentflow:any;
   chatadd(data,ans) {
-    console.log(this.productdata);
     this.currentflow = data;
     this.testanswertype = data.answertype
     if(this.currentflow.result) {
@@ -277,7 +295,6 @@ export class TraindomainComponent implements OnInit {
               return data;
             }
           })
-          console.log(next);
           this.chatadd(next,ans);
         } else {
           let next = this.productdata.question.find((data) => {

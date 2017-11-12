@@ -1,5 +1,23 @@
 module.exports = {
-
+		ques:{
+			data:{ question:"what is retirement plan?", email: "stshivamtripathi7@gmail.com"},
+			findyield:{data:"It is domain"}
+		},
+		updateuserdata:{
+			send:{ status: true,
+      message: 'Successfull Login',
+      data: 
+      { _id: '59f1dd98e680c117c065d55c',
+      name: 'Abc',
+      email: 'abc@gmail.com',
+      password: '$2a$10$JdbaQnY70K86rOH8KmVzyeigegpe.K7s96JvzgzMlTiJ12CWkodHW',
+      type: 'User',
+      status: true,
+      policy: [],
+      questions:[ ],
+      badCount: 0 } },
+      updateyield:{ ok: 1, nModified: 1, n: 1 }
+		},
 	forgotpassword:{
 		findyield:{
 			"_id" : "59c20a8090862e01a0c96034",
@@ -163,5 +181,4 @@ module.exports = {
 			findyield:{name:"ishan", gender:"male", task:"product"},
 			send:{name:"ishan"}
 		}
-
 	}
