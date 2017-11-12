@@ -17,10 +17,10 @@
 </div>
 <br>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4" *ngFor="let main of item;let i = index ">
         
     
-            <div class="card" *ngFor="let main of item;let i = index ">
+            <div class="card" >
               <h3>{{main.task}}</h3>
               <p class="desc-text text-justify">
                 {{Config.createflow.AddtheFollow}}
