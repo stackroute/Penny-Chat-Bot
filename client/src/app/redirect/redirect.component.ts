@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RedirectService } from './redirect.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Config } from './redirect_en_config';
+import { testConfig } from './redirect.config';
 @Component({
   selector: 'app-redirect',
   templateUrl: './redirect.component.html',

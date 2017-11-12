@@ -18,6 +18,8 @@ import swal from 'sweetalert2';
 class RouterStub {
   navigateByUrl(url: string) { return url; }
 }
+
+//------------start of test suit--------------
 describe('Chat  Component', () => {
   let component: BottomChatComponent;
   let fixture: ComponentFixture<BottomChatComponent>;
@@ -52,8 +54,12 @@ describe('Chat  Component', () => {
     fixture = TestBed.createComponent(BottomChatComponent);
     component = fixture.componentInstance;
   }));
+  //-----------start of testing of component----------------
   it('should create', () => {
     expect(component).toBeTruthy();
   })
- 
- });
+  //-----------end of testing of component----------------
+  
+});
+
+//------------end of test suit--------------

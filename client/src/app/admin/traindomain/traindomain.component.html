@@ -14,9 +14,6 @@
     </div>
     </div>
   </div>
-
-
-
   <div class="row">
     <div class="col-md-3">
       <div class="panel panel-primary">
@@ -42,12 +39,10 @@
             </li>
 
           </ul>
-
-
         </div>
         <div class="panel-footer">
           <div class="input-group">
-           <!--  <button class="btn btt1" (click)="largeModal.show()">{{Config.button.btn2}}</button> -->
+          
            <button class="pull-right btt btn " (click)="save()">{{Config.button.btn1}}</button>
             <button type="button" class="btn btt1 pull-left"  (click)="largeModal.show()">{{Config.button.btn2}}</button>
           </div>
@@ -58,7 +53,7 @@
     <div class="col-md-7">
        <div class="chat-panel card1 card-default"> 
       <!-- Card -->
-      <h3><strong>Test Flow</strong></h3>
+      <h3><strong>{{Config.flow}}</strong></h3>
       <div class="card-block" #scrollMe style="overflow-y: scroll;overflow-x: hidden; height: 420px;">
        <div id="scroll">
          <ul class="chat">
@@ -119,28 +114,22 @@
 <div class="col-md-2">
  <div class="card mb-1 card-outline-primary cardcolor">
 
- <div class="card-head card-info ticket"><p>INSTRUCTIONS</p></div>
+ <div class="card-head card-info ticket"><p>{{Config.instruction.heading}}</p></div>
 
  <div class="card-block card-outline-info">
 
-  <div class="card-title">FOLLOW THE RULES</div><hr>
+  <div class="card-title">{{Config.instruction.flow}}</div><hr>
 
-  <p class="card-text tcontent text-justify oblique">&bull; Enter one question at a time</p>
+  <p class="card-text tcontent text-justify oblique">&bull;{{Config.instruction.ins1}}</p>
 
-   <p class="card-text tcontent text-justify oblique">&bull; Enter relavant questions for the user</p>
+   <p class="card-text tcontent text-justify oblique">&bull;{{Config.instruction.ins2}}</p>
 
-    <p class="card-text tcontent text-justify oblique">&bull; You can ask any number of question you want as a feedback</p>
+    <p class="card-text tcontent text-justify oblique">&bull;{{Config.instruction.ins3}}</p>
 
-    <p class="card-text tcontent text-justify oblique">&bull; Enter (Y)or(y) if you want to add more questions to the survey</p>
+    <p class="card-text tcontent text-justify oblique">&bull;{{Config.instruction.ins4}}</p>
 
-    <p class="card-text tcontent text-justify">&bull; Enter (N)or(n) if you dont want any further questions to be added in the survey </p>
-
-    <!-- <p class="card-text tcontent text-justify">&bull;   </p> -->
-
-  
-
- 
-
+    
+   <!-- <p class="card-text tcontent text-justify">&bull;   </p> -->
 </div>
 
   
@@ -149,11 +138,8 @@
 
       
     </div>
-
   </div>
 </div>
-
-
 
 <!-- =================Modal================== -->
 <div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
