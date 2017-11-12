@@ -15,7 +15,6 @@ export default (req,res)=>{
         res.json({message : staticConfig.reset_password.UserNotFindMessage,status:false})
       }
       else {
-          console.log("Herre",req.body);
         comparePassword(req.body.oldpassword, data1[0].password, (err, isMatch)=>{
           if(isMatch) {
             let password = req.body.newpassword;
