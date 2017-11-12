@@ -64,14 +64,12 @@ export class AddtaskComponent implements OnInit {
 
   //---------------start of Submit-------------------
   Submit(){
-<<<<<<< HEAD
+
       this.addtaskservice.Submit(this.data).subscribe((res)=>{res}, (dataError)=>{
          this.router.navigateByUrl('/error'); 
       })
-=======
-    this.addtaskservice.Submit(this.data).subscribe((res)=>res)
->>>>>>> 2ed3b45669e7cf7fc978562e6572fc80b8c28dfe
-  }
+    }
+
   //--------------end of Submit----------------------
 
 }
