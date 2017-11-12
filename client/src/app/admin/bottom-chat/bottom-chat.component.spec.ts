@@ -14,9 +14,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import swal from 'sweetalert2';
+//------------RouterStub-------------
 class RouterStub {
   navigateByUrl(url: string) { return url; }
 }
+//------start of test suit------------------
 describe('Chat  Component', () => {
   let component: BottomChatComponent;
   let fixture: ComponentFixture<BottomChatComponent>;
@@ -51,8 +53,11 @@ describe('Chat  Component', () => {
     fixture = TestBed.createComponent(BottomChatComponent);
     component = fixture.componentInstance;
   }));
+  //--------------start of testing of component-------------
   it('should create', () => {
     expect(component).toBeTruthy();
   })
- 
- });
+  //--------------end of testing of component-------------
+  
+});
+//------end of test suit------------------

@@ -25,12 +25,9 @@ onSubmit() {
      this.submitted = true; }
 
       move(data:any) {
-        console.log('data',data);
-        console.log('dataa',data.message);
         if(data.message!==Config.signup.alreadyExists){
           //validations if email already exists 
           if(data.status == true) {
-            console.log(data.status)
             
             swal(Config.signup.swalOnsubSucMsg1,Config.signup.swalOnsubSucMsg2,'success');
             this.router.navigateByUrl('');
@@ -45,7 +42,7 @@ onSubmit() {
             Config.signup.swalOnsubErrMsg2,
             'error'
             )
-          console.log('already exist');
+          
         }
       }
 
@@ -53,7 +50,7 @@ onSubmit() {
       //----------------------postUser function suscribing service----------------------------- 
       postUser(){
       if(this.data.password!==this.data.confirmPassword){
-         console.log('pass');
+        
           swal(
 
             Config.signup.swalPostErrMsg1,
