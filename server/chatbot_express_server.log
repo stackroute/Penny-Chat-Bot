@@ -1,31 +1,102 @@
-[2017-11-11 17:17:52.759] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
-[2017-11-12 09:21:11.704] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
-[2017-11-12 09:24:38.681] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 09:25:18.663] [INFO] chatbot_express_server - { message: 'Success in update User' }
-[2017-11-12 09:25:25.122] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 09:29:40.329] [INFO] chatbot_express_server - { message: 'Success in update User' }
-[2017-11-12 09:29:47.218] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 09:32:22.832] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 10:05:15.971] [INFO] chatbot_express_server - { message: 'Success in update User' }
-[2017-11-12 10:05:30.076] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 10:05:58.751] [INFO] chatbot_express_server - { message: 'Success in update User' }
-[2017-11-12 10:06:12.692] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 10:07:09.331] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 10:11:24.208] [INFO] chatbot_express_server - { message: 'Success in update User' }
-[2017-11-12 10:12:02.090] [INFO] chatbot_express_server - Error in sending mail
-[2017-11-12 10:12:06.258] [INFO] chatbot_express_server - Error in sending mail
-[2017-11-12 10:12:11.297] [INFO] chatbot_express_server - Error in sending mail
-[2017-11-12 10:12:11.961] [INFO] chatbot_express_server - Error in sending mail
-[2017-11-12 10:12:12.327] [INFO] chatbot_express_server - Error in sending mail
-[2017-11-12 10:15:40.823] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
-[2017-11-12 10:18:14.434] [INFO] chatbot_express_server - Mail sent to set password
-[2017-11-12 10:18:31.431] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
-[2017-11-12 10:18:41.420] [INFO] chatbot_express_server - Password successfully updated.
-[2017-11-12 10:18:53.395] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 10:37:22.470] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 10:38:38.671] [INFO] chatbot_express_server - Success
-[2017-11-12 10:38:38.678] [INFO] chatbot_express_server - Success
-[2017-11-12 10:38:44.350] [INFO] chatbot_express_server - Success
-[2017-11-12 10:39:08.775] [INFO] chatbot_express_server - Success
-[2017-11-12 10:45:27.672] [INFO] chatbot_express_server - Successfull Login
-[2017-11-12 10:49:01.648] [INFO] chatbot_express_server - Success
+[2017-11-12 11:02:38.164] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 11:05:19.221] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 12:56:48.852] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 12:57:09.200] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 12:57:12.585] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 12:57:19.192] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 12:57:36.991] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 13:00:34.632] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:00:36.143] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 13:04:22.009] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 13:05:49.116] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 13:08:00.433] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 13:11:26.361] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 13:16:39.456] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 13:17:57.954] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:18:07.755] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:18:35.210] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:22:37.609] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:22:41.819] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:23:57.091] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:23:59.291] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:24:01.103] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:25:09.006] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:25:10.895] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:25:12.887] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:26:02.919] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:26:04.940] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:26:06.975] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:28:07.254] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:28:09.463] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:28:11.542] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:28:55.514] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:28:58.036] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:28:59.733] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:44:59.062] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:45:01.329] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:45:03.122] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:46:05.055] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:46:07.717] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:46:09.342] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:47:57.834] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:48:00.514] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:48:02.086] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:49:53.567] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:50:02.153] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:50:03.993] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:50:47.624] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:50:51.729] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:50:52.696] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:51:57.671] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:52:00.305] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:52:01.580] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:52:01.920] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:53:23.669] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:53:25.580] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:53:26.501] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:53:27.776] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:57:22.398] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:57:26.554] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:57:27.484] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:57:27.653] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:58:09.313] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 13:58:13.624] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 13:58:14.455] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 13:58:14.732] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:00:30.877] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 14:00:35.139] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:00:36.094] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 14:00:36.245] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:45:10.713] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 14:45:15.186] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:45:16.003] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 14:45:16.238] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:46:25.600] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 14:46:29.951] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:46:30.300] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 14:46:31.345] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:47:54.957] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 14:47:59.708] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:48:00.065] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 14:48:01.167] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:50:37.527] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 14:50:41.178] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:50:42.540] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 14:50:42.659] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:51:32.507] [INFO] chatbot_express_server - Password successfully updated.
+[2017-11-12 14:51:48.021] [INFO] chatbot_express_server - failure in /warning_page route
+[2017-11-12 14:51:48.088] [INFO] chatbot_express_server - Sorry, verification failed in /verify_user route
+[2017-11-12 14:52:50.692] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-12 14:52:55.124] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 14:52:56.026] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 14:52:56.633] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 15:01:24.061] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 15:01:51.935] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 15:02:03.890] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 15:02:12.639] [INFO] chatbot_express_server - Password successfully updated.
+[2017-11-12 15:02:17.006] [INFO] chatbot_express_server - failure in /warning_page route
+[2017-11-12 15:02:17.057] [INFO] chatbot_express_server - Sorry, verification failed in /verify_user route
+[2017-11-12 15:02:18.726] [INFO] chatbot_express_server - failure in /warning_page route
+[2017-11-12 15:02:18.809] [INFO] chatbot_express_server - Sorry, verification failed in /verify_user route
+[2017-11-12 15:02:19.414] [INFO] chatbot_express_server - failure in /warning_page route
+[2017-11-12 15:02:19.467] [INFO] chatbot_express_server - Sorry, verification failed in /verify_user route

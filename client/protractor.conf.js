@@ -6,7 +6,12 @@ const { SpecReporter } = require('jasmine-spec-reporter');
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
-    './e2e/spec/login.component.spec.ts'
+    './e2e/spec/login.component.spec.ts',
+    './e2e/spec/register.component.spec.ts',
+    './e2e/spec/forgotpassword.component.spec.ts',
+    './e2e/spec/redirect.component.spec.ts',
+    './e2e/spec/setpassword.component.spec.ts',
+
   ],
   capabilities: {
     'browserName': 'chrome'

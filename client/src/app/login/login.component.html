@@ -14,11 +14,11 @@
               <div class="input-group mb-4">
                 <span class="input-group-addon"><i class="icon-lock"></i></span>
                 <input type="password" class="form-control" placeholder="Password" required
-             [(ngModel)]="loginDetails.password" >
+             [(ngModel)]="loginDetails.password" name="password">
               </div>
               <div class="row">
                 <div class="col-6">
-                  <button type="button" class="btn btn-primary px-6" (click)=loginUser()>{{message.loginbtn}}</button>
+                  <button type="button" id="loginbtn" class="btn btn-primary px-6"  (click)=loginUser()>{{message.loginbtn}}</button>
                 </div>
                 <div class="col-6 text-right">
 

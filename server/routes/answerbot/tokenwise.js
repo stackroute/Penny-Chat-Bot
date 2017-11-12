@@ -10,7 +10,7 @@ import pos from 'pos';
 import neo4j from 'neo4j-driver';
 import tokenwise from './tokenwise';
 import config from '../../config/config';
-import staticconfig  from './Config';
+import staticConfig  from './Config';
 import logger from '../../log4js';
 
 const uri = config.neo4jUrl;
@@ -223,11 +223,11 @@ export default (req,res) => {
   let actualresponse = (intent,context) => {
     
     if(context.length == 0 && intent.length > 0) {
-      logger.info(staticconfig.tokenwise.WhatPolicy)    //making logs
-      res.json({message : staticconfig.tokenwise.WhatPolicy})
+      logger.info(staticConfig.tokenwise.WhatPolicy)    //making logs
+      res.json({message : staticConfig.tokenwise.WhatPolicy})
       
     } else if(intent.length == 0 && context.length > 0) {
-      res.json({message : staticconfig.tokenwise.Help +context[0].name+"?"});
+      res.json({message : staticConfig.tokenwise.Help +context[0].name+"?"});
     } else if(intent.length == 1 && context.length == 1) {
       directresponse(intent,context);
     }

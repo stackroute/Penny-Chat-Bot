@@ -287,10 +287,10 @@ export default (req,res) => {
       })
       if(arraymain.length > 2)
         res.json(arraymain);
-      if (intent.length >0 && context.length>0)
-      {
-        actualresponse(intent,context);
-      }
+      // if (intent.length >0 && context.length>0)
+      // {
+      //   actualresponse(intent,context);
+      // }
 
 
     }

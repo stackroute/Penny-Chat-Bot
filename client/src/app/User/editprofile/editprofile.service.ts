@@ -21,6 +21,6 @@ export class EditprofileService {
 	}
 
 	_errorHandler(error: Response){  /* error handling */
-		return Observable.throw(error || "Server error")
+		return Observable.throw(error)
 	}
 }
