@@ -10,7 +10,7 @@ export default {
   },
   flow:'Test Flow',
   ques:{
-    question:'Pending Questions',
+    question:'Add Flow',
     intro:"Introduction",
     quest:"Question",
     conclusion:"Conclusion",

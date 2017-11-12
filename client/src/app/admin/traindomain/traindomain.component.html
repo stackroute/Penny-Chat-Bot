@@ -18,6 +18,7 @@
       <div class="panel panel-primary">
         <div class="panel-heading">
           <span class="glyphicon glyphicon-comment"></span> {{Config.ques.question}}
+          <a><i class="fa fa-question-circle-o questionicon" aria-hidden="true" (click)=instructions() ></i></a>
         </div>
         <div class="panel-body">
           <ul class="chat">
@@ -111,10 +112,11 @@
 </div>
 </div>
 
-<div class="col-md-2">
+<div class="col-md-2" *ngIf = "helpFlag == 1">
  <div class="card mb-1 card-outline-primary cardcolor">
 
-   <div class="card-head card-info ticket"><p>{{Config.instruction.heading}}</p></div>
+   <div class="card-head card-info ticket"><p>{{Config.instruction.heading}}<i class="fa fa-times" aria-hidden="true" (click)=instructionsClose() ></i></p>
+</div>
 
    <div class="card-block card-outline-info">
 
