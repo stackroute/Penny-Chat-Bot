@@ -24,6 +24,16 @@ export class BottomChatComponent implements OnInit {
       //window.open(document.URL, '/user/chat', 'location=yes,height=570,width=520,scrollbars=yes,status=no');
     }
   },
+
+ {
+    iconClass: 'fa fa-pencil',
+    label: 'Edit profile',
+    onClick: () => {
+      this.router.navigateByUrl('user/editprofile');
+      //window.open(document.URL, '/user/chat', 'location=yes,height=570,width=520,scrollbars=yes,status=no');
+    }
+  },
+
   {
     iconClass: 'fa fa-sign-out',
     label: 'Logout',

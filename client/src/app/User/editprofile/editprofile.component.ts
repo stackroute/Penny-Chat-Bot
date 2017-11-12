@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Config } from './../../config/multi_en_config';
 import { EditprofileService } from './editprofile.service';
 import { routerTransition } from '../../router.animations';
 import { ActivatedRoute, Router } from '@angular/router';
 import swal  from 'sweetalert2';
+import Config from './editprofile_en_config';
 
 
 @Component({
@@ -23,9 +23,7 @@ export class EditprofileComponent implements OnInit {
 	/*on page initialization*/
 	ngOnInit() {
 		this.userData = JSON.parse(localStorage.getItem('Userdata'));  //getting userdata from localstorage
-        console.log('hello', this.userData)
-		this.userData = this.userData;
-		console.log('hello2', this.userData)
+        this.userData = this.userData;
 	}
 
 	gotoDashboard() {
@@ -40,8 +38,8 @@ export class EditprofileComponent implements OnInit {
 	passwordvalidation() {  // matching password and confirm password 
 		if(this.userData.data.password!==this.cnfmPassword){
 			swal(
-				'Oops...',
-				'password mismatch',
+				Config.editProfile.msg1,
+				Config.editProfile.msg2,
 				'error'
 				)
 		}
@@ -49,7 +47,7 @@ export class EditprofileComponent implements OnInit {
 
 	submit() {
 		if(!this.userData.data.name || !this.userData.data.email ){
-			swal("please enter all fields");
+			swal(Config.editProfile.msg3);
 		}
 
 		else  {  // send entered data to service
@@ -57,14 +55,14 @@ export class EditprofileComponent implements OnInit {
 			.subscribe(ref => {
 				if(ref.status == false) {  // if server returns any error
 					swal(
-						'Oops...',
-						'Error in Update'
+						Config.editProfile.msg1,
+						Config.editProfile.msg6
 						)
 				}
 				else {			// if updated successfully
 					swal(
-						'Success',
-						'Updated Successfully'
+						Config.editProfile.msg4,
+						Config.editProfile.msg5
 						)
 					this.router.navigateByUrl('/')
 				}

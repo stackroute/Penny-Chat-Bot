@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ResetPasswordService } from './reset-password.service';
 import { Router } from '@angular/router';
-import { Config } from './../../config/multi_en_config';
+import Config from './reset-password_en_config';
 import swal from 'sweetalert2';
 
 @Component({
@@ -32,7 +32,7 @@ export class ResetPasswordComponent implements OnInit {
 
   /*back to navigatebyurl */
   back(){
-    this.router.navigateByUrl('user/chat');
+    this.router.navigateByUrl('user/dashboardUser');
   }
 
   /*resent password to get the response*/
@@ -61,7 +61,7 @@ export class ResetPasswordComponent implements OnInit {
           this.oldpassword="";
           this.newpassword="";
           this.confirmpassword="";
-          this.router.navigateByUrl('/user/chat');
+          this.router.navigateByUrl('/user/dashboardUser');
         }
       },(dataError)=>{         /*error handling*/
         localStorage.removeItem(Config.userResetPassword.localstorage);

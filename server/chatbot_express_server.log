@@ -1,1 +1,31 @@
-[2017-11-11 16:46:18.650] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-11 17:17:52.759] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 09:21:11.704] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 09:24:38.681] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 09:25:18.663] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-12 09:25:25.122] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 09:29:40.329] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-12 09:29:47.218] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 09:32:22.832] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 10:05:15.971] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-12 10:05:30.076] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 10:05:58.751] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-12 10:06:12.692] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 10:07:09.331] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 10:11:24.208] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-12 10:12:02.090] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 10:12:06.258] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 10:12:11.297] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 10:12:11.961] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 10:12:12.327] [INFO] chatbot_express_server - Error in sending mail
+[2017-11-12 10:15:40.823] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 10:18:14.434] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-12 10:18:31.431] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 10:18:41.420] [INFO] chatbot_express_server - Password successfully updated.
+[2017-11-12 10:18:53.395] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 10:37:22.470] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 10:38:38.671] [INFO] chatbot_express_server - Success
+[2017-11-12 10:38:38.678] [INFO] chatbot_express_server - Success
+[2017-11-12 10:38:44.350] [INFO] chatbot_express_server - Success
+[2017-11-12 10:39:08.775] [INFO] chatbot_express_server - Success
+[2017-11-12 10:45:27.672] [INFO] chatbot_express_server - Successfull Login
+[2017-11-12 10:49:01.648] [INFO] chatbot_express_server - Success
