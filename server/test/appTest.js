@@ -29,831 +29,831 @@ let flowschemainsert = sinon.stub(flow_schema,'insertMany');
 let jwtToken;
 
 
-// /*=============================Start of Positive test for verify user=============================*/
-// describe('verify_user processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// registerFind.yields(null,[testconfig.verifyuser.findyield])
-// registerUpdate.yields(null,[testconfig.verifyuser.updateyield])
-// });
-//   registerFind.yields(null,[testconfig.verifyuser.findyield2])
+/*=============================Start of Positive test for verify user=============================*/
+describe('verify_user processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+registerFind.yields(null,[testconfig.verifyuser.findyield])
+registerUpdate.yields(null,[testconfig.verifyuser.updateyield])
+});
+  registerFind.yields(null,[testconfig.verifyuser.findyield2])
 
-//   it('Update must be a success positive',(done)=>{
-//     url
-//     .get('/verify_user/:59c393d31f0a19213741e83e')
-//     .set('Authorization', 'bearer' +jwtToken)
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else if(res.body.data==null){
-//         assert.equal(res.body.data,null);
-//         done();
-//       };
-//     });
-//   });
-// });
-// //=============================End of Positive test for verify user=============================
+  it('Update must be a success positive',(done)=>{
+    url
+    .get('/verify_user/:59c393d31f0a19213741e83e')
+    .set('Authorization', 'bearer' +jwtToken)
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else if(res.body.data==null){
+        assert.equal(res.body.data,null);
+        done();
+      };
+    });
+  });
+});
+//=============================End of Positive test for verify user=============================
 
-// /*=============================Start of Negative test for verify user=============================*/
-// describe('verify_user processed here',()=>{
-//   before(()=>{
-//  //yield is used to stub the info required by database
-//  registerFind.yields(null,null)
-// });
+/*=============================Start of Negative test for verify user=============================*/
+describe('verify_user processed here',()=>{
+  before(()=>{
+ //yield is used to stub the info required by database
+ registerFind.yields(null,null)
+});
 
-//   it('Update must be a success negative',(done)=>{
-//     url
-//     .get('/verify_user/59c393d31f0a19213741e83e')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else if(res.body.data== null)
-//       {
-//         assert.equal(res.body.data,null);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=============================End of Negative test for verify user=============================*/
+  it('Update must be a success negative',(done)=>{
+    url
+    .get('/verify_user/59c393d31f0a19213741e83e')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else if(res.body.data== null)
+      {
+        assert.equal(res.body.data,null);
+        done();
+      };
+    });
+  });
+});
+/*=============================End of Negative test for verify user=============================*/
 
-// /*=============================start of Positive  Testing forgot_password============================*/
+/*=============================start of Positive  Testing forgot_password============================*/
 
-// describe('forgot processed here empty find',()=>{  
+describe('forgot processed here empty find',()=>{  
 
-//   before(()=>{
-//  //yield is used to stub the info required by database
-//  registerFind.yields(null,null)
-//  registerUpdate.yields(null,testconfig.forgotpassword.updateyield)
-// });
-//   it('Update must be a success',(done)=>{
-//     url
-//     .post('/forgot_password')
-//    //.set('Authorization', 'bearer' +jwtToken).expect(200)
-//    .expect('Content-Type', /json/)
-//    .send(testconfig.forgotpassword.findyield)
-//    .end((err,res)=>{
-//     if(err){
-//       return err;
-//     }
-//     else{
-//       assert.equal(res.body.status,undefined);
-//       done();
-//     };
-//   });
-//  });
-// });
-// /*=============================end of Positive  Testing forgot_password============================*/
+  before(()=>{
+ //yield is used to stub the info required by database
+ registerFind.yields(null,null)
+ registerUpdate.yields(null,testconfig.forgotpassword.updateyield)
+});
+  it('Update must be a success',(done)=>{
+    url
+    .post('/forgot_password')
+   //.set('Authorization', 'bearer' +jwtToken).expect(200)
+   .expect('Content-Type', /json/)
+   .send(testconfig.forgotpassword.findyield)
+   .end((err,res)=>{
+    if(err){
+      return err;
+    }
+    else{
+      assert.equal(res.body.status,undefined);
+      done();
+    };
+  });
+ });
+});
+/*=============================end of Positive  Testing forgot_password============================*/
 
-// /*=============================start of Negative  Testing forgot_password============================*/
+/*=============================start of Negative  Testing forgot_password============================*/
 
-// describe('forgot processed here empty update',()=>{  
-//   before(()=>{ 
-//  //yield is used to stub the info required by database
-//  registerFind.yields(null,[testconfig.forgotpassword.findyield]);
-//  registerUpdate.yields(null,null);
-// });
-//   it('Update must be a success',(done)=>{
-//     url
-//     .post('/forgot_password')
-//     .set('Authorization', 'bearer' +jwtToken).expect(200)
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.forgotpassword.findyield)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else{     
-//         assert.equal(res.body.status,false);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=============================end of Negative  Testing forgot_password============================*/
+describe('forgot processed here empty update',()=>{  
+  before(()=>{ 
+ //yield is used to stub the info required by database
+ registerFind.yields(null,[testconfig.forgotpassword.findyield]);
+ registerUpdate.yields(null,null);
+});
+  it('Update must be a success',(done)=>{
+    url
+    .post('/forgot_password')
+    .set('Authorization', 'bearer' +jwtToken).expect(200)
+    .expect('Content-Type', /json/)
+    .send(testconfig.forgotpassword.findyield)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else{     
+        assert.equal(res.body.status,false);
+        done();
+      };
+    });
+  });
+});
+/*=============================end of Negative  Testing forgot_password============================*/
 
-// /*================================start Testing of warning_page===================================*/
+/*================================start Testing of warning_page===================================*/
 
-// /*================================start positive testing of warning_page ============================*/
-// describe('warning_page processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// registerFind.yields(null,null)
-// });
-//   it('Update must be a success',(done)=>{
-//     url
-//     .get('/warning_page/:59c393d31f0a19213741e83e')
-//     .set('Authorization', 'bearer' +jwtToken).expect(200)
-//     .expect('Content-Type', /json/)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       } 
-//       else if(res.body.data== null)
-//       {
-//         assert.equal(res.body.data,null);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*================================end negative testing of warning_page ============================*/
-// /*=============================Start of Positive test for warning page=============================*/
-// describe('warning_page processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// registerFind.yields(null,[testconfig.warningfindresponse])
-// registerUpdate.yields(null,[testconfig.warningUpdateresponse])
-// });
-//   registerFind.yields(null,[testconfig.warningfindresponse])
-//   it('Update must be a success',(done)=>{
-//     url
-//     .get('/warning_page/:59c393d31f0a19213741e83e')
-//     .set('Authorization', 'bearer' +jwtToken).expect(200)
-//     .expect('Content-Type', /json/)
-//     .send()
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else if(res.body.data==null){
-//         assert.equal(res.body.data,null);
-//         done();
-//       };
-//     });
-//   });
-//   it('Update must be a success negative',(done)=>{
-//     url
-//     .get('/verify_user/59c393d31f0a19213741e83e')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else if(res.body.data== null)
-//       {
-//         assert.equal(res.body.data,null);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=============================End of Negative test for verify user=============================*/
-// /*=============================end of Positive test for warning page=============================*/
-// /*================================end Testing of warning_page===================================*/
-// /*=============================Start of Negative test for set_password method =============================*/
+/*================================start positive testing of warning_page ============================*/
+describe('warning_page processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+registerFind.yields(null,null)
+});
+  it('Update must be a success',(done)=>{
+    url
+    .get('/warning_page/:59c393d31f0a19213741e83e')
+    .set('Authorization', 'bearer' +jwtToken).expect(200)
+    .expect('Content-Type', /json/)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      } 
+      else if(res.body.data== null)
+      {
+        assert.equal(res.body.data,null);
+        done();
+      };
+    });
+  });
+});
+/*================================end negative testing of warning_page ============================*/
+/*=============================Start of Positive test for warning page=============================*/
+describe('warning_page processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+registerFind.yields(null,[testconfig.warningfindresponse])
+registerUpdate.yields(null,[testconfig.warningUpdateresponse])
+});
+  registerFind.yields(null,[testconfig.warningfindresponse])
+  it('Update must be a success',(done)=>{
+    url
+    .get('/warning_page/:59c393d31f0a19213741e83e')
+    .set('Authorization', 'bearer' +jwtToken).expect(200)
+    .expect('Content-Type', /json/)
+    .send()
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else if(res.body.data==null){
+        assert.equal(res.body.data,null);
+        done();
+      };
+    });
+  });
+  it('Update must be a success negative',(done)=>{
+    url
+    .get('/verify_user/59c393d31f0a19213741e83e')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else if(res.body.data== null)
+      {
+        assert.equal(res.body.data,null);
+        done();
+      };
+    });
+  });
+});
+/*=============================End of Negative test for verify user=============================*/
+/*=============================end of Positive test for warning page=============================*/
+/*================================end Testing of warning_page===================================*/
+/*=============================Start of Negative test for set_password method =============================*/
 
-// describe('set_password processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// registerFind.yields(null,null)
-// });
-//   it('find negative must be a success',(done)=>{
-//     url
-//     .put('/set_password/abc/122')
-//     .set('Authorization', 'bearer' +jwtToken).expect(200)
-//     .send()
-//     .expect('Content-Type', /json/)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       } 
-//       else if (res.body.data==undefined){
-//         assert.equal(res.body.data,null);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=============================End of Negative test for set_password method=============================*/
+describe('set_password processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+registerFind.yields(null,null)
+});
+  it('find negative must be a success',(done)=>{
+    url
+    .put('/set_password/abc/122')
+    .set('Authorization', 'bearer' +jwtToken).expect(200)
+    .send()
+    .expect('Content-Type', /json/)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      } 
+      else if (res.body.data==undefined){
+        assert.equal(res.body.data,null);
+        done();
+      };
+    });
+  });
+});
+/*=============================End of Negative test for set_password method=============================*/
 
-// //====================================loginTest=============================================*/
+//====================================loginTest=============================================*/
 
-// //================start of negative Signin if data is not available in database===============*/
-// describe('Signin processed here',()=>{
-//   before(() => {
-//     registerFindOne.yields(null, null);
-//   });
+//================start of negative Signin if data is not available in database===============*/
+describe('Signin processed here',()=>{
+  before(() => {
+    registerFindOne.yields(null, null);
+  });
 
-//   it('signin must fail', ()=> {
-//     let token = "some token";
-//     url
-//     .post('/login')
-//     .send(testconfig.signin.sendyield)
-//   //.set('Authorization').expect(200)
-//   .end((err,res) => {
-//     if(err) {
+  it('signin must fail', ()=> {
+    let token = "some token";
+    url
+    .post('/login')
+    .send(testconfig.signin.sendyield)
+  //.set('Authorization').expect(200)
+  .end((err,res) => {
+    if(err) {
 
-//       return done(err);
-//     }
+      return done(err);
+    }
 
-//   })
-// });
-// });
+  })
+});
+});
 
-// //*===========End of negative Signin if data is not available in database=============*/
-
-
-// //=======start of positive Signin if data is available but email is wrong==========*/
-// describe('Signin data processed here',() => {
-//   before(() => {
-//     registerFindOne.yields(null, [testconfig.signin.findyield]);
-//   })
-
-//   it('signin must work',() => {
-//     url
-//     .post('/login')
-//     .send(testconfig.signin.sendyield)
-//   //.set('Authorization').expect(200)
-//   .end((err,res) => {
-//     if(err) {
-//       return done(err);
-//     }
-
-//   })
-// });
-// });
-// //======end of positiveSignin if data is available but email is wrong===========*/
+//*===========End of negative Signin if data is not available in database=============*/
 
 
-// /*===========================force logout =======================================*/
+//=======start of positive Signin if data is available but email is wrong==========*/
+describe('Signin data processed here',() => {
+  before(() => {
+    registerFindOne.yields(null, [testconfig.signin.findyield]);
+  })
 
-// // =======================positive testing of force logout =====================
-// describe('forcelogout positive data processed here',() => {
+  it('signin must work',() => {
+    url
+    .post('/login')
+    .send(testconfig.signin.sendyield)
+  //.set('Authorization').expect(200)
+  .end((err,res) => {
+    if(err) {
+      return done(err);
+    }
 
-//   let logout=testconfig.forcelogout.logout;
-//   before(() => {
-//     if(logout.email!=null){
-//       registerUpdateOne.yields(null, [testconfig.forcelogout.updateyield]);
-//     }
-//     else{
-//       registerUpdateOne.yields(null, undefined);
-//     }
-//   })
-
-//   it('forcelogout must work',(done) => {
-//     url
-//     .put('/forcelogout')
-//     .send(testconfig.forcelogout.send)
-//   //.set('Authorization').expect(200)
-//   .end((err,res) => {
-//     if(err) {
-//       return done(err);
-//     }
-//     else{
-//       assert.equal(res.body.status, true)
-//       done()
-//     }
-
-//   })
-// });
-// });
-// /*======================end of positive testing force logout =================*/
-// /*=======================negative testing of force logout =====================*/
-// describe('forcelogout negative data processed here',() => {
-//   let logout=null
-//   before(() => {
-//     if(logout!=null){
-//       registerUpdateOne.yields(null, [testconfig.forcelogout.updateyield]);
-//     }
-//     else{
-//       registerUpdateOne.yields(null, undefined);
-//     }
-//   })
-
-//   it('forcelogout must work',(done) => {
-//     url
-//     .put('/forcelogout')
-//     .send()
-//   //.set('Authorization').expect(200)
-//   .end((err,res) => {
-//     if(err) {
-//       return done(err);
-//     }
-//     else{
-//       assert.equal(res.body.status, false)
-//       done()
-//     }
-//   })
-// });
-// });
-// /*======================end of negative testing force logout =================*/
-// /*===========================end of force logout=================================*/
-
-// /*================Start of Test for addtask================*/
-// /*================Start of positive test for addtask================*/
-// describe('Method post success positive test for addtask', (done)=>{
-//   before(()=>{
-//  //yield is used to stub the info required by database
-//  addtaskUpdate.yields(null,[testconfig.addtask.updateyield]);
-// });
-//   it('update must be a success',(done)=>{
-//     url
-//     .post('/addtask')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.addtask.send)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else {
-//         assert.equal(res.body.status,true);   
-//         done();
-//       }
-//     });
-//   });
-// });
-// /*================End of positive test for addtask================*/
-// /*================Start of negative test for addtask================*/
-// describe('Method post success negative test for addtask', (done)=>{
-//   before(()=>{
-//  //yield is used to stub the info required by database
-//  addtaskUpdate.yields(null,null);
-// });
-//   it('update must be a success',(done)=>{
-//     url
-//     .post('/addtask')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.addtask.send)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else if(res.body.data==undefined){
-//         assert.equal(res.body.status,false);   
-//         done();
-//       }
-//     });
-//   });
-// });
-// /*================End of negative test for addtask================*/
-// /*================End of Test for addtask================*/
+  })
+});
+});
+//======end of positiveSignin if data is available but email is wrong===========*/
 
 
+/*===========================force logout =======================================*/
 
-// // =====================start of ques_ans.js======================
+// =======================positive testing of force logout =====================
+describe('forcelogout positive data processed here',() => {
 
-// /*======================start of positive testing ================*/
+  let logout=testconfig.forcelogout.logout;
+  before(() => {
+    if(logout.email!=null){
+      registerUpdateOne.yields(null, [testconfig.forcelogout.updateyield]);
+    }
+    else{
+      registerUpdateOne.yields(null, undefined);
+    }
+  })
 
-// describe('Method of update ques_ans positive processed here',()=>{
+  it('forcelogout must work',(done) => {
+    url
+    .put('/forcelogout')
+    .send(testconfig.forcelogout.send)
+  //.set('Authorization').expect(200)
+  .end((err,res) => {
+    if(err) {
+      return done(err);
+    }
+    else{
+      assert.equal(res.body.status, true)
+      done()
+    }
 
-//   let question=testconfig.ques.data
-//   let questions=[];
-//   questions.push(question)
-//   before(()=>{
-// //yield is used to stub the info required by database
-// registerUpdate.yields(null,questions)
-// registerFind.yields(null,testconfig.ques.findyield.data)
-// });
-//   it('update must be a success',(done)=>{
-//     url
-//     .post('/ques_ans')
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.ques.data)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       } 
-//       else {
-//        assert.equal(res.body.status,true);
-//        done();
-//      };
-//    });
-//   });
-// });
+  })
+});
+});
+/*======================end of positive testing force logout =================*/
+/*=======================negative testing of force logout =====================*/
+describe('forcelogout negative data processed here',() => {
+  let logout=null
+  before(() => {
+    if(logout!=null){
+      registerUpdateOne.yields(null, [testconfig.forcelogout.updateyield]);
+    }
+    else{
+      registerUpdateOne.yields(null, undefined);
+    }
+  })
 
-// /*======================end of positive testing======================*/
+  it('forcelogout must work',(done) => {
+    url
+    .put('/forcelogout')
+    .send()
+  //.set('Authorization').expect(200)
+  .end((err,res) => {
+    if(err) {
+      return done(err);
+    }
+    else{
+      assert.equal(res.body.status, false)
+      done()
+    }
+  })
+});
+});
+/*======================end of negative testing force logout =================*/
+/*===========================end of force logout=================================*/
 
-// /*=======================start of negative testing====================*/
+/*================Start of Test for addtask================*/
+/*================Start of positive test for addtask================*/
+describe('Method post success positive test for addtask', (done)=>{
+  before(()=>{
+ //yield is used to stub the info required by database
+ addtaskUpdate.yields(null,[testconfig.addtask.updateyield]);
+});
+  it('update must be a success',(done)=>{
+    url
+    .post('/addtask')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .send(testconfig.addtask.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else {
+        assert.equal(res.body.status,true);   
+        done();
+      }
+    });
+  });
+});
+/*================End of positive test for addtask================*/
+/*================Start of negative test for addtask================*/
+describe('Method post success negative test for addtask', (done)=>{
+  before(()=>{
+ //yield is used to stub the info required by database
+ addtaskUpdate.yields(null,null);
+});
+  it('update must be a success',(done)=>{
+    url
+    .post('/addtask')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .send(testconfig.addtask.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else if(res.body.data==undefined){
+        assert.equal(res.body.status,false);   
+        done();
+      }
+    });
+  });
+});
+/*================End of negative test for addtask================*/
+/*================End of Test for addtask================*/
 
-// describe('Method of update ques_ans negative processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// registerUpdate.yields(null,null)
-// });
-//   it('update must be a success',(done)=>{
-//     url
-//     .post('/ques_ans')
-//     .expect('Content-Type', /json/)
-//     .send()
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       } 
-//       else {
-//         assert.equal(res.body.data,null);
-//         done();
-//       };
-//     });
-//   });
-// });
 
 
-// /*========================end of negative testing=======================*/
+// =====================start of ques_ans.js======================
 
-// /*======================end of ques_ans.js=============================*/
+/*======================start of positive testing ================*/
 
-// /*=============================Start of Positive test for unanswerques=============================*/
-// describe('unanswerques processed here',()=>{
-//   let questions=[];
-//   let question=testconfig.unanswerques.question;
-//   questions.push(question)
-//   before(()=>{
-//  //yield is used to stub the info required by database
-//  unanswerQuesFind.yields(null,questions)
-// });
-//   it('Find must be a success Positive',(done)=>{
-//     url
-//     .get('/unques')
-//     .expect(200)
-//     .send({question:"what is investment"})
-//     .expect('Content-Type', /json/)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else{       
-//         assert.equal(res.body[0].question,'what is investment');
-//         done();
-//       }
-//     });
-//   });
-// });
-// /*=============================End of Positive test for unanswerques=============================*/
-// /*=============================Start of Negative test for unanswerques null=============================*/
-// describe('unanswerques processed here',()=>{
-//   let questions=[];
-//   let question={question:null};
-//   questions.push(question)
-//   before(()=>{
-//  //yield is used to stub the info required by database
-//  unanswerQuesFind.yields(null,questions)
-// });
-//   it('Find must be a success Positive',(done)=>{
-//     url
-//     .get('/unques')
-//     .expect(200)
-//     .send({question:"what is investment"})
-//     .expect('Content-Type', /json/)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else 
-//       {
-//         assert.equal(res.body[0].question,null);
-//         done();
-//       }
+describe('Method of update ques_ans positive processed here',()=>{
 
-//     });
-//   });
-// });
-// /*=============================End of Negative test for unanswerques null=============================*/
-// /*=============================Start of positive test for adminques postUpdate=============================*/
-// describe('Method post success positive test for adminques', (done)=>{
-//   let question=testconfig.adminques.question;
-//   let questions=[];
-//   questions.push(question)
-//   before(()=>{
-//     if(questions[0].question!=null){
-//  //yield is used to stub the info required by database
-//  adminquesUpdate.yields(null,[testconfig.adminques.if]);
-// }
-// else{
-//   adminquesUpdate.yields(null,[testconfig.adminques.else]);
-// }
-// });
-//   it('update must be a success',(done)=>{
-//     url
-//     .post('/unques')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .send(questions)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else {
-//         assert.equal(res.body.data[0].ok,1);   
-//         done();
-//       }
-//     });
-//   });
-// });
-// /*=============================End of positive test for adminques postUpdate=============================*/
-// /*=============================Start of negative test for adminques postUpdate=============================*/
-// describe('Method post success negative test for adminques', (done)=>{
-//   let question={question:null};
-//   let questions=[];
-//   questions.push(question)
-//   before(()=>{
-//     if(questions[0].question!=null){
-//  //yield is used to stub the info required by database
-//  adminquesUpdate.yields(null,[testconfig.adminques.if]);
-// }
-// else{
-//   adminquesUpdate.yields(null,[testconfig.adminques.else]);
-// }
-// });
-//   it('update must be a success',(done)=>{
-//     url
-//     .post('/unques')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .send(question)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else {
-//         assert.equal(res.body.data[0].ok,0);   
-//         done();
-//       }
-//     });
-//   });
-// });
+  let question=testconfig.ques.data
+  let questions=[];
+  questions.push(question)
+  before(()=>{
+//yield is used to stub the info required by database
+registerUpdate.yields(null,questions)
+registerFind.yields(null,testconfig.ques.findyield.data)
+});
+  it('update must be a success',(done)=>{
+    url
+    .post('/ques_ans')
+    .expect('Content-Type', /json/)
+    .send(testconfig.ques.data)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      } 
+      else {
+       assert.equal(res.body.status,true);
+       done();
+     };
+   });
+  });
+});
 
-// /*=============================Start of Positive test for followup=============================*/
-// describe(' Positive test for followup processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// flowschemafind.yields(null,[testconfig.followup.findyield])
-// });
+/*======================end of positive testing======================*/
 
-//   it('Find must be a success positive',(done)=>{
-//     url
-//     .post('/followup/selectfollow')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.followup.send)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else{
-//         assert.equal(res.body.genre,'Introduction');
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=============================End of Positive test for followup=============================*/
+/*=======================start of negative testing====================*/
 
-// /*=============================Start of Neagtive test for followup=============================*/
-// describe(' Neagtive test for followup processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// flowschemafind.yields(null,[])
-// });
+describe('Method of update ques_ans negative processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+registerUpdate.yields(null,null)
+});
+  it('update must be a success',(done)=>{
+    url
+    .post('/ques_ans')
+    .expect('Content-Type', /json/)
+    .send()
+    .end((err,res)=>{
+      if(err){
+        return err;
+      } 
+      else {
+        assert.equal(res.body.data,null);
+        done();
+      };
+    });
+  });
+});
 
-//   it('Find must be a success positive',(done)=>{
-//     url
-//     .post('/followup/selectfollow')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.followup.send)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else if(res.body.data==undefined){
-//         assert.equal(res.body.status,false);
-//         done();
-//       };
-//     });
-//   });
-// });
-// // =============================End of Neagtive test for followup=============================
 
-// /*=============================Start of Positive test for getfollow=============================*/
-// describe(' Positive test for getfollow processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// flowschemafind.yields(null,[testconfig.getfollow.findyield])
-// });
-//   it('Find must be a success positive',(done)=>{
-//     url
-//     .get('/followup')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else{
-//         assert.equal(res.body[0].task,"Mutual Funds task");
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=============================End of Positive test for getfollow=============================*/
-// /*=============================Start of Negative test for getfollow=============================*/
-// describe(' Negative test for getfollow processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// flowschemafind.yields(null,[])
-// });
+/*========================end of negative testing=======================*/
 
-//   it('Find must be a success',(done)=>{
-//     url
-//     .get('/followup')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else if(res.body[0]==undefined){
-//         assert.equal(res.body[0],null);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=============================End of Negative test for getfollow=============================*/
-// /*=============================Start of positive test for setflow=============================*/
-// describe(' positive test for setflow processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// flowschemainsert.yields(null,[testconfig.setflow.insertyield])
-// });
+/*======================end of ques_ans.js=============================*/
 
-//   it('Find must be a success',(done)=>{
-//     url
-//     .post('/followup')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.setflow.send)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else {
-//         assert.equal(res.body.status,true);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=============================End of positive test for setflow=============================*/
-// /*=============================Start of Negative test for setflow=============================*/
-// describe('Negative test for setflow processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// flowschemainsert.yields(null,null)
-// });
+/*=============================Start of Positive test for unanswerques=============================*/
+describe('unanswerques processed here',()=>{
+  let questions=[];
+  let question=testconfig.unanswerques.question;
+  questions.push(question)
+  before(()=>{
+ //yield is used to stub the info required by database
+ unanswerQuesFind.yields(null,questions)
+});
+  it('Find must be a success Positive',(done)=>{
+    url
+    .get('/unques')
+    .expect(200)
+    .send({question:"what is investment"})
+    .expect('Content-Type', /json/)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else{       
+        assert.equal(res.body[0].question,'what is investment');
+        done();
+      }
+    });
+  });
+});
+/*=============================End of Positive test for unanswerques=============================*/
+/*=============================Start of Negative test for unanswerques null=============================*/
+describe('unanswerques processed here',()=>{
+  let questions=[];
+  let question={question:null};
+  questions.push(question)
+  before(()=>{
+ //yield is used to stub the info required by database
+ unanswerQuesFind.yields(null,questions)
+});
+  it('Find must be a success Positive',(done)=>{
+    url
+    .get('/unques')
+    .expect(200)
+    .send({question:"what is investment"})
+    .expect('Content-Type', /json/)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else 
+      {
+        assert.equal(res.body[0].question,null);
+        done();
+      }
 
-//   it('Find must be a success',(done)=>{
-//     url
-//     .post('/followup')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.setflow.send)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       }
-//       else if(res.body.status==false){
-//         assert.equal(res.body.status,false);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=============================End of Negative test for setflow=============================*/
+    });
+  });
+});
+/*=============================End of Negative test for unanswerques null=============================*/
+/*=============================Start of positive test for adminques postUpdate=============================*/
+describe('Method post success positive test for adminques', (done)=>{
+  let question=testconfig.adminques.question;
+  let questions=[];
+  questions.push(question)
+  before(()=>{
+    if(questions[0].question!=null){
+ //yield is used to stub the info required by database
+ adminquesUpdate.yields(null,[testconfig.adminques.if]);
+}
+else{
+  adminquesUpdate.yields(null,[testconfig.adminques.else]);
+}
+});
+  it('update must be a success',(done)=>{
+    url
+    .post('/unques')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .send(questions)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else {
+        assert.equal(res.body.data[0].ok,1);   
+        done();
+      }
+    });
+  });
+});
+/*=============================End of positive test for adminques postUpdate=============================*/
+/*=============================Start of negative test for adminques postUpdate=============================*/
+describe('Method post success negative test for adminques', (done)=>{
+  let question={question:null};
+  let questions=[];
+  questions.push(question)
+  before(()=>{
+    if(questions[0].question!=null){
+ //yield is used to stub the info required by database
+ adminquesUpdate.yields(null,[testconfig.adminques.if]);
+}
+else{
+  adminquesUpdate.yields(null,[testconfig.adminques.else]);
+}
+});
+  it('update must be a success',(done)=>{
+    url
+    .post('/unques')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .send(question)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else {
+        assert.equal(res.body.data[0].ok,0);   
+        done();
+      }
+    });
+  });
+});
 
-// /*------------------------------------Start nextfollowUp here-------------------------------------------*/
-// /*================================Start Negative nextFollowup===========================================*/
-// describe("negative questionType 0",() => {
+/*=============================Start of Positive test for followup=============================*/
+describe(' Positive test for followup processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+flowschemafind.yields(null,[testconfig.followup.findyield])
+});
 
-// //{question:{type:'q'}}
+  it('Find must be a success positive',(done)=>{
+    url
+    .post('/followup/selectfollow')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .send(testconfig.followup.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else{
+        assert.equal(res.body.genre,'Introduction');
+        done();
+      };
+    });
+  });
+});
+/*=============================End of Positive test for followup=============================*/
 
-// beforeEach(() => {
-//   flowschemafind.yields(null, [testconfig.nextfollowup.findyield]);
-// })
-// it("Response check for questionType 0" , (done) => {
-//   url
-//   .put('/followup')
-//   .expect(200)
-//   .expect('Content-Type', /json/)
-//   .send(testconfig.nextfollowup.send)
-//   .end((err,res) => {   
-//     if(err) {
-//       return  done(err);
-//     } else {
-//       assert.equal(res.body, '')
-//       done();
-//     }
-//   })
-// })
-// });
-// /*=================================End Negative nextFollowup========================================*/
+/*=============================Start of Neagtive test for followup=============================*/
+describe(' Neagtive test for followup processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+flowschemafind.yields(null,[])
+});
 
-// /*================================Start Positive nextFollowup===========================================*/
-// describe("positive questionType 0",() => {
+  it('Find must be a success positive',(done)=>{
+    url
+    .post('/followup/selectfollow')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .send(testconfig.followup.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else if(res.body.data==undefined){
+        assert.equal(res.body.status,false);
+        done();
+      };
+    });
+  });
+});
+// =============================End of Neagtive test for followup=============================
 
-// //{question:{type:'q'}}
+/*=============================Start of Positive test for getfollow=============================*/
+describe(' Positive test for getfollow processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+flowschemafind.yields(null,[testconfig.getfollow.findyield])
+});
+  it('Find must be a success positive',(done)=>{
+    url
+    .get('/followup')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else{
+        assert.equal(res.body[0].task,"Mutual Funds task");
+        done();
+      };
+    });
+  });
+});
+/*=============================End of Positive test for getfollow=============================*/
+/*=============================Start of Negative test for getfollow=============================*/
+describe(' Negative test for getfollow processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+flowschemafind.yields(null,[])
+});
 
-// beforeEach(() => {
-//   flowschemafind.yields(null, [testconfig.nextfollowup.findyield]);
-// })
-// it("Response check for questionType 0" , (done) => {
-//   url
-//   .put('/followup')
-//   .expect(200)
-//   .expect('Content-Type', /json/)
-//   .send(testconfig.nextfollowup.send)
-//   .end((err,res) => {           
-//     if(err) {             
-//       return  done(err);
-//     } else {
-//       assert.equal(res.body, '')
-//       done();
-//     }
-//   })
-// })
-// });
-// /*=================================End Positive nextFollowup========================================*/
+  it('Find must be a success',(done)=>{
+    url
+    .get('/followup')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else if(res.body[0]==undefined){
+        assert.equal(res.body[0],null);
+        done();
+      };
+    });
+  });
+});
+/*=============================End of Negative test for getfollow=============================*/
+/*=============================Start of positive test for setflow=============================*/
+describe(' positive test for setflow processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+flowschemainsert.yields(null,[testconfig.setflow.insertyield])
+});
 
-// /*=======Positive test case for followup getdata============*/
-// describe('followUp getData data processed here',() => {
-//  before(() => {
-//    flowschemafindOne.yields(null, [testconfig.getdata.findyield]);
-//  })
-//  it('getData must work',() => {
-//    url
-//    .get('/followup/getdata/:ishan')
-//    .expect(200)
-//    .end((err,res) => {
-//      if(err) {
-//        return done(err);
-//      }
-//      else{
-//        assert.equal(res.body[0].name,"ishan")
-//      }
-//    })
-//  });
-// });
-// /*=======End Positive test case for followup getdata============*/
+  it('Find must be a success',(done)=>{
+    url
+    .post('/followup')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .send(testconfig.setflow.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else {
+        assert.equal(res.body.status,true);
+        done();
+      };
+    });
+  });
+});
+/*=============================End of positive test for setflow=============================*/
+/*=============================Start of Negative test for setflow=============================*/
+describe('Negative test for setflow processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+flowschemainsert.yields(null,null)
+});
 
-// /*Start of updateUesrdata*/
-// /*=======Start of Positive test case for updateUesrdata============*/
-// describe('Method of updateUserdata positive processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// registerUpdate.yields(null,testconfig.updateuserdata.updateyield)
-// });
-//   it('update must be a success',(done)=>{
-//     url
-//     .put('/updateUserdata')
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.updateuserdata.send)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       } 
-//       else {
-//         assert.equal(res.body.status,true);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=======End of Positive test case for updateUesrdata============*/
-// /*=======Start of Negative test case for updateUesrdata============*/
-// describe('Method of updateUserdata negative processed here',()=>{
-//   before(()=>{
-// //yield is used to stub the info required by database
-// registerUpdate.yields(null,null)
-// });
-//   it('update must be a success',(done)=>{
-//     url
-//     .put('/updateUserdata')
-//     .expect('Content-Type', /json/)
-//     .send(testconfig.updateuserdata.send)
-//     .end((err,res)=>{
-//       if(err){
-//         return err;
-//       } 
-//       else {
-//         assert.equal(res.body.status,false);
-//         done();
-//       };
-//     });
-//   });
-// });
-// /*=======End of Negative test case for updateUesrdata============*/
-// /*End of updateUserdata*/
+  it('Find must be a success',(done)=>{
+    url
+    .post('/followup')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .send(testconfig.setflow.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      }
+      else if(res.body.status==false){
+        assert.equal(res.body.status,false);
+        done();
+      };
+    });
+  });
+});
+/*=============================End of Negative test for setflow=============================*/
+
+/*------------------------------------Start nextfollowUp here-------------------------------------------*/
+/*================================Start Negative nextFollowup===========================================*/
+describe("negative questionType 0",() => {
+
+//{question:{type:'q'}}
+
+beforeEach(() => {
+  flowschemafind.yields(null, [testconfig.nextfollowup.findyield]);
+})
+it("Response check for questionType 0" , (done) => {
+  url
+  .put('/followup')
+  .expect(200)
+  .expect('Content-Type', /json/)
+  .send(testconfig.nextfollowup.send)
+  .end((err,res) => {   
+    if(err) {
+      return  done(err);
+    } else {
+      assert.equal(res.body, '')
+      done();
+    }
+  })
+})
+});
+/*=================================End Negative nextFollowup========================================*/
+
+/*================================Start Positive nextFollowup===========================================*/
+describe("positive questionType 0",() => {
+
+//{question:{type:'q'}}
+
+beforeEach(() => {
+  flowschemafind.yields(null, [testconfig.nextfollowup.findyield]);
+})
+it("Response check for questionType 0" , (done) => {
+  url
+  .put('/followup')
+  .expect(200)
+  .expect('Content-Type', /json/)
+  .send(testconfig.nextfollowup.send)
+  .end((err,res) => {           
+    if(err) {             
+      return  done(err);
+    } else {
+      assert.equal(res.body, '')
+      done();
+    }
+  })
+})
+});
+/*=================================End Positive nextFollowup========================================*/
+
+/*=======Positive test case for followup getdata============*/
+describe('followUp getData data processed here',() => {
+ before(() => {
+   flowschemafindOne.yields(null, [testconfig.getdata.findyield]);
+ })
+ it('getData must work',() => {
+   url
+   .get('/followup/getdata/:ishan')
+   .expect(200)
+   .end((err,res) => {
+     if(err) {
+       return done(err);
+     }
+     else{
+       assert.equal(res.body[0].name,"ishan")
+     }
+   })
+ });
+});
+/*=======End Positive test case for followup getdata============*/
+
+/*Start of updateUesrdata*/
+/*=======Start of Positive test case for updateUesrdata============*/
+describe('Method of updateUserdata positive processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+registerUpdate.yields(null,testconfig.updateuserdata.updateyield)
+});
+  it('update must be a success',(done)=>{
+    url
+    .put('/updateUserdata')
+    .expect('Content-Type', /json/)
+    .send(testconfig.updateuserdata.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      } 
+      else {
+        assert.equal(res.body.status,true);
+        done();
+      };
+    });
+  });
+});
+/*=======End of Positive test case for updateUesrdata============*/
+/*=======Start of Negative test case for updateUesrdata============*/
+describe('Method of updateUserdata negative processed here',()=>{
+  before(()=>{
+//yield is used to stub the info required by database
+registerUpdate.yields(null,null)
+});
+  it('update must be a success',(done)=>{
+    url
+    .put('/updateUserdata')
+    .expect('Content-Type', /json/)
+    .send(testconfig.updateuserdata.send)
+    .end((err,res)=>{
+      if(err){
+        return err;
+      } 
+      else {
+        assert.equal(res.body.status,false);
+        done();
+      };
+    });
+  });
+});
+/*=======End of Negative test case for updateUesrdata============*/
+/*End of updateUserdata*/
 
 //========start of reset password==========//
 /*=======Start of positive test case for match resetpassword========*/
@@ -868,14 +868,13 @@ it('reset password must be a success',(done)=>{
 url
   .put('/reset_password/shagunsankla61@gmail.com')
   .expect(200)
-  .send(testconfig.resetpassword.positiveNomatchfind)
+  .send(testconfig.resetpassword.findyield)
   .end((err,res)=>{
     if(err){ 
       return err
     }
       else{
-      console.log(res.body)
-     assert.equal(res.body.data.status,true);
+     assert.equal(res.body.status,false);
    done();
 }
 });
@@ -895,7 +894,7 @@ it('reset password must be a success',(done)=>{
  
 url
   .put('/reset_password/shagunsankla61@gmail.com')
-  .set('Authorization', 'bearer' +jwtToken).expect(200)
+  .expect(200)
   .send(testconfig.resetpassword.positiveNomatchsend)
   .end((err,res)=>{
     if(err){

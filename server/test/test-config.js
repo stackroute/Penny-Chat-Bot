@@ -190,7 +190,7 @@ module.exports = {
 					"username" : "shagun",
 					"contact_no" : 2983472343,
 					"email" : "shagunsankla61@gmail.com",
-					"password" : "$2a$10$GzYKtCErFPW1DSpFDjTd2.DQXKjPwEhPbBuW3lTWZ/qzpJDgHexCi",
+					"password" : "'$2a$10$GzYKtCErFPW1DSpFDjTd2.DQXKjPwEhPbBuW3lTWZ/qzpJDgHexCi'",
 					"type" : "User",
 					"status" : true,
 					"policy" : [ ]
@@ -209,6 +209,17 @@ module.exports = {
 					"contact_no" : 2983472343,
 					"email" : "shagunsankla61@gmail.com",
 					"password" : "jasmine9",
+					"type" : "User",
+					"status" : true,
+					"policy" : [ ]
+				},
+				findyield:{
+					"_id" : "59c20a8090862e01a0c96024",
+					"name" : "shagun",
+					"username" : "shagun",
+					"contact_no" : 2983472343,
+					"email" : "shagunsankla61@gmail.com",
+					"oldpassword" : "$2a$10$GzYKtCErFPW1DSpFDjTd2.DQXKjPwEhPbBuW3lTWZ/qzpJDgHexCi",
 					"type" : "User",
 					"status" : true,
 					"policy" : [ ]
