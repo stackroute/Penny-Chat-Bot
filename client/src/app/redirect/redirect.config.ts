@@ -29,5 +29,8 @@ export const testConfig={
 			message:"verified",
 			email:"abc@gmail.com",
 			id:"59c38de81f0a19213741e83d"
-		}
+		},
+		id:
+			{id:"59c38de81f0a19213741e83d"}
+
 }
