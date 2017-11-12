@@ -13,7 +13,7 @@ export class ContextService {
 
   constructor(private http:Http) { }
 
-/*=================fetching intents==================*/
+  /*=================fetching intents==================*/
   getIntent():Observable<any> {
     let urlIntent=config.ip+urlConfig.AdminContextgetIntent;
     return this.http.get(urlIntent)
@@ -22,7 +22,7 @@ export class ContextService {
     })
   }
 
-/*===============fetching all context===================*/  
+  /*===============fetching all context===================*/  
   getAllContext():Observable<any> {
     let urlContext=config.ip+urlConfig.AdminContextgetAllContext;
     return this.http.get(urlContext)
@@ -31,7 +31,7 @@ export class ContextService {
     })
   }
 
-/*===============adding new context===================*/  
+  /*===============adding new context===================*/  
   addContext(intent):Observable<any> {
     let url=config.ip+urlConfig.AdminContextaddContext;
     return this.http.post(url,{data:intent})
@@ -40,7 +40,7 @@ export class ContextService {
     })
   }
 
-/*===============adding synonyms to context===================*/  
+  /*===============adding synonyms to context===================*/  
   addSynonym(data): Observable<any> {
     let url=config.ip+urlConfig.AdminContextaddSynonym;
     return this.http
@@ -50,7 +50,7 @@ export class ContextService {
     })
   }
 
-/*===============adding new context===================*/
+  /*===============adding new context===================*/
   submitContext(context:any,completeContext:any,synonym:any, selectedContext:any):Observable<any> {
     let  createContextUrl= config.ip+urlConfig.AdminContextsubmitContext;
     let createContext = {

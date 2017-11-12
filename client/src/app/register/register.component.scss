@@ -1,4 +1,6 @@
+
 .back {
+
    background-image: url("../../img/background.png");
 }
 
@@ -12,8 +14,8 @@ background:	#DD4B39
 }
 
 .fa-mobile-phone:before, .fa-mobile:before {
-    content: "\F10B";
-    font-size: 25px;
+content: "\F10B";
+font-size: 25px;
 }
 .swal {
 width:40px;
@@ -30,4 +32,10 @@ color:red;
 text-align: bottom;
 font-size: 13px;
 margin-left: 20px;
+}
+
+h1{
+text-align: center;
+margin-top: 5px;
+margin-bottom: 15px;
 }

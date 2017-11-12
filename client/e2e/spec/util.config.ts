@@ -1,5 +1,5 @@
-export const testConfig ={
+/*export const testConfig ={
 	
    'login':"Login",
   
-}
+}*/

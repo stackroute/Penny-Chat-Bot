@@ -10,7 +10,7 @@ export default {
   },
   flow:'Test Flow',
   ques:{
-    question:'Pending Questions',
+    question:'Add Flow',
     intro:"Introduction",
     quest:"Question",
     conclusion:"Conclusion",
@@ -27,8 +27,6 @@ export default {
     ayes:"Yes",
     ano:"No",
     msg1:"Oops! Thats not a Valid Input. Kindly Enter Valid Input.",
-
-
   },
   label:{
     lbl1:'Result',
@@ -41,17 +39,13 @@ export default {
     lbl8:'Answer : ',
     lbl9:'Id :',
     lbl10:'Type :',
-
-
   },
   head:{
     heading1:'Context',
     heading2:'Add Node',
     heading3:'Intent',
     heading4:'Answer Type :'
-
   },
-
   tabel:{
     tb1:'S.No.',
     tb2:'Input Answer',
@@ -61,24 +55,21 @@ export default {
     del:'Delete'
   },
   instruction:{
-  heading:'INSTRUCTIONS',
-  flow:'RULES FOR TEST FLOW',
-  ins1:'Add Questions ,Introduction And Conclusion',
-  ins2:'You can also select the Answer Type',
-  ins3:'You can also trigger the conslusion ',
-  ins4:'Questions can be Yes/No,MCQ or Number'
-},
-save:{
-intro:"Introduction",
-q:"Q",
-yesorno:"Yes/No",
-conclusion:"Conclusion",
-yes:"Yes",
-no:"No",
-question:"Question",
-mcq:"MCQ",
-
-}
-
-
+    heading:'INSTRUCTIONS',
+    flow:'RULES FOR TEST FLOW',
+    ins1:'Add Questions ,Introduction And Conclusion',
+    ins2:'You can also select the Answer Type',
+    ins3:'You can also trigger the conslusion ',
+    ins4:'Questions can be Yes/No,MCQ or Number'
+  },
+  save:{
+    intro:"Introduction",
+    q:"Q",
+    yesorno:"Yes/No",
+    conclusion:"Conclusion",
+    yes:"Yes",
+    no:"No",
+    question:"Question",
+    mcq:"MCQ",
+  }
 }

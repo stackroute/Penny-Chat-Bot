@@ -68,6 +68,10 @@ export class EditContextComponent implements OnInit {
     this.dropdownSettingsContext = Config.dropdownSettingsContext;
   }
   
+check(){
+  console.log('hdghkdf')
+}
+
   /*==================get all context==================*/
   getContext(){
     this.editContextService.getContext()
@@ -177,8 +181,18 @@ export class EditContextComponent implements OnInit {
         flow : this.flow,
         deleteFlow : false
       }
-      this.intentData.push(intent);
-      intent = undefined;
+      if(this.intentData.length == 0) {
+       this.intentData.push(intent);
+         intent = undefined;
+     }
+     else {
+       this.intentData.map(data => {
+         if(data.name != intent.name) {
+           this.intentData.push(intent);
+           intent = undefined;
+         }
+        })
+       }
     })
   }
 

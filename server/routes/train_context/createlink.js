@@ -139,9 +139,6 @@ export default (body) => {
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 						);
 					resultPromise.then((result) => {
-
-						console.log('hello', result)
-
 						/*================Querry for video links================*/
 						videoLink.map((vid)=>{
 							

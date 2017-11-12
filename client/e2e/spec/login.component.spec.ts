@@ -19,7 +19,8 @@ import { BrowserDynamicTestingModule,
   /*============================Negative Testing for Login==================================*/
   it('login pass error test',function(){
      browser.get("http://localhost:49152/");
-
+       element(by.name('email')).sendKeys('aishveengujral@gmail.com');
+      element(by.name('password')).sendKeys('W@heguru');
     expect(element(by.name('password')).getText()).not.toBeNull();
 })
 

@@ -7,11 +7,11 @@
 
     <!-- ===================================================== -->
     <div class="col-md-12">
-    <span class="pull-right" (click)="fetchHistory()" style="margin-top: 20px;color: #003366;font-weight: 600;cursor:pointer;">{{Config.html.History}}</span>
+    <span class="pull-right fetchHistory" (click)="fetchHistory()">{{Config.html.History}}</span>
      <div class="chat-panel card1 card-default"> 
       <!-- Card -->
       <h3><strong>{{Config.html.Penny}}</strong></h3>
-      <div class="card-block" #scrollMe style="overflow-y: scroll;overflow-x: hidden; height: 550px;">
+      <div class="card-block scrollMe" #scrollMe >
        <div id="scroll">
          <ul class="chat">
           <div class="left clearfix">
@@ -19,7 +19,6 @@
              <div *ngIf="ans">
                <div class="gap" *ngIf="ans.bot">
                  <div class="message-data align-left">
-                  <!-- <img src="../../assets/img/bot.png"> -->
                   <span class="message-data-name"><i class="fa fa-circle you"></i>{{Config.html.Bot}}</span>
 
                 </div>
@@ -60,7 +59,7 @@
             <i class="fa fa-video-camera" aria-hidden="true" [id]="videoId" appAsideMenuToggler></i>
           </div>
         </div>
-        <div style="background-color: #e5eff5 ;border-radius: 20px" *ngIf="resp">
+        <div class="resp" *ngIf="resp">
          <div *ngFor="let response of resp">
           <div class="card-block">
             <a href={{response.ogp.ogUrl}} target="_blank">{{response.ogp.ogUrl}}</a>
@@ -72,11 +71,11 @@
               </div>
               <h4 class="card-title"><a href={{response.ogp.ogUrl}} target="_blank">{{response.ogp.ogTitle}}</a></h4>
 
-              <p class="card-text" style="color: black; width:50%">{{response.ogp.ogDescription}}</p>
+              <p class="card-text ogDescription">{{response.ogp.ogDescription}}</p>
               <div>
                 <span class="attachment_ts">{{response.other.articlePublishedTime}}</span>  
               </div>
-              <img src={{response.ogp.ogImage[0].url}} style="width: 150px;height: 100px">
+              <img class="image" src={{response.ogp.ogImage[0].url}}>
 
             </div>
           </div>
