@@ -16,71 +16,71 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA }from '@angular/core';
 import { testConfig } from './addtask.config';
 /*=============test suite=============*/
 describe('AddtaskComponent', () => {
- let data:any;
- let component: AddtaskComponent;
- let fixture: ComponentFixture<AddtaskComponent>;
- let de: DebugElement;
- let el : HTMLElement;
- let service:any;
- 
- beforeEach(async(() => {
-   TestBed.configureTestingModule({
-     imports : [
-     FormsModule, HttpModule, RouterTestingModule,BrowserAnimationsModule
-     ],
-     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-     declarations: [
-     AddtaskComponent
-     ],
-     providers : [{ provide : AddtaskService},
-     MockBackend,
-     BaseRequestOptions,
-     {
-       provide: Http,
-       deps : [MockBackend, BaseRequestOptions],
-       useFactory:
-       (backend: XHRBackend, defaultOptions: BaseRequestOptions) => {
-         return new Http(backend, defaultOptions);
-       }
-     }]
-   }).compileComponents();
-   fixture = TestBed.createComponent(AddtaskComponent);
-   component = fixture.componentInstance;
-   service = fixture.debugElement.injector.get(AddtaskService);
-   
- }));
- it('should create', () => {
-   expect(component).toBeTruthy();
- });
- /*------------------Positive testing for addtask(AddQuestion)-----------------*/
- it('Should test positive addQuestion', () => {
-   const item = testConfig.addtaskComponent
-   const spy = spyOn(service,'Submit').and.returnValue(
-     Observable.of(item)
-     )
-   component.data = testConfig.positiveResponse ;
-   component.Submit();
-   fixture.detectChanges();
-   fixture.whenStable().then( ()=> {
+  let data:any;
+  let component: AddtaskComponent;
+  let fixture: ComponentFixture<AddtaskComponent>;
+  let de: DebugElement;
+  let el : HTMLElement;
+  let service:any;
+  
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports : [
+      FormsModule, HttpModule, RouterTestingModule,BrowserAnimationsModule
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      declarations: [
+      AddtaskComponent
+      ],
+      providers : [{ provide : AddtaskService},
+      MockBackend,
+      BaseRequestOptions,
+      {
+        provide: Http,
+        deps : [MockBackend, BaseRequestOptions],
+        useFactory:
+        (backend: XHRBackend, defaultOptions: BaseRequestOptions) => {
+          return new Http(backend, defaultOptions);
+        }
+      }]
+    }).compileComponents();
+    fixture = TestBed.createComponent(AddtaskComponent);
+    component = fixture.componentInstance;
+    service = fixture.debugElement.injector.get(AddtaskService);
+    
+  }));
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+  /*------------------Positive testing for addtask(AddQuestion)-----------------*/
+  it('Should test positive addQuestion', () => {
+    const item = testConfig.addtaskComponent
+    const spy = spyOn(service,'Submit').and.returnValue(
+      Observable.of(item)
+      )
+    component.data = testConfig.positiveResponse ;
+    component.Submit();
+    fixture.detectChanges();
+    fixture.whenStable().then( ()=> {
       expect(component.res.data.ok).toEqual(1);
     })
-   
- });
-   
- /*------------------End Positive testing for addtask(AddQuestion)----------------*/
- /*------------------Negative testing for addtask(AddQuestion)-----------------*/
- it('Should test Negative addQuestion', () => {
-   const item = testConfig.addtaskComponent
-   const spy = spyOn(service,'Submit').and.returnValue(
-     Observable.of(item)
-     )
-   component.data = testConfig.negativeResponse;
-   component.Submit();
-   fixture.detectChanges();
-   fixture.whenStable().then( ()=> {
+    
+  });
+  
+  /*------------------End Positive testing for addtask(AddQuestion)----------------*/
+  /*------------------Negative testing for addtask(AddQuestion)-----------------*/
+  it('Should test Negative addQuestion', () => {
+    const item = testConfig.addtaskComponent
+    const spy = spyOn(service,'Submit').and.returnValue(
+      Observable.of(item)
+      )
+    component.data = testConfig.negativeResponse;
+    component.Submit();
+    fixture.detectChanges();
+    fixture.whenStable().then( ()=> {
       expect(component.res.data.ok).not.toEqual(0);
     })
-   
- });
-   /*------------------End Negative testing for addtask(AddQuestion)-----------------*/
+    
+  });
+  /*------------------End Negative testing for addtask(AddQuestion)-----------------*/
 });

@@ -101,7 +101,7 @@
             <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
               <a class="cross">{{intent}}</a>
               <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
-       
+              
               <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">
                 <a>{{intent}}</a>
                 <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
@@ -263,7 +263,7 @@
                   <div class="existing">
                     <h5>{{Config.bottraining.Synonyms}}</h5>
                     <a class="btn"> 
-                    <span class="badge badge-pill text-white suggestsynonym"*ngFor="let data of synres"
+                      <span class="badge badge-pill text-white suggestsynonym"*ngFor="let data of synres"
                       (click)="select(data)">               
                       {{data}}
                     </span>

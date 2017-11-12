@@ -12,7 +12,7 @@
 
 
  <div class="col-md-3 ">
-  <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show()" draggable="true">{{Config.html.AddNewContext}}</a>
+  <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show();getIntent()" draggable="true">{{Config.html.AddNewContext}}</a>
 </div><br>
 </div>
 
@@ -191,6 +191,7 @@ Add Flow
 </collapsible-body>
 </collapsible-list-item>
 </collapsible-list>
+<button type="button" class="btn btn-primary" ><span (click)="submitContext();addContext.hide()">{{Config.html.CreateContext}}</span></button>
 </div>
 </div>
 </tab>
@@ -198,7 +199,7 @@ Add Flow
 </tabset>
 </div>
 <div class="modal-footer">
- <button type="button" class="btn btn-primary" ><span (click)="submitContext();addContext.hide()">{{Config.html.CreateContext}}</span></button>
+
 </div>
 </div> <!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
