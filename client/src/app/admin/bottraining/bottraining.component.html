@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <div class="container">
+=======
+
+<div class="">
+>>>>>>> d18b1621d27e0767c645f1e779ee0273bafc1b57
   <div class="row">
     <div class="col-md-4">
       <div class="panel panel-primary">
@@ -98,12 +103,21 @@
           <h4>{{Config.bottraining.ExistingSyn}} {{intentname.itemName}}</h4>
           <span class="disp" *ngFor="let intent of correspondSynonym">
             <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
+<<<<<<< HEAD
               <a class="cross">{{intent}}</a>
               <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
               
               <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">
                 <a>{{intent}}</a>
                 <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
+=======
+              <!-- <a class="cross"> -->{{intent}}<!-- </a> -->
+              <a><i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
+       
+              <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">{{intent}}
+                <a>
+                <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
+>>>>>>> d18b1621d27e0767c645f1e779ee0273bafc1b57
               </span>            
               <div class="row searchsyn">
                 <div class="col-md-8">
@@ -264,9 +278,8 @@
                   </div>
                   <div class="existing">
                     <h5>{{Config.bottraining.Synonyms}}</h5>
-                    <a class="btn"> 
-                      <span class="badge badge-pill text-white suggestsynonym"*ngFor="let data of synres"
-                      (click)="select(data)">               
+                    <a class="btn suggestsynonym" *ngFor="let data of synres"> 
+                    <span class="badge badge-pill text-white " (click)="select(data)">               
                       {{data}}
                     </span>
                   </a>
