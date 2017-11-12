@@ -46,14 +46,7 @@ export class ContextComponent implements OnInit {
   ngOnInit() {
     this.getcontent();
     this.getIntent();
-    this.contextService.getAllContext().subscribe((ref) => {
-      ref.map((context)=> {
-        if(context._fields[0].labels[0] ==Config.entity.entity || context._fields[0].labels[0] == Config.domain.domain || context._fields[0].labels[0] == Config.subdomain.subdomain){
-          this.contexts.push({name : context._fields[0].properties.name, label : context._fields[0].labels[0]});
-        }
-      })
-    })
-
+    this.getContext();
     /*==============dropdown settings=================*/
     this.dropdownSettings = Config.dropdownSettings;
     this.dropdownSubIntentSettings = Config.dropdownSubIntentSettings;
@@ -72,6 +65,15 @@ export class ContextComponent implements OnInit {
     })
   }
 
+  getContext(){
+    this.contextService.getAllContext().subscribe((ref) => {
+      ref.map((context)=> {
+        if(context._fields[0].labels[0] ==Config.entity.entity || context._fields[0].labels[0] == Config.domain.domain || context._fields[0].labels[0] == Config.subdomain.subdomain){
+          this.contexts.push({name : context._fields[0].properties.name, label : context._fields[0].labels[0]});
+        }
+      })
+    })
+  }
 
   //===========method to get all the Intents========//
   getIntent(){
@@ -143,6 +145,7 @@ export class ContextComponent implements OnInit {
             this.selectedContext = [];
             this.completeContext = [];
             this.getIntent();
+            this.getContext();
           }
           else {
             swal('',Config.swal.msg2,'warning');

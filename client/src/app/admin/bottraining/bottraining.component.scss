@@ -137,7 +137,6 @@ font-size: inherit;
 #btn-chat {
 color: #fff;
 background-color: #fa9040;
-padding: 10px 7px;
 font-size: initial;
 }
 .pure-checkbox[_ngcontent-c1] input[type="checkbox"][_ngcontent-c1]:checked + label[_ngcontent-c1]:before {
@@ -179,16 +178,25 @@ border-color: #375372;
 }
 .dropdownfirst{
 margin-bottom:2%;
-margin-left:2%;
-
+    margin-left: -2.5%;
 }
 .btn.btn-primary.add.deleteIntentbtn {
 margin-top:4%;
 margin-left: 9%;
 margin-bottom: 8%;
+    padding-top: 14px;
+    padding-right: 14px;
+    padding-bottom: 14px;
+    padding-left: 14px;
+
 }
 .btn-primary.add.addintentbtn {
 margin-left: 2%;
+    padding-top: 14px;
+    padding-right: 14px;
+    padding-bottom: 14px;
+    padding-left: 14px;
+
 }
 .addsynonyminput{
 margin-left:2%;
@@ -236,4 +244,11 @@ float: right;
 .button-text {
 font-size:7px;
 }
+}
+a{
+font-size: 18px;
+margin-top : 4px;
+}
+td{
+font-size: 18px;
 }

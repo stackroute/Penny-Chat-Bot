@@ -7,31 +7,34 @@
    <form role="form">
     <div class="form-group row ">
       <label class="col-lg-3 col-form-label form-control-label">{{Config.editProfile.Name_User}}</label>
-      <div class="col-lg-9">
-      <!-- name field -->
-        <input class="form-control" type="text" name="name" [(ngModel)]='userData.data.name' >
+      <div class="col-lg-9 input-group">
+        <!-- name field -->
+        <span class="input-group-addon"><i class="icon-user"></i></span>
+        <input class="form-control" type="text" name="name" placeholder="Name" [(ngModel)]='userData.data.name' >
       </div>
     </div>
     <div class="form-group row">
       <label class="col-lg-3 col-form-label form-control-label">{{Config.editProfile.Email_User}}</label>
-      <div class="col-lg-9">
-      <!-- email field -->
+      <div class="col-lg-9 input-group">
+        <!-- email field -->
+        <span class="input-group-addon" id="basic-addon1">@</span>
         <input class="form-control " type="email" name="email" [(ngModel)]='userData.data.email' disabled>
       </div>
     </div>
-   
+    
     <div class="form-group row">
-      <label class="col-lg-3 col-form-label form-control-label">{{Config.editProfile.Password_User}}</label>
-      <div class="col-lg-9">
-      <!-- password field -->
+      <label class="col-lg-3 col-form-label form-control-label" placeholder="Password">{{Config.editProfile.Password_User}}</label>
+      <div class="col-lg-9 input-group">
+        <!-- password field -->
+        <span class="input-group-addon"><i class="icon-lock"></i></span>
         <input type="password" [(ngModel)]='userData.data.password' placeholder="Password" class ="form-control" id="password" required  name="password" pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$" >
       </div>
     </div>
-  
+    
     <div class="form-group row buttons">
       <label class="col-lg-3 col-form-label form-control-label"></label>
       <div class="col-lg-9">
-      <!-- submit button -->
+        <!-- submit button -->
         <a class="btn btn-default btn-md col-md-3 " (click)='submit()'>Submit</a>&nbsp;
         <!-- back button -->
         <a class="btn btn-default btn-md col-md-3" (click)="gotoDashboard() ">{{Config.editProfile.Back_User}}</a>
