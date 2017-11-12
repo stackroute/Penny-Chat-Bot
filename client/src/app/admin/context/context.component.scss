@@ -192,28 +192,71 @@ a {
          border-color: #375372;
 }
 
+.btn.btn-md.btn-primary.dropdown-toggle{
+    font-size:12px;
+    border-color: #375372;
+}
+
+div.dropdown-menu.dropdownsubintent {
+    position: inherit;
+    float: inherit;
+    width: 100px;
+   /* top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: inherit;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);*/
+}
+
+.textarea {
+    margin-top: 1%;
+}
+
 .dropdownbtn{
     margin-left:2%;
 }
 
-.select-style {
-    border: 1px solid #ccc;
-    width: 120px;
-    border-radius: 3px;
-    overflow: hidden;
-    
+option {
+     background: white;
+     color:black;
 }
 
-.select-style select {
-    padding: 5px 8px;
-    width: 130%;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
-    -webkit-appearance: none;
+select {
+color:white;
+  border: 1px solid #111;
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #375372;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+ /* background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;*/
 }
 
-.select-style select:focus {
-    outline: none;
+/* CAUTION: IE hackery ahead */
+select::-ms-expand { 
+    display: none; /* remove default arrow on ie10 and ie11 */
 }
+
+/* target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select {
+        background:none\9;
+        padding: 5px\9;
+    } 
+}
+

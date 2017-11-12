@@ -1,42 +1,33 @@
-headingbutton{
-    
-}
+
 .chat
 {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-
 .chat li
 {
     margin-bottom: 10px;
     padding-bottom: 5px;
     border-bottom: 1px dotted #B3A9A9;
 }
-
 .chat li.left .chat-body
 {
     margin-left: 0px;
 }
-
 .chat li.right .chat-body
 {
     margin-right: 60px;
 }
-
-
 .chat li .chat-body p
 {
     margin: 0;
     color: #777777;
 }
-
 .panel .slidedown .glyphicon, .chat .glyphicon
 {
     margin-right: 5px;
 }
-
 .panel-body
 {
     overflow-y: scroll;
@@ -46,27 +37,23 @@ headingbutton{
   overflow-y: scroll;
     height: 170px;   
 }
-
 ::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: #F5F5F5;
 }
-
 ::-webkit-scrollbar
 {
     width: 12px;
     background-color: #F5F5F5;
 }
-
 ::-webkit-scrollbar-thumb
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #555;
 }
-
 .btn {
-     line-height:0.5;
+     line-height:0.3;
     padding: 12px 12px;
 }
 .btn.badgebtn {
@@ -80,7 +67,6 @@ headingbutton{
 .btn.headingbtn {
     background-color:#375372;
 }
-
 .headingbutton {
     margin-bottom:1%;
 }
@@ -100,15 +86,14 @@ headingbutton{
 }
 a {
     text-decoration:none;
+    cursor:pointer;
 }
-
 .badge.badge-pill.intbadge{
-    background-color:#4F88C5;
+    background-color:#118c8b;
 }
 .badge.badge-pill.subintbadge{
-    background-color:#B87736;
+    background-color:#a3586d;
 }
-
 .add {
     margin-top:2%;
     font-size: inherit;
@@ -117,7 +102,6 @@ a {
     border-color: #375372;
         border-radius: 4px;
 }
-
 .searchsyn {
     margin-bottom:2%;
     margin-top:2%;
@@ -125,12 +109,18 @@ a {
 .fa.fa-circle {
     margin-right:2%;
 }
+
+.icon {
+    font-size: large;
+    color: #375372;
+}
+
 .int {
-    color:#4F88C5;
+    color:#118c8b;
     
 }
 .subint {
-    color:#B87736;
+    color:#a3586d;
  
     margin-left:6%
 }
@@ -139,25 +129,20 @@ a {
     color: white;
     padding: 10px 15px;
 }
-
-
  #c_button {
     font-size: inherit;
 }
-
 #btn-chat {
     color: #fff;
     background-color: #fa9040;
     padding: 10px 7px;
     font-size: initial;
 }
-
 .pure-checkbox[_ngcontent-c1] input[type="checkbox"][_ngcontent-c1]:checked + label[_ngcontent-c1]:before {
     animation: borderscale 200ms ease-in;
     background: white;
      border: 2px solid white;
 }
-
 .pure-checkbox[_ngcontent-c1] input[type="checkbox"][_ngcontent-c1] + label[_ngcontent-c1]:before {
     box-sizing: content-box;
     content: '';
@@ -172,19 +157,15 @@ a {
     text-align: center;
     transition: all 0.4s ease;
 }
-
 .greentick {
     font-size: 23px;
     color:#00FF00 
 }
-
 @media (min-width: 300px) and (max-width: 1204px) {
 .d-md-down-none{
   display: inline !important;
 }
  }
-
-
 @media (min-width:  300px) and (max-width: 1204px) {
 .card-group .card {
     -webkit-box-flex: 1;
@@ -199,9 +180,7 @@ a {
        font-size:7px;
     }
 }
-.badge {
-   padding:7px 15px;
-}
+
 .badge.badge-pill {
    margin-top:1.5%;
    background-color: #375372;
@@ -224,7 +203,6 @@ a {
 .btn.btn-primary.add.deleteIntentbtn {
     margin-top:4%;
     margin-left: 9%;
-
 }
 .btn-primary.add.addintentbtn {
      margin-left: 2%;
@@ -236,4 +214,17 @@ a {
      .h4, h4 {
     font-size: 18px;
       margin-left: 2%;
+}
+.badge.intbadge.badge-pill.text-white{
+    margin-left:2%;
+}
+.badge.badge-pill.text-white.suggestsynonym {
+    padding: 7px 15px;
+    padding-top: 7px;
+    padding-right: 15px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+}
+.btn .badge {
+    font-size: 12px;
 }

@@ -1,14 +1,21 @@
-<div class="container">
+<div class="container-fluid">
+
   <br>
   <div class="row">
+  <div class="col-md-12">
   <!-- ============Add task============= -->
-    <h3 class=" nm col-md-9">{{productdata.task}}</h3>
+  <div class="nm col-md-9">
+    <h3>{{productdata.task}}</h3>
+    <button class="btn btn-default" (click)="triggerFlow()">TestFlow</button>
+    </div>.
     <div class="col-md-3">
-      <button class="pull-right btt btn btn-primary btn-block" (click)="save()">{{Config.button.btn1}}</button>
+      
+
+    </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <span class="glyphicon glyphicon-comment"></span> {{Config.ques.question}}
@@ -32,61 +39,107 @@
             </li>
 
           </ul>
-
         </div>
         <div class="panel-footer">
           <div class="input-group">
-            <button class="btn btn-primary btn-block" (click)="largeModal.show()">{{Config.button.btn2}}</button>
+          
+           <button class="pull-right btt btn " (click)="save()">{{Config.button.btn1}}</button>
+            <button type="button" class="btn btt1 pull-left"  (click)="largeModal.show()">{{Config.button.btn2}}</button>
           </div>
         </div>
 
       </div>
     </div>
     <div class="col-md-7">
-      <div id="c_card" class="card pi-draggable" draggable="true">
-        <div class="card-header">
-        </div>
-        <div class="card-body">
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="email">{{Config.label.lbl1}}</label>
-            <div class="col-sm-10">
-              <textarea rows="3" cols="10" type="email" [(ngModel)]="productdata.result" class="form-control" id="email" placeholder="Enter Message" name="email"></textarea>
-            </div>
-          </div>
-          <button class="btn btn-default" (click)="result(resultmain)">{{Config.button.btn1}}</button>
+       <div class="chat-panel card1 card-default"> 
+      <!-- Card -->
+      <h3><strong>{{Config.flow}}</strong></h3>
+      <div class="card-block" #scrollMe style="overflow-y: scroll;overflow-x: hidden; height: 420px;">
+       <div id="scroll">
+         <ul class="chat">
+          <div class="left clearfix">
+           <div *ngFor="let ans of testflow">
+             <div *ngIf="ans">
+               <div class="gap" *ngIf="ans.bot">
+                 <div class="message-data align-left">
+                  <!-- <img src="../../assets/img/bot.png"> -->
+                  <span class="message-data-name"><i class="fa fa-circle you"></i>Bot</span>
 
-
-        </div>
-      </div>
-      <div id="c_card" class="card pi-draggable" draggable="true">
-
-        <div class="card-body">
-          <h4>{{Config.head.headind3}}</h4>
-
-          <p class=" p-y-1">{{Config.label.lbl2}}</p>
-
-          <a id="c_button" class="btn btn-primary pi-draggable" (click)="largeModal.show()" draggable="true">{{Config.button.btn3}} </a>
-
-          <a href="" class="pull-right">{{Config.button.btn4}}</a>
-
-        </div>
-      </div>
-      <div id="c_card" class="card pi-draggable" draggable="true">
-
-        <div class="card-body">
-          <h4>{{Config.head.heading}}</h4>
-
-          <p class=" p-y-1">{{Config.label.lbl2}}</p>
-          <a id="c_button" class="btn btn-primary pi-draggable"  draggable="true">{{Config.button.btn3}}</a>
-          <a href="" class="pull-right">{{Config.button.btn4}}</a>
-        </div>
-      </div>
+                </div>
+                <!-- chat body -->
+                <div class="chat-body clearfix">
+                 <div class="message you-message">
+                   {{ans.bot}}
+                   <div *ngIf="ans.option">
+                     <div *ngFor="let opt of ans.option;let i=index " >
+                       {{i+1}} )  {{opt.value}}
+                     </div>
+                   </div>
+                   <div class="example-sidenav-content">
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <!-- Answers -->
+             <div *ngIf="ans.user">
+              <div class="message-data align-right">
+               <span class="message-data-name">User</span> <i class="fa fa-circle me"></i>
+             </div>
+             <div class="chat-body clearfix">
+               <div class="message me-message float-right">
+               {{ans.user}}
+               </div>
+             </div>
+           </div>
+         </div>
     </div>
-
   </div>
+</ul>
+</div>
+</div>
+</div>
+<!-- card footer -->
+<div class="card-footer" >
+ <div class="input-group">
+   <input id="btn-input"  type="text" name="ques" class="form-control input-lg" name="first" placeholder="Type your message here..." [(ngModel)]="ans" >
+   <span class="input-group-btn">
+     <button class="btn btn-default btn-lg" (click)="testanswer(ans)" id="btn-chat" >
+       Send
+     </button>
+   </span>
+ </div>
+</div>
+</div>
+  
+<div class="col-md-2">
+ <div class="card mb-1 card-outline-primary cardcolor">
+
+ <div class="card-head card-info ticket"><p>{{Config.instruction.heading}}</p></div>
+
+ <div class="card-block card-outline-info">
+
+  <div class="card-title">{{Config.instruction.flow}}</div><hr>
+
+  <p class="card-text tcontent text-justify oblique">&bull;{{Config.instruction.ins1}}</p>
+
+   <p class="card-text tcontent text-justify oblique">&bull;{{Config.instruction.ins2}}</p>
+
+    <p class="card-text tcontent text-justify oblique">&bull;{{Config.instruction.ins3}}</p>
+
+    <p class="card-text tcontent text-justify oblique">&bull;{{Config.instruction.ins4}}</p>
+
+    
+   <!-- <p class="card-text tcontent text-justify">&bull;   </p> -->
 </div>
 
+  
 
+</div>
+
+      
+    </div>
+  </div>
+</div>
 
 <!-- =================Modal================== -->
 <div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
