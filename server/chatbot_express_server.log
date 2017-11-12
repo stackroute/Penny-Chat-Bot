@@ -400,3 +400,63 @@
 [2017-11-12 10:15:29.954] [INFO] chatbot_express_server - data found
 [2017-11-12 10:16:09.601] [INFO] chatbot_express_server - data found
 >>>>>>> b68fbb8a813ca8a34ab10cb45bfec0b7f36caf47
+[2017-11-12 10:48:13.957] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 10:48:16.676] [INFO] chatbot_express_server - verified
+[2017-11-12 10:48:16.689] [INFO] chatbot_express_server - Data not found in /verify_user route
+[2017-11-12 10:48:16.710] [INFO] chatbot_express_server - Error in updating status to set password
+[2017-11-12 10:48:16.713] [INFO] chatbot_express_server - Verifications are undefined in /warning_page route
+[2017-11-12 10:48:16.716] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 10:48:16.719] [INFO] chatbot_express_server - verified
+[2017-11-12 10:48:16.722] [INFO] chatbot_express_server - Data Undefined in database
+[2017-11-12 10:48:16.731] [INFO] chatbot_express_server - reset badCount
+[2017-11-12 10:48:16.734] [INFO] chatbot_express_server - error occured in forcelogout
+[2017-11-12 10:48:16.738] [INFO] chatbot_express_server - data found
+[2017-11-12 10:48:16.740] [INFO] chatbot_express_server - data is null
+[2017-11-12 10:48:16.757] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-12 10:48:16.760] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-12 10:48:16.765] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 10:48:16.769] [INFO] chatbot_express_server - Success
+[2017-11-12 10:48:16.772] [INFO] chatbot_express_server - Not Found
+[2017-11-12 10:48:16.774] [INFO] chatbot_express_server - Data Found
+[2017-11-12 10:48:16.777] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 10:48:16.795] [INFO] chatbot_express_server - Success
+[2017-11-12 10:52:38.903] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 10:52:40.017] [INFO] chatbot_express_server - verified
+[2017-11-12 10:52:40.032] [INFO] chatbot_express_server - Data not found in /verify_user route
+[2017-11-12 10:52:40.052] [INFO] chatbot_express_server - Error in updating status to set password
+[2017-11-12 10:52:40.056] [INFO] chatbot_express_server - Verifications are undefined in /warning_page route
+[2017-11-12 10:52:40.059] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 10:52:40.062] [INFO] chatbot_express_server - verified
+[2017-11-12 10:52:40.064] [INFO] chatbot_express_server - Data Undefined in database
+[2017-11-12 10:52:40.073] [INFO] chatbot_express_server - reset badCount
+[2017-11-12 10:52:40.076] [INFO] chatbot_express_server - error occured in forcelogout
+[2017-11-12 10:52:40.079] [INFO] chatbot_express_server - data found
+[2017-11-12 10:52:40.081] [INFO] chatbot_express_server - data is null
+[2017-11-12 10:52:40.100] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-12 10:52:40.103] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-12 10:52:40.108] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 10:52:40.111] [INFO] chatbot_express_server - Success
+[2017-11-12 10:52:40.113] [INFO] chatbot_express_server - Not Found
+[2017-11-12 10:52:40.117] [INFO] chatbot_express_server - Data Found
+[2017-11-12 10:52:40.120] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 10:52:40.139] [INFO] chatbot_express_server - Success
+[2017-11-12 10:55:47.592] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 10:55:48.701] [INFO] chatbot_express_server - verified
+[2017-11-12 10:55:48.714] [INFO] chatbot_express_server - Data not found in /verify_user route
+[2017-11-12 10:55:48.733] [INFO] chatbot_express_server - Error in updating status to set password
+[2017-11-12 10:55:48.737] [INFO] chatbot_express_server - Verifications are undefined in /warning_page route
+[2017-11-12 10:55:48.741] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-12 10:55:48.743] [INFO] chatbot_express_server - verified
+[2017-11-12 10:55:48.746] [INFO] chatbot_express_server - Data Undefined in database
+[2017-11-12 10:55:48.755] [INFO] chatbot_express_server - reset badCount
+[2017-11-12 10:55:48.758] [INFO] chatbot_express_server - error occured in forcelogout
+[2017-11-12 10:55:48.760] [INFO] chatbot_express_server - data found
+[2017-11-12 10:55:48.763] [INFO] chatbot_express_server - data is null
+[2017-11-12 10:55:48.780] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-12 10:55:48.783] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-12 10:55:48.788] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 10:55:48.791] [INFO] chatbot_express_server - Success
+[2017-11-12 10:55:48.793] [INFO] chatbot_express_server - Not Found
+[2017-11-12 10:55:48.796] [INFO] chatbot_express_server - Data Found
+[2017-11-12 10:55:48.800] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 10:55:48.818] [INFO] chatbot_express_server - Success
