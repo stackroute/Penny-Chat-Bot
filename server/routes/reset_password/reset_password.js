@@ -4,7 +4,7 @@ import staticConfig from '../../config/staticConfig';
 import logger from '../../log4js';
 import comparePassword from './../../util/comparePassword';
 import bcrypt from 'bcrypt'
-module.exports = (req,res)=>{
+export default (req,res)=>{
   try{
     //find username
     data.find({"email" : req.params.email}, (err,data1) => {

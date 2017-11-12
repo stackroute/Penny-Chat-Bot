@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 const neo4j = require('neo4j-driver').v1;
-import staticconfig from './Config';
+import staticConfig from './Config';
 import config from '../../config/config';
 import logger from '../../log4js';
 import editFlow from './editflow';
@@ -12,8 +12,8 @@ const session = driver.session();
 
 export default  (req, res)=> {
   let intent=[];
-  let video = staticconfig.video.video;
-  let link = staticconfig.link.link;
+  let video = staticConfig.video.video;
+  let link = staticConfig.link.link;
   let completeContext = req.body.completeContext;
   let context = req.body.context;
 

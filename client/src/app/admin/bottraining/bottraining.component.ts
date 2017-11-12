@@ -106,10 +106,10 @@ export class BottrainingComponent implements OnInit {
     .subscribe((res)=>{
       if(res.length > 0) {
         this.arr = [];
-      this.ref=res[0].questions;
-      res[0].questions.map((ques)=>{
-        this.arr.push(ques.question)
-      })
+        this.ref=res[0].questions;
+        res[0].questions.map((ques)=>{
+          this.arr.push(ques.question)
+        })
       }
     })
   }
@@ -236,21 +236,21 @@ export class BottrainingComponent implements OnInit {
           flag++;
         }
       })
-    if(flag==0){
-      this.bottrainingservice.addIntent(data)
-      .subscribe((res)=>{
-        this.rep=res;
-        if (res.status==true){
-          this.resp=res;
-          swal('',Config.bottraining.SuccAdded,'success');
-          this.getIntent();
-        }  
-      })
-    }
-  }
-    else{
-      swal(Config.bottraining.alreadyexist,'error');
-    }
+      if(flag==0){
+        this.bottrainingservice.addIntent(data)
+        .subscribe((res)=>{
+          this.rep=res;
+          if (res.status==true){
+            this.resp=res;
+            swal('',Config.bottraining.SuccAdded,'success');
+            this.getIntent();
+          }  
+        })
+      }
+      else{
+        swal(Config.bottraining.alreadyexist,'error');
+      }
+  }    
   }
   //This function is used to add synonym to the newly created intent
   addSynonym(){
@@ -340,7 +340,7 @@ export class BottrainingComponent implements OnInit {
     .subscribe((res) => {
       this.rep=res;
       this.getunanswer();
-     // swal('',Config.bottraining.deleted,'success');
+      // swal('',Config.bottraining.deleted,'success');
     });
   }
   //This function is used to tell which button has been selected
