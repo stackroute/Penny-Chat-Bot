@@ -2,24 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-admin',
-    templateUrl: './admin.component.html',
-    styleUrls: ['./admin.component.scss']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
 
-    constructor(public router: Router) { }
-//---------------ngOnINit starts here------------------
-    ngOnInit() {
-    	this.getProduct(); 
-    }
-   //-----ngOnInit ends here------------------------
+  constructor(public router: Router) { }
+  //---------------ngOnINit starts here------------------
+  ngOnInit() {
+    this.getProduct(); 
+  }
+  //-----ngOnInit ends here------------------------
 
-   //--------------getProduct starts here--------------
+  //--------------getProduct starts here--------------
   getProduct(){  
-if (this.router.url === '/admin') {
-     this.router.navigate(['/admin/dashboardAdmin']);
+    if (this.router.url === '/admin') {
+      this.router.navigate(['/admin/dashboardAdmin']);
     }
-   }
- }
+  }
+}
 //------------------getProduct ends here------------------------

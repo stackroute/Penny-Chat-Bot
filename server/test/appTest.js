@@ -405,7 +405,7 @@ describe('Method post success negative test for addtask', (done)=>{
 
 describe('Method of update ques_ans positive processed here',()=>{
 
-let question={ question:["What is retirement policy","what is retirement plan?"], email: "stshivamtripathi7@gmail.com"}
+let question={ question:"what is retirement plan?", email: "stshivamtripathi7@gmail.com"}
 let questions=[];
 questions.push(question)
 
@@ -424,6 +424,7 @@ url
     return err;
   } 
     else {
+      console.log(res.body)
    assert.equal(res.body.status,true);
  done();
 };

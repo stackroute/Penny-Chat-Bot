@@ -21,6 +21,7 @@ export class ForgotpasswordComponent implements OnInit {
   Config:any=Config;//reference for config file
   message:string;
   alert:any=0;
+  flag:number = 0;
 
   constructor(private forgotpasswordService:ForgotpasswordService, private router:Router) { }
   
@@ -28,7 +29,8 @@ export class ForgotpasswordComponent implements OnInit {
     
     if(!object)
     {
-      swal(Config.forgotpassword.swal);//alert if empty fields 
+      this.flag = 1;
+     // swal(Config.forgotpassword.swal);//alert if empty fields 
     }
     else{
       //sending mail to reset password
