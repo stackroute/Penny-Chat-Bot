@@ -1,39 +1,46 @@
 <!-- start of container -->
 <div class="container">
-  <!--start of row of heading -->
-  <div class="row">
-    <div class="col-lg-6">
-      <h3>{{Config.createflow.AddFollowUp}}</h3>
+<div class="row">
+    <div class="col-lg-12">
+        <h3>{{Config.createflow.AddFollowUp}}</h3>
     </div>
-  </div>
-  <!--end of row of heading -->
-
-  <!-- start of row for entering product name -->
-  <div class="row">
-    <div class=" col-lg-12">
-      <div class="input-group">
-        <input type="text" class="form-control" [(ngModel)]="flowname" placeholder="Product name">
-        <span class="input-group-btn">
-          <button class="btn btn-secondary" (click)="follow(flowname)" type="button">{{Config.createflow.AddFollow}}</button>
-        </span>
-      </div>
-    </div>
-  </div>
-  <!-- end of row for entering product name -->
-  <br>
-  <!-- start of row for selecting new or editing task -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card" *ngFor="let main of item">
-        <div class="card-block">
-          <h4 class="card-title">{{main.task}}</h4>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <a class="card-link" (click)="addconfig(main.task)">{{Config.createflow.New}}</a>
-          <a (click)="editconfig(main.task)" class="card-link">{{Config.createflow.Edit}}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end of row for selecting new or editing task -->
 </div>
-<!-- end of container -->
+<div class="row">
+  <div class=" col-lg-11">
+    <div class="input-group">
+      <input type="text" class="form-control" [(ngModel)]="flowname" placeholder="Product name">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" (click)="follow(flowname)" type="button">{{Config.createflow.AddFollow}}</button>
+      </span>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        
+    
+            <div class="card" *ngFor="let main of item;let i = index ">
+              <h3>{{main.task}}</h3>
+              <p class="desc-text text-justify">
+                {{Config.createflow.AddtheFollow}}
+                
+        
+              </p>
+              <ul class="controls">
+        
+                <li class="read"(click)="addconfig(main.task)" *ngIf = "!main.question">
+                  <i class="fa fa-plus" ></i> 
+                  <p class="text-a">{{Config.createflow.New}}</p>
+                </li>
+        
+                <li class="views" (click)="editconfig(main.task)" *ngIf = "main.question">
+                  <i class="fa fa-pencil-square-o" ></i>
+                  <p class="text-a">{{Config.createflow.Edit}}</p>
+                </li>   
+              </ul>
+            </div>
+      
+</div>
+</div>
+ 

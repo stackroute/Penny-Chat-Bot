@@ -247,10 +247,10 @@ export class BottrainingComponent implements OnInit {
         }  
       })
     }
-  }
     else{
       swal(Config.bottraining.alreadyexist,'error');
     }
+  }    
   }
   //This function is used to add synonym to the newly created intent
   addSynonym(){
