@@ -13,7 +13,8 @@ export const Config = {
         'Submit' : 'Submit',
         'YesNo' : 'Yes/No',
         'Alphabetic' : 'Alphabetic',
-        'Numeric' : 'Numeric',
-        "Server" : "Server Error"
-            }
+        "Server" : "Server Error",
+        'Numeric' : 'Numeric'
+    }
+
 }

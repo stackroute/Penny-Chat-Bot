@@ -46,7 +46,7 @@ export default (req, res) => {
 
           else {
             logger.info(staticConfig.setpassword.finalMessageErr)     //making logs
-            res.json({status : false, message:staticconfig.setpassword.finalMessageErr});   //response to client
+            res.json({status : false, message:staticConfig.setpassword.finalMessageErr});   //response to client
           }
         });
 

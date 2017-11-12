@@ -5,16 +5,16 @@ import config from '../../config/config';
 import logger from '../../log4js';
 var driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.neo4jurlpassword));
 import addflow from './addflowContext';
-import staticconfig  from './Config'; 											//config file
+import staticConfig  from './Config'; 											//config file
 
 /*=====================context intent domain and subIntent and answer creation ===================================================*/
 
 export default (body) => {
 	
 	const session = driver.session();
-	let video = staticconfig.video.video;
-	let link = staticconfig.link.link;
-	let subI = staticconfig.subintent.subintent;
+	let video = staticConfig.video.video;
+	let link = staticConfig.link.link;
+	let subI = staticConfig.subintent.subintent;
 
 	let completeContext = body.completeContext;
 
@@ -57,7 +57,7 @@ export default (body) => {
 
 		if((videoLink.length!=0)&&(blogLink.length!=0)&&(subIntent.length != 0) && (con.value!=""))
 			{if(body.selectedContext.label != "") {
-				if(body.selectedContext.label == staticconfig.domain.domain) {
+				if(body.selectedContext.label == staticConfig.domain.domain) {
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 						);
@@ -93,7 +93,7 @@ export default (body) => {
 				}
 
 				/*==================If subdomain============*/
-				else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
+				else if(body.selectedContext.label == staticConfig.subdomain.subdomain) {
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  return d'
 						);
@@ -132,16 +132,13 @@ export default (body) => {
 
 
 				/*=====================If Entity====================*/
-				else if(body.selectedContext.label == staticconfig.entity.entity) {
+				else if(body.selectedContext.label == staticConfig.entity.entity) {
 
 					
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 						);
 					resultPromise.then((result) => {
-
-						console.log('hello', result)
-
 						/*================Querry for video links================*/
 						videoLink.map((vid)=>{
 							
@@ -225,7 +222,7 @@ export default (body) => {
 
 		if((videoLink.length==0)&&(blogLink.length!=0) && (subIntent.length!=0)&& (con.value!="")){
 			if(body.selectedContext.label != "") {
-				if(body.selectedContext.label == staticconfig.domain.domain) {
+				if(body.selectedContext.label == staticConfig.domain.domain) {
 
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
@@ -255,7 +252,7 @@ export default (body) => {
 				}
 
 		/*==============================If subdomain==================================*/
-				else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
+				else if(body.selectedContext.label == staticConfig.subdomain.subdomain) {
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 						);
@@ -283,7 +280,7 @@ export default (body) => {
 				}
 
 				/*=-==================If Entity=======================*/
-				else if(body.selectedContext.label == staticconfig.entity.entity) {
+				else if(body.selectedContext.label == staticConfig.entity.entity) {
 
 					const resultPromise = session.run(
 						'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
@@ -347,7 +344,7 @@ export default (body) => {
 
 			if((blogLink.length==0)&&(videoLink.length!=0)&&(subIntent.length!=0) && (con.value!="")){
 				if(body.selectedContext.label != "") {
-					if(body.selectedContext.label == staticconfig.domain.domain) {
+					if(body.selectedContext.label == staticConfig.domain.domain) {
 
 						const resultPromise = session.run(
 							'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
@@ -378,7 +375,7 @@ export default (body) => {
 					}
 
 		/*===========================If SubDomain====================*/
-		else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
+		else if(body.selectedContext.label == staticConfig.subdomain.subdomain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -409,7 +406,7 @@ export default (body) => {
 
 
 		/*===================If Entity=====================*/
-		else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
+		else if(body.selectedContext.label == staticConfig.subdomain.subdomain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -478,7 +475,7 @@ export default (body) => {
 if((blogLink.length==0)&&(videoLink.length==0)&&(subIntent.length==0) && (con.value!="")){
 
 	if(body.selectedContext.label != "") {
-		if(body.selectedContext.label == staticconfig.domain.domain) {
+		if(body.selectedContext.label == staticConfig.domain.domain) {
 
 			/*==============querry if context is domain=============*/
 			const resultPromise = session.run(
@@ -490,7 +487,7 @@ if((blogLink.length==0)&&(videoLink.length==0)&&(subIntent.length==0) && (con.va
 		}
 
 		/*=============if context is Subdomain===================*/
-		else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
+		else if(body.selectedContext.label == staticConfig.subdomain.subdomain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -500,7 +497,7 @@ if((blogLink.length==0)&&(videoLink.length==0)&&(subIntent.length==0) && (con.va
 		}
 
 	/*==================if context is Entity=====================*/	
-		else if(body.selectedContext.label == staticconfig.entity.entity) {
+		else if(body.selectedContext.label == staticConfig.entity.entity) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -526,7 +523,7 @@ if((blogLink.length==0)&&(videoLink.length==0) && (con.value!="") && (subIntent.
 	if(body.selectedContext.label != "") {
 
 		/*=================If Domain===============*/
-		if(body.selectedContext.label == staticconfig.domain.domain) {
+		if(body.selectedContext.label == staticConfig.domain.domain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -547,7 +544,7 @@ if((blogLink.length==0)&&(videoLink.length==0) && (con.value!="") && (subIntent.
 
 
 		/*==================If SubDomain==========================*/
-		else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
+		else if(body.selectedContext.label == staticConfig.subdomain.subdomain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -566,7 +563,7 @@ if((blogLink.length==0)&&(videoLink.length==0) && (con.value!="") && (subIntent.
 		}
 
 	/*======================If Entity=========================*/
-		else if(body.selectedContext.label == staticconfig.entity.entity) {
+		else if(body.selectedContext.label == staticConfig.entity.entity) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -611,7 +608,7 @@ if((videoLink.length!=0)&&(blogLink.length!=0)&&(con.value!="")&&(subIntent.leng
 {   
 	if(body.selectedContext.label != "") {
 		/*===============If Domain==================*/
-		if(body.selectedContext.label == staticconfig.domain.domain) {
+		if(body.selectedContext.label == staticConfig.domain.domain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -637,7 +634,7 @@ if((videoLink.length!=0)&&(blogLink.length!=0)&&(con.value!="")&&(subIntent.leng
 
 
 /*=================If SubDomain====================*/
-	else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
+	else if(body.selectedContext.label == staticConfig.subdomain.subdomain) {
 
 		const resultPromise = session.run(
 			'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  return d'
@@ -666,7 +663,7 @@ if((videoLink.length!=0)&&(blogLink.length!=0)&&(con.value!="")&&(subIntent.leng
 
 
 	/*===================If Entity=========================*/
-		else if(body.selectedContext.label == staticconfig.entity.entity) {
+		else if(body.selectedContext.label == staticConfig.entity.entity) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -730,7 +727,7 @@ if((videoLink.length!=0)&&(blogLink.length==0) &&(subIntent.length == 0) && (con
 {
 	if(body.selectedContext.label != "") {
 		/*=================Domain============*/
-		if(body.selectedContext.label == staticconfig.domain.domain) {
+		if(body.selectedContext.label == staticConfig.domain.domain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				)
@@ -748,7 +745,7 @@ if((videoLink.length!=0)&&(blogLink.length==0) &&(subIntent.length == 0) && (con
 
 
 		/*==================SubDomain=====================*/	
-		else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
+		else if(body.selectedContext.label == staticConfig.subdomain.subdomain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"})  return d'
 				);
@@ -766,7 +763,7 @@ if((videoLink.length!=0)&&(blogLink.length==0) &&(subIntent.length == 0) && (con
 		}
 
 	/*=====================Entity=================*/
-		else if(body.selectedContext.label == staticconfig.entity.entity) {
+		else if(body.selectedContext.label == staticConfig.entity.entity) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -810,7 +807,7 @@ if((videoLink.length!=0)&&(blogLink.length==0) &&(subIntent.length == 0) && (con
 if((videoLink.length==0)&&(blogLink.length!=0) && (subIntent.length!=0)&& (con.value!="")){
 	if(body.selectedContext.label != "") {
 		/*====================Domain===============*/
-		if(body.selectedContext.label == staticconfig.domain.domain) {
+		if(body.selectedContext.label == staticConfig.domain.domain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubDomain {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -829,7 +826,7 @@ if((videoLink.length==0)&&(blogLink.length!=0) && (subIntent.length!=0)&& (con.v
 
 
 		/*=================SubDomain=================*/
-		else if(body.selectedContext.label == staticconfig.subdomain.subdomain) {
+		else if(body.selectedContext.label == staticConfig.subdomain.subdomain) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:Entity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);
@@ -847,7 +844,7 @@ if((videoLink.length==0)&&(blogLink.length!=0) && (subIntent.length!=0)&& (con.v
 		}
 
 		/*=================Entity================*/
-		else if(body.selectedContext.label == staticconfig.entity.entity) {
+		else if(body.selectedContext.label == staticConfig.entity.entity) {
 			const resultPromise = session.run(
 				'match (a:'+body.selectedContext.label+' {name:"'+body.selectedContext.name+'"})-[:type]->(b:SubEntity {name:"'+body.context.name+'"}) merge (b)-[:'+con.name+']->(d:Attribute { name : "'+con.name+'", value : "'+con.value+'"}) return d'
 				);

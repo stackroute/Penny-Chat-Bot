@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router();
 var unfurl = require('unfurled')
-import staticconfig  from './Config';
+import staticConfig  from './Config';
 import logger from '../../log4js';
 
 export default (req,res) => {

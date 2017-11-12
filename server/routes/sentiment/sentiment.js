@@ -5,7 +5,7 @@ import tokenizer from 'sbd';
 import pos from 'pos';
 import Twitter from 'twitter';
 import sentiment from 'sentiment';
-import staticconfig  from './Config';
+import staticConfig  from './Config';
 
 export default (req,res) => {
   try{
@@ -24,8 +24,8 @@ export default (req,res) => {
     client.get('search/tweets', {q:req.body.plan}, function(error, tweets, response) {
 
       if (error) {
-    logger.info(staticconfig.sentiment.Error);   //making logs
-    res.json({status:false,message:staticconfig.sentiment.Error,data:null});       //response to client
+    logger.info(staticConfig.sentiment.Error);   //making logs
+    res.json({status:false,message:staticConfig.sentiment.Error,data:null});       //response to client
   }
   else{
     tweets.statuses.map((data)=>{
@@ -51,8 +51,8 @@ export default (req,res) => {
     percent=0;
   }
 
-      logger.info(staticconfig.sentiment.DataFound);   //making logs
-      res.json({status:true,message:staticconfig.sentiment.DataFound,score:percent})  //response to client
+      logger.info(staticConfig.sentiment.DataFound);   //making logs
+      res.json({status:true,message:staticConfig.sentiment.DataFound,score:percent})  //response to client
     }
   });
   }catch(error){                                            // error handle if suddenly error occur in database

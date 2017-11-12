@@ -154,3 +154,30 @@ line-height: 22px;
 width: 10%;
 height: 15px;
 }
+
+.fetchHistory {
+  margin-top: 20px;
+  color: #003366;
+  font-weight: 600;
+  cursor:pointer;
+}
+
+.scrollMe {
+  overflow-y: scroll;
+  overflow-x: hidden; 
+  height: 550px;
+}
+
+.resp {
+  background-color: #e5eff5;
+  border-radius: 20px;
+}
+
+.ogDescription {
+  color: black; width:50%;
+}
+
+.image {
+  width: 150px;
+  height: 100px;
+}

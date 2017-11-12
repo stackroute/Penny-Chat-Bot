@@ -24,7 +24,7 @@ export default (req, res, next)=>{
       logger.info(staticConfig.suggest.SynonymNotFound);                  // making logs  
       res.json({status:false,message:staticConfig.suggest.SynonymNotFound,data:null});
     }
-  });a
+  });
   }catch(error){                                            // error handle if suddenly error occur in database
     logger.info(staticConfig.suggest.Error);                  // making logs
     res.json({status:false, message:staticConfig.suggest.Error,data:error});

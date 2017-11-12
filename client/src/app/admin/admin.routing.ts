@@ -9,44 +9,44 @@ import { CreateFlowComponent } from './create-flow/create-flow.component';
 
 
 const routes: Routes = [
+{
+	path: '', component: AdminComponent,
+	children: [
 	{
-		path: '', component: AdminComponent,
-		children: [
-		{
-			path: 'dashboardAdmin', component: DashboardComponent
-		}]
-	},
+		path: 'dashboardAdmin', component: DashboardComponent
+	}]
+},
 {
-		path: '', component: AdminComponent,
-		children: [
-		{
-     	path : 'traindomain/:name/:op', component : TraindomainComponent
-     }]
-	},
+	path: '', component: AdminComponent,
+	children: [
+	{
+		path : 'traindomain/:name/:op', component : TraindomainComponent
+	}]
+},
 
 {
-		path: '', component: AdminComponent,
-		children: [
-		 {
-     	path : 'createflow', component : CreateFlowComponent
-     }]
-	},
+	path: '', component: AdminComponent,
+	children: [
+	{
+		path : 'createflow', component : CreateFlowComponent
+	}]
+},
 
 {
-		path: '', component: AdminComponent,
-		children: [
-		 {
-        path:'trainingbot' ,component:BottrainingComponent
-     }]
-	},
+	path: '', component: AdminComponent,
+	children: [
+	{
+		path:'trainingbot' ,component:BottrainingComponent
+	}]
+},
 
 {
-		path: '', component: AdminComponent,
-		children: [
-		 {
+	path: '', component: AdminComponent,
+	children: [
+	{
 		path: 'dashboardAdmin/addtask', component: AddtaskComponent
 	}]
-	}];
+}];
 
 @NgModule({
 	imports: [RouterModule.forChild(routes)],

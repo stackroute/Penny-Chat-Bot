@@ -65,7 +65,7 @@ export class BottrainingService {
 
   /*================================Add Intent& Sentence====================*/
   addSentence(object): Observable<any> {
-     let url=config.ip+urlConfig.AdminBotTrainingaddSentence;
+    let url=config.ip+urlConfig.AdminBotTrainingaddSentence;
     return this.http
     .post(url, {object:object})
     .map((res: Response)=>{
@@ -151,7 +151,7 @@ export class BottrainingService {
 
   /*==========================Start of Adds New Intent==============================*/
   addIntent(intent):Observable<any> {
-     let trainurl=config.ip+urlConfig.AdminBotTrainingaddIntent;
+    let trainurl=config.ip+urlConfig.AdminBotTrainingaddIntent;
     return this.http.post(trainurl,{data:intent})
     .map((res:Response)=>{
       return res.json();

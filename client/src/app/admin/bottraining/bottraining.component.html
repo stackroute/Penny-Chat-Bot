@@ -1,5 +1,4 @@
-
-<div class="container">
+<div>
   <div class="row">
     <div class="col-md-4">
       <div class="panel panel-primary">
@@ -52,9 +51,8 @@
                 <td>{{data.type}}</td>
                 <td>{{data.typename}}</td>
                 <td *ngIf="data.type=='Not Found' ">
-                  <a class="fa fa-plus-square pi-draggable btn-block icon" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
+                  <a class="fa fa-plus-square pi-draggable btn-block addicon" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
                 </td>
-
                 <td *ngIf="data.type!= 'Not Found'"  class="greentick"> &#x2713;</td>
                 <td><a (click)="remove(i,data)"><i class="fa fa-trash-o icon" aria-hidden="true"></i></a></td>
               </tr>
@@ -99,12 +97,12 @@
           <h4>{{Config.bottraining.ExistingSyn}} {{intentname.itemName}}</h4>
           <span class="disp" *ngFor="let intent of correspondSynonym">
             <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
-              <a class="cross">{{intent}}</a>
-              <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
+              <!-- <a class="cross"> -->{{intent}}<!-- </a> -->
+              <a><i class="fa fa-times cross" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
        
-              <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">
-                <a>{{intent}}</a>
-                <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
+              <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">{{intent}}
+                <a>
+                <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
               </span>            
               <div class="row searchsyn">
                 <div class="col-md-8">
@@ -119,7 +117,7 @@
             <div class="addIntent">
              <button type="button" (click)="add.show()" class="btn btn-primary add addintentbtn" (click)="ifselected('Intent')" 
              >{{Config.bottraining.AddInt}}</button>
-             <button type="button" (click)="add.show()" class="btn btn-primary add" (click)="ifselected('SubIntent')" 
+             <button type="button" (click)="add.show()" class="btn btn-primary add addintentbtn" (click)="ifselected('SubIntent')" 
              >{{Config.bottraining.AddSubint}}</button> 
            </div>
          </div>
@@ -190,9 +188,7 @@
                     </button>
                   </tab>
                   <tab heading="Context" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
-
                    {{Config.bottraining.Add}} {{val}} {{Config.bottraining.SameAs}}
-
                    <div class="existing " >
                     <angular2-multiselect [data]="contextName" 
                     [(ngModel)]="selectedItemsContext" 
@@ -231,29 +227,30 @@
               <tab heading={{value}} ng-reflect-heading="Home" class="tab-pane" id="Intent">
                 <form role="form" #addval="ngForm">
                   <div class="form-group">
-
                     <label for="exampleInputPassword1">{{Config.bottraining.Value}}</label>
                     <input type="text" class="form-control" id="meaning" name = "meaning"placeholder="Meaning" [(ngModel)]="addintent">
                   </div>
                   <div class="form-group">
                     <label for="exampleInput1">{{Config.bottraining.Priority}}</label>
-                    <input type="text" class="form-control" id="priority" name = "priority" placeholder="priority" [(ngModel)]="priority">
-                  </div>                   
+                    <input type="text" class="form-control" id="priority" name = "priority" placeholder="priority" required [(ngModel)]="priority" pattern="[0-9]*" #mobile="ngModel">
+                    <div [hidden]="mobile.valid || mobile.pristine" class="message" >
+                      <div [hidden]="!mobile.hasError('pattern')" style="color: red">ENTER ONLY NUMERIC DIGIT</div>
+                    </div>
+                  </div>
                 </form>
                 <div>
                   <button type="button" class="btn btn-primary" (click)="add.hide()">{{Config.bottraining.Close}}</button>
-                  <button type="button" class="btn btn-primary" (click)="addIntent()"><span >{{Config.bottraining.Add}} {{value}}</span></button>
-
+                  <button type="button" class="btn btn-primary" [disabled]="!addval.form.valid" (click)="addIntent()"><span >{{Config.bottraining.Add}} {{value}}</span></button>
                 </div>
               </tab>
               <tab heading="Synonym" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
                 <div class="home-container">
                   <div>
-                    <h5>{{Config.bottraining.AddSyno}} {{addintent}}</h5>
+                    <h5><b>{{Config.bottraining.AddSyno}}</b> {{addintent}}</h5>
                     <input type="text" class="form-control" id="synonym" name = "synonym" placeholder="Enter Synonyms" [(ngModel)]="temp" (keyup)="suggest()" (keyup.enter)="select(temp)">
                   </div>
                   <div class="existing">
-                    <h5>{{Config.bottraining.AddedSyn}}</h5>
+                    <h5><b>{{Config.bottraining.AddedSyn}}</b></h5>
                     <a class="btn badgebtn" *ngFor="let data1 of main"> 
                       <span class="badge badge-pill text-white">
                         {{data1}}
@@ -261,10 +258,9 @@
                     </a>
                   </div>
                   <div class="existing">
-                    <h5>{{Config.bottraining.Synonyms}}</h5>
-                    <a class="btn"> 
-                    <span class="badge badge-pill text-white suggestsynonym"*ngFor="let data of synres"
-                      (click)="select(data)">               
+                    <h5><b>{{Config.bottraining.Synonyms}}</b></h5>
+                    <a class="btn suggestsynonym" *ngFor="let data of synres"> 
+                    <span class="badge badge-pill text-white " (click)="select(data)">               
                       {{data}}
                     </span>
                   </a>
