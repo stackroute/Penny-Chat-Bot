@@ -1,5 +1,4 @@
-
-<div class="container">
+<div>
   <div class="row">
     <div class="col-md-4">
       <div class="panel panel-primary">
@@ -99,12 +98,12 @@
           <h4>{{Config.bottraining.ExistingSyn}} {{intentname.itemName}}</h4>
           <span class="disp" *ngFor="let intent of correspondSynonym">
             <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
-              <a class="cross">{{intent}}</a>
-              <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
-              
-              <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">
-                <a>{{intent}}</a>
-                <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></span>
+              <!-- <a class="cross"> -->{{intent}}<!-- </a> -->
+              <a><i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
+       
+              <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">{{intent}}
+                <a>
+                <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
               </span>            
               <div class="row searchsyn">
                 <div class="col-md-8">
@@ -237,12 +236,15 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInput1">{{Config.bottraining.Priority}}</label>
-                    <input type="text" class="form-control" id="priority" name = "priority" placeholder="priority" [(ngModel)]="priority">
-                  </div>                   
+                    <input type="text" class="form-control" id="priority" name = "priority" placeholder="priority" required [(ngModel)]="priority" pattern="[0-9]*" #mobile="ngModel">
+                    <div [hidden]="mobile.valid || mobile.pristine" class="message" >
+                      <div [hidden]="!mobile.hasError('pattern')" style="color: red">ENTER ONLY NUMERIC DIGIT</div>
+                    </div>
+                  </div>
                 </form>
                 <div>
                   <button type="button" class="btn btn-primary" (click)="add.hide()">{{Config.bottraining.Close}}</button>
-                  <button type="button" class="btn btn-primary" (click)="addIntent()"><span >{{Config.bottraining.Add}} {{value}}</span></button>
+                  <button type="button" class="btn btn-primary" [disabled]="!addval.form.valid" (click)="addIntent()"><span >{{Config.bottraining.Add}} {{value}}</span></button>
 
                 </div>
               </tab>
@@ -262,9 +264,8 @@
                   </div>
                   <div class="existing">
                     <h5>{{Config.bottraining.Synonyms}}</h5>
-                    <a class="btn"> 
-                      <span class="badge badge-pill text-white suggestsynonym"*ngFor="let data of synres"
-                      (click)="select(data)">               
+                    <a class="btn suggestsynonym" *ngFor="let data of synres"> 
+                    <span class="badge badge-pill text-white " (click)="select(data)">               
                       {{data}}
                     </span>
                   </a>

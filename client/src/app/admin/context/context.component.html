@@ -108,17 +108,17 @@
           {{Config.html.VideoLink}}
         </collapsible-header>
         <collapsible-body [expanded]="false">
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0 video"  *ngFor="let input of inputs; let j=index">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0 video"  *ngFor="let input of inputs; let j=index ">
           <input type="text" class="form-control " id="inlineFormInputGroup" placeholder="Video Link" [(ngModel)]="selectedIntent[i].videoLink[j]" >
-          <div class="input-group-addon">
+        <!--   <div class="input-group-addon">
             <a (click)="addInput()"><i class="fa fa-plus" aria-hidden="true"></i></a>
-          </div>
+          </div> -->
           <div class="input-group-addon">
             <a (click)="removeVideo(i,j,selectedIntent[i].videoLink[j])"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
           </div>
         </div>
         <br>
-        <button class='btn btn-primary' *ngIf="inputs.length==0" (click)="addInput()">Add More Links</button>
+        <button class='btn btn-primary' (click)="addInput()">Add More Links</button>
         <br>
         <br>
       </collapsible-body>
@@ -131,15 +131,15 @@
   <collapsible-body [expanded]="false">
   <div class="input-group mb-2 mr-sm-2 mb-sm-0 blog" *ngFor="let add of blog;let k=index ">
     <input type="text" class="form-control" placeholder="Blog Link" [(ngModel)]="selectedIntent[i].blogLink[k]" name="blog">
-    <div class="input-group-addon">
+   <!--  <div class="input-group-addon">
       <a (click)="addBlog()"><i class="fa fa-plus" aria-hidden="true"></i></a>
-    </div>
+    </div> -->
     <div class="input-group-addon">
       <a (click)="removeBlog(i,k,selectedIntent[i].blogLink[k])"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
     </div>
   </div>
   <br>
-  <button class='btn btn-primary' *ngIf="blog.length==0" (click)="addBlog()">Add More Links</button>
+  <button class='btn btn-primary' (click)="addBlog()">Add More Links</button>
   <br>
 
 </collapsible-body>
@@ -167,7 +167,7 @@
 <!-- ===================Adding flow================== -->
 <collapsible-list-item>
 
-<collapsible-header class="waves-effect">
+<collapsible-header class="waves-effect collapsible-header">
 Add Flow
 </collapsible-header>
 <collapsible-body [expanded]="false">   
