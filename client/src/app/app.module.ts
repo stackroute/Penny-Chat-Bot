@@ -14,6 +14,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {Http,HttpModule} from '@angular/http';
 import { AuthGuard } from './auth/auth.guard';
 
+
 // Import containers
 // Import directives
 import {
@@ -66,7 +67,7 @@ import {YoutubePlayerModule} from 'ng2-youtube-player';
   // SIDEBAR_TOGGLE_DIRECTIVES
   ],
   providers:
-  [AsideService, AuthGuard,
+  [AsideService,AuthGuard, 
   {
     provide: LocationStrategy,
     useClass: HashLocationStrategy},

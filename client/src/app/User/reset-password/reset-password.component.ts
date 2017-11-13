@@ -32,7 +32,7 @@ export class ResetPasswordComponent implements OnInit {
 
   /*back to navigatebyurl */
   back(){
-    this.router.navigateByUrl('user/chat');
+    this.router.navigateByUrl('user/dashboardUser');
   }
 
   /*resent password to get the response*/
@@ -61,7 +61,7 @@ export class ResetPasswordComponent implements OnInit {
           this.oldpassword="";
           this.newpassword="";
           this.confirmpassword="";
-          this.router.navigateByUrl('/user/chat');
+          this.router.navigateByUrl('/user/dashboardUser');
         }
       },(dataError)=>{         /*error handling*/
         localStorage.removeItem(Config.userResetPassword.localstorage);

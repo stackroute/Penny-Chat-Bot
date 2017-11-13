@@ -30,10 +30,15 @@ userResetPassword: {
     emailverify:"Email has been sent to registered mail, Please Verify",
     register:"Register",    
     login:"Login Here",
-    alreadyExists:'Credentials already Exists'
-
+    alreadyExists:'Credentials already Exists',    
+        swalOnsubSucMsg1: 'Thank You',
+        swalOnsubSucMsg2 : 'Please visit your mail to verify',
+        swalOnsubErrMsg1: 'Oops...',
+        swalOnsubErrMsg2: 'Credentials already Exists',
+        swalPostErrMsg1: 'Oops...',
+        swalPostErrMsg2: 'password mismatch',
+        localstorage: 'Userdata',
+        errorhandle: 'Server error',
+        haveAcc: 'Have Account ?'
   }
-
-
-
 }
