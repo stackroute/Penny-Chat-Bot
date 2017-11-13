@@ -270,6 +270,11 @@ addMoreSynonym(syn){
   addmoreBlogLinks(index){
     this.intentData[index].blogLink.push({name : "Link",value : "",delete:false});
   }
+
+  /*==============================flow set==================================================  */
+  flowpart(data,index) {
+    this.intentData[index].flow = data;
+  }
 /*============================ get all Inent of particular context==========================*/ 
 
   getAllIntent() {
@@ -308,8 +313,6 @@ OnItemDeSelectContext(item:any) {
  }
 //===============method to set the delete flow as false===========//
  undeleteFlow(index) {
-   console.log("delete undo",this.intentData[index].deleteFlow);
-   
    this.intentData[index].deleteFlow = false;
  }
 
