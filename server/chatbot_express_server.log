@@ -241,3 +241,82 @@
 [2017-11-12 16:47:59.034] [INFO] chatbot_express_server - data found
 [2017-11-12 16:48:00.864] [INFO] chatbot_express_server - Sorry i am not able to understand 
 [2017-11-12 16:48:29.039] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 09:18:13.817] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 09:19:24.217] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 09:20:35.720] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 09:20:47.135] [INFO] chatbot_express_server - data found
+[2017-11-13 09:21:18.687] [INFO] chatbot_express_server - data found
+[2017-11-13 09:21:27.964] [INFO] chatbot_express_server - data found
+[2017-11-13 09:21:34.588] [INFO] chatbot_express_server - data found
+[2017-11-13 09:21:42.168] [INFO] chatbot_express_server - data found
+[2017-11-13 09:21:45.811] [INFO] chatbot_express_server - data found
+[2017-11-13 09:21:49.025] [INFO] chatbot_express_server - data found
+[2017-11-13 09:21:53.454] [INFO] chatbot_express_server - data found
+[2017-11-13 09:21:57.599] [INFO] chatbot_express_server - data found
+[2017-11-13 09:22:18.322] [INFO] chatbot_express_server - data found
+[2017-11-13 09:23:14.714] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 09:23:28.058] [INFO] chatbot_express_server - Success
+[2017-11-13 09:23:28.085] [INFO] chatbot_express_server - Success
+[2017-11-13 09:23:28.240] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:23:28.302] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:23:28.316] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:23:28.424] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:23:28.487] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:23:28.537] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:23:33.732] [INFO] chatbot_express_server - Success
+[2017-11-13 09:23:35.914] [INFO] chatbot_express_server - Success
+[2017-11-13 09:26:33.354] [INFO] chatbot_express_server - Success
+[2017-11-13 09:26:38.358] [INFO] chatbot_express_server - Success
+[2017-11-13 09:29:25.745] [INFO] chatbot_express_server - Success
+[2017-11-13 09:36:22.956] [INFO] chatbot_express_server - Data Found
+[2017-11-13 09:36:22.980] [INFO] chatbot_express_server - Success
+[2017-11-13 09:36:27.765] [INFO] chatbot_express_server - Success
+[2017-11-13 09:36:49.900] [INFO] chatbot_express_server - Success
+[2017-11-13 09:37:03.956] [INFO] chatbot_express_server - Success
+[2017-11-13 09:37:03.990] [INFO] chatbot_express_server - Success
+[2017-11-13 09:37:04.010] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:37:04.040] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:37:04.077] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:37:04.103] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:37:04.172] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:37:04.217] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:37:12.954] [INFO] chatbot_express_server - Data found in unanswerques's deletependingques
+[2017-11-13 09:42:22.077] [INFO] chatbot_express_server - Success
+[2017-11-13 09:42:23.254] [INFO] chatbot_express_server - Success
+[2017-11-13 09:44:57.658] [INFO] chatbot_express_server - Success
+[2017-11-13 09:47:13.951] [INFO] chatbot_express_server - Success
+[2017-11-13 09:47:18.535] [INFO] chatbot_express_server - Success
+[2017-11-13 09:49:31.083] [INFO] chatbot_express_server - Success
+[2017-11-13 09:49:57.737] [INFO] chatbot_express_server - Success
+[2017-11-13 09:51:02.886] [INFO] chatbot_express_server - Success
+[2017-11-13 09:51:09.664] [INFO] chatbot_express_server - Success
+[2017-11-13 09:51:15.867] [INFO] chatbot_express_server - Success
+[2017-11-13 09:51:35.212] [INFO] chatbot_express_server - Success
+[2017-11-13 09:52:20.509] [INFO] chatbot_express_server - Success
+[2017-11-13 09:53:32.218] [INFO] chatbot_express_server - Success
+[2017-11-13 09:53:41.221] [INFO] chatbot_express_server - Success
+[2017-11-13 09:53:45.368] [INFO] chatbot_express_server - Success
+[2017-11-13 10:06:27.352] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 10:06:28.538] [INFO] chatbot_express_server - verified
+[2017-11-13 10:06:28.551] [INFO] chatbot_express_server - Data not found in /verify_user route
+[2017-11-13 10:06:28.571] [INFO] chatbot_express_server - Error in updating status to set password
+[2017-11-13 10:06:28.574] [INFO] chatbot_express_server - Verifications are undefined in /warning_page route
+[2017-11-13 10:06:28.577] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-13 10:06:28.580] [INFO] chatbot_express_server - verified
+[2017-11-13 10:06:28.583] [INFO] chatbot_express_server - Data Undefined in database
+[2017-11-13 10:06:28.594] [INFO] chatbot_express_server - reset badCount
+[2017-11-13 10:06:28.597] [INFO] chatbot_express_server - error occured in forcelogout
+[2017-11-13 10:06:28.600] [INFO] chatbot_express_server - data found
+[2017-11-13 10:06:28.603] [INFO] chatbot_express_server - data is null
+[2017-11-13 10:06:28.606] [INFO] chatbot_express_server - data found
+[2017-11-13 10:06:28.608] [INFO] chatbot_express_server - data found
+[2017-11-13 10:06:28.616] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-13 10:06:28.619] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-13 10:06:28.624] [INFO] chatbot_express_server - Data Undefined
+[2017-11-13 10:06:28.627] [INFO] chatbot_express_server - Success
+[2017-11-13 10:06:28.631] [INFO] chatbot_express_server - Not Found
+[2017-11-13 10:06:28.633] [INFO] chatbot_express_server - Data Found
+[2017-11-13 10:06:28.636] [INFO] chatbot_express_server - Data Undefined
+[2017-11-13 10:06:28.643] [INFO] chatbot_express_server - Success
+[2017-11-13 10:06:28.646] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-13 10:06:28.649] [INFO] chatbot_express_server - { message: undefined }
