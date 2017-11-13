@@ -47,10 +47,14 @@ export class TraindomainComponent implements OnInit {
   }
 
   editdata(name) { //edit data
+
     this.traindomainService.getdata(name).subscribe((res) => {
+
       this.productdata = res;
+
     }, (dataError)=>{
       this.router.navigateByUrl('/error')
+
     })
   }
   tempid:any=0;
@@ -122,6 +126,7 @@ export class TraindomainComponent implements OnInit {
     this.input = "",
     this.next = "";
   }
+  
   arrangeAnswer() {  //arrage answers
     this.testflagon = true;
     if(this.answerflow.length > 0) {
@@ -157,9 +162,6 @@ export class TraindomainComponent implements OnInit {
     this.answerflow= [];
   }
 
-
-
-
   setInput(ans) {
     this.input = ans;
   }
@@ -182,7 +184,7 @@ export class TraindomainComponent implements OnInit {
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
-    } else if(data==Config.ques.yesno&& main == Config.ques.quest) {
+    } else if(data==Config.ques.yesno && main == Config.ques.quest) {
       let fall = {
         id : this.tempid,
         answer : false,
@@ -241,8 +243,10 @@ export class TraindomainComponent implements OnInit {
     this.productdata.result = data;
   }
   save() {
+
     this.traindomainService.save(this.productdata)
     .subscribe((data) => {
+      
       this.router.navigateByUrl('/admin/createflow');
     }, (dataError)=>{
     	this.router.navigateByUrl('/error')
@@ -315,6 +319,7 @@ export class TraindomainComponent implements OnInit {
       } else if(this.currentflow.genre == Config.save.question) {
         if(valid) {
           let next = this.productdata.question.find((data) => {
+
             if(data.answer == valid && this.currentflow.id == data.id && data.input == ans) {
               return data;
             }
@@ -349,8 +354,8 @@ export class TraindomainComponent implements OnInit {
     }
   }
   checkansyesno(ans) { //check yesno type answer
-    let yes = [Config.save.yes];
-    let no = [Config.save.no]
+    let yes = Config.save.yesarr;
+    let no = Config.save.noarr;
     let flag;
     yes.map((data) => {
       if(data == ans) {

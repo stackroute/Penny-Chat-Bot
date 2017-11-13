@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2017-11-13 09:18:05.024] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-13 09:18:23.382] [INFO] chatbot_express_server - Successfull Login
 [2017-11-13 09:18:54.081] [INFO] chatbot_express_server - Mail sent to set password
@@ -100,3 +101,7 @@
 [2017-11-13 14:38:38.295] [INFO] chatbot_express_server - Successfull Login
 [2017-11-13 14:39:12.060] [INFO] chatbot_express_server - Successfull Login
 [2017-11-13 15:10:19.380] [INFO] chatbot_express_server - Successfull Login
+=======
+>>>>>>> d850965c01c373babb9f8be1f6a61886c3179fa8
+[2017-11-13 16:10:14.413] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 16:11:07.188] [INFO] chatbot_express_server - Successfull Login

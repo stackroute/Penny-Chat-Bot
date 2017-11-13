@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class AppHeaderComponent implements OnInit{
 
 config : any;
+	Config:any=Config;
 	initialCharacter : any;
 
 	 constructor(private router : Router) { 
@@ -18,8 +19,8 @@ config : any;
   }
 
 	ngOnInit(){		
-		let data = JSON.parse(localStorage.getItem('Userdata'));
-		this.initialCharacter = data.data.name;
+		let data = JSON.parse(localStorage.getItem(Config.bottomchat.Userdata)).data;
+		this.initialCharacter = data.name;
 	}
 
 	logout(){

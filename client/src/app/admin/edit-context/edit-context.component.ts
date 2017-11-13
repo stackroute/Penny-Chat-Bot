@@ -54,7 +54,7 @@ export class EditContextComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getContext();
+ //   this.getContext();
     this.getcontent();
     this.editContextService.getAllContext().subscribe((ref) => {
       ref.map((context)=> {
@@ -76,6 +76,7 @@ check(){
 
   /*==================get all context==================*/
   getContext(){
+    this.contextDropDown = [];
     this.editContextService.getContext()
     .subscribe((res)=>{
       res.map((data)=>{
@@ -270,6 +271,11 @@ addMoreSynonym(syn){
   addmoreBlogLinks(index){
     this.intentData[index].blogLink.push({name : "Link",value : "",delete:false});
   }
+
+  /*==============================flow set==================================================  */
+  flowpart(data,index) {
+    this.intentData[index].flow = data;
+  }
 /*============================ get all Inent of particular context==========================*/ 
 
   getAllIntent() {
@@ -308,8 +314,6 @@ OnItemDeSelectContext(item:any) {
  }
 //===============method to set the delete flow as false===========//
  undeleteFlow(index) {
-   console.log("delete undo",this.intentData[index].deleteFlow);
-   
    this.intentData[index].deleteFlow = false;
  }
 

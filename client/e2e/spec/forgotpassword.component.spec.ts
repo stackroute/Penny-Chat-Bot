@@ -1,6 +1,6 @@
 import { RouterTestingModule } from '@angular/router/testing';
 import { protractor,browser,element,by } from 'protractor';
-//import {testConfig} from './util.config';
+import {testConfig} from './util.config';
 
 /*
    ===================================ForgotPassword Testing===============================
@@ -9,9 +9,9 @@ import { protractor,browser,element,by } from 'protractor';
    describe('ForgotpasswordService', () => {
 
    	it('forgot password',()=>{
-   		browser.get("http://localhost:49152/#/forgotpassword");
+   		browser.get(testConfig.forgot);
 
-   		element(by.id('email')).sendKeys('aishveengujral@gmail.com');
+   		element(by.id('email')).sendKeys(testConfig.email);
          element(by.id('forgot-btn')).click();
    		
    	})
@@ -19,13 +19,9 @@ import { protractor,browser,element,by } from 'protractor';
 
    	/*======================Error Testing for ForgotPassword=============================*/
    	it('forgot error testing',()=>{
-   		browser.get("http://localhost:49152/#/forgotpassword");
-         element(by.id('email')).sendKeys('aishveengujral@gmail.com');
+   		browser.get(testConfig.forgot);
+         element(by.id('email')).sendKeys(testConfig.email);
          expect(element(by.id('email')).getText()).not.toBeNull();
    		//element(by.id('email')).sendKeys(testConfig.email);
-   
-   		
-
-   		
-   	})
+   		})
    });
