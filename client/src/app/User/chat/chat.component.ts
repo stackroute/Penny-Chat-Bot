@@ -45,14 +45,14 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() { //introduction message to start the chat
     let value;
-    value = JSON.parse(localStorage.getItem("Userdata"));
+    value = JSON.parse(localStorage.getItem(Config.component.localStorage));
     this.scrollToBottom();
    // this.getquestion();
-   this.username = value.data.name;
+   this.username = value.userdata.name;
 
     setTimeout(() =>{
       let temp = {
-        bot : Config.component.startMsg1+value.data.name+Config.component.startMsg2
+        bot : Config.component.startMsg1+value.userdata.name+Config.component.startMsg2
       }
       this.question.push(temp);
     },1000)
@@ -75,7 +75,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
             'warning'
             )
           this.chatService.forceLogout().subscribe((res)=> this.res = res)
-          localStorage.removeItem('Userdata');
+          localStorage.removeItem(Config.component.localStorage);
           this.router.navigateByUrl('/');
         } else {
           if(res.message.length == 0) {
@@ -96,7 +96,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
         this.question[this.question.length -1].link = res.links;
         console.log(this.question);
         res.links.map((data) => {
-
           if(data.Counter) {
             this.followup(data.Counter);
           } else if(data.Video) {
@@ -107,6 +106,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
             this.answ.Link = linkend;
           }
         })
+      }, (dataError)=>{
+         //localStorage.removeItem(Config.component.localStorage);
+        this.router.navigateByUrl('/error'); 
       })
     } 
     else { //if at the time of followup questions
@@ -116,6 +118,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.chatService.nextfollowup(this.maincounter,this.tempfollowquestion,ans)
       .subscribe((res) => {
         this.setfollowup(res);
+      }, (dataError)=>{
+         //localStorage.removeItem(Config.component.localStorage);
+        this.router.navigateByUrl('/error'); 
       })
     }
     this.videoId=[];
@@ -142,7 +147,10 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       if(res.type.length > 0) {
         this.setfollowup(res);
       }
-    })
+    }, (dataError)=>{
+         //localStorage.removeItem(Config.component.localStorage);
+        this.router.navigateByUrl('/error'); 
+      })
   }
 
   setOut(question) {   // giving output to chat
@@ -195,17 +203,26 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.question.push(temp);
     },1000)
       }
+    }, (dataError)=>{
+       //localStorage.removeItem(Config.component.localStorage);
+        this.router.navigateByUrl('/error'); 
     })
   }
   resp:any;
   next(ans:any){
     this.chatService.checklink(this.answ.Link).subscribe((resp)=>{
-      this.resp = resp})
+      this.resp = resp}, (dataError)=>{
+
+        this.router.navigateByUrl('/error'); 
+      })
     //resp contains the unfurled data from server
   }
   unansweredquestion(){ //saving unanswered question
     this.chatService.unansweredquestion(this.answer)
     .subscribe ((ref)=>{
+    }, (dataError)=>{
+       
+        this.router.navigateByUrl('/error'); 
     })
   }
 }

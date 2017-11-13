@@ -1,4 +1,5 @@
 import { Component ,OnInit } from '@angular/core';
+import {Config} from  './app-header.config'
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ export class AppHeaderComponent implements OnInit{
 	initialCharacter : any;
 
 	ngOnInit(){		
-      let data = JSON.parse(localStorage.getItem('Userdata'));
+      let data = JSON.parse(localStorage.getItem(Config.localStorage));
       this.initialCharacter = data.data.name;
 	}
 

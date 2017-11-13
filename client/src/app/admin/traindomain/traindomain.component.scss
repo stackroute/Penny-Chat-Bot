@@ -30,7 +30,6 @@ background-color: #375372;
 div.dropdown-menu.dropdownsubintent {
     position: inherit;
     float: inherit;
-    width: 100px;
    /* top: 100%;
     left: 0;
     z-index: 1000;
@@ -333,4 +332,15 @@ box-shadow: 2px 2px 4px #7e8b92 ;
 }
 p.oblique {
 font-style: oblique;
+}
+
+.questionicon{
+    font-size:20px;
+    float:right;
+}
+a{
+    cursor:pointer;
+}
+i{
+    margin-left:45px;
 }

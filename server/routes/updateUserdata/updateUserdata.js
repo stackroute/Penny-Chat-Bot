@@ -6,11 +6,9 @@ import logger from '../../log4js';
 
 
 export default (app) => {
-	try{// route protected by JWT authentication
-		app.put('/', (req,res) => { 
+	try{																	// route protected by JWT authentication
+		app.put('/', (req,res) => {
 		 // update userdata in mongo
-		
-		console.log('hello', req.body)
 		update.update({
 			email: req.body.data.email,		// match email
 		},

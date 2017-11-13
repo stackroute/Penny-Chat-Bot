@@ -27,6 +27,15 @@ export default {
     classes:"myclass custom-class"
   },
 
+  dependencyDropdownSettings:{
+    singleSelection: true, 
+    text:"Select Dependency",
+    selectAllText:'Select All',
+    unSelectAllText:'UnSelect All',
+    enableSearchFilter: true,
+    classes:"myclass custom-class"
+  },
+
   dropdownSubIntentSettings : {
     singleSelection: true, 
     text:"Select SubIntent",
@@ -73,6 +82,11 @@ export default {
     label:"Add to"
   },
 
+
+    Server:{
+      ServerError:"Error in Server"
+    },
+
   pushSubintent:{
     select:"Select SubIntent"
   },
@@ -83,4 +97,5 @@ export default {
     msg3:"Please add dependent context first",
     msg4:"Please select any Option Domain/Add to Context",
   }
+
 }

@@ -10,7 +10,7 @@ export default {
   },
   flow:'Test Flow',
   ques:{
-    question:'Pending Questions',
+    question:'Add Flow',
     intro:"Introduction",
     quest:"Question",
     conclusion:"Conclusion",
@@ -39,6 +39,8 @@ export default {
     lbl8:'Answer : ',
     lbl9:'Id :',
     lbl10:'Type :',
+    lbl11 : 'Possible Answers : ',
+    lbl12 : 'Next Question :'
   },
   head:{
     heading1:'Context',
@@ -55,7 +57,7 @@ export default {
     del:'Delete'
   },
   instruction:{
-    heading:'INSTRUCTIONS',
+ heading:'INSTRUCTIONS',
     flow:'RULES FOR TEST FLOW',
     ins1:'Add Questions ,Introduction And Conclusion',
     ins2:'You can also select the Answer Type',
@@ -67,9 +69,17 @@ export default {
     q:"Q",
     yesorno:"Yes/No",
     conclusion:"Conclusion",
-    yes:"Yes",
-    no:"No",
+    yes:["yes"],
+    no:["no"],
     question:"Question",
     mcq:"MCQ",
-  }
+  },
+
+Server:{
+
+  Error:"Server Error"
+}
+
+
+
 }

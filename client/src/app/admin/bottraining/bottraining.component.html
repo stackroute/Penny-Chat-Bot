@@ -1,4 +1,4 @@
-<div>
+<!-- <div> -->
   <div class="row">
     <div class="col-md-4">
       <div class="panel panel-primary">
@@ -11,7 +11,7 @@
               <div class="chat-body clearfix">
                 <p *ngFor="let ques of arr">
                   <a (click)="getQues(ques)">{{ques}}</a>
-                  <a class="queDelete"><i (click)=deletePendingQuestions(ques) class="fa fa-times" aria-hidden="true" style="float: right;"></i></a>
+                  <a class="queDelete"><i (click)=deletePendingQuestions(ques) class="fa fa-times pull-right" aria-hidden="true"></i></a>
                 </p>
               </div>
             </li>
@@ -53,7 +53,6 @@
                 <td *ngIf="data.type=='Not Found' ">
                   <a class="fa fa-plus-square pi-draggable btn-block addicon" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
                 </td>
-
                 <td *ngIf="data.type!= 'Not Found'"  class="greentick"> &#x2713;</td>
                 <td><a (click)="remove(i,data)"><i class="fa fa-trash-o icon" aria-hidden="true"></i></a></td>
               </tr>
@@ -72,9 +71,9 @@
         <div class="card-header">
          <div class=row>
            <div class="col-md-8">
-             <span>{{Config.bottraining.AddModify}}</span>
+             <span class="secondtext">{{Config.bottraining.AddModify}}</span>
            </div>
-           <div class="col-md-4">
+           <div class="col-md-4 headingcircle">
             <i class="fa fa-circle int" aria-hidden="true"></i>{{Config.bottraining.Intent}}
             <i class="fa fa-circle subint" aria-hidden="true"></i>{{Config.bottraining.SubIntent}}
           </div>
@@ -91,7 +90,7 @@
             (onDeSelectAll)="onDeSelectAllIntent($event)"></angular2-multiselect>
           </div>
           <div class = "col-md-3" *ngIf = "intentname">
-            <button type="button" class="btn btn-primary add deleteIntentbtn"  (click)="deleteIntent(intentname)">Delete {{intentname.label}}</button>
+            <button type="button" class="btn btn-primary add deleteIntentbtn" (click)="deleteIntent(intentname)">Delete {{intentname.label}}</button>
           </div>
         </div>
         <div class="existing " *ngIf="correspondSynonym.length>0">
@@ -99,7 +98,7 @@
           <span class="disp" *ngFor="let intent of correspondSynonym">
             <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
               <!-- <a class="cross"> -->{{intent}}<!-- </a> -->
-              <a><i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
+              <a><i class="fa fa-times cross" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
        
               <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">{{intent}}
                 <a>
@@ -110,7 +109,7 @@
                   <input class="form-control addsynonyminput" name="name" placeholder="Add Synonyms" [(ngModel)]="adminSynonym" (keyup.enter)="addAdminSynonym()">
                 </div>
                 <div class="col-md-4">
-                  <button type="button" class="btn btn-primary add"  (click)="addAdminSynonym()"
+                  <button type="button" class="btn btn-primary add addSynonym"  (click)="addAdminSynonym()"
                   >{{Config.bottraining.AddSyn}}</button>
                 </div>
               </div>  
@@ -118,7 +117,7 @@
             <div class="addIntent">
              <button type="button" (click)="add.show()" class="btn btn-primary add addintentbtn" (click)="ifselected('Intent')" 
              >{{Config.bottraining.AddInt}}</button>
-             <button type="button" (click)="add.show()" class="btn btn-primary add" (click)="ifselected('SubIntent')" 
+             <button type="button" (click)="add.show()" class="btn btn-primary add addintentbtn" (click)="ifselected('SubIntent')" 
              >{{Config.bottraining.AddSubint}}</button> 
            </div>
          </div>
@@ -189,9 +188,7 @@
                     </button>
                   </tab>
                   <tab heading="Context" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
-
                    {{Config.bottraining.Add}} {{val}} {{Config.bottraining.SameAs}}
-
                    <div class="existing " >
                     <angular2-multiselect [data]="contextName" 
                     [(ngModel)]="selectedItemsContext" 
@@ -230,7 +227,6 @@
               <tab heading={{value}} ng-reflect-heading="Home" class="tab-pane" id="Intent">
                 <form role="form" #addval="ngForm">
                   <div class="form-group">
-
                     <label for="exampleInputPassword1">{{Config.bottraining.Value}}</label>
                     <input type="text" class="form-control" id="meaning" name = "meaning"placeholder="Meaning" [(ngModel)]="addintent">
                   </div>
@@ -245,17 +241,16 @@
                 <div>
                   <button type="button" class="btn btn-primary" (click)="add.hide()">{{Config.bottraining.Close}}</button>
                   <button type="button" class="btn btn-primary" [disabled]="!addval.form.valid" (click)="addIntent()"><span >{{Config.bottraining.Add}} {{value}}</span></button>
-
                 </div>
               </tab>
               <tab heading="Synonym" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
                 <div class="home-container">
                   <div>
-                    <h5>{{Config.bottraining.AddSyno}} {{addintent}}</h5>
+                    <h5><b>{{Config.bottraining.AddSyno}}</b> {{addintent}}</h5>
                     <input type="text" class="form-control" id="synonym" name = "synonym" placeholder="Enter Synonyms" [(ngModel)]="temp" (keyup)="suggest()" (keyup.enter)="select(temp)">
                   </div>
                   <div class="existing">
-                    <h5>{{Config.bottraining.AddedSyn}}</h5>
+                    <h5><b>{{Config.bottraining.AddedSyn}}</b></h5>
                     <a class="btn badgebtn" *ngFor="let data1 of main"> 
                       <span class="badge badge-pill text-white">
                         {{data1}}
@@ -263,7 +258,7 @@
                     </a>
                   </div>
                   <div class="existing">
-                    <h5>{{Config.bottraining.Synonyms}}</h5>
+                    <h5><b>{{Config.bottraining.Synonyms}}</b></h5>
                     <a class="btn suggestsynonym" *ngFor="let data of synres"> 
                     <span class="badge badge-pill text-white " (click)="select(data)">               
                       {{data}}

@@ -11,12 +11,13 @@ import  Config from './traindomain_en_config';
   providers:[TraindomainService]
 })
 export class TraindomainComponent implements OnInit {
- value:any;
- Config:any=Config;
- productdata:any = {question : []};
- type:any[];
- ansType:any[] = [];
- testflagon:boolean = false;
+  value:any;
+  Config:any=Config;
+  productdata:any = {question : []};
+  type:any[];
+  ansType:any[] = [];
+  testflagon:boolean = false;
+  helpFlag:number = 0;
 
   constructor(private traindomainService:TraindomainService, private routeparams:ActivatedRoute, private router:Router) { }
   op:any;
@@ -36,19 +37,30 @@ export class TraindomainComponent implements OnInit {
       }
     })
   }
+  //======OnClick Instructions=======//
+  instructions(){
+    this.helpFlag = 1;
+  }
+  //=====removing Instructions==========//
+  instructionsClose(){
+    this.helpFlag = 0;
+  }
+
   editdata(name) { //edit data
-    console.log("ISHAN",name);
+
     this.traindomainService.getdata(name).subscribe((res) => {
 
       this.productdata = res;
-      console.log("ISHANSIHSIHSISHISHSIH",this.productdata);
+
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error')
+
     })
   }
   tempid:any=0;
   tempdata:any = {};
   tempvalue:any;
   getDetail(data) {
-    console.log(data);
     this.tempvalue = data;
 
     if (data==Config.ques.intro) {
@@ -62,23 +74,23 @@ export class TraindomainComponent implements OnInit {
       this.tempdata = {genre : Config.ques.conclusion, id : this.tempid, type :Config.ques.type1};
     }
   }
-tempflow:any[] = [];
-nextquestion:any;  
-answerarr:any[] = [];
-questionarr:any[] = [];
-setId() {
-  let m = 0;
-  this.productdata.question.map((data) => {
-    if(data.genre == Config.ques.quest || data.genre == Config.ques.intro || data.genre == Config.ques.conclusion) {
-      m++;
-    }
-  })
-  return ++m;
-}
-answerflow:any[] = [];
-setnext(data) {
-  this.nextquestion = data;
-  this.productdata.question.map((data)=> {
+  tempflow:any[] = [];
+  nextquestion:any;  
+  answerarr:any[] = [];
+  questionarr:any[] = [];
+  setId() {
+    let m = 0;
+    this.productdata.question.map((data) => {
+      if(data.genre == Config.ques.quest || data.genre == Config.ques.intro || data.genre == Config.ques.conclusion) {
+        m++;
+      }
+    })
+    return ++m;
+  }
+  answerflow:any[] = [];
+  setnext(data) {
+    this.nextquestion = data;
+    this.productdata.question.map((data)=> {
       if(data.genre == Config.ques.quest || data.genre == Config.ques.conclusion) {
         this.questionarr.push(data);
       }
@@ -102,34 +114,32 @@ setnext(data) {
       input : input,
       next : parseInt(next)
     }
-    //console.log("sameplae",sample);
     this.answerflow.push(sample);
     if(input == Config.ques.remain) {
       this.answerarr = [];
     } else  {
       let index = this.answerarr.indexOf(parseInt(input));
-      console.log(input,this.answerarr);
       if(index > -1) {
         this.answerarr.splice(index,1);
       }  
     }
     this.input = "",
     this.next = "";
- }
-arrangeAnswer() {  //arrage answers
-  this.testflagon = true;
-  if(this.answerflow.length > 0) {
-    if(this.nextquestion.genre == Config.ques.intro) {
-      for(let i=0;i<this.productdata.question.length;i++) {
-        if(this.productdata.question[i].id == this.nextquestion.id && this.productdata.question[i].type != Config.ques.type1) {
-          this.answerflow.map((data) => {
-            if(data.input == Config.ques.yes && this.productdata.question[i].answer == Config.ques.ayes) {
-              this.productdata.question[i].next = data.next;
-            } else if(data.input == Config.ques.no && this.productdata.question[i].answer == Config.ques.ano) {
-               this.productdata.question[i].next = data.next;
-            }
-          })
-        }
+  }
+  arrangeAnswer() {  //arrage answers
+    this.testflagon = true;
+    if(this.answerflow.length > 0) {
+      if(this.nextquestion.genre == Config.ques.intro) {
+        for(let i=0;i<this.productdata.question.length;i++) {
+          if(this.productdata.question[i].id == this.nextquestion.id && this.productdata.question[i].type != Config.ques.type1) {
+            this.answerflow.map((data) => {
+              if(data.input == Config.ques.yes && this.productdata.question[i].answer == Config.ques.ayes) {
+                this.productdata.question[i].next = data.next;
+              } else if(data.input == Config.ques.no && this.productdata.question[i].answer == Config.ques.ano) {
+                this.productdata.question[i].next = data.next;
+              }
+            })
+          }
         }
       } else {
         this.answerflow.map((data) => {
@@ -142,10 +152,8 @@ arrangeAnswer() {  //arrage answers
               next : data.next
             }
             this.productdata.question.push(sample);
-            console.log(this.productdata)
           }
         })
-        console.log(this.productdata.question);
       }
     }
     this.questionarr = [];
@@ -153,11 +161,15 @@ arrangeAnswer() {  //arrage answers
     this.answerflow= [];
   }
 
+
+
+
   setInput(ans) {
     this.input = ans;
   }
 
-   setNextpart(ans) {
+
+  setNextpart(ans) {
     this.next = ans;
   }
 
@@ -174,7 +186,6 @@ arrangeAnswer() {  //arrage answers
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
-      console.log(this.tempflow);
     } else if(data==Config.ques.yesno&& main == Config.ques.quest) {
       let fall = {
         id : this.tempid,
@@ -205,7 +216,6 @@ arrangeAnswer() {  //arrage answers
       }
       this.tempflow.push(yes);
       this.tempflow.push(no);
-      console.log(this.tempflow);
     }
   }
 
@@ -230,7 +240,6 @@ arrangeAnswer() {  //arrage answers
     this.tempdata = {};
     this.tempflow = [];
     this.tempvalue = "";
-    //console.log(this.productdata.question);
   }
   result(data) {
     this.productdata.result = data;
@@ -241,6 +250,8 @@ arrangeAnswer() {  //arrage answers
     .subscribe((data) => {
       
       this.router.navigateByUrl('/admin/createflow');
+    }, (dataError)=>{
+    	this.router.navigateByUrl('/error')
     })
   }
   testflag:boolean = false;
@@ -256,7 +267,6 @@ arrangeAnswer() {  //arrage answers
   testanswertype:any;
   currentflow:any;
   chatadd(data,ans) {
-    console.log(this.productdata);
     this.currentflow = data;
     this.testanswertype = data.answertype
     if(this.currentflow.result) {
@@ -299,7 +309,6 @@ arrangeAnswer() {  //arrage answers
               return data;
             }
           })
-          console.log(next);
           this.chatadd(next,ans);
         } else {
           let next = this.productdata.question.find((data) => {
@@ -346,8 +355,8 @@ arrangeAnswer() {  //arrage answers
     }
   }
   checkansyesno(ans) { //check yesno type answer
-    let yes = [Config.save.yes];
-    let no = [Config.save.no]
+    let yes = Config.save.yes;
+    let no = Config.save.no;
     let flag;
     yes.map((data) => {
       if(data == ans) {

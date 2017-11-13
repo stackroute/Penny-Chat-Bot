@@ -8,7 +8,6 @@ export default (req,res)=>{
   try{
     //find username
     data.find({"email" : req.params.email}, (err,data1) => {
-
       if(err){
         res.json({message :staticConfig.errorMessage,status:false})
       }
@@ -16,7 +15,6 @@ export default (req,res)=>{
         res.json({message : staticConfig.reset_password.UserNotFindMessage,status:false})
       }
       else {
-
         comparePassword(req.body.oldpassword, data1[0].password, (err, isMatch)=>{
           if(isMatch) {
             let password = req.body.newpassword;

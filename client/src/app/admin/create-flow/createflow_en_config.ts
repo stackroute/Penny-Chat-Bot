@@ -6,5 +6,8 @@ export const Config = {
         'Edit' : 'Edit',
         'new' : 'new',
         'edit' : 'edit'
+    },
+    Server:{
+    	Error:"Server Error"
     }
 }

@@ -1,6 +1,6 @@
 export const Config = {
     bottraining : {
-        'PendingQuestions': 'Pending Questions',
+        'PendingQuestions': 'UnAnswered Questions',
         'Send' : 'Send',
         'Word' : 'Word',
         'Type' : 'Type',
@@ -37,5 +37,7 @@ export const Config = {
         'alreadyexist' : 'Already existing prority',
         'deleted':"Successfully Deleted",
         'Question':'Question',
+        'localStorage':'Userdata',
+        'Server':'Server Error'
     }
 }

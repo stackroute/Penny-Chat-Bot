@@ -1,6 +1,6 @@
 <div class="card-body">
   <div class = "col-md-9 contextDropDownbtn">
-    <angular2-multiselect [data]="contextDropDown" [(ngModel)]="selectedItemsContext" 
+    <angular2-multiselect (click)="getContext()" [data]="contextDropDown" [(ngModel)]="selectedItemsContext" 
     [settings]="dropdownSettingsContext" 
     (onSelect)="onItemSelectContext($event)" 
     (onDeSelect)="OnItemDeSelectContext($event)"
@@ -58,12 +58,7 @@
                     name="test">
                   </tag-input><br>
                   <button class='btn btn-primary' (click)="addMoreSynonym(addSynonym)">{{Config.html.AddSynonyms}}</button>
-                  <button type="button" class="btn btn-md btn-primary dropdown-toggle" *ngIf = "setDomain" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                    {{selectedContext.name}} ({{selectedContext.label}})
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" *ngFor="let context of contexts;let i=index" (click)="setContext(context)">{{context.name}} ({{context.label}})</a>
-                  </div>
+                  
                 </form>
               </tab>
               <tab heading="Edit Content" ng-reflect-heading="Profile">
@@ -167,7 +162,7 @@
 </tabset>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary add" ><span (click)="updateContext()">{{Config.html.EditContext}}</span></button>
+  <button type="button" class="btn btn-primary add" ><span (click)="updateContext();myModal.hide()">{{Config.html.EditContext}}</span></button>
 </div>
 </div> 
 </div>
