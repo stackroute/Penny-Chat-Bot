@@ -221,4 +221,10 @@ a {
    padding: 12px;
 
  }
- 
+ @media (min-width: 320px) and (max-width: 736px) {
+
+.btn.btn-primary[_ngcontent-c8] {
+    font-size: 15px;
+    margin-left: 5%;
+}
+}

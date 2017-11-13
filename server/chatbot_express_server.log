@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2017-11-13 09:18:05.024] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-13 09:18:23.382] [INFO] chatbot_express_server - Successfull Login
 [2017-11-13 09:18:54.081] [INFO] chatbot_express_server - Mail sent to set password
@@ -85,3 +86,5 @@
 [2017-11-13 09:37:09.395] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
 [2017-11-13 10:39:06.219] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-13 10:49:56.376] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+=======
+>>>>>>> c160d961925eef1f7816829a7ee024e799a771aa
