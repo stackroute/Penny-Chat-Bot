@@ -1,0 +1,12 @@
+[2017-11-13 08:57:33.322] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 08:58:58.198] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 08:59:51.268] [INFO] chatbot_express_server - Success
+[2017-11-13 08:59:51.274] [INFO] chatbot_express_server - Success
+[2017-11-13 08:59:51.667] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 08:59:51.700] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 08:59:51.723] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 08:59:51.747] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 08:59:51.783] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 08:59:51.816] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 08:59:55.548] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-13 09:01:19.980] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
