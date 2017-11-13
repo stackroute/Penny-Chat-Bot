@@ -119,6 +119,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.chatService.nextfollowup(this.maincounter,this.tempfollowquestion,ans)
       .subscribe((res) => {
         this.setfollowup(res);
+      }, (dataError)=>{
+         //localStorage.removeItem(Config.component.localStorage);
+        this.router.navigateByUrl('/error'); 
       })
     }
     this.videoId=[];
@@ -145,7 +148,10 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       if(res.type.length > 0) {
         this.setfollowup(res);
       }
-    })
+    }, (dataError)=>{
+         //localStorage.removeItem(Config.component.localStorage);
+        this.router.navigateByUrl('/error'); 
+      })
   }
 
   setOut(question) {   // giving output to chat

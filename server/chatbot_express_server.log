@@ -142,3 +142,150 @@
 [2017-11-12 15:56:27.827] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-12 16:12:00.024] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
 [2017-11-12 16:12:15.025] [INFO] chatbot_express_server - data found
+[2017-11-12 16:23:59.313] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 16:24:42.563] [INFO] chatbot_express_server - Not Found
+[2017-11-12 16:24:42.572] [INFO] chatbot_express_server - Not Found
+[2017-11-12 16:24:42.604] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-12 16:24:42.647] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:24:42.682] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-12 16:24:42.720] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:24:42.788] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:24:42.851] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:25:00.401] [INFO] chatbot_express_server - Data found in unanswerques's deletependingques
+[2017-11-12 16:25:06.797] [INFO] chatbot_express_server - Data found in unanswerques's deletependingques
+[2017-11-12 16:25:21.014] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-12 16:25:29.977] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-12 16:25:46.568] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:25:47.019] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:25:47.892] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:26:00.019] [INFO] chatbot_express_server - Successfully added in trainIntent's train_intent
+[2017-11-12 16:26:00.123] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-12 16:26:05.113] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:05.149] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:05.776] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:07.116] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:07.147] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:07.366] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:07.648] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:07.764] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:08.116] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:08.468] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:08.566] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:08.795] [INFO] chatbot_express_server - Synonym Found
+[2017-11-12 16:26:10.494] [INFO] chatbot_express_server - Relationship Created in trainIntent's addSynonym
+[2017-11-12 16:26:29.881] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-12 16:26:32.265] [INFO] chatbot_express_server - Successfully Deleted in trainIntent's deleteintent
+[2017-11-12 16:26:32.315] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-12 16:26:44.836] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:26:46.274] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:26:47.351] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:26:48.727] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:26:50.323] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-12 16:26:50.334] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-12 16:26:53.306] [INFO] chatbot_express_server - Success editDeleteSynonym
+[2017-11-12 16:26:53.519] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-12 16:27:05.006] [INFO] chatbot_express_server - Success editAddSynonym
+[2017-11-12 16:27:05.078] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-12 16:27:11.138] [INFO] chatbot_express_server - Success editDeleteSynonym
+[2017-11-12 16:27:11.218] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-12 16:27:17.333] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-12 16:27:17.337] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-12 16:27:35.347] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-12 16:27:35.355] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-12 16:27:47.535] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-12 16:27:47.566] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:29:25.384] [INFO] chatbot_express_server - Error in trainContext's addcontextsyn
+[2017-11-12 16:29:31.639] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:29:31.648] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-12 16:29:34.441] [INFO] chatbot_express_server - Error in trainContext's addcontextsyn
+[2017-11-12 16:31:25.258] [INFO] chatbot_express_server - Error in trainContext's addcontextsyn
+[2017-11-12 16:31:34.450] [INFO] chatbot_express_server - Error in trainContext's addcontextsyn
+[2017-11-12 16:31:43.818] [INFO] chatbot_express_server - Not Found
+[2017-11-12 16:31:43.834] [INFO] chatbot_express_server - Not Found
+[2017-11-12 16:31:43.847] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-12 16:31:43.867] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:31:43.902] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-12 16:31:43.938] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:31:43.986] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:31:44.040] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:31:48.236] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:31:54.108] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:31:55.249] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:32:00.066] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-12 16:32:03.852] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-12 16:32:03.867] [INFO] chatbot_express_server - Success getContextInfo
+[2017-11-12 16:33:05.272] [INFO] chatbot_express_server - data found
+[2017-11-12 16:33:06.129] [INFO] chatbot_express_server - How can I help you with 
+[2017-11-12 16:33:16.765] [INFO] chatbot_express_server - data found
+[2017-11-12 16:33:17.698] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 16:33:58.461] [INFO] chatbot_express_server - data found
+[2017-11-12 16:34:13.167] [INFO] chatbot_express_server - data found
+[2017-11-12 16:37:28.977] [INFO] chatbot_express_server - data found
+[2017-11-13 09:29:51.501] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 09:31:56.169] [INFO] chatbot_express_server - Error in Sending Mail.
+[2017-11-13 09:32:29.716] [INFO] chatbot_express_server - verified
+[2017-11-13 09:32:46.742] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 09:37:01.915] [INFO] chatbot_express_server - Not Found
+[2017-11-13 09:38:05.359] [INFO] chatbot_express_server - Not Found
+[2017-11-13 09:38:05.372] [INFO] chatbot_express_server - Not Found
+[2017-11-13 09:38:05.951] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:38:06.023] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:38:06.117] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:38:06.221] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:38:06.306] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:38:06.378] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:47:08.538] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 09:47:10.234] [INFO] chatbot_express_server - verified
+[2017-11-13 09:47:10.249] [INFO] chatbot_express_server - Data not found in /verify_user route
+[2017-11-13 09:47:10.269] [INFO] chatbot_express_server - Error in updating status to set password
+[2017-11-13 09:47:10.272] [INFO] chatbot_express_server - Verifications are undefined in /warning_page route
+[2017-11-13 09:47:10.276] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-13 09:47:10.278] [INFO] chatbot_express_server - verified
+[2017-11-13 09:47:10.281] [INFO] chatbot_express_server - Data Undefined in database
+[2017-11-13 09:47:10.291] [INFO] chatbot_express_server - reset badCount
+[2017-11-13 09:47:10.293] [INFO] chatbot_express_server - error occured in forcelogout
+[2017-11-13 09:47:10.296] [INFO] chatbot_express_server - data found
+[2017-11-13 09:47:10.299] [INFO] chatbot_express_server - data is null
+[2017-11-13 09:47:10.302] [INFO] chatbot_express_server - data found
+[2017-11-13 09:47:10.304] [INFO] chatbot_express_server - data found
+[2017-11-13 09:47:10.313] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-13 09:47:10.315] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-13 09:47:10.321] [INFO] chatbot_express_server - Data Undefined
+[2017-11-13 09:47:10.323] [INFO] chatbot_express_server - Success
+[2017-11-13 09:47:10.326] [INFO] chatbot_express_server - Not Found
+[2017-11-13 09:47:10.329] [INFO] chatbot_express_server - Data Found
+[2017-11-13 09:47:10.331] [INFO] chatbot_express_server - Data Undefined
+[2017-11-13 09:47:10.339] [INFO] chatbot_express_server - Success
+[2017-11-13 09:47:10.342] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-13 09:47:10.345] [INFO] chatbot_express_server - { message: undefined }
+[2017-11-13 09:51:11.849] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 09:52:00.184] [INFO] chatbot_express_server - Not Found
+[2017-11-13 09:52:00.212] [INFO] chatbot_express_server - Not Found
+[2017-11-13 09:52:00.254] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:52:00.286] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:52:00.344] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:52:00.386] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:52:00.434] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:52:00.493] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:11:02.443] [INFO] chatbot_express_server - Not Found
+[2017-11-13 10:11:02.490] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:11:02.499] [INFO] chatbot_express_server - Not Found
+[2017-11-13 10:11:02.520] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 10:11:02.572] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 10:11:02.577] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:11:02.655] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:11:02.716] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:11:18.876] [INFO] chatbot_express_server - Not Found
+[2017-11-13 10:11:18.909] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 10:11:18.936] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:11:18.948] [INFO] chatbot_express_server - Not Found
+[2017-11-13 10:11:19.006] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:11:19.013] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 10:11:19.060] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:11:19.111] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:23:11.567] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 10:24:15.193] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 10:32:07.863] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 10:32:22.501] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-13 10:32:36.587] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 10:33:18.234] [INFO] chatbot_express_server - Successfull Login
