@@ -54,3 +54,56 @@
 [2017-11-13 11:06:55.475] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
 [2017-11-13 11:06:58.232] [INFO] chatbot_express_server - Success getContextInfo
 [2017-11-13 11:06:58.234] [INFO] chatbot_express_server - Success getIntentContext
+[2017-11-13 14:15:09.771] [INFO] chatbot_express_server - Success
+[2017-11-13 14:15:09.822] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 14:15:09.825] [INFO] chatbot_express_server - Success
+[2017-11-13 14:15:09.849] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 14:15:09.911] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 14:15:09.914] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 14:15:09.982] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 14:16:42.902] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 14:17:35.195] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 14:17:43.410] [INFO] chatbot_express_server - data found
+[2017-11-13 14:17:51.882] [INFO] chatbot_express_server - data found
+[2017-11-13 14:18:20.219] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 14:18:46.562] [INFO] chatbot_express_server - data found
+[2017-11-13 14:18:53.903] [INFO] chatbot_express_server - data found
+[2017-11-13 14:19:00.885] [INFO] chatbot_express_server - data found
+[2017-11-13 14:19:06.083] [INFO] chatbot_express_server - data found
+[2017-11-13 14:19:10.271] [INFO] chatbot_express_server - data found
+[2017-11-13 14:19:13.831] [INFO] chatbot_express_server - data found
+[2017-11-13 14:19:17.387] [INFO] chatbot_express_server - data found
+[2017-11-13 14:19:21.616] [INFO] chatbot_express_server - data found
+[2017-11-13 14:19:38.777] [INFO] chatbot_express_server - data found
+[2017-11-13 14:19:43.839] [INFO] chatbot_express_server - data found
+[2017-11-13 14:21:52.320] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 14:22:03.113] [INFO] chatbot_express_server - Success
+[2017-11-13 14:38:42.401] [INFO] chatbot_express_server - Success
+[2017-11-13 14:38:43.892] [INFO] chatbot_express_server - Success
+[2017-11-13 14:52:33.227] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 14:52:47.972] [INFO] chatbot_express_server - Success
+[2017-11-13 14:52:50.799] [INFO] chatbot_express_server - Success
+[2017-11-13 14:53:33.234] [INFO] chatbot_express_server - Success
+[2017-11-13 14:54:11.814] [INFO] chatbot_express_server - Success
+[2017-11-13 14:55:51.173] [INFO] chatbot_express_server - Success
+[2017-11-13 14:56:24.458] [INFO] chatbot_express_server - Success
+[2017-11-13 14:57:07.671] [INFO] chatbot_express_server - Success
+[2017-11-13 14:57:16.824] [INFO] chatbot_express_server - Success
+[2017-11-13 14:57:58.237] [INFO] chatbot_express_server - Success
+[2017-11-13 14:58:43.699] [INFO] chatbot_express_server - Success
+[2017-11-13 14:58:49.378] [INFO] chatbot_express_server - Success
+[2017-11-13 14:59:43.603] [INFO] chatbot_express_server - Success
+[2017-11-13 14:59:58.443] [INFO] chatbot_express_server - Success
+[2017-11-13 15:00:54.677] [INFO] chatbot_express_server - Success
+[2017-11-13 15:01:01.775] [INFO] chatbot_express_server - Success
+[2017-11-13 15:03:11.475] [INFO] chatbot_express_server - Success
+[2017-11-13 15:03:22.708] [INFO] chatbot_express_server - Success
+[2017-11-13 15:03:34.516] [INFO] chatbot_express_server - Success
+[2017-11-13 15:04:22.157] [INFO] chatbot_express_server - Success
+[2017-11-13 15:04:24.987] [INFO] chatbot_express_server - Success
+[2017-11-13 15:05:47.942] [INFO] chatbot_express_server - Success
+[2017-11-13 15:09:30.353] [INFO] chatbot_express_server - Success
+[2017-11-13 15:09:35.529] [INFO] chatbot_express_server - Success
+[2017-11-13 15:10:11.724] [INFO] chatbot_express_server - Success
+[2017-11-13 15:10:19.708] [INFO] chatbot_express_server - Success
+[2017-11-13 15:10:27.534] [INFO] chatbot_express_server - Success
