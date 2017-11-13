@@ -62,12 +62,18 @@ export class EditContextComponent implements OnInit {
           this.contexts.push({name : context._fields[0].properties.name, label : context._fields[0].labels[0]});
         }
       })
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error')
     })
     /*=============Dropdown settings==============*/
     this.dropdownSettings = Config.dropdownSettings;
     this.dropdownSettingsContext = Config.dropdownSettingsContext;
   }
   
+check(){
+  console.log('hdghkdf')
+}
+
   /*==================get all context==================*/
   getContext(){
     this.editContextService.getContext()
@@ -81,6 +87,8 @@ export class EditContextComponent implements OnInit {
         })
       })
       this.res=res;
+    } , (dataError)=>{
+      this.router.navigateByUrl('/error')
     })
   }
 
@@ -98,6 +106,8 @@ export class EditContextComponent implements OnInit {
         Config.swal.msgdeleteContext2,
         'success'
         )
+    },  (dataError)=>{
+      this.router.navigateByUrl('/error')
     }) 
   }
 
@@ -128,6 +138,8 @@ export class EditContextComponent implements OnInit {
           }
         })
       })
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error')
     })  
   }
 
@@ -177,6 +189,7 @@ export class EditContextComponent implements OnInit {
         flow : this.flow,
         deleteFlow : false
       }
+
       if(this.intentData.length == 0) {
        this.intentData.push(intent);
          intent = undefined;
@@ -189,7 +202,9 @@ export class EditContextComponent implements OnInit {
          }
         })
        }
-    })
+
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error')})
   }
 
 /*======================update seleted context========================*/
@@ -201,6 +216,8 @@ export class EditContextComponent implements OnInit {
       Config.swal.msgUpdateContext,
       'success'
       );
+    } , (dataError)=>{
+      this.router.navigateByUrl('/error')
     })
   }
 
@@ -214,7 +231,9 @@ addMoreSynonym(syn){
       'success'
       );
     this.getContextSynonym();
-  })
+  }, (dataError)=>{
+      this.router.navigateByUrl('/error')
+    })
 }
 
 /*======================delete synonyms for seleted context========================*/
@@ -227,6 +246,8 @@ addMoreSynonym(syn){
       'success'
       );
       this.getContextSynonym();
+    }, (dataError)=>{
+      this.router.navigateByUrl('/error')
     })
   }
 
@@ -256,7 +277,9 @@ addMoreSynonym(syn){
      ref.map((intent)=> {        
          this.intents.push({id:this.intents.length+1,itemName : intent.properties.name,name : intent.properties.name, value : "", videoLink : [], blogLink : []});
      })
-   })
+   }, (dataError)=>{
+      this.router.navigateByUrl('/error')
+    })
  }
 
  /*================ method call when context is deselected from multi dropdown ==============*/
@@ -273,7 +296,9 @@ OnItemDeSelectContext(item:any) {
      this.item.map((data) => {
        this.flowitem.push(data.task);
      })
-   })
+   }, (dataError)=>{
+      this.router.navigateByUrl('/error')
+    })
  }
 //==================method to delete existing flow=============//
  deleteFlow(index) {

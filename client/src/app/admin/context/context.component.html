@@ -12,7 +12,7 @@
 
 
  <div class="col-md-3 ">
-  <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show();getIntent()" draggable="true">{{Config.html.AddNewContext}}</a>
+  <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show();getIntent();getAllContext()" draggable="true">{{Config.html.AddNewContext}}</a>
 </div><br>
 </div>
 
@@ -60,12 +60,26 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;{{Config.html.IndependentDomain}}
                 </label>
               </div>
-              <button type="button" class="btn btn-md btn-primary dropdown-toggle" *ngIf = "setDomain" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              <!-- <button type="button" class="btn btn-md btn-primary dropdown-toggle" *ngIf = "setDomain" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                 {{selectedContext.name}} ({{selectedContext.label}})
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" *ngFor="let context of contexts;let i=index " (click)="setContext(context)">{{context.name}} ({{context.label}})</a>
-              </div>
+              </div> -->
+
+
+<div *ngIf = "setDomain" >
+  <angular2-multiselect name="dropdown"  [data]="contexts" [(ngModel)]="selectContext"
+              [settings]="dependencyDropdownSettings" 
+              (onSelect)="onDependencyItemSelect($event)" 
+              (onDeSelect)="OnDependencyItemDeSelect($event)">
+              </angular2-multiselect>
+
+</div>
+
+
+
+
             </form>
           </tab>
           <!-- ==================Tab to add information for intents================== -->

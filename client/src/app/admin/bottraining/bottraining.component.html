@@ -71,9 +71,9 @@
         <div class="card-header">
          <div class=row>
            <div class="col-md-8">
-             <span>{{Config.bottraining.AddModify}}</span>
+             <span class="secondtext">{{Config.bottraining.AddModify}}</span>
            </div>
-           <div class="col-md-4">
+           <div class="col-md-4 headingcircle">
             <i class="fa fa-circle int" aria-hidden="true"></i>{{Config.bottraining.Intent}}
             <i class="fa fa-circle subint" aria-hidden="true"></i>{{Config.bottraining.SubIntent}}
           </div>
@@ -98,7 +98,7 @@
           <span class="disp" *ngFor="let intent of correspondSynonym">
             <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
               <!-- <a class="cross"> -->{{intent}}<!-- </a> -->
-              <a><i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
+              <a><i class="fa fa-times cross" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
        
               <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">{{intent}}
                 <a>

@@ -12,7 +12,6 @@ export class EditprofileService {
 	constructor( private http : Http ) { }
 
 	submit(userData : any) {  // goto server to hit the request
-		console.log('hey you ', userData)
 		let url = config.ip+urlConfig.updateUserdataUrl;
 		//const tokenJWT = JSON.parse(localStorage.getItem('Userdata')).token;
 		//let headers = new Headers({'Authorization' : tokenJWT});

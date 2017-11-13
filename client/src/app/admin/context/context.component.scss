@@ -1,6 +1,6 @@
 .btn {
 line-height:0.5;
-padding: 12px 12px;
+padding: 14px 14px;
 }
 .btn.btn-block {
 width:50%;
@@ -209,7 +209,7 @@ border-color: #375372;
 }
 
 .btn.btn-md.btn-primary.dropdown-toggle{
-font-size:12px;
+    font-size: 14px;
 border-color: #375372;
 }
 
@@ -276,3 +276,8 @@ padding: 5px\9;
 } 
 }
 
+ @media (min-width: 320px) and (max-width: 736px) {
+.btn.btn-primary[_ngcontent-c7] {
+    margin-left: 4%;
+}
+}

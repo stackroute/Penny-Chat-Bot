@@ -9,11 +9,8 @@ export const Config = {
 		'Userdata' : 'Userdata',
 		'key' : 'key',
 		'isLoggedin' : 'isLoggedin',
-
-
     'fafapencil':'fa fa-pencil',
     'Editprofile':'Edit profile',
-
 		placements : [
   {
     value: 'br',

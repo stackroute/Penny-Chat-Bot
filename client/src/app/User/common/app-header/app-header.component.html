@@ -2,18 +2,27 @@
 <div class="container-fluid">
   <div class="row  navbar-light">
     <div class="col-md-6">
-     <a >
-       <h3>Penny</h3>
-      <!--  icon of penny chatbot -->
-      <!-- <img src = "../../../../../assets/img/logonames.png"> -->
-    </a>
-  </div>
-  <div class="col-md-6">
+
+     <a class="logo">Penny</a>
+     <a [routerLink]="['/user/chat']" class="links">Chat With Us</a>
+     <a [routerLink]="['/user/editprofile']" class="links">Edit Profile</a>
+
+
+     <!--  icon of penny chatbot -->
+     <!-- <img src = "../../../../../assets/img/logonames.png"> -->
+
+
+     
+
+   </div>
+   <div class="col-md-6">
+
     <!-- name of user -->
     <p class="pull-right" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
-      Welcome {{initialCharacter}}!!
-    </p>
-  </div>
+     <a class="logoutlinks" (click)="logout()" >Logout</a>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Welcome {{initialCharacter}}!!
+   </p>
+ </div>
 </div>
 </div>
 <!-- end of header component -->

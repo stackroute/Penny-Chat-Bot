@@ -24,6 +24,7 @@ let registerFindOne = sinon.stub(register_model,'findOne');
 let url=supertest(app);
 let addtaskUpdate = sinon.stub(add_taskmodel, 'update');
 let flowschemafind = sinon.stub(flow_schema, 'find');
+let flowschemafindOne = sinon.stub(flow_schema, 'findOne');
 let flowschemainsert = sinon.stub(flow_schema,'insertMany');
 let jwtToken;
 
@@ -784,27 +785,26 @@ it("Response check for questionType 0" , (done) => {
 });
 /*=================================End Positive nextFollowup========================================*/
 
-// /*=======Positive test case for followup getdata============*/
-// describe('followUp getData data processed here',() => {
-//   before(() => {
-//     flowschemafind.yields(null, [testconfig.getdata.findyield]);
-//   })
-//   it('getData must work',() => {
-//     url
-//     .get('/followup/getdata/:ishan')
-//     .send(testconfig.getdata.send)
-//   //.set('Authorization').expect(200)
-//   .end((err,res) => {
-//     if(err) {
-//       return done(err);
-//     }
-//     else{
-//       assert.equal(res.body.name,"ishan")
-//     }
-//   })
-// });
-// });
-// /*=======End Positive test case for followup getdata============*/
+/*=======Positive test case for followup getdata============*/
+describe('followUp getData data processed here',() => {
+ before(() => {
+   flowschemafindOne.yields(null, [testconfig.getdata.findyield]);
+ })
+ it('getData must work',() => {
+   url
+   .get('/followup/getdata/:ishan')
+   .expect(200)
+   .end((err,res) => {
+     if(err) {
+       return done(err);
+     }
+     else{
+       assert.equal(res.body[0].name,"ishan")
+     }
+   })
+ });
+});
+/*=======End Positive test case for followup getdata============*/
 
 /*Start of updateUesrdata*/
 /*=======Start of Positive test case for updateUesrdata============*/
@@ -854,3 +854,114 @@ registerUpdate.yields(null,null)
 });
 /*=======End of Negative test case for updateUesrdata============*/
 /*End of updateUserdata*/
+
+//========start of reset password==========//
+/*=======Start of positive test case for match resetpassword========*/
+describe('Reset Password user here',()=>{ 
+before(()=>{ 
+//yield is used to stub the info required by database
+registerFind.yields(null,[testconfig.resetpassword.positiveMatchfind])
+registerUpdate.yields(null,[testconfig.resetpassword.positiveMatchupdate])
+});
+it('reset password must be a success',(done)=>{
+ 
+url
+  .put('/reset_password/shagunsankla61@gmail.com')
+  .expect(200)
+  .send(testconfig.resetpassword.findyield)
+  .end((err,res)=>{
+    if(err){ 
+      return err
+    }
+      else{
+     assert.equal(res.body.status,false);
+   done();
+}
+});
+});
+});
+/*=======End of positive test case for match resetpassword========*/
+/*=======Start of positive test case for match old pass not match resetpassword========*/
+describe('Reset Password old password not match user here',()=>{
+ 
+before(()=>{
+ 
+//yield is used to stub the info required by database
+registerFind.yields(null,[testconfig.resetpassword.positiveNomatchfind])
+//registerUpdate.yields(null,[{status:true, message : "oldpassword do not match",data:[]}])
+});
+it('reset password must be a success',(done)=>{
+ 
+url
+  .put('/reset_password/shagunsankla61@gmail.com')
+  .expect(200)
+  .send(testconfig.resetpassword.positiveNomatchsend)
+  .end((err,res)=>{
+    if(err){
+      return err;
+    }
+      else{
+      
+    assert.equal(res.body.status,false);
+   done();
+}
+});
+});
+});
+/*=======end of positive test case for oldpass dont match resetpassword========*/
+/*=======Start of negative test case for email dont match resetpassword========*/
+describe('Reset Password email donot match user here',()=>{
+ 
+before(()=>{
+//yield is used to stub the info required by database
+registerFind.yields(null,null)
+//registerUpdate.yields(null,[{status:true, message : "oldpassword do not match",data:[]}])
+});
+it('reset password  donot must be a success',(done)=>{
+ 
+url
+  .put('/reset_password/shagunsankla61@gmail.com')
+  .set('Authorization', 'bearer' +jwtToken).expect(200)
+  .expect('Content-Type', /json/)
+  .send(testconfig.resetpassword.negativeEmailnomatchsend)
+  .end((err,res)=>{
+    if(err){
+      return err;
+    }
+      else{
+      
+     assert.equal(res.body.status,false);
+   done();
+}
+});
+});
+});
+/*=======end of negative test case for email dont match resetpassword========*/
+/*=======Start of negative test case for email dont match resetpassword========*/
+describe('Reset Password email donot match user here',()=>{
+ 
+before(()=>{
+ 
+//yield is used to stub the info required by database
+registerFind.yields(null,null)
+//registerUpdate.yields(null,null)
+});
+it('reset password  donot must be a success',(done)=>{
+ 
+url
+  .put('/reset_password/shagunsankla61@gmail.com')
+  .set('Authorization', 'bearer' +jwtToken).expect(200)
+  .expect('Content-Type', /json/)
+  .send(testconfig.resetpassword.negativeEmaildontmatchsend)
+  .end((err,res)=>{
+    if(err){
+      return err;
+    }
+      else if(res.body.data2==undefined){
+            assert.equal(res.body.data2,undefined);
+   done();
+}
+});
+});
+});
+//=================reset password ====================//
