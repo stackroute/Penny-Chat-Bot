@@ -19,7 +19,7 @@ export default (app, passport) => {
       res.redirect(signinConfig.url.failureRedirect);
     }
     let data = req.user;
-    res.cookie(signinConfig.facebookLogin.userData,{status : true,userdata : req.user});
+    res.cookie(signinConfig.facebookLogin.userData,{status : true,data : req.user});
      res.redirect(signinConfig.url.redirect);  //after request success
    });
 }catch(err){               // error handle if suddenly error occur in database

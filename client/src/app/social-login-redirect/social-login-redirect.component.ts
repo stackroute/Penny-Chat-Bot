@@ -19,6 +19,7 @@ export class SocialLoginRedirectComponent implements OnInit {
     // if data is available in cookie or not?
 
     this.cookieValue = this.cookieService.get('Userdata'); // retriving data from cookie
+    console.log(this.cookieValue);
     this.userdata = JSON.parse(this.cookieValue.slice(2,this.cookieValue.length));
     localStorage.setItem('Userdata',JSON.stringify(this.userdata)); // store data to local storage
     this.router.navigateByUrl('/user');  // navigate to /user
