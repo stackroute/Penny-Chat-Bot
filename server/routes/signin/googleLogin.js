@@ -21,7 +21,7 @@ export default (app, passport) => {
       res.redirect(signinConfig.url.failureRedirect);
      }
      let data = req.user;
-    res.cookie(signinConfig.googleLogin.userData,{status : true,userdata : req.user});
+    res.cookie(signinConfig.googleLogin.userData,{status : true,data : req.user});
      res.redirect(signinConfig.url.redirect);  //after request success
   });
  	}catch(error){        // error handle if suddenly error occur in database
