@@ -45,14 +45,14 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() { //introduction message to start the chat
     let value;
-    value = JSON.parse(localStorage.getItem(Config.component.localStorage));
+    value = JSON.parse(localStorage.getItem(Config.component.localStorage)).data;
     this.scrollToBottom();
    // this.getquestion();
-   this.username = value.data.name;
+   this.username = value.name;
 
     setTimeout(() =>{
       let temp = {
-        bot : Config.component.startMsg1+value.data.name+Config.component.startMsg2
+        bot : Config.component.startMsg1+value.name+Config.component.startMsg2
       }
       this.question.push(temp);
     },1000)
@@ -96,7 +96,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
         this.question[this.question.length -1].link = res.links;
         console.log(this.question);
         res.links.map((data) => {
-
           if(data.Counter) {
             this.followup(data.Counter);
           } else if(data.Video) {

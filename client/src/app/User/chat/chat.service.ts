@@ -13,8 +13,8 @@ export class ChatService {
 /*=================fetch data====================*/
     fetch(answer:any):Observable<any>  {
         let url = config.ip+urlConfig.UserChatfetch;
-        let userData = JSON.parse(localStorage.getItem('Userdata')).data;
-        let email : string = userData.email;
+        let userData = JSON.parse(localStorage.getItem('Userdata'));
+        let email : string = userData.data.email;
         return this.http
         .post(url,{message:answer, email : email})
         .map((res:Response)=> {
@@ -56,8 +56,9 @@ export class ChatService {
 /*=================get unanswered quetions====================*/
     getquestions(question:any):Observable<any>{
     let url:any = config.ip+urlConfig.UserChatgetquestions;
-        let userData = JSON.parse(localStorage.getItem('Userdata')).data;
-        let email : string = userData.email;
+        let userData = JSON.parse(localStorage.getItem('Userdata'));
+        console.log("user",userData);
+        let email : string = userData.data.email;
     return this.http.post(url,{question : question,email : email})
     .map((res:Response) =><any>res.json()).catch(this._errorHandler);
   }

@@ -60,19 +60,21 @@ h5, .h5 {
     margin-bottom: 0px !important;
   }
 
-  .btn-facebook {
+  .btn-fb{
+  background: #344e86;
+  color:white;
+  }
+
+  .btn-fb::before {
   background: #344e86;
   }
 
-  .btn-facebook::before {
-  background: #344e86;
-  }
-
-  .btn-google-plus {
+  .btn-google {
   background: #DD4B39;
+  color:white;
   }
 
-  .btn-google-plus::before{
+  .btn-google::before{
     background: #DD4B39;
   }
 
