@@ -10,6 +10,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TraindomainService } from './traindomain.service';
 import {Observable} from 'rxjs/Observable';
+import { testConfig } from './traindomain.config';
 
 class RouterStub {
   navigateByUrl(url: string) { return url; }
@@ -73,17 +74,12 @@ describe('Train Domain Component', () => {
    //================ negative test for editdata==============//
   it("Negative test for editdata in train domain", () => {
 
-    let res = {_id: "5a07f9773ee2300f80ed90df",
-    task: "Ishan",
-    question: 
-    {genre: "Question", id: 1, type: "Q", message: "Hello Ishan", answertype: "MCQ"},
-    }
-
+    let res = testConfig.editDataRes;
   const spy = spyOn(service,'getdata').and.returnValue(
     Observable.of(res)
     )
 
-  component.editdata("Ishan");
+  component.editdata(testConfig.editDataRes.task);
   fixture.whenStable().then( ()=> {
     expect(component.productdata).not.toEqual(0);
   })   
