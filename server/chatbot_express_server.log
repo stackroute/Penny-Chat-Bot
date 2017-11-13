@@ -16,3 +16,36 @@
 [2017-11-12 12:34:09.294] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
 [2017-11-12 12:34:09.336] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
 [2017-11-12 12:34:19.320] [INFO] chatbot_express_server - Success
+[2017-11-12 12:45:44.462] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 12:57:52.200] [INFO] chatbot_express_server - Not Found
+[2017-11-12 12:57:52.205] [INFO] chatbot_express_server - Not Found
+[2017-11-12 13:00:15.419] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-12 13:03:47.299] [INFO] chatbot_express_server - Not Found
+[2017-11-12 13:04:15.852] [INFO] chatbot_express_server - Data Found
+[2017-11-12 13:04:15.924] [INFO] chatbot_express_server - Success
+[2017-11-12 13:04:17.643] [INFO] chatbot_express_server - Success
+[2017-11-12 13:04:54.749] [INFO] chatbot_express_server - Success
+[2017-11-12 13:15:30.134] [INFO] chatbot_express_server - Success
+[2017-11-12 13:22:50.921] [INFO] chatbot_express_server - Success
+[2017-11-12 13:23:06.997] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 13:23:07.074] [INFO] chatbot_express_server - Success
+[2017-11-12 13:23:17.057] [INFO] chatbot_express_server - Success
+[2017-11-12 13:24:01.276] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 13:24:01.340] [INFO] chatbot_express_server - Success
+[2017-11-12 13:35:36.668] [INFO] chatbot_express_server - Success
+[2017-11-12 13:35:53.832] [INFO] chatbot_express_server - Success
+[2017-11-12 13:36:43.694] [INFO] chatbot_express_server - Success
+[2017-11-12 13:36:45.503] [INFO] chatbot_express_server - Success
+[2017-11-12 13:36:52.239] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 13:36:52.307] [INFO] chatbot_express_server - Success
+[2017-11-12 13:39:39.613] [INFO] chatbot_express_server - Success
+[2017-11-12 13:42:10.984] [INFO] chatbot_express_server - Success
+[2017-11-12 13:42:13.144] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 13:42:13.211] [INFO] chatbot_express_server - Success
+[2017-11-12 13:46:17.834] [INFO] chatbot_express_server - Success
+[2017-11-12 13:47:03.274] [INFO] chatbot_express_server - Success
+[2017-11-12 13:51:57.008] [INFO] chatbot_express_server - Success
+[2017-11-12 13:52:19.492] [INFO] chatbot_express_server - Success
+[2017-11-12 13:52:22.527] [INFO] chatbot_express_server - Data Undefined
+[2017-11-12 13:52:22.593] [INFO] chatbot_express_server - Success
+[2017-11-12 14:54:05.466] [INFO] chatbot_express_server - Success

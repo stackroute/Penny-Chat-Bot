@@ -37,9 +37,11 @@ export class TraindomainComponent implements OnInit {
     })
   }
   editdata(name) { //edit data
-    console.log(name);
+    console.log("ISHAN",name);
     this.traindomainService.getdata(name).subscribe((res) => {
+
       this.productdata = res;
+      console.log("ISHANSIHSIHSISHISHSIH",this.productdata);
     })
   }
   tempid:any=0;
@@ -234,8 +236,10 @@ arrangeAnswer() {  //arrage answers
     this.productdata.result = data;
   }
   save() {
+
     this.traindomainService.save(this.productdata)
     .subscribe((data) => {
+      
       this.router.navigateByUrl('/admin/createflow');
     })
   }
