@@ -22,6 +22,9 @@ a.links {
  color:white;
  text-decoration:none;
 }
+a.links:hover {
+	color: white;
+}
 
 
 @media (min-width: 320px) and (max-width: 767px) {

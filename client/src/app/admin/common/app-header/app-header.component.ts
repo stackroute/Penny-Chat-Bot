@@ -9,6 +9,7 @@ import {Config} from  './app-header.config'
 export class AppHeaderComponent implements OnInit{
 
 	initialCharacter : any;
+	Config:any=Config;
 
 	ngOnInit(){		
       let data = JSON.parse(localStorage.getItem(Config.localStorage));
