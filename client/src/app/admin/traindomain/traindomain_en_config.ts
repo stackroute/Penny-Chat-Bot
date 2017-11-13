@@ -39,6 +39,8 @@ export default {
     lbl8:'Answer : ',
     lbl9:'Id :',
     lbl10:'Type :',
+    lbl11 : 'Possible Answers : ',
+    lbl12 : 'Next Question :'
   },
   head:{
     heading1:'Context',
@@ -67,8 +69,8 @@ export default {
     q:"Q",
     yesorno:"Yes/No",
     conclusion:"Conclusion",
-    yes:"Yes",
-    no:"No",
+    yes:["yes"],
+    no:["no"],
     question:"Question",
     mcq:"MCQ",
   },
