@@ -31,3 +31,20 @@
 [2017-11-13 10:28:51.722] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
 [2017-11-13 10:28:51.754] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
 [2017-11-13 10:28:51.786] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:37:47.886] [INFO] chatbot_express_server - Success
+[2017-11-13 10:37:47.907] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 10:37:47.911] [INFO] chatbot_express_server - Success
+[2017-11-13 10:37:47.916] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:37:47.940] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 10:37:47.945] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:37:47.965] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:37:47.987] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:39:15.788] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-13 10:55:42.731] [INFO] chatbot_express_server - Success
+[2017-11-13 10:55:42.747] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:55:42.754] [INFO] chatbot_express_server - Success
+[2017-11-13 10:55:42.761] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 10:55:42.782] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:55:42.788] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 10:55:42.837] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:55:42.881] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
