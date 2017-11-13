@@ -1,90 +1,22 @@
-<<<<<<< HEAD
-[2017-11-13 09:18:05.024] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
-[2017-11-13 09:18:23.382] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:18:54.081] [INFO] chatbot_express_server - Mail sent to set password
-[2017-11-13 09:19:31.705] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
-[2017-11-13 09:19:42.380] [INFO] chatbot_express_server - Password successfully updated.
-[2017-11-13 09:19:49.982] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:19:54.725] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:19:59.171] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:19:59.632] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:20:00.040] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:20:00.488] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:20:00.951] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:20:01.465] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:20:02.955] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:20:22.079] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:20:22.599] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:20:27.676] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:22:39.465] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
-[2017-11-13 09:24:10.450] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:24:24.857] [INFO] chatbot_express_server - { message: 'Success in update User' }
-[2017-11-13 09:24:31.596] [INFO] chatbot_express_server - Successfull Login
-[2017-11-13 09:25:21.826] [INFO] chatbot_express_server - Success
-[2017-11-13 09:25:27.733] [INFO] chatbot_express_server - Success
-[2017-11-13 09:25:37.414] [INFO] chatbot_express_server - Success
-[2017-11-13 09:25:37.449] [INFO] chatbot_express_server - Success
-[2017-11-13 09:25:38.247] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
-[2017-11-13 09:25:38.249] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
-[2017-11-13 09:25:38.367] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:25:38.368] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:25:38.369] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:25:38.370] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:26:04.566] [INFO] chatbot_express_server - Success
-[2017-11-13 09:26:04.606] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
-[2017-11-13 09:26:04.633] [INFO] chatbot_express_server - Success
-[2017-11-13 09:26:04.645] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:26:43.283] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
-[2017-11-13 09:28:06.178] [INFO] chatbot_express_server - Success
-[2017-11-13 09:28:06.219] [INFO] chatbot_express_server - Success
-[2017-11-13 09:28:06.228] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
-[2017-11-13 09:28:06.317] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:28:06.317] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:28:06.319] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:28:06.320] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:28:16.612] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:28:28.419] [INFO] chatbot_express_server - Synonym Found
-[2017-11-13 09:28:28.914] [INFO] chatbot_express_server - Synonym Found
-[2017-11-13 09:28:29.281] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:29.332] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:29.430] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:29.498] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:29.739] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:30.078] [INFO] chatbot_express_server - Synonym Found
-[2017-11-13 09:28:30.118] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:30.229] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:30.344] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:30.371] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:30.643] [INFO] chatbot_express_server - Synonym not Found
-[2017-11-13 09:28:30.860] [INFO] chatbot_express_server - Synonym Found
-[2017-11-13 09:28:31.066] [INFO] chatbot_express_server - Synonym Found
-[2017-11-13 09:28:31.439] [INFO] chatbot_express_server - Synonym Found
-[2017-11-13 09:28:31.610] [INFO] chatbot_express_server - Synonym Found
-[2017-11-13 09:28:31.766] [INFO] chatbot_express_server - Synonym Found
-[2017-11-13 09:28:31.993] [INFO] chatbot_express_server - Synonym Found
-[2017-11-13 09:28:35.730] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
-[2017-11-13 09:28:39.733] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
-[2017-11-13 09:28:52.141] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
-[2017-11-13 09:29:24.716] [INFO] chatbot_express_server - { message: 'Success in update User' }
-[2017-11-13 09:30:06.218] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
-[2017-11-13 09:30:15.030] [INFO] chatbot_express_server - data found
-[2017-11-13 09:30:17.528] [INFO] chatbot_express_server - Sorry i am not able to understand 
-[2017-11-13 09:30:29.926] [INFO] chatbot_express_server - data found
-[2017-11-13 09:30:30.903] [INFO] chatbot_express_server - Sorry i am not able to understand 
-[2017-11-13 09:30:44.170] [INFO] chatbot_express_server - data found
-[2017-11-13 09:30:44.977] [INFO] chatbot_express_server - Sorry i am not able to understand 
-[2017-11-13 09:30:50.066] [INFO] chatbot_express_server - data found
-[2017-11-13 09:30:50.967] [INFO] chatbot_express_server - Sorry i am not able to understand 
-[2017-11-13 09:33:09.268] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
-[2017-11-13 09:33:09.279] [INFO] chatbot_express_server - Success
-[2017-11-13 09:33:09.307] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:33:09.316] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:33:09.349] [INFO] chatbot_express_server - Success
-[2017-11-13 09:33:09.379] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
-[2017-11-13 09:33:09.392] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 09:37:03.784] [INFO] chatbot_express_server - You are already registered user.
-[2017-11-13 09:37:09.395] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
-[2017-11-13 10:39:06.219] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
-[2017-11-13 10:49:56.376] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
-=======
->>>>>>> c160d961925eef1f7816829a7ee024e799a771aa
+[2017-11-13 11:00:26.646] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 11:01:05.569] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 11:01:08.006] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 11:01:18.189] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 11:01:19.148] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 11:01:22.571] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 11:01:23.729] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 11:01:40.954] [INFO] chatbot_express_server - Mail sent to set password
+[2017-11-13 11:01:55.479] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-13 11:02:08.051] [INFO] chatbot_express_server - Password successfully updated.
+[2017-11-13 11:02:17.252] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 11:02:53.466] [INFO] chatbot_express_server - data found
+[2017-11-13 11:02:55.134] [INFO] chatbot_express_server - Sorry i am not able to understand 
+[2017-11-13 11:03:10.196] [INFO] chatbot_express_server - Success
+[2017-11-13 11:03:10.223] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 11:03:10.242] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 11:03:10.261] [INFO] chatbot_express_server - Success
+[2017-11-13 11:03:10.307] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 11:03:13.512] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-13 11:03:16.449] [INFO] chatbot_express_server - Successfully Deleted in trainIntent's deleteSynonym
+[2017-11-13 11:03:16.540] [INFO] chatbot_express_server - Successfully Synonyms fetched in trainIntent's getRelatedEntity
+[2017-11-13 11:03:20.597] [INFO] chatbot_express_server - Success

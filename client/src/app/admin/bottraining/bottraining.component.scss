@@ -54,7 +54,7 @@ background-color: #555;
 }
 .btn {
 line-height:0.3;
-padding: 14px 14px;
+padding: 12px 12px;
 }
 .btn.badgebtn {
 margin-right:-2%;
@@ -74,23 +74,23 @@ margin-bottom:1%;
 color:white;
 background-color: #375372;
 border-color: #375372;
-margin-top: 1%;;
+margin-top: auto;
 }
 .btn.btn-primary:hover {
 color:white;
 }
 .badge {
-
-padding-right: 10px;
-padding-bottom: 8px;
-padding-left: 10px;
+  
+    padding-right: 10px;
+    padding-bottom: 8px;
+    padding-left: 10px;
 border-radius: 5px;
 margin-left: 1%;
 font-size:12px;
 }
 
 .cross {
-font-size:12px;	
+	font-size:12px;	
 }
 
 a {
@@ -187,24 +187,24 @@ border-color: #375372;
 }
 .dropdownfirst{
 margin-bottom:2%;
-margin-left: -2.5%;
+    margin-left: -2.5%;
 }
 .btn.btn-primary.add.deleteIntentbtn {
 margin-top:4%;
 margin-left: 9%;
 margin-bottom: 8%;
-padding-top: 14px;
-padding-right: 14px;
-padding-bottom: 14px;
-padding-left: 14px;
+    padding-top: 14px;
+    padding-right: 14px;
+    padding-bottom: 14px;
+    padding-left: 14px;
 
 }
 .btn-primary.add.addintentbtn {
 margin-left: 2%;
-padding-top: 14px;
-padding-right: 14px;
-padding-bottom: 14px;
-padding-left: 14px;
+    padding-top: 14px;
+    padding-right: 14px;
+    padding-bottom: 14px;
+    padding-left: 14px;
 
 }
 .addsynonyminput{
@@ -221,13 +221,11 @@ margin-left:2%;
 .suggestsynonym {
 padding: 1px 1px;
 }
-/*.badge.badge-pill.text-white.suggestsynonym {
-padding: 7px 15px;
-padding-top: 7px;
-padding-right: 15px;
-padding-bottom: 7px;
-padding-left: 15px;
-}*/
+/*
+.queDelete.fa.fa-times {
+float: right;
+}
+*/
 .btn .badge {
 font-size: 12px;
 }
@@ -261,12 +259,26 @@ margin-top : 4px;
 td{
 font-size: 18px;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .btn.btn-primary.add.deleteIntentbtn{
+        margin-left: -20px;
+        padding-left: 10%;
+    padding-right: 10%;
+    }
+
+    .btn.btn-primary.add.addSynonym {
+ margin-left: -20px;
+        padding-left: 10%;
+    padding-right: 10%;
+    }
+}
 .secondtext{
 margin-left:-7%; 
 }
 .btn[_ngcontent-c5] .badge[_ngcontent-c5] {
 padding: 8px;
-background-color: #54678f;
+background-color: #54678f ;
 }
 .input-sm {
 height: 34px;
@@ -289,16 +301,16 @@ margin-left: 5%;
 margin-top: 3%;
 } 
 .add[_ngcontent-c5] {
-    margin-left: -3%;
+   margin-left: -3%;
 }
 .btn-primary.add.addintentbtn[_ngcontent-c5] {
-    margin-left: 6%;
-    }
+   margin-left: 6%;
+   }
 
-    .secondtext[_ngcontent-c5] {
-    margin-left: -10%;
+   .secondtext[_ngcontent-c5] {
+   margin-left: -10%;
 }
 .headingcircle{
-    margin-left:-9%;
+   margin-left:-9%;
 }
 }
