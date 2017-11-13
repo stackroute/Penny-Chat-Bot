@@ -1,0 +1,15 @@
+[2017-11-13 14:26:10.872] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 14:29:37.883] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-13 14:30:41.733] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 14:31:02.740] [INFO] chatbot_express_server - Not Found
+[2017-11-13 14:31:02.751] [INFO] chatbot_express_server - Not Found
+[2017-11-13 14:31:02.781] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 14:31:02.826] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 14:31:02.891] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 14:31:02.965] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 14:31:03.026] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 14:38:16.395] [INFO] chatbot_express_server - Successfull Login
+[2017-11-13 14:38:41.736] [INFO] chatbot_express_server - Not Found
+[2017-11-13 14:40:24.430] [INFO] chatbot_express_server - Data Found
+[2017-11-13 14:40:24.503] [INFO] chatbot_express_server - Success
+[2017-11-13 14:40:26.845] [INFO] chatbot_express_server - Success
