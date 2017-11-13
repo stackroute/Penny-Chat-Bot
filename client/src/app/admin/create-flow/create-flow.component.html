@@ -8,9 +8,9 @@
 <div class="row">
   <div class=" col-lg-11">
     <div class="input-group">
-      <input type="text" class="form-control" [(ngModel)]="flowname" placeholder="Product name">
+      <input type="text" class="form-control" id="aflow" [(ngModel)]="flowname" placeholder="Product name">
       <span class="input-group-btn">
-        <button class="btn btn-secondary" (click)="follow(flowname)" type="button">{{Config.createflow.AddFollow}}</button>
+        <button class="btn btn-secondary" id="flowbtn" (click)="follow(flowname)" type="button">{{Config.createflow.AddFollow}}</button>
       </span>
     </div>
   </div>

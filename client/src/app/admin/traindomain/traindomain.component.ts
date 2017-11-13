@@ -349,8 +349,8 @@ export class TraindomainComponent implements OnInit {
     }
   }
   checkansyesno(ans) { //check yesno type answer
-    let yes = [Config.save.yes];
-    let no = [Config.save.no]
+    let yes = Config.save.yes;
+    let no = Config.save.no;
     let flag;
     yes.map((data) => {
       if(data == ans) {
