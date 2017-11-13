@@ -74,3 +74,14 @@
 [2017-11-13 09:30:44.977] [INFO] chatbot_express_server - Sorry i am not able to understand 
 [2017-11-13 09:30:50.066] [INFO] chatbot_express_server - data found
 [2017-11-13 09:30:50.967] [INFO] chatbot_express_server - Sorry i am not able to understand 
+[2017-11-13 09:33:09.268] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:33:09.279] [INFO] chatbot_express_server - Success
+[2017-11-13 09:33:09.307] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:33:09.316] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:33:09.349] [INFO] chatbot_express_server - Success
+[2017-11-13 09:33:09.379] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getIntent
+[2017-11-13 09:33:09.392] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 09:37:03.784] [INFO] chatbot_express_server - You are already registered user.
+[2017-11-13 09:37:09.395] [INFO] chatbot_express_server - Successfully context fetched in trainIntent's getContext
+[2017-11-13 10:39:06.219] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-13 10:49:56.376] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
