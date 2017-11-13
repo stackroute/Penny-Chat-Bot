@@ -1,4 +1,4 @@
-<div>
+<!-- <div> -->
   <div class="row">
     <div class="col-md-4">
       <div class="panel panel-primary">
@@ -11,7 +11,7 @@
               <div class="chat-body clearfix">
                 <p *ngFor="let ques of arr">
                   <a (click)="getQues(ques)">{{ques}}</a>
-                  <a class="queDelete"><i (click)=deletePendingQuestions(ques) class="fa fa-times" aria-hidden="true" style="float: right;"></i></a>
+                  <a class="queDelete"><i (click)=deletePendingQuestions(ques) class="fa fa-times pull-right" aria-hidden="true"></i></a>
                 </p>
               </div>
             </li>
@@ -90,7 +90,7 @@
             (onDeSelectAll)="onDeSelectAllIntent($event)"></angular2-multiselect>
           </div>
           <div class = "col-md-3" *ngIf = "intentname">
-            <button type="button" class="btn btn-primary add deleteIntentbtn"  (click)="deleteIntent(intentname)">Delete {{intentname.label}}</button>
+            <button type="button" class="btn btn-primary add deleteIntentbtn" (click)="deleteIntent(intentname)">Delete {{intentname.label}}</button>
           </div>
         </div>
         <div class="existing " *ngIf="correspondSynonym.length>0">
@@ -109,7 +109,7 @@
                   <input class="form-control addsynonyminput" name="name" placeholder="Add Synonyms" [(ngModel)]="adminSynonym" (keyup.enter)="addAdminSynonym()">
                 </div>
                 <div class="col-md-4">
-                  <button type="button" class="btn btn-primary add"  (click)="addAdminSynonym()"
+                  <button type="button" class="btn btn-primary add addSynonym"  (click)="addAdminSynonym()"
                   >{{Config.bottraining.AddSyn}}</button>
                 </div>
               </div>  

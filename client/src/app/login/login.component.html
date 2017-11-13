@@ -9,16 +9,16 @@
               <p class="text-muted">{{message.signInMsg}}</p>
               <div class="input-group mb-3">
                 <span class="input-group-addon"><i class="icon-user"></i></span>
-                <input type="text" class="form-control" placeholder="Email" required  [(ngModel)]="loginDetails.email" name="email" >
+                <input type="text" class="form-control" placeholder="Username" required  [(ngModel)]="loginDetails.email" name="email" >
               </div>
               <div class="input-group mb-4">
                 <span class="input-group-addon"><i class="icon-lock"></i></span>
                 <input type="password" class="form-control" placeholder="Password" required
-             [(ngModel)]="loginDetails.password" name="password">
+             [(ngModel)]="loginDetails.password" >
               </div>
               <div class="row">
                 <div class="col-6">
-                  <button type="button" id="loginbtn" class="btn btn-primary px-6"  (click)=loginUser()>{{message.loginbtn}}</button>
+                  <button type="button" class="btn btn-primary px-4" (click)=loginUser()>{{message.loginbtn}}</button>
                 </div>
                 <div class="col-6 text-right">
 
@@ -32,11 +32,11 @@
              <div class="row">
               <!-- link for Facebook -->
               <div class="col-sm-12 col-md-12 col-lg-6">
-               <a id="fb" href="{{fbUrl}}"> <button class="btn btn-block btn-facebook" type="button"><span id="btnfb">{{message.socialFb}}</span></button></a>
+               <a id="fb" href="{{fbUrl}}" class="btn btn-block btn-fb" type="button">  <i class="fa fa-facebook"></i>&nbsp;<span id="btnfb">{{message.socialFb}}</span></a>
              </div><br><br>
              <!-- link for google-->
              <div class="col-sm-12 col-md-12 col-lg-6">
-               <a id="google" href="{{googleUrl}}"><button class="btn btn-block btn-google-plus" type="button"><span id="btngoogle">{{message.socialGoogle}}</span></button></a>
+               <a id="google" href="{{googleUrl}}" class="btn btn-block btn-google" type="button"><i class="fa fa-google-plus"></i>&nbsp;<span id="btngoogle">{{message.socialGoogle}}</span></a>
              </div>
 
            </div>

@@ -123,3 +123,8 @@ a:not([href]):not([tabindex]) {
     color: #fff;
 }
 
+@media (min-width: 360px) and (max-width: 1024px) { 
+	.personal-info {
+		margin-left: 0;
+	}
+ }

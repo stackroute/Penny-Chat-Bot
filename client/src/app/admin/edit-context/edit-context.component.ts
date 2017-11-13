@@ -54,7 +54,7 @@ export class EditContextComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getContext();
+ //   this.getContext();
     this.getcontent();
     this.editContextService.getAllContext().subscribe((ref) => {
       ref.map((context)=> {
@@ -76,6 +76,7 @@ check(){
 
   /*==================get all context==================*/
   getContext(){
+    this.contextDropDown = [];
     this.editContextService.getContext()
     .subscribe((res)=>{
       res.map((data)=>{

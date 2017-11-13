@@ -47,10 +47,14 @@ export class TraindomainComponent implements OnInit {
   }
 
   editdata(name) { //edit data
+
     this.traindomainService.getdata(name).subscribe((res) => {
+
       this.productdata = res;
+
     }, (dataError)=>{
       this.router.navigateByUrl('/error')
+
     })
   }
   tempid:any=0;
@@ -241,8 +245,10 @@ export class TraindomainComponent implements OnInit {
     this.productdata.result = data;
   }
   save() {
+
     this.traindomainService.save(this.productdata)
     .subscribe((data) => {
+      
       this.router.navigateByUrl('/admin/createflow');
     }, (dataError)=>{
     	this.router.navigateByUrl('/error')

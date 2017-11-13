@@ -25,6 +25,7 @@ export class EditprofileComponent implements OnInit {
 		this.userData = JSON.parse(localStorage.getItem(Config.editProfile.localstorage));  //getting userdata from localstorage
      
 		this.userData = this.userData;
+		console.log(this.userData);
 	}
 
 	gotoDashboard() {
