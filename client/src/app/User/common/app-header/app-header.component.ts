@@ -18,8 +18,8 @@ config : any;
   }
 
 	ngOnInit(){		
-		let data = JSON.parse(localStorage.getItem('Userdata'));
-		this.initialCharacter = data.userdata.name;
+		let data = JSON.parse(localStorage.getItem('Userdata')).data;
+		this.initialCharacter = data.name;
 	}
 
 	logout(){
