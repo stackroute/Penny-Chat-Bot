@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {config} from '../../config/app.config';
 import { urlConfig } from '../../config/url.config';
+import {Config } from './createflow_en_config';
 
 /*======================Service Class=================================*/
 @Injectable()
@@ -18,8 +19,14 @@ export class CreateFlowService {
 	fetch(): Observable<any> {
 		return this.http
 		.get(this.url2)
-		.map((res: Response)=> res.json())
-	}
+		.map((res: Response)=> res.json()).catch(this._errorHandler);
+  }
+
+  /*error handling*/
+  _errorHandler(error: Response){
+    return Observable.throw(error || Config.Server.Error);
+  }
+	
 /*============================Save at Mongo ==============================*/
 
 }

@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {Urls} from './login.config.url';
+import {Config} from './multi_en_config';
 
 @Injectable()
 export class LoginService {
@@ -23,6 +24,6 @@ export class LoginService {
 
 	_errorHandler(error: Response){
 		//handle error from server
-		return Observable.throw(error || "Error")
+		return Observable.throw(error || Config.login.serverError)
 	}
 }

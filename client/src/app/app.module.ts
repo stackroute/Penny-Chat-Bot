@@ -12,7 +12,8 @@ import {RegisterComponent} from './register/register.component'
 import {RedirectComponent} from './redirect/redirect.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {Http,HttpModule} from '@angular/http';
-//import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth/auth.guard';
+
 
 // Import containers
 // Import directives
@@ -66,7 +67,7 @@ import {YoutubePlayerModule} from 'ng2-youtube-player';
   // SIDEBAR_TOGGLE_DIRECTIVES
   ],
   providers:
-  [AsideService, 
+  [AsideService,AuthGuard, 
   {
     provide: LocationStrategy,
     useClass: HashLocationStrategy},

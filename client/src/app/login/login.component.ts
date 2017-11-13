@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       this.loginservice.loginUsers(this.loginDetails)
       .subscribe((ref)=>{
         this.ref = ref;
-        localStorage.setItem('Userdata',JSON.stringify(ref));
+        localStorage.setItem(Config.login.localStorage,JSON.stringify(ref));
              //setting data into localstorage
              
         if(this.ref.status===true){

@@ -22,8 +22,9 @@ export class EditprofileComponent implements OnInit {
 	
 	/*on page initialization*/
 	ngOnInit() {
-		this.userData = JSON.parse(localStorage.getItem('Userdata'));  //getting userdata from localstorage
-        this.userData = this.userData;
+		this.userData = JSON.parse(localStorage.getItem(Config.editProfile.localstorage));  //getting userdata from localstorage
+     
+		this.userData = this.userData;
 	}
 
 	gotoDashboard() {
@@ -38,16 +39,20 @@ export class EditprofileComponent implements OnInit {
 	passwordvalidation() {  // matching password and confirm password 
 		if(this.userData.data.password!==this.cnfmPassword){
 			swal(
+
 				Config.editProfile.msg1,
 				Config.editProfile.msg2,
 				'error'
+
 				)
 		}
 	}
 
 	submit() {
 		if(!this.userData.data.name || !this.userData.data.email ){
+
 			swal(Config.editProfile.msg3);
+
 		}
 
 		else  {  // send entered data to service
@@ -55,19 +60,23 @@ export class EditprofileComponent implements OnInit {
 			.subscribe(ref => {
 				if(ref.status == false) {  // if server returns any error
 					swal(
+
 						Config.editProfile.msg1,
 						Config.editProfile.msg6
-						)
+
+												)
 				}
 				else {			// if updated successfully
 					swal(
+
 						Config.editProfile.msg4,
 						Config.editProfile.msg5
+
 						)
 					this.router.navigateByUrl('/')
 				}
 			},(dataError)=>{
-				localStorage.removeItem('Userdata');
+				localStorage.removeItem(Config.editProfile.localstorage);
 				this.router.navigateByUrl('/error');
 			});
 		}

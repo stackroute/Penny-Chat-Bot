@@ -38,6 +38,8 @@ export class RedirectComponent implements OnInit {
         this.router.navigateByUrl('');
         //navigate to login page after clicking on link sent on mail
       }
+  }, (dataError)=>{
+    this.router.navigateByUrl('/error')
   });  	
   }
 

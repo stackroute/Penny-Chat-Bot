@@ -5,7 +5,7 @@ export class AuthGuard implements CanActivate {
 
   constructor(private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {*/
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     /*Checking without login cannot go to any link through URL*/
     let data = JSON.parse(localStorage.getItem('Userdata'));
     if(data!=null)

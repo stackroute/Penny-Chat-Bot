@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {config} from '../../config/app.config';
 import { urlConfig } from '../../config/url.config';
+import Config from './context_en_config'
 
 @Injectable()
 
@@ -19,16 +20,24 @@ export class ContextService {
     return this.http.get(urlIntent)
     .map((res:Response)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
 
-  /*===============fetching all context===================*/  
+
+  /*error handling*/
+  _errorHandler(error: Response){
+    return Observable.throw(error || Config.Server.ServerError);
+  }
+
+
+/*===============fetching all context===================*/  
+
   getAllContext():Observable<any> {
     let urlContext=config.ip+urlConfig.AdminContextgetAllContext;
     return this.http.get(urlContext)
     .map((res:Response)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
 
   /*===============adding new context===================*/  
@@ -37,7 +46,7 @@ export class ContextService {
     return this.http.post(url,{data:intent})
     .map((res:Response)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
 
   /*===============adding synonyms to context===================*/  
@@ -47,7 +56,7 @@ export class ContextService {
     .put(url,{data: data})
     .map((res: Response)=>{
       return res.json()
-    })
+    }).catch(this._errorHandler);
   }
 
   /*===============adding new context===================*/
@@ -62,7 +71,7 @@ export class ContextService {
     return this.http.post(createContextUrl,createContext)
     .map((res:Response)=>{
       return res.json();
-    })
+    }).catch(this._errorHandler);
   }
 
   /*=======================fetch flow =================================*/
@@ -72,7 +81,7 @@ export class ContextService {
     let url3=config.ip+urlConfig.AdminContextfetchflow;
     return this.http
     .get(url3)
-    .map((res: Response)=> res.json())
+    .map((res: Response)=> res.json()).catch(this._errorHandler);
   }
 
 
@@ -82,6 +91,6 @@ export class ContextService {
     let addflowtaskurl=config.ip+urlConfig.AdminContextaddflowtask;
     return this.http
     .post(addflowtaskurl,{flow : flowname})
-    .map((res:Response)=>res.json());
+    .map((res:Response)=>res.json()).catch(this._errorHandler);
   }
 }

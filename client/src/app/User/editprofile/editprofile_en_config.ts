@@ -14,6 +14,7 @@ export default {
         msg3:"please enter all fields",
         msg4:'Success',
         msg5:'Updated Successfully',
-        msg6:'Error in Update'
+        msg6:'Error in Update',
+        localstorage:'Userdata'
     }
 }
