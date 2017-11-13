@@ -12,6 +12,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
 import {testConfig} from './reset-password.config';
+import Config from './reset-password_en_config';
 
 /*stubbed class for navigation*/
 class RouteStub {
