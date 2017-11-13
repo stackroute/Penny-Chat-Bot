@@ -2,13 +2,13 @@
 
   <br>
   <div class="row">
-  <div class="col-md-12">
-  <!-- ============Add task============= -->
-  <div class="nm col-md-9">
-    <h3>{{productdata.task}}</h3>
-   
-    </div>.
-    <div class="col-md-3">
+    <div class="col-md-12">
+      <!-- ============Add task============= -->
+      <div class="nm col-md-9">
+        <h3>{{productdata.task}}</h3>
+
+      </div>.
+      <div class="col-md-3">
 
       </div>
     </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="panel-footer">
           <div class="input-group">
-            
+
            <button class="pull-right btt btn " (click)="save()">{{Config.button.btn1}}</button>
            <button type="button" class="btn btt1 pull-left"  (click)="largeModal.show()">{{Config.button.btn2}}</button>
          </div>
@@ -55,8 +55,8 @@
       <!-- Card -->
       <h3><strong>{{Config.flow}}</strong></h3>
       <div class="card-block" #scrollMe style="overflow-y: scroll;overflow-x: hidden; height: 420px;">
-      <button class="btn btn-default pull-right" *ngIf="testflagon" (click)="triggerFlow()">TestFlow</button>
-       <div id="scroll">
+        <button class="btn btn-default pull-right" *ngIf="testflagon" (click)="triggerFlow()">TestFlow</button>
+        <div id="scroll">
          <ul class="chat">
           <div class="left clearfix">
            <div *ngFor="let ans of testflow">
@@ -102,7 +102,7 @@
 <!-- card footer -->
 <div class="card-footer" >
  <div class="input-group">
-   <input id="btn-input"  type="text" name="ques" class="form-control input-lg" name="first" placeholder="Type your message here..." [(ngModel)]="ans" >
+ <input id="btn-input"  type="text" name="ques" class="form-control input-lg" name="first" placeholder="Type your message here..." [(ngModel)]="ans" (keyup.enter)="testanswer(ans)">
    <span class="input-group-btn">
      <button class="btn btn-default btn-lg" (click)="testanswer(ans)" id="btn-chat" >
        Send
@@ -116,7 +116,7 @@
  <div class="card mb-1 card-outline-primary cardcolor">
 
    <div class="card-head card-info ticket"><p>{{Config.instruction.heading}}<i class="fa fa-times" aria-hidden="true" (click)=instructionsClose() ></i></p>
-</div>
+   </div>
 
    <div class="card-block card-outline-info">
 
@@ -162,12 +162,12 @@
             <option *ngFor="let event of type" [value]="event.value">{{event.value}}</option>
           </select> -->
           <button type="button" class="btn btn-md btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-              {{tempvalue}}
-              </button>
-               <div class="dropdown-menu dropdownsubintent">
-                <a class="dropdown-item" *ngFor="let event of type;let i=index " (click)="getDetail(event.value)">{{event.value}}</a>
-              </div>
-             
+            {{tempvalue}}
+          </button>
+          <div class="dropdown-menu dropdownsubintent">
+            <a class="dropdown-item" *ngFor="let event of type;let i=index " (click)="getDetail(event.value)">{{event.value}}</a>
+          </div>
+
         </div>
         <!-- Start of Question Part with Introduction -->
         <div *ngIf="tempdata.genre == 'Introduction'" >
@@ -186,11 +186,11 @@
                   <option *ngFor="let event of ansType" [value]="event.value">{{event.value}}</option>
                 </select> -->
                 <button type="button" class="btn btn-md btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-              {{tempdata.answertype}}
-              </button>
-               <div class="dropdown-menu dropdownsubintent">
-                <a class="dropdown-item" *ngFor="let event of ansType;let i=index " (click)="setAnstype(event.value,tempdata.genre)">{{event.value}}</a>
-              </div>
+                  {{tempdata.answertype}}
+                </button>
+                <div class="dropdown-menu dropdownsubintent">
+                  <a class="dropdown-item" *ngFor="let event of ansType;let i=index " (click)="setAnstype(event.value,tempdata.genre)">{{event.value}}</a>
+                </div>
               </div>
             </div>
 
@@ -239,11 +239,11 @@
                   <option *ngFor="let event of ansType" [value]="event.value">{{event.value}}</option>
                 </select> -->
                 <button type="button" class="btn btn-md btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-              {{tempdata.answertype}}
-              </button>
-               <div class="dropdown-menu dropdownsubintent">
-                <a class="dropdown-item" *ngFor="let event of ansType;let i=index " (click)="setAnstype(event.value,tempdata.genre)">{{event.value}}</a>
-              </div>
+                  {{tempdata.answertype}}
+                </button>
+                <div class="dropdown-menu dropdownsubintent">
+                  <a class="dropdown-item" *ngFor="let event of ansType;let i=index " (click)="setAnstype(event.value,tempdata.genre)">{{event.value}}</a>
+                </div>
               </div>
             </div>
 
@@ -296,11 +296,11 @@
                   <option *ngFor="let event of ansType" [value]="event.value">{{event.value}}</option>
                 </select> -->
                 <button type="button" class="btn btn-md btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-              {{tempdata.answertype}}
-              </button>
-               <div class="dropdown-menu dropdownsubintent">
-                <a class="dropdown-item" *ngFor="let event of ansType;let i=index " (click)="setAnstype(event.value,tempdata.genre)">{{event.value}}</a>
-              </div>
+                  {{tempdata.answertype}}
+                </button>
+                <div class="dropdown-menu dropdownsubintent">
+                  <a class="dropdown-item" *ngFor="let event of ansType;let i=index " (click)="setAnstype(event.value,tempdata.genre)">{{event.value}}</a>
+                </div>
               </div>
             </div>
             <div class="form-group" *ngIf="tempdata.answertype == 'MCQ'">
@@ -350,10 +350,10 @@
             </select> -->
             <button type="button" class="btn btn-md btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
               {{input}}
-              </button>
-               <div class="dropdown-menu dropdownsubintent" style="position: absolute;">
-                <a class="dropdown-item" *ngFor="let ans of answerarr;let i=index " (click)="setInput(ans)">{{ans}}</a>
-              </div>
+            </button>
+            <div class="dropdown-menu dropdownsubintent" style="position: absolute;">
+              <a class="dropdown-item" *ngFor="let ans of answerarr;let i=index " (click)="setInput(ans)">{{ans}}</a>
+            </div>
           </div>
           <div class="col-md-4 select_join">
             <!-- <select id="solflow" [(ngModel)]="next">
@@ -362,10 +362,10 @@
             </select> -->
             <button type="button" class="btn btn-md btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
               {{next}}
-              </button>
-               <div class="dropdown-menu dropdownsubintent" style="position: absolute;">
-                <a class="dropdown-item" *ngFor="let quest of questionarr;let i=index " (click)="setNextpart(quest.id)">{{quest.id}} - {{quest.message}} => {{quest.genre}}</a>
-              </div>
+            </button>
+            <div class="dropdown-menu dropdownsubintent" style="position: absolute;">
+              <a class="dropdown-item" *ngFor="let quest of questionarr;let i=index " (click)="setNextpart(quest.id)">{{quest.id}} - {{quest.message}} => {{quest.genre}}</a>
+            </div>
           </div>
           <div class="col-md-4">
             <button class="btn btn-default" (click)="addanswerflow(input,next)">{{Config.button.btn7}}</button>
