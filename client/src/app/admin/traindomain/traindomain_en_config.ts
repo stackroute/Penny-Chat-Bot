@@ -69,10 +69,12 @@ export default {
     q:"Q",
     yesorno:"Yes/No",
     conclusion:"Conclusion",
-    yes:["yes"],
-    no:["no"],
+    yes:"Yes",
+    no:"No",
     question:"Question",
     mcq:"MCQ",
+    yesarr : ["yes"],
+    noarr : ["no"]
   },
 
 Server:{
