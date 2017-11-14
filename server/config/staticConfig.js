@@ -50,6 +50,7 @@ loggerDebugAppjs : {
   Sentiment:"before call of Sentiment route app.js:138",
   EditContext:"before call of edit context route app.js:140",
   UpdateUserData:"before call of update user data route app.js:142",
-  ResetPassword:"before call of reset password route app.js:144"
+  ResetPassword:"before call of reset password route app.js:144",
+  Counts : "before call of counts route app.js:150"
 }
 }
