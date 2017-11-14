@@ -73,6 +73,8 @@ export default {
     no:"No",
     question:"Question",
     mcq:"MCQ",
+    yesarr : ["yes"],
+    noarr : ["no"]
   },
 
 Server:{

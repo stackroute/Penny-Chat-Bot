@@ -3,9 +3,9 @@
   <div class="row  navbar-light">
     <div class="col-md-6">
 
-     <a class="logo">Penny</a>
-     <a [routerLink]="['/user/chat']" class="links">Chat With Us</a>
-     <a [routerLink]="['/user/editprofile']" class="links">Edit Profile</a>
+     <a class="logo">{{Config.html.heading}}</a>
+     <a [routerLink]="['/user/chat']" class="links">{{Config.html.chat}}</a>
+     <a [routerLink]="['/user/editprofile']" class="links">{{Config.html.edit}}</a>
 
 
      <!--  icon of penny chatbot -->
@@ -19,8 +19,8 @@
 
     <!-- name of user -->
     <p class="pull-right" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
-     <a class="logoutlinks" (click)="logout()" >Logout</a>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Welcome {{initialCharacter}}!!
+     <a class="logoutlinks" (click)="logout()" >{{Config.html.logout}}</a>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; {{Config.html.greeting}} {{initialCharacter}}!!
    </p>
  </div>
 </div>
