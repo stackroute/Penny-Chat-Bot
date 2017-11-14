@@ -1,41 +1,17 @@
-<!-- <header class="app-header navbar">
-  <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a >
-    <img src = "../../../../../assets/img/logonames.png" style="height: 50px">
-  </a>
- 
-  <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item dropdown" dropdown placement="bottom right">
-      <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false" style="font-size: 18px"> -->
-        <!-- <img src={{"assets/img/avatars/6.jpg"}} class="img-avatar" alt="admin@bootstrapmaster.com"/> -->
-       <!--  Welcome {{initialCharacter}} !!
-      </a>
-    </li>
-  </ul>
-</header> -->
-
-
-
-
 <!-- start of header component -->
-<div class="container-fluid responsive">
-  <div class="row navbar-light">
-    <div class="col-md-6">
-     <a >
-      <!--  icon of penny chatbot -->
-      <h3>Penny</h3>
-    </a>
-  </div>
-  <div class="col-md-6">
-    <!-- name of user -->
-    <p class="pull-right" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
 
-      Welcome {{initialCharacter}}!!
-    </p>
+<nav class="row navbar navbar-expand-md bg-dark navbar-dark">
+  <div class="col-md-6">
+    <a class="pull-left navbar-brand links">{{Config.heading}}</a>
+
   </div>
-</div>
-</div>
+  <!-- name of user -->
+  <div class="col-md-6">
+    <p aria-haspopup="true" aria-expanded="false" dropdownToggle class="pull-right" (click)="false">
+     
+      {{Config.welcome}} {{initialCharacter}}!!
+    </p>      
+  </div> 
+
+</nav>
 <!-- end of header component -->
-<hr>

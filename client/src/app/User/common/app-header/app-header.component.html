@@ -1,30 +1,29 @@
 <!-- start of header component -->
-<div class="container-fluid">
-  <div class="row  navbar-light">
-    <div class="col-md-6">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand links">{{Config.html.heading}}</a>
 
-     <a class="logo">{{Config.html.heading}}</a>
-     <a [routerLink]="['/user/chat']" class="links">{{Config.html.chat}}</a>
-     <a [routerLink]="['/user/editprofile']" class="links">{{Config.html.edit}}</a>
-
-
-     <!--  icon of penny chatbot -->
-     <!-- <img src = "../../../../../assets/img/logonames.png"> -->
-
-
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a [routerLink]="['/user/chat']" class="links">{{Config.html.chat}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      </li>
+      <li class="nav-item">
+         <a [routerLink]="['/user/editprofile']" class="links">{{Config.html.edit}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      </li>  
+       <li class="nav-item">
+         <a class="links logout" (click)="logout()" >{{Config.html.logout}}</a>
+      </li> 
+    </ul>
+  </div> 
+     <!-- name of user -->
      
+<p class="pull-right" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+     
+      {{Config.html.greeting}} {{initialCharacter}}!!
 
-   </div>
-   <div class="col-md-6">
-
-    <!-- name of user -->
-    <p class="pull-right" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
-     <a class="logoutlinks" (click)="logout()" >{{Config.html.logout}}</a>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; {{Config.html.greeting}} {{initialCharacter}}!!
    </p>
- </div>
-</div>
-</div>
+</nav>
 <!-- end of header component -->
-<hr>
-

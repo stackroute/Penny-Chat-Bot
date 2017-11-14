@@ -1,5 +1,7 @@
 export const Config={
 
-localStorage:'Userdata'
+localStorage:'Userdata',
+'heading' : 'Penny',
+'welcome' : 'Welcome'
 
 }
