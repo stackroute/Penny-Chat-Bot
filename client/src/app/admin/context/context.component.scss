@@ -141,11 +141,7 @@ text-decoration:none;
 background-color:#375372;
 }
 .add {
-margin-top:2%;
-font-size: inherit;
-margin-left: 9%;
-background-color:#375372 ;
-border-color: #375372 ;
+    margin-top: -10%;
 }
 #c_button {
 font-size: inherit;
@@ -241,6 +237,10 @@ margin-top: 1%;
 
 .dropdownbtn{
 margin-left:2%;
+}
+
+body {
+  width:100%;
 }
 
 option {
