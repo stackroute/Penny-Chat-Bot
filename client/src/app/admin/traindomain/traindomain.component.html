@@ -32,7 +32,7 @@
                   <p>
                     {{quest.message}}
                   </p>
-                  <a class="setflow" (click)="setnext(quest)"><b (click)="nextModal.show()">Set Flow</b></a>
+                  <a class="setflow" (click)="setnext(quest)"><b (click)="nextModal.show()">{{Config.setflow}}</b></a>
                   <strong class="primary-font pull-right">{{Config.label.lbl8}}{{quest.answertype}}</strong>
                 </div>
               </div>
@@ -55,7 +55,7 @@
       <!-- Card -->
       <h3><strong>{{Config.flow}}</strong></h3>
       <div class="card-block" #scrollMe style="overflow-y: scroll;overflow-x: hidden; height: 420px;">
-        <button class="btn btn-default pull-right" *ngIf="testflagon" (click)="triggerFlow()">TestFlow</button>
+        <button class="btn btn-default pull-right" *ngIf="testflagon" (click)="triggerFlow()">{{Config.flow}}</button>
         <div id="scroll">
          <ul class="chat">
           <div class="left clearfix">
@@ -64,7 +64,7 @@
                <div class="gap" *ngIf="ans.bot">
                  <div class="message-data align-left">
                   <!-- <img src="../../assets/img/bot.png"> -->
-                  <span class="message-data-name"><i class="fa fa-circle you"></i>Bot</span>
+                  <span class="message-data-name"><i class="fa fa-circle you"></i>{{Config.bot}}</span>
 
                 </div>
                 <!-- chat body -->
@@ -84,7 +84,7 @@
              <!-- Answers -->
              <div *ngIf="ans.user">
               <div class="message-data align-right">
-               <span class="message-data-name">User</span> <i class="fa fa-circle me"></i>
+               <span class="message-data-name">{{Config.user}}</span> <i class="fa fa-circle me"></i>
              </div>
              <div class="chat-body clearfix">
                <div class="message me-message float-right">
@@ -105,7 +105,7 @@
  <input id="btn-input"  type="text" name="ques" class="form-control input-lg" name="first" placeholder="Type your message here..." [(ngModel)]="ans" (keyup.enter)="testanswer(ans)">
    <span class="input-group-btn">
      <button class="btn btn-default btn-lg" (click)="testanswer(ans)" id="btn-chat" >
-       Send
+       {{Config.button.btn8}}
      </button>
    </span>
  </div>
@@ -250,7 +250,7 @@
             <div *ngIf="tempdata.answertype=='Yes/No'">
 
               <div *ngFor="let flow of tempflow">
-                <b class="col-sm-12">If {{flow.answer}}</b>
+                <b class="col-sm-12">{{Config.if}} {{flow.answer}}</b>
                 <br>
                 <div class="form-group">
                   <label class="control-label col-sm-2" for="email">{{Config.label.lbl5}}</label>

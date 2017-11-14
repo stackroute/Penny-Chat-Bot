@@ -1,18 +1,15 @@
-/*Preeti Singh
-22/10/2017*/
 
 import { Component, OnInit } from '@angular/core';
-//import { routerTransition } from '../router.animations';
 import { Config } from './forgotpassword_en_config';
 import { ForgotpasswordService } from './forgotpassword.service';
-import swal  from 'sweetalert2';//imported sweetalert 
+import swal  from 'sweetalert2';
 import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgotpassword.component.html',
   styleUrls: ['./forgotpassword.component.scss'],
   providers:[ForgotpasswordService],
-  /*animations: [routerTransition()]*///animated transition 
 })
 export class ForgotpasswordComponent implements OnInit {
 
@@ -25,6 +22,7 @@ export class ForgotpasswordComponent implements OnInit {
 
   constructor(private forgotpasswordService:ForgotpasswordService, private router:Router) { }
   
+  // function for forget password
   forgotPassword(object:any){
     
     if(!object)

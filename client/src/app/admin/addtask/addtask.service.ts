@@ -21,11 +21,12 @@ export class AddtaskService {
 			return res.json()
 		}).catch(this._errorHandler);
 	}
+	//------------end of Submit method----------------
 
-	_errorHandler(error: Response){  /* error handling */
+	// error handling
+	_errorHandler(error: Response){  
 		return Observable.throw(error||Config.addtask.Server)
 	}
-
 	
-	//------------end of Submit method----------------
+	
 }

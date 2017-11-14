@@ -12,7 +12,8 @@ export const Config = {
     VideoLink:'Video Link',
     BlogLink:' Blog Link',
     Addmorelinks:'Add more links',
-    EditContext:'Edit Context'
+    EditContext:'Edit Context',
+    addflow:'Add Flow'
   },
 
   component:{

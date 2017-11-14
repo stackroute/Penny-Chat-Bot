@@ -9,8 +9,8 @@ import {Config} from './multi_en_config';
 
 @Injectable()
 export class LoginService {
-	//url:string = Url.signIn;
 	url:string = Urls.signIn;	
+	
 	//server path for login
 	constructor(private http:Http) { }
 
@@ -22,8 +22,8 @@ export class LoginService {
 		//call _errorHandler if catching any error
 	}
 
+	//handle error from server
 	_errorHandler(error: Response){
-		//handle error from server
 		return Observable.throw(error || Config.login.serverError)
 	}
 }

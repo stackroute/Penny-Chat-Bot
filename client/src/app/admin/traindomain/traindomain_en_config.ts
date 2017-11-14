@@ -6,9 +6,14 @@ export default {
     btn4:'View More',
     btn5:'Submit',
     btn6:'Add Option',
-    btn7:'Add flow'
+    btn7:'Add flow',
+    btn8:'Send'
   },
   flow:'Test Flow',
+  setflow:'Set Flow',
+  bot:'Bot',
+  user:'User',
+  if:'If',
   ques:{
     question:'Add Flow',
     intro:"Introduction",

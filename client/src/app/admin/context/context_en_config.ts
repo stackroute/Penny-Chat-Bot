@@ -14,7 +14,9 @@ export default {
 		VideoLink:" Video Link",
 		BlogLink:"Blog Link",
 		AddSubIntents:"Add Sub Intents",
-		CreateContext:"Create Context"
+		CreateContext:"Create Context",
+    AddMoreLink:"Add More Links",
+    AddFlow:"Add Flow"
 	},
 
 	/*================Component=================*/

@@ -29,7 +29,8 @@ export const Config={
    fb:'Facebook',
    google:'Google+',
    ServerError:"Server Error",
-   createAccount:'Register'
+   createAccount:'Register',
+   emailex:"joe@abc.com"
 
   }
 }

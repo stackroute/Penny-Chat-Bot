@@ -3,6 +3,8 @@ import { Http, HttpModule , XHRBackend, ConnectionBackend,Connection, BaseReques
 import {ContextService } from './context.service';
 import {MockBackend, MockConnection } from '@angular/http/testing';
 import {testConfig} from './context.config';
+
+// test suite for context service
 describe('ContextService', () => {
   let mockBackend:MockBackend;
   let contextService:ContextService;
@@ -24,6 +26,7 @@ describe('ContextService', () => {
     mockBackend = TestBed.get(MockBackend);
   });
 
+  //---------------------------should run for specific service----------------------------------
   it('should be created', inject([ContextService], (service: ContextService) => {
     expect(service).toBeTruthy();
   }));
