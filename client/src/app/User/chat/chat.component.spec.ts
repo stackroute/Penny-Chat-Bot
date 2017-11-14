@@ -60,6 +60,8 @@ describe('Chat  Component', () => {
     expect(component).toBeTruthy();
   })
   //================positive testcase for getquestion===============//
+
+
   // it(" Positive Test for getquestion in chat", () => {
   //   let mockResponse = testConfig.getContext.positive;
   //   const spy = spyOn(service,'getquestions').and.returnValue(
@@ -70,13 +72,16 @@ describe('Chat  Component', () => {
   //     expect(component.rep).toEqual(mockResponse);
   //   })   
   // });
+
   //================negative testcase for getquestion===============//
   it(" negative Test for getContext in chat", () => {
     let mockResponse = testConfig.getContext.negative;
     const spy = spyOn(service,'getquestions').and.returnValue(
       Observable.of(mockResponse)
       )
+
     component.getquestion(true);
+
     fixture.whenStable().then( ()=> {
       expect(component.res).toEqual(undefined);
     })   

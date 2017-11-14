@@ -142,9 +142,15 @@
        </collapsible-header>
        <collapsible-body [expanded]="false">
        <div>
-       <select [(ngModel)]="main.flow" (ngModelChange)="undeleteFlow(i)">
+      <!--  <select [(ngModel)]="main.flow" (ngModelChange)="undeleteFlow(i)">
          <option *ngFor="let flo of flowitem" value="{{flo}}">{{flo}}</option>
-       </select>
+       </select> -->
+       <button type="button" class="btn btn-md btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+              {{main.flow}}
+              </button>
+               <div class="dropdown-menu dropdownsubintent">
+                <a class="dropdown-item" *ngFor="let flo of flowitem" (click)="flowpart(flo,i)">{{flo}}</a>
+              </div>
         <button class="btn btn-primnary deleteflowbtn" *ngIf="main.flow" (click)="deleteFlow(i)">Delete</button>
      </div>
 

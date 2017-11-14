@@ -1,4 +1,11 @@
 export const Config = {
+  html:{
+    heading:"Penny",
+    chat:"Chat With Us",
+    edit:"Edit profile",
+    logout:"Logout",
+    greeting:"Welcome"
+  },
 	bottomchat : {
 		'fahome' : 'fa fa-home',
 		'Home' : 'Home',

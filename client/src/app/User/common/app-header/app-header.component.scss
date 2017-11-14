@@ -1,44 +1,49 @@
-img {
-	height:50px;
-	margin-left:2.5%;
-	margin-top:1%;
+.bg-dark {
+	background-color: #375372 !important;
 }
-.nav-link {
-	font-size:18px;
-	margin-top:2%;
-} 
-hr {
-	margin-top:0.5%;
-	margin-bottom:-3%;
+.navbar-brand {
+	  font-family: Comic Sans MS; 
+    font-size: 32px;
 }
+.pull-right {
+	margin-bottom:-0.1%;
+}
+
 a.logo{
 	font-family: Comic Sans MS;
 	color:white;
-	margin-top: 20%;
+	
 	font-size: 32px;
-	margin-bottom: 3%;
-	margin-left: 2%;
-	margin-right: 10%;
-
 }
 p{
 	color:#fff;
-	font-size: 17px;
-	margin-top: 2.5%;
-	margin-right: 5%;
-}
-.navbar-light{
-background-color: #375372;
+	font-size: 17px;	
 }
 
-a.links {
-	margin-left: 7%;
-	color:white;
-}
-
-a.logoutlinks{
-	color:white;
-}
 a{
+	color:white;
 	cursor:pointer;
 }
+a.links {
+	text-align:center;
+	color:white;
+	text-decoration:none;
+}
+a.links:hover {
+	color: white;
+}
+.logout {
+	margin-top:170%;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+p{
+  display:none !important;
+}
+
+.navbar-toggler {
+	margin-left:55%;
+}
+
+ }
+

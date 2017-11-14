@@ -14,7 +14,7 @@ export class ChatService {
     fetch(answer:any):Observable<any>  {
         let url = config.ip+urlConfig.UserChatfetch;
         let userData = JSON.parse(localStorage.getItem('Userdata'));
-        let email : string = userData.userdata.email;
+        let email : string = userData.data.email;
         return this.http
         .post(url,{message:answer, email : email})
         .map((res:Response)=> {
@@ -62,7 +62,8 @@ export class ChatService {
     getquestions(question:any):Observable<any>{
     let url:any = config.ip+urlConfig.UserChatgetquestions;
         let userData = JSON.parse(localStorage.getItem('Userdata'));
-        let email : string = userData.userdata.email;
+        console.log("user",userData);
+        let email : string = userData.data.email;
     return this.http.post(url,{question : question,email : email})
     .map((res:Response) =><any>res.json()).catch(this.errorGetHandler);
   }
