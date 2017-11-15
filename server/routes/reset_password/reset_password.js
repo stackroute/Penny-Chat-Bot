@@ -1,6 +1,6 @@
 import express from 'express';
 import data from '../../model/register_schema';
-import staticConfig from '../../config/staticConfig';
+import staticConfig from './Config';
 import logger from '../../log4js';
 import comparePassword from './../../util/comparePassword';
 import bcrypt from 'bcrypt';
