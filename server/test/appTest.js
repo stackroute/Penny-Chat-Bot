@@ -1022,7 +1022,7 @@ url
     }
       else{
       
-    console.log('hey', res.body)
+   
      assert.equal(res.body.unansCount,null);
    done();
 }

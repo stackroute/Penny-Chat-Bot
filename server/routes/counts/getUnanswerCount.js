@@ -6,7 +6,6 @@ import logger from '../../log4js';
 
 export default (req,res)=>{
  try{
-  console.log('dhsjfk', req.body)
    demo.find({},(err,data)=>{
    if(err){          //Error
      logger.info(staticConfig.unanswerques.Error);            // making logs

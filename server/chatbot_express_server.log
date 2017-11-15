@@ -1,0 +1,25 @@
+[2017-11-15 11:40:06.996] [INFO] chatbot_express_server - LOGGER WORKING SUCCESSFULLY
+[2017-11-15 11:40:08.915] [INFO] chatbot_express_server - verified
+[2017-11-15 11:40:08.929] [INFO] chatbot_express_server - Data not found in /verify_user route
+[2017-11-15 11:40:08.950] [INFO] chatbot_express_server - Error in updating status to set password
+[2017-11-15 11:40:08.954] [INFO] chatbot_express_server - Verifications are undefined in /warning_page route
+[2017-11-15 11:40:08.957] [INFO] chatbot_express_server - Successfully Verified in /warning_page route
+[2017-11-15 11:40:08.959] [INFO] chatbot_express_server - verified
+[2017-11-15 11:40:08.962] [INFO] chatbot_express_server - Data Undefined in database
+[2017-11-15 11:40:08.973] [INFO] chatbot_express_server - reset badCount
+[2017-11-15 11:40:08.976] [INFO] chatbot_express_server - error occured in forcelogout
+[2017-11-15 11:40:08.979] [INFO] chatbot_express_server - data found
+[2017-11-15 11:40:08.982] [INFO] chatbot_express_server - data is null
+[2017-11-15 11:40:08.985] [INFO] chatbot_express_server - data found
+[2017-11-15 11:40:08.987] [INFO] chatbot_express_server - data found
+[2017-11-15 11:40:08.996] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-15 11:40:08.999] [INFO] chatbot_express_server - Data found in unanswerques's adminques
+[2017-11-15 11:40:09.006] [INFO] chatbot_express_server - Data Undefined
+[2017-11-15 11:40:09.009] [INFO] chatbot_express_server - Success
+[2017-11-15 11:40:09.012] [INFO] chatbot_express_server - Not Found
+[2017-11-15 11:40:09.014] [INFO] chatbot_express_server - Data Found
+[2017-11-15 11:40:09.017] [INFO] chatbot_express_server - Data Undefined
+[2017-11-15 11:40:09.025] [INFO] chatbot_express_server - Success
+[2017-11-15 11:40:09.028] [INFO] chatbot_express_server - { message: 'Success in update User' }
+[2017-11-15 11:40:09.031] [INFO] chatbot_express_server - { message: undefined }
+[2017-11-15 11:40:09.049] [INFO] chatbot_express_server - No connectivity with database
