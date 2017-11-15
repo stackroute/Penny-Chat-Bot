@@ -113,12 +113,12 @@
 <div class="existing " *ngIf="correspondSynonym.length>0">
   <h4>{{Config.bottraining.ExistingSyn}} {{intentname.itemName}}</h4>
   <span class="disp" *ngFor="let intent of correspondSynonym">
-    <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
+    <span class="badge intbadge badge-pill text-white textint" *ngIf="intentname.label=='Intent'">
       {{intent}}
       <a><i class="fa fa-times cross" (click)="deletesynonym(intent)" aria-hidden="true"></i></a>
     </span>
 
-    <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">{{intent}}
+    <span class="badge subintbadge badge-pill text-white textint" *ngIf="intentname.label=='SubIntent'">{{intent}}
       <a>
         <i class="fa fa-times" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
       </span>            
@@ -212,10 +212,10 @@ Context
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <tabset class="tab-container">
-            <div class="tab-content">     
-              <tab heading="Intent" ng-reflect-heading="Home" class="tab-pane">
+        <div class="modal-body modalone">
+          <tabset class="tab-container modalone">
+            <div class="tab-content modalone">     
+              <tab heading="Intent" ng-reflect-heading="Home" class="tab-pane modalone">
                 {{Config.bottraining.Add}} {{val}} {{Config.bottraining.SameAs}}
                 <div class="existing ">
                   <angular2-multiselect [data]="intentName" [(ngModel)]="selectedItemsIntent" 
@@ -261,12 +261,12 @@ Context
         <span aria-hidden="true">&times;</span>
       </button>
     </div> 
-    <div class="modal-body">
+    <div class="modal-body ">
       <div class="headingbutton">    
       </div>
-      <tabset class="tab-container" *ngIf="value">
-        <div class="tab-content">     
-          <tab heading={{value}} ng-reflect-heading="Home" class="tab-pane" id="Intent">
+      <tabset class="tab-container modalone " *ngIf="value" >
+        <div class="tab-content modalone">     
+          <tab heading={{value}} ng-reflect-heading="Home" class="tab-pane modalone" id="Intent">
             <form role="form" #addval="ngForm">
               <div class="form-group">
                 <label for="exampleInputPassword1">{{Config.bottraining.Value}}</label>

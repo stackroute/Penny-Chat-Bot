@@ -8,8 +8,7 @@ padding:6px 1px;
 
 }
 .btn.btn-primary {
-color:white;  
-font-size: 17px;   
+color:white;     
 }
 .btn.btn-primary:hover {
 color:white;
@@ -18,7 +17,7 @@ a {
 text-decoration:none;
 }
 .card-header {
-background-color: #7a99bc;
+background-color: #375372;
 color: white;
 padding: 10px 15px;
 }
@@ -27,16 +26,11 @@ padding: 10px 15px;
     background-color: #375372;
     color: white;
 }
-.form-control{
-    font-size:18px;
-}
+
 
 .collapsible-header {
     background-color: #7a99bc;
     color: white;
-}
-.ng2-tag-input__text-input[_ngcontent-c14]{
-    font-size:15px;
 }
 
 
@@ -120,9 +114,6 @@ background-color: #555;
 .btn {
 line-height:0.5;
 }
-a.dropdown-item{
-  font-size:20px;
-}
 .addto {
 margin-left: 80%;
 margin-top: -5%;
@@ -134,6 +125,7 @@ padding:6px 1px;
 }
 .btn.btn-primary {
 color:white;
+font-size:18px;
 }
 .btn.btn-primary:hover {
 color:white;
@@ -150,11 +142,14 @@ text-decoration:none;
 background-color:#375372;
 }
 .add {
-      margin-top: -6%;
-    margin-left: 6%
+margin-top:2%;
+font-size: inherit;
+margin-left: 9%;
+background-color:#375372 ;
+border-color: #375372 ;
 }
 span{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #btn-chat {
@@ -193,14 +188,15 @@ padding:7px 15px;
 .badge.badge-pill {
 margin-top:1.5%;
 }
-.panel-primary>.panel-heading {
+.panel-primary.panel-heading {
 color: #fff;
+background-color: #375372;
+border-color: #375372;font-size: 23px;
 }
 .btn.btn-primary.pi-draggable.btn-block {
 color: #fff;
 background-color: #375372;
 border-color: #375372;
-font-size: 17px;
 }
 .addContextbtn{
 margin-top:2%;
@@ -219,14 +215,26 @@ border-color: #375372;
 border-color: #375372;
 }
 
-
 div.dropdown-menu.dropdownsubintent {
 position: inherit;
 float: inherit;
-}
-
-a.dropdown-item{
- font-size:20px;
+/* top: 100%;
+left: 0;
+z-index: 1000;
+display: none;
+float: inherit;
+min-width: 160px;
+padding: 5px 0;
+margin: 2px 0 0;
+font-size: 20px;
+text-align: left;
+list-style: none;
+background-color: #fff;
+background-clip: padding-box;
+border: 1px solid #ccc;
+border: 1px solid rgba(0,0,0,.15);
+border-radius: 4px;
+box-shadow: 0 6px 12px rgba(0,0,0,.175);*/
 }
 
 .textarea {
@@ -235,10 +243,6 @@ margin-top: 1%;
 
 .dropdownbtn{
 margin-left:2%;
-}
-
-body {
-  width:100%;
 }
 
 option {
@@ -277,4 +281,22 @@ padding: 5px\9;
 .btn.btn-primary[_ngcontent-c7] {
     margin-left: 4%;
 }
+}
+
+.form-control{
+    font-size:18px;
+}
+
+.inputtext{
+  font-size:15px;}
+
+.form-control.description{
+      font-size:20px;
+}
+a.dropdown-item{
+ font-size:20px;
+
+.addbtn {
+   float:inherit;
+   padding:12px 12px;
 }

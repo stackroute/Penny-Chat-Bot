@@ -37,7 +37,7 @@
  <app-edit-context></app-edit-context>
 
 
- <div class="col-md-3 ">
+ <div class="col-md-3 addbtn">
   <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show();getIntent();getAllContext()" draggable="true">{{Config.html.AddNewContext}}</a>
 </div><br>
 <!-- </div>
@@ -65,7 +65,7 @@
                   <div><hr>
                     <!-- ===================Synonyms=================== -->
                     <label for="exampleInputPassword1">{{Config.html.Addsynonyms}}</label>
-                    <tag-input  [(ngModel)]="synonym"
+                    <tag-input class="inputtext" [(ngModel)]="synonym"
                     [modelAsStrings]="true"
                     [theme]="'dark'"
                     [dragZone]="'zone1'"
@@ -127,7 +127,7 @@
             </collapsible-header>
             <collapsible-body [expanded]="true">
             <div class="form-group">
-              <textarea [(ngModel)]="main.value" class="form-control" name="description" id= "description" placeholder="description" rows="3"></textarea>
+              <textarea [(ngModel)]="main.value" class="form-control description" name="description" id= "description" placeholder="description" rows="3"></textarea>
             </div>
           </collapsible-body>
         </collapsible-list-item>

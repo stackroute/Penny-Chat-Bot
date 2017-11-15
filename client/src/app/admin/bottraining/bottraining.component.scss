@@ -410,3 +410,48 @@ margin-top: 3%;
    margin-left:-9%;
 }
 }
+div.panel-heading{
+    font-size:24px;
+}
+.modalone{
+  font-size:20px;
+}
+h5 {
+ font-size:18px;
+}
+@media (min-width: 320px) and (max-width: 640px) {
+
+.headingcircle[_ngcontent-c5] {
+   margin-left: -4%;
+}
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+.displayQues[_ngcontent-c5] {
+   margin-left: 2%;
+   float: right;
+   margin-top: -60%;
+   margin-right: 6%;
+   margin-bottom: -5%;
+}
+
+@media (min-width: 1024px) and (max-width: 1366px){
+.displayQues[_ngcontent-c5][_ngcontent-c5] {
+   margin-left: 2%;
+   float: right;
+    margin-top: 1%;
+   margin-right: 6%;
+   margin-bottom: -5%;
+}
+}
+.panel-body.tablepanel {
+overflow-y: scroll;
+height: 350px;   
+}
+
+.panel-primary[_ngcontent-c5] {
+   margin-bottom: -5%;
+}
+}
