@@ -1,10 +1,18 @@
 .bg-dark {
 	background-color: #375372 !important;
 }
-.navbar-brand {
-	  font-family: Comic Sans MS; 
-    font-size: 32px;
+
+.dropdown-menu {
+	left: auto; 
+	right: 0px; 
+	transform: translateY(1px);
 }
+
+.navbar-brand {
+	font-family: Comic Sans MS; 
+	font-size: 32px;
+}
+
 .pull-right {
 	margin-bottom:-0.1%;
 }
@@ -12,38 +20,53 @@
 a.logo{
 	font-family: Comic Sans MS;
 	color:white;
-	
 	font-size: 32px;
 }
-p{
+
+p {
 	color:#fff;
 	font-size: 17px;	
 }
 
-a{
-	color:white;
+a,a.log {
+	color:#4A8BB9;
 	cursor:pointer;
 }
+
 a.links {
 	text-align:center;
 	color:white;
 	text-decoration:none;
 }
-a.links:hover {
-	color: white;
-}
-.logout {
-	margin-top:170%;
+
+a.dropdown-item:hover {
+	color: #375372;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
-p{
-  display:none !important;
+strong {
+	color:#4A8BB9;
 }
 
-.navbar-toggler {
-	margin-left:55%;
+.navbar-nav {
+    margin: 7.5px 0px;
 }
 
- }
+a.dropdown-item {
+	font-weight:580;
+}
 
+@media (max-width: 767px){
+	.navbar-nav .open .dropdown-menu {
+    position: absolute;
+    float: none;
+    width: auto;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    margin-top: 0;
+    background-color:#fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	}
+}

@@ -11,7 +11,7 @@ export class AppHeaderComponent implements OnInit{
 
 	config : any;
 	Config:any=Config;
-	initialCharacter : any;
+	initialCharacter : string;
 
 	 constructor(private router : Router) { 
     //----------------set configuration for floating menu------------
@@ -21,7 +21,8 @@ export class AppHeaderComponent implements OnInit{
   // run function before html render
 	ngOnInit(){		
 		let data = JSON.parse(localStorage.getItem(Config.bottomchat.Userdata)).data;
-		this.initialCharacter = data.name;
+			this.initialCharacter=data.name;
+			console.log(this.initialCharacter);
 	}
 
 	// logout user function
