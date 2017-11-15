@@ -1,7 +1,7 @@
 export const Config = {
   html:{
     heading:"Penny",
-    chat:"Chat With Us",
+    chat:"Chat with us",
     edit:"Edit profile",
     logout:"Logout",
     greeting:"Welcome"

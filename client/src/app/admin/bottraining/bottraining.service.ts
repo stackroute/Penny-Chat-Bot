@@ -98,7 +98,7 @@ export class BottrainingService {
     return this.http
     .post(synUrl,{context:context,word:word})
     .map((res: Response)=>{
-      res.json()
+      return res.json()
     }
     ).catch(this._errorHandler); /*error handling*/
   }

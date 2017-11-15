@@ -5,6 +5,7 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import {YoutubePlayerModule} from 'ng2-youtube-player';
 import {ResetPasswordComponent } from './reset-password/reset-password.component';
 import {EditprofileComponent } from './editprofile/editprofile.component';
+import { AvatarModule } from "ng2-avatar";
 import {
   AppAsideComponent,
   AppFooterComponent,
@@ -33,7 +34,8 @@ import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
   YoutubePlayerModule,
   FormsModule,
   FloatingActionMenuModule,
-  MatSidenavModule
+  MatSidenavModule,
+  AvatarModule.forRoot()
   ],
   declarations: [
   LayoutComponent,
