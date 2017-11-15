@@ -9,7 +9,7 @@
     <collapsible-header class="waves-effect main-collapsible-header">
       Unanswered Questions
     </collapsible-header>
-    <collapsible-body [expanded]="true">
+    <collapsible-body [expanded]="true" >
     <div class="col-md-4">
       <div class="panel panel-primary">
         <div class="panel-heading">
@@ -94,7 +94,7 @@
         </div>
       </div>
     </collapsible-header>
-    <collapsible-body [expanded]="false">
+    <collapsible-body class="new" [expanded]="false">
       <div class = "row ">
         <div class = "col-md-9 dropdownfirst">
           <angular2-multiselect [data]="intentName" [(ngModel)]="selectedItemsIntent" 
