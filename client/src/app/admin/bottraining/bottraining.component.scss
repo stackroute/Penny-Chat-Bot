@@ -198,6 +198,9 @@ color:#00FF00
 margin-top:1.5%;
 background-color: #375372;
 }
+span.badge.badge-pill.text-white{
+  font-size:17px;
+}
 .panel-primary>.panel-heading {
 color: #fff;
 background-color: #375372;
@@ -318,8 +321,11 @@ font-size: 21px;
     padding-right: 10%;
     }
 }
+.btn[_ngcontent-c6] .badge[_ngcontent-c6] {
+    font-size: 17px;
+}
 .secondtext{
-margin-left:-7%; 
+margin-left:-6.5%; 
 }
 
 .c-btn[_ngcontent-c6] {
