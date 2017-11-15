@@ -14,7 +14,6 @@ export default (req, res)=> {
 			'match(domain:Domain) return count(domain)'
 			);
 		resultPromise.then((result)=>{
-			console.log(result.records[0]._fields[0].low)
 			intent.push({[staticConfig.Domain] : result.records[0]._fields[0].low})
 			const resultPromise = session.run(
 				'match(subdomain:SubDomain) return count(subdomain)'
