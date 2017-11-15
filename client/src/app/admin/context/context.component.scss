@@ -1,6 +1,6 @@
 .btn {
 line-height:0.5;
-padding: 14px 14px;
+padding: 12px 12px;
 }
 .btn.btn-block {
 width:50%;
@@ -8,7 +8,8 @@ padding:6px 1px;
 
 }
 .btn.btn-primary {
-color:white;     
+color:white;  
+font-size: 17px;   
 }
 .btn.btn-primary:hover {
 color:white;
@@ -27,7 +28,7 @@ padding: 10px 15px;
     color: white;
 }
 .form-control{
-    font-size:20px;
+    font-size:18px;
 }
 
 .collapsible-header {
@@ -149,11 +150,9 @@ background-color:#375372;
     margin-top: -10%;
 }
 span{
-    font-size: 20px;
+    font-size: 18px;
 }
-#c_button {
-font-size: inherit;
-}
+
 #btn-chat {
 color: #fff;
 background-color: #fa9040;
@@ -199,13 +198,14 @@ border-color: #375372;
 color: #fff;
 background-color: #375372;
 border-color: #375372;
+font-size: 17px;
 }
 .addContextbtn{
 margin-top:2%;
-    padding-top: 14px;
-    padding-right: 14px;
-    padding-bottom: 14px;
-    padding-left: 14px;
+    padding-top: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
 }
 .btn.btn-primary{
 background-color: #375372;
@@ -213,7 +213,7 @@ border-color: #375372;
 }
 
 .btn.btn-md.btn-primary.dropdown-toggle{
-    font-size: 14px;
+    font-size: 18px;
 border-color: #375372;
 }
 

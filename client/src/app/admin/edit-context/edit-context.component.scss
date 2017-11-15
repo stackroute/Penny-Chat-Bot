@@ -8,6 +8,7 @@
 }
 .btn.btn-primary {
     color:white;
+    font-size:17px;
 }
 .btn.btn-primary:hover {
     color:white;
@@ -21,7 +22,9 @@ a {
     color: white;
     padding: 10px 15px;
 }
-
+.form-control{
+    font-size:20px;
+}
 div.dropdown-menu.dropdownsubintent {
 position: inherit;
 float: inherit;
@@ -42,6 +45,10 @@ border: 1px solid #ccc;
 border: 1px solid rgba(0,0,0,.15);
 border-radius: 4px;
 box-shadow: 0 6px 12px rgba(0,0,0,.175);*/
+}
+.badge {
+    font-size: 17px;
+    font-weight: 400; 
 }
 
 .collapsible-header {
@@ -145,6 +152,7 @@ box-shadow: 0 6px 12px rgba(0,0,0,.175);*/
     
 }
 .btn.btn-primary {
+  font-size:18px;
     color:white;
 background-color:#375372 ;
     padding: 12px 12px;
@@ -231,10 +239,12 @@ a {
  .btn.btn-primary.add.deletebtn{
      padding: 12px 12px;
      margin-top: 1%;
+     font-size: 17px;
  }
  .btn.btn-primary.add.editbtn{
      padding: 12px 12px;
      margin-top: 1%;
+     font-size: 18px;
  }
  .btn.btn-primnary.deleteflowbtn {
    background-color: #375372 ;

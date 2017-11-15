@@ -26,7 +26,7 @@
       <!-- =========Send Button======== -->
       <div class="panel-footer">
         <div class="input-group">
-          <input id="btn-input" type="text" class="form-control input-sm unansweredplaceholder" placeholder="Type your message here..."  [(ngModel)]="newQuestion" name="question" (keyup.enter)="sendques(newQuestion)">
+          <input id="btn-input" type="text" class="form-control input-sm unansweredplaceholder" placeholder="Add Questions"  [(ngModel)]="newQuestion" name="question" (keyup.enter)="sendques(newQuestion)">
           <span class="input-group-btn">
             <button class="btn btn-lg btn-warning" id="btn-chat" (click)=sendques(newQuestion)>
               {{Config.bottraining.Send}}</button>
