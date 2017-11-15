@@ -28,6 +28,7 @@ import followup from './routes/followup';
 import editContext from './routes/editContext';
 import updateUserdata from './routes/updateUserdata';
 import reset_password from './routes/reset_password';
+import counts from './routes/counts';
 // end importing of routes
 
 import http from 'http';
@@ -145,6 +146,8 @@ logger.debug(staticConfig.loggerDebugAppjs.UpdateUserData);
 app.use('/updateUserdata', updateUserdata);
 logger.debug(staticConfig.loggerDebugAppjs.ResetPassword);
 app.use('/reset_password', reset_password);
+logger.debug(staticConfig.loggerDebugAppjs.Counts);
+app.use('/counts',counts);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
