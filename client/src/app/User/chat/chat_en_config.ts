@@ -1,9 +1,9 @@
 export default {
   html:{
     RelatedVideos:'Related Videos',
-    Penny:'Penny',
+    Penny:'',
     History : 'History',
-    Bot:'Bot',
+    Bot:'Penny',
     time:'12 mins ago',
     User:'User',
     Send:'Send',

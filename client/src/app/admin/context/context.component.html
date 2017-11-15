@@ -1,7 +1,7 @@
 
 
 
-
+<!-- 
 <collapsible-list [type]="'accordion'" class="collapse">
   
   <collapsible-list-item>
@@ -14,7 +14,7 @@
     </collapsible-header>
     <collapsible-body [expanded]="false">
 
-     <!-- ==================calling edit context================== -->
+    
      <app-edit-context></app-edit-context>
  <div class="col-md-3 ">
   <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show();getIntent();getAllContext()" draggable="true">{{Config.html.AddNewContext}}</a>
@@ -22,8 +22,8 @@
     </collapsible-body>
   </collapsible-list-item>
  
-</collapsible-list>
-<!-- 
+</collapsible-list> -->
+
 <div id="c_card" class="card pi-draggable" draggable="true">
  <div class="card-header">
    <div class=row>
@@ -40,7 +40,7 @@
  <div class="col-md-3 ">
   <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show();getIntent();getAllContext()" draggable="true">{{Config.html.AddNewContext}}</a>
 </div><br>
-</div> -->
+</div>
 
 <!-- ======================Modal to add new context========================== -->
 <div bsModal #addContext="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
