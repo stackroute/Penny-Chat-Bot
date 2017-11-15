@@ -27,6 +27,7 @@ describe('Chat  Component', () => {
   let router = {
     navigate: jasmine.createSpy('navigate')
   }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports : [

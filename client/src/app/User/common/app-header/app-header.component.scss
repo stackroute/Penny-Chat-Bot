@@ -1,49 +1,56 @@
 .bg-dark {
-	background-color: #375372 !important;
+    background-color: #375372 !important;
 }
 .navbar-brand {
-	  font-family: Comic Sans MS; 
+    font-family: Comic Sans MS; 
     font-size: 32px;
 }
 .pull-right {
-	margin-bottom:-0.1%;
+    margin-bottom:-0.1%;
 }
-
 a.logo{
-	font-family: Comic Sans MS;
-	color:white;
-	
-	font-size: 32px;
+    font-family: Comic Sans MS;
+    color:white;
+    
+    font-size: 32px;
 }
 p{
-	color:#fff;
-	font-size: 17px;	
+    color:#fff;
+    font-size: 17px;    
 }
-
 a{
-	color:white;
-	cursor:pointer;
+    color:white;
+    cursor:pointer;
 }
 a.links {
-	text-align:center;
-	color:white;
-	text-decoration:none;
+    text-align:center;
+    color:white;
+    text-decoration:none;
 }
 a.links:hover {
-	color: white;
+    color: white;
 }
 .logout {
-	margin-top:170%;
+    margin-top:170%;
 }
-
 @media (min-width: 320px) and (max-width: 767px) {
-p{
-  display:none !important;
+    p{
+        display:none !important;
+    }
+    .navbar-toggler {
+        margin-left:55%;
+    }
 }
-
-.navbar-toggler {
-	margin-left:55%;
+@media (min-width: 360px) and (max-width: 640px) {
+    .navbar-brand[_ngcontent-c1] {
+        font-family: Comic Sans MS;
+        font-size: 30px;
+    }
 }
-
- }
-
+@media (min-width: 320px) and (max-width: 568px) {
+    .navbar-brand[_ngcontent-c1] {
+        font-family: Comic Sans MS;
+        font-size: 24px;
+    }
+    
+}
