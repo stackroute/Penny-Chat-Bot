@@ -23,15 +23,12 @@ export class ContextService {
     }).catch(this._errorHandler);
   }
 
-
   /*error handling*/
   _errorHandler(error: Response){
     return Observable.throw(error || Config.Server.ServerError);
   }
 
-
-/*===============fetching all context===================*/  
-
+  /*===============fetching all context===================*/  
   getAllContext():Observable<any> {
     let urlContext=config.ip+urlConfig.AdminContextgetAllContext;
     return this.http.get(urlContext)
@@ -75,8 +72,6 @@ export class ContextService {
   }
 
   /*=======================fetch flow =================================*/
-  
-
   fetchflow(): Observable<any> {
     let url3=config.ip+urlConfig.AdminContextfetchflow;
     return this.http
@@ -84,9 +79,7 @@ export class ContextService {
     .map((res: Response)=> res.json()).catch(this._errorHandler);
   }
 
-
   /*========================add flow task =====================*/
-
   addflowtask(flowname):Observable<any> {
     let addflowtaskurl=config.ip+urlConfig.AdminContextaddflowtask;
     return this.http

@@ -16,6 +16,8 @@ import { ContextService } from './context.service';
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import swal from 'sweetalert2';
 import { testConfig } from './context.config';
+
+// test suite for context component
 describe('ContextComponent', () => {
   let component: ContextComponent;
   let fixture: ComponentFixture<ContextComponent>;
@@ -77,6 +79,7 @@ describe('ContextComponent', () => {
           //     expect(component.contextval.itemName).not.toEqual(undefined);
           //   })
           // });
+
           // //=============positivetestcase onItemSelect ===================================
           it( "positive onItemSelect testcase", () => {
             let mockResponse1=testConfig.mockResponse1;
@@ -88,6 +91,7 @@ describe('ContextComponent', () => {
               expect(component.selectedIntent[0].name).toEqual(mockResponse1.name);
             })
           });
+
           //=============negative testcase onItemSelect ===================================
           it( "negative onItemSelect testcase", () => {
             let mockResponse1=testConfig.mockResponse1;
@@ -99,22 +103,27 @@ describe('ContextComponent', () => {
               expect(component.selectedIntent[0].name).not.toEqual(null);
             })
           });
+
           //------------positive test case for addInput()----------------
           it('addInput() positive test case', () => {
             expect(component.inputs).toEqual(testConfig.data);
           });
+
           //------------negative test case for addInput()----------------
           it('addInput() negative test case', () => {
             expect(component.inputs).not.toEqual(null);
           });
+
           //------------positive test case for addBlog()----------------
           it('addBlog() positive test case', () => {
             expect(component.blog).toEqual(testConfig.data);
           });
+
           //------------negative test case for addBlog()----------------
           it('addBlog() nagative test case', () => {
             expect(component.blog).not.toEqual(null);
           });
+          
           //------------positive test case for removeVideo()----------------
           // it('removeVideo() positive test case', () => {
             //   expect(component.addvideolink).toEqual(testConfig.dataremove);

@@ -13,6 +13,8 @@ import { HttpModule } from '@angular/http';
 import { RouteStub } from './login.config.testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import {testConfig} from './login.config.testing';
+
+// test suite for login component
 describe('LoginComponent test', () => {
   let de:DebugElement;
   let el:HTMLElement;
@@ -44,10 +46,10 @@ describe('LoginComponent test', () => {
     })
   }));
 
-
+  //=============================Navigate by url testing for user================================
   it('should check success login',inject([Router], (router:Router)=> {
     let resdata = testConfig.resdata;
-//=============================Navigate by url testing for user================================
+
     comp.loginDetails.email = testConfig.loginComp.email;
     comp.loginDetails.password = testConfig.loginComp.password;
 

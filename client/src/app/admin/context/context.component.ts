@@ -21,7 +21,6 @@ export class ContextComponent implements OnInit {
   selectSubInt : any;
   selectedSubIntent : any = {name : "Select SubIntent",value : ""};
   dropdownSettings = {};
-
   dropdownSubIntentSettings = {};
   dependencyDropdownSettings={};
   completeContext : any =[];
@@ -55,6 +54,7 @@ export class ContextComponent implements OnInit {
     this.dependencyDropdownSettings = Config.dependencyDropdownSettings;
   }
   
+  /*===========method to get all the Context========*/
   getAllContext() {
     this.contexts = [];
         this.contextService.getAllContext().subscribe((ref) => {
@@ -66,7 +66,7 @@ export class ContextComponent implements OnInit {
     })
   }
 
-  //funtion to fetch flows
+  /*================function for fetch flows=================*/ 
   getcontent() {
     this.contextService.fetchflow()
     .subscribe((data) => {
@@ -77,6 +77,7 @@ export class ContextComponent implements OnInit {
     })
   }
 
+  /*================function for fetch context=================*/ 
   getContext(){
     this.contexts = [];
     this.contextService.getAllContext().subscribe((ref) => {
@@ -88,7 +89,7 @@ export class ContextComponent implements OnInit {
     })
   }
 
-  //===========method to get all the Intents========//
+  /*===========method to get all the Intents========*/
   getIntent(){
     this.contextService.getIntent().subscribe((ref) => {
       this.intents = [];

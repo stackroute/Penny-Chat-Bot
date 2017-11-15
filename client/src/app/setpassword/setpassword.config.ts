@@ -1,5 +1,3 @@
-/*Preeti Singh
-22/10/2017*/
 
 export const testConfig={
 

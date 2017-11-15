@@ -18,9 +18,26 @@ export class TraindomainComponent implements OnInit {
   ansType:any[] = [];
   testflagon:boolean = false;
   helpFlag:number = 0;
+  tempid:any=0;
+  tempdata:any = {};
+  tempvalue:any;
+  op:any;
+  answerflow:any[] = [];
+  tempflow:any[] = [];
+  nextquestion:any;  
+  answerarr:any[] = [];
+  questionarr:any[] = [];
+  input:any;
+  next:any;
+  testflag:boolean = false;
+  testflow:any[] = [];
+  testanswertype:any;
+  currentflow:any;
+  ans:any;
 
   constructor(private traindomainService:TraindomainService, private routeparams:ActivatedRoute, private router:Router) { }
-  op:any;
+  
+  // runs on initialization
   ngOnInit() {
     this.type = [{value : Config.ques.intro},
     {value : Config.ques.quest},
@@ -46,7 +63,8 @@ export class TraindomainComponent implements OnInit {
     this.helpFlag = 0;
   }
 
-  editdata(name) { //edit data
+  // function for edit data
+  editdata(name) { 
 
     this.traindomainService.getdata(name).subscribe((res) => {
 
@@ -57,9 +75,8 @@ export class TraindomainComponent implements OnInit {
 
     })
   }
-  tempid:any=0;
-  tempdata:any = {};
-  tempvalue:any;
+  
+  // function for get detail
   getDetail(data) {
     this.tempvalue = data;
 
@@ -74,10 +91,8 @@ export class TraindomainComponent implements OnInit {
       this.tempdata = {genre : Config.ques.conclusion, id : this.tempid, type :Config.ques.type1};
     }
   }
-  tempflow:any[] = [];
-  nextquestion:any;  
-  answerarr:any[] = [];
-  questionarr:any[] = [];
+
+  // function for setting id
   setId() {
     let m = 0;
     this.productdata.question.map((data) => {
@@ -87,7 +102,8 @@ export class TraindomainComponent implements OnInit {
     })
     return ++m;
   }
-  answerflow:any[] = [];
+  
+  // function for setting next question
   setnext(data) {
     this.nextquestion = data;
     this.productdata.question.map((data)=> {
@@ -107,8 +123,8 @@ export class TraindomainComponent implements OnInit {
       }
     }
   }
-  input:any;
-  next:any;
+  
+  // function for adding answer flow
   addanswerflow(input,next) {
     let sample = {
       input : input,
@@ -127,7 +143,8 @@ export class TraindomainComponent implements OnInit {
     this.next = "";
   }
   
-  arrangeAnswer() {  //arrage answers
+  // function for arrage answers
+  arrangeAnswer() {  
     this.testflagon = true;
     if(this.answerflow.length > 0) {
       if(this.nextquestion.genre == Config.ques.intro) {
@@ -162,16 +179,18 @@ export class TraindomainComponent implements OnInit {
     this.answerflow= [];
   }
 
+  // function for set input
   setInput(ans) {
     this.input = ans;
   }
 
-
+  // function for set next part
   setNextpart(ans) {
     this.next = ans;
   }
 
-  setAnstype(data,main) {  //set Answertype
+  // function for set ans type
+  setAnstype(data,main) {
     this.tempdata.answertype = data;
     if(data==Config.ques.yesno && main==Config.ques.intro) {
       let yes =  { id : this.tempid,
@@ -217,10 +236,13 @@ export class TraindomainComponent implements OnInit {
     }
   }
 
+  // function for adding option
   addOption() {
     let main = {id : this.tempdata.option.length + 1,value : ""}
     this.tempdata.option.push(main);
   }
+
+  // function for set intro
   setIntro() {
     this.productdata.question.push(this.tempdata);
     this.tempflow.map((data) => {
@@ -230,6 +252,8 @@ export class TraindomainComponent implements OnInit {
     this.tempflow = [];
     this.tempvalue = "";
   }
+
+  // function for set question
   setQuestion() {
     this.productdata.question.push(this.tempdata);
     this.tempflow.map((data) => {
@@ -239,11 +263,14 @@ export class TraindomainComponent implements OnInit {
     this.tempflow = [];
     this.tempvalue = "";
   }
+
+  // function for result
   result(data) {
     this.productdata.result = data;
   }
-  save() {
 
+  // function for saving data
+  save() {
     this.traindomainService.save(this.productdata)
     .subscribe((data) => {
       
@@ -252,9 +279,9 @@ export class TraindomainComponent implements OnInit {
     	this.router.navigateByUrl('/error')
     })
   }
-  testflag:boolean = false;
-  testflow:any[] = [];
-  triggerFlow() {   //check the flow of created answer
+  
+  //function to check the flow of created answer
+  triggerFlow() {   
     this.testflag = true;
     this.productdata.question.map((data) => {
       if(data.genre == Config.save.intro && data.type == Config.save.q && data.id == this.testflag) {
@@ -262,8 +289,8 @@ export class TraindomainComponent implements OnInit {
       }
     })
   }
-  testanswertype:any;
-  currentflow:any;
+  
+  // function for adding chat
   chatadd(data,ans) {
     this.currentflow = data;
     this.testanswertype = data.answertype
@@ -287,8 +314,9 @@ export class TraindomainComponent implements OnInit {
       this.testanswer(ans)
     }
   }
-  ans:any;
-  testanswer(ans) { //test the answer
+  
+  // function for test the answer
+  testanswer(ans) {
     this.testflow[this.testflow.length -1].user = ans;
     this.ans = ""
     if(!this.currentflow.genre) {
@@ -353,7 +381,9 @@ export class TraindomainComponent implements OnInit {
       }
     }
   }
-  checkansyesno(ans) { //check yesno type answer
+
+  // function for check yesno type answer
+  checkansyesno(ans) {
     let yes = Config.save.yesarr;
     let no = Config.save.noarr;
     let flag;
@@ -385,7 +415,9 @@ export class TraindomainComponent implements OnInit {
       return false;
     }
   }
-  checkansmcq(ans) { //check mcq
+
+  // function for check mcq type question
+  checkansmcq(ans) {
     let length = this.currentflow.option.length;
     if(ans <= length) {
       return true;

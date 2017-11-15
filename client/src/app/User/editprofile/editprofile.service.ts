@@ -11,7 +11,8 @@ export class EditprofileService {
 
 	constructor( private http : Http ) { }
 
-	submit(userData : any) {  // goto server to hit the request
+	// goto server to hit the request
+	submit(userData : any) {  
 		let url = config.ip+urlConfig.updateUserdataUrl;
 		//const tokenJWT = JSON.parse(localStorage.getItem('Userdata')).token;
 		//let headers = new Headers({'Authorization' : tokenJWT});
@@ -20,7 +21,8 @@ export class EditprofileService {
 		.catch(this._errorHandler);
 	}
 
-	_errorHandler(error: Response){  /* error handling */
+	// error handling
+	_errorHandler(error: Response){  
 		return Observable.throw(error)
 	}
 }

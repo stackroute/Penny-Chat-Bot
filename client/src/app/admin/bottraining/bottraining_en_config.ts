@@ -1,6 +1,6 @@
 export const Config = {
     bottraining : {
-        'PendingQuestions': 'UnAnswered Questions',
+        'PendingQuestions': 'Unanswered Questions',
         'Send' : 'Send',
         'Word' : 'Word',
         'Type' : 'Type',
@@ -38,6 +38,7 @@ export const Config = {
         'deleted':"Successfully Deleted",
         'Question':'Question',
         'localStorage':'Userdata',
-        'Server':'Server Error'
+        'Server':'Server Error',
+        'SuggMsg':'ENTER ONLY NUMERIC DIGIT'
     }
 }

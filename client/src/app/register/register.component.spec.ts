@@ -29,6 +29,7 @@ export function click(el: DebugElement | HTMLElement, eventObj: any = ButtonClic
   }
 }
 
+// test suite for register component
 describe('RegisterComponent', () => {
   let de:      DebugElement;
   let el:      HTMLElement;

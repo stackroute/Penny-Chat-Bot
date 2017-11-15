@@ -1,7 +1,7 @@
 <!-- <div> -->
-  <div class="row">
-    <div class="col-md-4">
-      <div class="panel panel-primary">
+  <div class="row unanswed ">
+    <div class="col-md-4 ">
+      <div class="panel panel-primary ">
         <div class="panel-heading">
           <span class="glyphicon glyphicon-comment"></span> {{Config.bottraining.PendingQuestions}}
         </div>
@@ -9,8 +9,8 @@
           <ul class="chat">
             <li class="left clearfix">
               <div class="chat-body clearfix">
-                <p *ngFor="let ques of arr">
-                  <a (click)="getQues(ques)">{{ques}}</a>
+                <p *ngFor="let ques of arr ; let i=index ">
+                  <a (click)="getQues(ques)"><b>{{i+1}}.</b> {{ques}}</a>
                   <a class="queDelete"><i (click)=deletePendingQuestions(ques) class="fa fa-times pull-right" aria-hidden="true"></i></a>
                 </p>
               </div>
@@ -20,7 +20,7 @@
         <!-- =========Send Button======== -->
         <div class="panel-footer">
           <div class="input-group">
-            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..."  [(ngModel)]="newQuestion" name="question" (keyup.enter)="sendques(newQuestion)">
+            <input id="btn-input" type="text" class="form-control input-sm unansweredplaceholder" placeholder="Type your message here..."  [(ngModel)]="newQuestion" name="question" (keyup.enter)="sendques(newQuestion)">
             <span class="input-group-btn">
               <button class="btn btn-lg btn-warning" id="btn-chat" (click)=sendques(newQuestion)>
                 {{Config.bottraining.Send}}</button>
@@ -50,7 +50,7 @@
                 <td>{{data.word}}</td>
                 <td>{{data.type}}</td>
                 <td>{{data.typename}}</td>
-                <td *ngIf="data.type=='Not Found' ">
+                <td *ngIf="data.type=='Not Found' " >
                   <a class="fa fa-plus-square pi-draggable btn-block addicon" id=" c_button" (click)="largeModal.show()"  draggable="true" (click)="call(data.word,data.type)"><!-- {{Config.bottraining.Add}} --></a>
                 </td>
                 <td *ngIf="data.type!= 'Not Found'"  class="greentick"> &#x2713;</td>
@@ -82,7 +82,7 @@
       <div class="card-body">
         <div class = "row ">
           <div class = "col-md-9 dropdownfirst">
-            <angular2-multiselect [data]="intentName" [(ngModel)]="selectedItemsIntent" 
+            <angular2-multiselect  [data]="intentName" [(ngModel)]="selectedItemsIntent" 
             [settings]="dropdownSettingsIntent" 
             (onSelect)="onItemSelectIntent($event)" 
             (onDeSelect)="OnItemDeSelectIntent($event)"
@@ -97,7 +97,7 @@
           <h4>{{Config.bottraining.ExistingSyn}} {{intentname.itemName}}</h4>
           <span class="disp" *ngFor="let intent of correspondSynonym">
             <span class="badge intbadge badge-pill text-white" *ngIf="intentname.label=='Intent'">
-              <!-- <a class="cross"> -->{{intent}}<!-- </a> -->
+              {{intent}}
               <a><i class="fa fa-times cross" (click)="deletesynonym(intent)" aria-hidden="true"></i></a></span>
        
               <span class="badge subintbadge badge-pill text-white" *ngIf="intentname.label=='SubIntent'">{{intent}}
@@ -234,7 +234,7 @@
                     <label for="exampleInput1">{{Config.bottraining.Priority}}</label>
                     <input type="text" class="form-control" id="priority" name = "priority" placeholder="priority" required [(ngModel)]="priority" pattern="[0-9]*" #mobile="ngModel">
                     <div [hidden]="mobile.valid || mobile.pristine" class="message" >
-                      <div [hidden]="!mobile.hasError('pattern')" style="color: red">ENTER ONLY NUMERIC DIGIT</div>
+                      <div [hidden]="!mobile.hasError('pattern')" style="color: red">{{Config.bottraining.SuggMsg}}</div>
                     </div>
                   </div>
                 </form>
@@ -277,3 +277,5 @@
     </div> <!-- /.modal-content -->
   </div> <!-- /.modal-dialog -->
  </div> <!-- /.modal -->
+ </div>
+ </div>

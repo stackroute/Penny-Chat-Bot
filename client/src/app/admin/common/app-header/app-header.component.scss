@@ -2,7 +2,7 @@
 background-color: #375372 !important;
 }
 .navbar-brand {
-font-family: Comic Sans MS; 
+font-family: 'Delius', cursive;
 font-size: 32px;
 }
 .pull-right {
@@ -21,6 +21,9 @@ a.links {
  text-align:center;
  color:white;
  text-decoration:none;
+}
+a.links:hover {
+	color: white;
 }
 
 

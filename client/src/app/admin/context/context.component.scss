@@ -26,11 +26,16 @@ padding: 10px 15px;
     background-color: #375372;
     color: white;
 }
-
+.form-control{
+    font-size:20px;
+}
 
 .collapsible-header {
     background-color: #7a99bc;
     color: white;
+}
+.ng2-tag-input__text-input[_ngcontent-c14]{
+    font-size:15px;
 }
 
 
@@ -147,6 +152,9 @@ margin-left: 9%;
 background-color:#375372 ;
 border-color: #375372 ;
 }
+span{
+    font-size: 20px;
+}
 #c_button {
 font-size: inherit;
 }
@@ -224,7 +232,7 @@ float: inherit;
 min-width: 160px;
 padding: 5px 0;
 margin: 2px 0 0;
-font-size: 14px;
+font-size: 20px;
 text-align: left;
 list-style: none;
 background-color: #fff;
