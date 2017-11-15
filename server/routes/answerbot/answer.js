@@ -75,6 +75,11 @@ export default (req,res) => {
         }    
       }
     }
+
+    let multiplesentence = (sentences) => {
+      res.json({message : [{message : staticConfig.multi.sorry}], links : []});
+    }
+
      let stemsentence   = (sentences) => { //stemming words in array 
       natural.PorterStemmer.attach()
       sentences.map((sentence)=>{
@@ -206,12 +211,13 @@ export default (req,res) => {
       let links = [];
 
       if(context.length == 0) {
+        console.log("in here")
         logger.info(staticConfig.answer.WhatPolicy)    //making logs
-        res.json({message :staticConfig.answer.WhatPolicy })        //response to client
+        res.json({message :[{message : staticConfig.answer.WhatPolicy}] , links : []})        //response to client
       }
       else if(intent.length == 0 && context.length > 0) {
         logger.info(staticConfig.answer.Help)    //making logs
-        res.json({message : staticConfig.answer.Help +context[0].name+"?"});      //response to client
+        res.json({message : [{message : staticConfig.answer.Help +context[0].name+"?"}] , links : []});      //response to client
       } 
       else if (intent.length > 1 ) {
         multipleIntent(intent,context);
@@ -267,7 +273,7 @@ export default (req,res) => {
       temp['intent'] = 0;
       if(context.length == 0){
         logger.info(staticConfig.answer.Sorry)       //making logs
-        res.json({message : staticConfig.answer.Sorry});        //response to client
+        res.json({message : [{message : staticConfig.answer.Sorry}], links : []});        //response to client
       } 
       else{
         intent.sort((a,b)=>{

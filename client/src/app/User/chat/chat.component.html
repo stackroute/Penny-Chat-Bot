@@ -15,7 +15,7 @@
        <div id="scroll">
          <ul class="chat">
           <div class="left clearfix">
-           <div *ngFor="let ans of question">
+           <div *ngFor="let ans of question;let i=index">
              <div *ngIf="ans">
                <div class="gap" *ngIf="ans.bot">
                  <div class="message-data align-left">
@@ -40,26 +40,13 @@
                    </div>
                 </div>
                </div>
-                <!-- Answers -->
-                <div *ngIf="ans.user">
-                  <div class="message-data align-right">
-                   <span class="message-data-name">{{username}}</span> <i class="fa fa-circle me"></i>
-                 </div>
-                 <div class="chat-body clearfix">
-                   <div class="message me-message float-right">
-                   {{ans.user}}
-                    <!-- <small class="pull-right text-muted"><i class="fa fa-clock-o"> 13 mins ago</i></small> -->
-                  </div>
-                </div>
+                <div *ngIf="ans.link">
+              <div *ngIf="ans.link.length > 0">
+                <i class="fa fa-info-circle" aria-hidden="true" (click)="next(ans,i)"></i>
+                <i class="fa fa-video-camera" aria-hidden="true" [id]="ans.video" appAsideMenuToggler></i>
               </div>
-         </div>
-         <div *ngIf="ans.link">
-          <div *ngIf="ans.link.length > 0">
-            <i class="fa fa-info-circle" aria-hidden="true" (click)="next(ans)"></i>
-            <i class="fa fa-video-camera" aria-hidden="true" [id]="videoId" appAsideMenuToggler></i>
-          </div>
-        </div>
-        <div class="resp" *ngIf="resp">
+            </div>
+            <div class="resp" *ngIf="resp && index==i">
          <div *ngFor="let response of resp">
           <div class="card-block">
             <a href={{response.ogp.ogUrl}} target="_blank">{{response.ogp.ogUrl}}</a>
@@ -82,6 +69,21 @@
           <hr>
         </div>
       </div>
+                <!-- Answers -->
+                <div *ngIf="ans.user">
+                  <div class="message-data align-right">
+                   <span class="message-data-name">{{username}}</span> <i class="fa fa-circle me"></i>
+                 </div>
+                 <div class="chat-body clearfix">
+                   <div class="message me-message float-right">
+                   {{ans.user}}
+                    <!-- <small class="pull-right text-muted"><i class="fa fa-clock-o"> 13 mins ago</i></small> -->
+                  </div>
+                </div>
+              </div>
+
+         </div>
+        
     </div>
   </div>
 </ul>
