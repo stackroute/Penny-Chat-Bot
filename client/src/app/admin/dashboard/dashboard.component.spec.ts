@@ -49,6 +49,8 @@ describe('Dashboard component', () => {
    service = fixture.debugElement.injector.get(DashboardService);
    
  }));
+ 
+ // component exist
  it('should create', () => {
    expect(component).toBeTruthy();
  });

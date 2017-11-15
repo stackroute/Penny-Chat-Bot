@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppHeaderComponent implements OnInit{
 
-config : any;
+	config : any;
 	Config:any=Config;
 	initialCharacter : any;
 
@@ -18,11 +18,13 @@ config : any;
     this.config = Config.bottomchat.thisconfig
   }
 
+  // run function before html render
 	ngOnInit(){		
 		let data = JSON.parse(localStorage.getItem(Config.bottomchat.Userdata)).data;
 		this.initialCharacter = data.name;
 	}
 
+	// logout user function
 	logout(){
 		localStorage.removeItem(Config.bottomchat.Userdata);
 		localStorage.removeItem(Config.bottomchat.key);

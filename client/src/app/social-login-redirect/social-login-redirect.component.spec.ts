@@ -14,7 +14,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { testConfig } from './social-login-redirect.config';
 
-
+// test suite for social login redirect component
 describe('SocialLoginRedirectComponent', () => {
   let router = {
     navigateByUrl: jasmine.createSpy(testConfig.navigateUrl)

@@ -1,5 +1,3 @@
-/*Preeti Singh
-22/10/2017*/
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -11,8 +9,6 @@ import 'rxjs/add/observable/of';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NO_ERRORS_SCHEMA} from '@angular/core';
-
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { testConfig } from './forgotpassword.config';
 

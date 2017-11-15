@@ -1,10 +1,7 @@
-/*Preeti Singh
-22/10/2017*/
 
 import { Component, OnInit } from '@angular/core';
 import { SetpasswordService } from './setpassword.service';
 import { Http } from '@angular/http';
-//import { routerTransition } from '../router.animations';
 import { ActivatedRoute,Router} from '@angular/router';
 import { Config } from './setpassword_en_config';
 import swal from 'sweetalert2';

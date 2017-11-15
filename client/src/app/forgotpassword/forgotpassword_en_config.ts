@@ -25,6 +25,8 @@ export const Config = {
     alreadyExists:'Credentials already Exists in /signup route',
     mail:"Send Mail",
     GoTo: "Go to Login Page",
-    localStorage:'Userdata'
+    localStorage:'Userdata',
+    warning:"Warning!!",
+    empty:"Empty Field"
   },
 }

@@ -23,7 +23,6 @@ export class AddtaskComponent implements OnInit {
 
 
   constructor(private addtaskservice : AddtaskService, private router: Router) { }
-//----------ngOnInit--------
 
   ngOnInit() {
   }
@@ -69,7 +68,6 @@ export class AddtaskComponent implements OnInit {
          this.router.navigateByUrl('/error'); 
       })
     }
-
   //--------------end of Submit----------------------
 
 }

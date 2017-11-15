@@ -17,6 +17,7 @@ import { testConfig } from './edit-context.config';
 import { EditContextComponent } from './edit-context.component';
 import { EditContextService } from './edit-context.service';
 
+// test suite for edit context component
 describe('EditContextComponent', () => {
   let component: EditContextComponent;
   let fixture: ComponentFixture<EditContextComponent>;
@@ -54,7 +55,7 @@ beforeEach(async(() => {
     service = fixture.debugElement.injector.get(EditContextService);
   }));
 
-
+  // component exist test
   it('should create', () => {
     expect(component).toBeTruthy();
   });

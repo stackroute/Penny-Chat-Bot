@@ -11,58 +11,59 @@ import swal  from 'sweetalert2';
   providers:[RegisterService]
 })
 export class RegisterComponent implements OnInit {
-Config:any=Config;
-data:any={};
-registerdata:any;
-submitted=false;
+  Config:any=Config;
+  data:any={};
+  registerdata:any;
+  submitted=false;
   constructor(private registerService:RegisterService,private router:Router ){}
 
 
   ngOnInit() {
   }
 
-onSubmit() { 
-     this.submitted = true; }
+  // runs when user submit their details for login
+  onSubmit() { 
+    this.submitted = true; }
 
-      move(data:any) {
-        if(data.message!==Config.signup.alreadyExists){
-          //validations if email already exists 
-          if(data.status == true) {
-            
-            swal(Config.signup.swalOnsubSucMsg1,Config.signup.swalOnsubSucMsg2,'success');
-            this.router.navigateByUrl('');
-            //navigate to login Page after successful registration
-          }
-        }  
-        else{
-          //if email alreafy exists
-          swal(
+    move(data:any) {
+      if(data.message!==Config.signup.alreadyExists){
+        //validations if email already exists 
+        if(data.status == true) {
 
-            Config.signup.swalOnsubErrMsg1,
-            Config.signup.swalOnsubErrMsg2,
-            'error'
-            )
-          
+          swal(Config.signup.swalOnsubSucMsg1,Config.signup.swalOnsubSucMsg2,'success');
+          this.router.navigateByUrl('');
+          //navigate to login Page after successful registration
         }
+      }  
+      else{
+        //if email alreafy exists
+        swal(
+
+          Config.signup.swalOnsubErrMsg1,
+          Config.signup.swalOnsubErrMsg2,
+          'error'
+          )
+
       }
+    }
 
 
-      //----------------------postUser function suscribing service----------------------------- 
-      postUser(){
+    //----------------------postUser function suscribing service----------------------------- 
+    postUser(){
       if(this.data.password!==this.data.confirmPassword){
-        
-          swal(
 
-            Config.signup.swalPostErrMsg1,
-            Config.signup.swalPostErrMsg2,
-            'error'
-            )
-        }
-        else {
-          this.registerService.post(this.data)
-          .subscribe((data) => {
-            this.registerdata=data;
-            this.move(data)}
-            )
-        }}
+        swal(
+
+          Config.signup.swalPostErrMsg1,
+          Config.signup.swalPostErrMsg2,
+          'error'
+          )
       }
+      else {
+        this.registerService.post(this.data)
+        .subscribe((data) => {
+          this.registerdata=data;
+          this.move(data)}
+          )
+      }}
+    }

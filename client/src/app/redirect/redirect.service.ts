@@ -23,8 +23,8 @@ export class RedirectService {
     //call _errorHAndle() on catching error 
 	}
 
+  //error handling
 	_errorHandler(error: Response){
-    //error handling
 		return Observable.throw(error || Config.redirect.serverError)
 	}
 }
