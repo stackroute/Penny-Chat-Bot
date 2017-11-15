@@ -1,10 +1,15 @@
 export const Config = {
-	dashboard : {
-		'Training' : 'Training',
-		'trainyourbot' : 'You can train your Bot.....',
-		'trainbot' : 'Train your bot!!',
-		'addflow' : 'Add Flow',
-		'addquestion' : 'You can add Counter Question.....',
-		'starthere' : 'Start here'
-	}
+    dashboard : {
+        'Intent' : 'Intent',
+        'addintent' : 'Add Intent',
+        'Domain' : 'Domain',
+        'AddDomain' : 'Add Domain',
+        'SubDomain' : 'Sub Domain',
+        'AddSubDomain' : 'Add Sub Domain',
+        'Entity' : 'Entity',
+        'AddEntity' : 'Add Entity',
+        'UnansQueCount' : 'Unanswered Question Count',
+        'AddQuestion' : 'Add Question'
+
+    }
 }

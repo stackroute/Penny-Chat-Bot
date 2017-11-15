@@ -55,6 +55,7 @@ export class EditContextComponent implements OnInit {
   // on initializing component
   ngOnInit() {
     this.getcontent();
+    this.getContext();
     this.editContextService.getAllContext().subscribe((ref) => {
       ref.map((context)=> {
         if(context._fields[0].labels[0] == Config.component.Entity || context._fields[0].labels[0] == Config.component.Domain || context._fields[0].labels[0] == Config.component.SubDomain){
@@ -75,6 +76,7 @@ export class EditContextComponent implements OnInit {
     this.editContextService.getContext()
     .subscribe((res)=>{
       res.map((data)=>{
+        console.log(data._fields);
         data._fields.map((name)=>{
           if(name.labels[0] != Config.component.video && name.labels[0] != Config.component.link && name.labels[0] != Config.component.Counter && name.properties.name != Config.component.type){
             this.contextName.push(name);
@@ -82,6 +84,7 @@ export class EditContextComponent implements OnInit {
           }
         })
       })
+      console.log("-------",this.contextDropDown);
       this.res=res;
     } , (dataError)=>{
       this.router.navigateByUrl('/error')
