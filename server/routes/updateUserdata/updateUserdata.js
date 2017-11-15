@@ -1,5 +1,5 @@
 import update from '../../model/register_schema';
-import staticConfig from '../../config/staticConfig';						// File for static message
+import staticConfig from './Config';						// File for static message
 //import passport from 'passport';
 import logger from '../../log4js';	
 //import configPassport from './../../config/passport';

@@ -9,7 +9,6 @@
 
       </div>.
       <div class="col-md-3">
-
       </div>
     </div>
   </div>
@@ -42,19 +41,18 @@
         </div>
         <div class="panel-footer">
           <div class="input-group">
-
-           <button class="pull-right btt btn " (click)="save()">{{Config.button.btn1}}</button>
+           <button class="pull-right btt btn" (click)="save()">{{Config.button.btn1}}</button>
            <button type="button" class="btn btt1 pull-left" id="btn2" (click)="largeModal.show()">{{Config.button.btn2}}</button>
          </div>
        </div>
-
      </div>
    </div>
+   
    <div class="col-md-7">
      <div class="chat-panel card1 card-default"> 
       <!-- Card -->
       <h3><strong>{{Config.flow}}</strong></h3>
-      <div class="card-block" #scrollMe style="overflow-y: scroll;overflow-x: hidden; height: 420px;">
+      <div class="card-block" #scrollMe style="overflow-y: scroll;overflow-x: hidden;">
         <button class="btn btn-default pull-right" *ngIf="testflagon" (click)="triggerFlow()">{{Config.flow}}</button>
         <div id="scroll">
          <ul class="chat">

@@ -222,7 +222,7 @@ Context
                 (onDeSelect)="OnItemDeSelectContext($event)"
                 (onSelectAll)="onSelectAllContext($event)"
                 (onDeSelectAll)="onDeSelectAllContext($event)"></angular2-multiselect>
-                <button type="button" class="add text-white" (click) = "contextSynonym(onItemSelectContext);largeModal.hide()"> {{Config.bottraining.Add}}
+                <button type="button" class="add text-white" (click) = "contextSynonym(selectedItemsContext);largeModal.hide()"> {{Config.bottraining.Add}}
                 </button>
               </div>
             </tab>

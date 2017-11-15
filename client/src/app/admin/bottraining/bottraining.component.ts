@@ -96,14 +96,13 @@ export class BottrainingComponent implements OnInit {
   }
   //Function called when an item is selected in dropdown in context
   onItemSelectContext(item:any){                
-    this.onItemSelectContext=item;
+   // this.onItemSelectContext=item;
   }
   //Function called when an item is deselected in dropdown in intent
   OnItemDeSelectContext(item:any){              
   } 
   //Function called when the page is rendered to get the unanswered questions
   getunanswer(){
-   // console.log('dkjcd',this.i)
     this.bottrainingservice.getunanswer()
     .subscribe((res)=>{
       if(res.length > 0) {
@@ -198,7 +197,7 @@ export class BottrainingComponent implements OnInit {
   }
   //When called function sets the synonym of the contexts to the seleted word from the unanswered question  
   contextSynonym(context){
-    this.bottrainingservice.contextSynonym(context,this.val)
+    this.bottrainingservice.contextSynonym(context[0],this.val)
     .subscribe(res =>{
       swal(Config.bottraining.addedsucces,
         'success'

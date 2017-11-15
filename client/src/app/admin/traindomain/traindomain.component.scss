@@ -7,14 +7,47 @@ padding: 0;
 /*.panel-primary{
 height: 60%;
 }*/
+div {
+    font-size : 17px;
+}
 .panel-heading{
 background-color: #375372;
 }
+
+
+.form-group label {
+    font-size :20px;
+}
+
+div.message.you-message {
+    font-size: 20px;
+}
+
 .chat li
 {
 margin-bottom: 10px;
 padding-bottom: 5px;
 border-bottom: 1px dotted #B3A9A9;
+}
+
+.nm h3{
+    font-size : 28px;
+}
+.modal-title {
+     font-size: 20px;
+     font-weight: 600;
+}
+
+.modal {
+    font-size: 20px;
+}
+
+.select_join {
+    font-size: 20px;
+}
+
+.modal {
+    font-size : 20px;
 }
 .btt {
 margin-top: 30px;
@@ -27,9 +60,26 @@ color: white;
 background-color: #375372;
 }
 
+textarea {
+    font-size: 17px;
+}
+
+.col-sm-12 {
+    font-size : 17px;
+}
+
+.chat-body div {
+    font-size: 20px;
+}
+
+.panel-heading {
+    font-size: 20px;
+}
+
 div.dropdown-menu.dropdownsubintent {
     position: inherit;
     float: inherit;
+    font-size: 17px;
    /* top: 100%;
     left: 0;
     z-index: 1000;
@@ -73,9 +123,11 @@ color : blue;
 cursor : pointer;
 }
 table {
+    font-size: 18px;
 border-collapse: collapse;
 }
 table, th, td {
+    font-size: 18px;
 border: 1px solid black;
 }
 .chat li .chat-body p
@@ -90,8 +142,11 @@ margin-right: 5px;
 .panel-body
 {
 overflow-y: scroll;
-height: 400px;   
+height: 550px;   
 }
+ .card-block {
+    height: 420px;
+ }
 ::-webkit-scrollbar-track
 {
 -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -151,6 +206,9 @@ box-sizing: border-box;
 }
 .card1{
 height: 460px;
+}
+.card1 h3 strong {
+    font-size: 20px;
 }
 .message-data {
 margin-bottom: 15px;
@@ -331,7 +389,8 @@ background-color: #426578 ;
 box-shadow: 2px 2px 4px #7e8b92 ;
 }
 p.oblique {
-font-style: oblique;
+/*font-style: oblique;*/
+font-size: 17px;
 }
 
 .questionicon{
