@@ -34,13 +34,11 @@ export class ChatService {
      return this.http.post(sentimentUrl,{plan}).map((res)=>{
          
          return res.json();
-     }).catch(this.errorHandler);
+     }).catch(this._errorHandler);
   }
 
   /*error handling*/
-  errorHandler(error: Response){
-    return Observable.throw(error || Config.Server.errorhandle);
-  }
+
 /*=================logout if abusive language is used===================*/
     forceLogout() {
         let url:any = config.ip+urlConfig.UserChatforceLogout;
@@ -50,13 +48,10 @@ export class ChatService {
         .put(url,{email : email})
         .map((res:Response)=> {
             return res.json();
-        }).catch(this.errorInHandler);
+        }).catch(this._errorHandler);
   }
 
-  /*error handling*/
-  errorInHandler(error: Response){
-    return Observable.throw(error || Config.Server.errorhandle);
-  }
+ 
     
 /*=================get unanswered quetions====================*/
     getquestions(question:any):Observable<any>{
@@ -65,26 +60,20 @@ export class ChatService {
         console.log("user",userData);
         let email : string = userData.data.email;
     return this.http.post(url,{question : question,email : email})
-    .map((res:Response) =><any>res.json()).catch(this.errorGetHandler);
+    .map((res:Response) =><any>res.json()).catch(this._errorHandler);
   }
 
-  /*error handling*/
-  errorGetHandler(error: Response){
-    return Observable.throw(error || Config.Server.errorhandle);
-  };
+
     
 /*=================trigger follow up quetions====================*/
     triggerfollowup(counter) : Observable<any> {
         let url = config.ip+urlConfig.UserChattriggerfollowup;
         return this.http
         .post(url,{counter : counter})
-        .map((res:Response) => res.json()).catch(this.errorTriggerHandler);
+        .map((res:Response) => res.json()).catch(this._errorHandler);
   }
 
-  /*error handling*/
-  errorTriggerHandler(error: Response){
-    return Observable.throw(error || Config.Server.errorhandle);
-  }
+ 
     
 /*=================follow up quetions====================*/
     nextfollowup(countertype,question,answer):Observable<any> {
@@ -95,13 +84,11 @@ export class ChatService {
         }
         let url = config.ip+urlConfig.UserChatnextfollowup;
         return this.http.put(url,main)
-        .map((res:Response) => res.json()).catch(this.errorNextHandler);
+        .map((res:Response) => res.json()).catch(this._errorHandler);
   }
 
   /*error handling*/
-  errorNextHandler(error: Response){
-    return Observable.throw(error || Config.Server.errorhandle);
-  }
+ 
   
 /*=================check video and blog links====================*/
    checklink(answer:any):Observable<any>  {
@@ -110,13 +97,10 @@ export class ChatService {
         .post(url,{message:answer})
         .map((res:Response)=> 
         res.json()
-        ).catch(this.errorCheckHandler);
+        ).catch(this._errorHandler);
   }
 
-  /*error handling*/
-  errorCheckHandler(error: Response){
-    return Observable.throw(error || Config.Server.errorhandle);
-  }
+
    
 
     /*=================check unanswer question====================*/
@@ -124,13 +108,10 @@ export class ChatService {
         let url = config.ip+urlConfig.UserChatunansweredquestion;
             return this.http
         .post(url,{question : answer})
-        .map((res:Response) => res.json()).catch(this.errorUnanswerHandler);
+        .map((res:Response) => res.json()).catch(this._errorHandler);
   }
 
-  /*error handling*/
-  errorUnanswerHandler(error: Response){
-    return Observable.throw(error || Config.Server.errorhandle);
-  }
+  
     
 }
 

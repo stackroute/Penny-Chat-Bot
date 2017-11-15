@@ -2,6 +2,10 @@ $topnav-background-color: #222;
 :host {
 display: block;
 }
+.unanswed{
+  font-family: 'Harmattan', sans-serif;
+
+}
 .login-pagee {
 position: absolute;
 top: 0;
@@ -61,6 +65,13 @@ color: rgba(255,255,255,0.7);
 }
 }
 
+ h2 {
+    font-size: 35px;
+}
+.basic-addon1{
+font-size: 20px;
+}
+
 .form-group {
 padding: 8px 0;
 input::-webkit-input-placeholder {
@@ -89,8 +100,11 @@ border: 2px solid #FFF;
 }
 }
 
-a.btn.btn-default.btn-md.col-md-3 {
+.form-control{
+	font-size:20px;
+}
 
+a.btn.btn-default.btn-md.col-md-3 {
 color: #fff;
 background-color: #283e4a ;
 margin-right:2%;
@@ -105,6 +119,7 @@ margin-right:2%;
 
 .buttons{
 	background-color : #375372;
+	font-size: 18px;
 	
 }
 
@@ -113,6 +128,7 @@ margin-right:2%;
 }
 h2{
 	text-align:center;
+
 }
 .personal-info { 
 	margin-left : 23%;
@@ -127,4 +143,7 @@ a:not([href]):not([tabindex]) {
 	.personal-info {
 		margin-left: 0;
 	}
+ }
+ span.input-group-addon.basic-addon1{
+ font-size:20px;
  }

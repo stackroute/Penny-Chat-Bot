@@ -63,6 +63,7 @@ h5, .h5 {
   .btn-fb{
   background: #344e86;
   color:white;
+  font-size:18px;
   }
 
   .btn-fb::before {
@@ -72,6 +73,7 @@ h5, .h5 {
   .btn-google {
   background: #DD4B39;
   color:white;
+   font-size:18px;
   }
 
   .btn-google::before{
@@ -81,8 +83,15 @@ h5, .h5 {
   .btn-primary {
   background-color: #375372;
   border-color: #375372;
+   font-size:18px;
 }
 .btn.btn-primary.btn-md.px-4.active {
   background-color: #375372;
   border-color: #375372;
+}
+.btn.btn-link.px-0,h5{
+  font-size:17px;
+}
+.form-control{
+   font-size:17px;
 }

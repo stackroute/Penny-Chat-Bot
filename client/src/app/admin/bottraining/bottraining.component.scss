@@ -1,3 +1,7 @@
+.unanswed{
+  font-family: 'Harmattan', sans-serif;
+      font-size: 21px;
+}
 
 .chat
 {
@@ -20,6 +24,9 @@ margin-left: 0px;
 {
 margin-right: 60px;
 }
+b{
+font-size: 20px;
+}
 .chat li .chat-body p
 {
 margin: 0;
@@ -32,7 +39,24 @@ margin-right: 5px;
 .panel-body
 {
 overflow-y: scroll;
-height: 320px;   
+height: 370px;   
+}
+
+.panel {
+  border: 1px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* border: 1px solid transparent; */
+    /* border-radius: 4px; */
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+collapsible-body {
+  overflow: -webkit-paged-x !important;
+}
+
+.form-control {
+  font-size: 18px;
 }
 .panel-body.tablepanel {
 overflow-y: scroll;
@@ -71,6 +95,12 @@ padding:6px 1px;
     color: white;
 }
 
+.quetioncollapse {
+    display: block;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 0;
+}
 
 .btn.headingbtn {
 background-color:#375372;
@@ -83,6 +113,7 @@ color:white;
 background-color: #375372;
 border-color: #375372;
 margin-top: auto;
+font-size: 17px;
 }
 .btn.btn-primary:hover {
 color:white;
@@ -94,7 +125,7 @@ color:white;
     padding-left: 10px;
 border-radius: 5px;
 margin-left: 1%;
-font-size:12px;
+font-size:17px;
 }
 
 .cross {
@@ -137,6 +168,11 @@ color: #375372;
 .int {
 color:#118c8b;
 
+}
+.c-btn[_ngcontent-c6] {
+
+    font-size: 20px;
+   
 }
 .subint {
 color:#a3586d;
@@ -183,9 +219,12 @@ color:#00FF00
 margin-top:1.5%;
 background-color: #375372;
 }
+span.badge.badge-pill.text-white{
+  font-size:17px;
+}
 .panel-primary>.panel-heading {
-color: #fff;
-background-color: #375372;
+color:black;
+background-color:#fff;
 border-color: #375372;
 }
 
@@ -206,6 +245,13 @@ app-context {
   width:100%;
 }
 
+.col-md-4 {
+      position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 14px;
+     padding-left: 1px; 
+  }
 
 .btn.btn-primary.pi-draggable.btn-block {
 color: #fff;
@@ -215,6 +261,7 @@ border-color: #375372;
 .dropdownfirst{
 margin-bottom:2%;
     margin-left: -2.5%;
+    font-size:20px;
 }
 .btn.btn-primary.add.deleteIntentbtn {
 margin-top:4%;
@@ -234,12 +281,20 @@ margin-left: 2%;
     padding-left: 14px;
 
 }
+.unansweredplaceholder{
+font-size: 20px;
+}
 .addsynonyminput{
 margin-left:-3%;
 }
 
+
+span.badge.badge-pill.text-white{
+ font-size:17px;
+}
+
 .h4, h4 {
-font-size: 18px;
+font-size: 23px;
 margin-left: 2%;
 }
 .badge.intbadge.badge-pill.text-white{
@@ -279,11 +334,11 @@ font-size:7px;
 }
 }
 a{
-font-size: 18px;
+font-size: 23px;
 margin-top : 4px;
 }
 td{
-font-size: 18px;
+font-size: 21px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) { 
@@ -299,8 +354,20 @@ font-size: 18px;
     padding-right: 10%;
     }
 }
+.btn[_ngcontent-c6] .badge[_ngcontent-c6] {
+    font-size: 17px;
+}
 .secondtext{
-margin-left:-7%; 
+margin-left:-6.5%; 
+}
+
+.c-btn[_ngcontent-c6] {
+
+    font-size: 20px;
+}
+.btn[_ngcontent-c5]
+{
+      padding: 14px 12px;
 }
 .btn[_ngcontent-c5] .badge[_ngcontent-c5] {
 padding: 8px;
@@ -316,6 +383,10 @@ margin-left: -3%;
 .h4[_ngcontent-c5], h4[_ngcontent-c5] {
 margin-left: 4%;
 }
+h4{
+  font-size: 23px;
+}
+
 .badge.intbadge.badge-pill.text-white[_ngcontent-c5] {
 margin-left: 5%;
 }

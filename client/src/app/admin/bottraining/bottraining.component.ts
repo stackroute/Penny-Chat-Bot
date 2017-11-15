@@ -58,6 +58,7 @@ export class BottrainingComponent implements OnInit {
   dropdownSettingsIntent:any = {};
   dropdownSettingsContext:any={};
   selectedItemsContext:any=[];
+   i:any;
   
   constructor(private bottrainingservice:BottrainingService, private router: Router) { }
   ngOnInit() {
@@ -100,15 +101,18 @@ export class BottrainingComponent implements OnInit {
   //Function called when an item is deselected in dropdown in intent
   OnItemDeSelectContext(item:any){              
   } 
-  //Function called when the pageis rendered to get the unanswered questions
+  //Function called when the page is rendered to get the unanswered questions
   getunanswer(){
+   // console.log('dkjcd',this.i)
     this.bottrainingservice.getunanswer()
     .subscribe((res)=>{
       if(res.length > 0) {
         this.arr = [];
         this.ref=res[0].questions;
         res[0].questions.map((ques)=>{
+
           this.arr.push(ques.question)
+
         })
       }
     }, (dataError)=>{
@@ -196,7 +200,6 @@ export class BottrainingComponent implements OnInit {
   contextSynonym(context){
     this.bottrainingservice.contextSynonym(context,this.val)
     .subscribe(res =>{
-      alert(Config.bottraining.addedsucces);
       swal(Config.bottraining.addedsucces,
         'success'
         )

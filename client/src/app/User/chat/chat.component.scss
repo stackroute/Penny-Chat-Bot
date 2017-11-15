@@ -1,8 +1,13 @@
 *, *:before, *:after {
 box-sizing: border-box;
 }
+.fullstyle{
+  font-family: 'Harmattan', sans-serif;
+
+}
 .message-data {
   margin-bottom: 15px;
+  font-size: 20px;
 }
 .message-data-time {
   color: #a8aab1;
@@ -12,7 +17,7 @@ box-sizing: border-box;
   color: white;
   padding: 18px 20px;
   line-height: 26px;
-  font-size: 16px;
+  font-size: 23px;
   border-radius: 5px;
   width: 90%;
   position: relative;
@@ -92,7 +97,7 @@ position:relative;
 background:#283e4a;
 border-color: #283e4a;
 font-weight : 700;
-font-size : 15px;
+font-size : 17px;
 color:white;
 }
 .card{
@@ -160,6 +165,7 @@ height: 15px;
   color: #003366;
   font-weight: 600;
   cursor:pointer;
+  font-size: 20px
 }
 
 .scrollMe {
