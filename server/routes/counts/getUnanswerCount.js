@@ -11,6 +11,7 @@ export default (req,res)=>{
      logger.info(staticConfig.unanswerques.Error);            // making logs
      return res.json({status:false,message:staticConfig.unanswerques,data:null});
      }
+
      else{         //When data is found
        res.json({[staticConfig.unansCount] : data[0].questions.length});
      }
@@ -18,5 +19,6 @@ export default (req,res)=>{
  }catch(error){                                  // error handle if suddenly error occur in database
    logger.info(staticConfig.errorMessage);            // making logs
    res.json({status:false, message:staticConfig.errorMessage,data:error});
+
  }   
 };
