@@ -68,12 +68,10 @@ beforeEach(async(() => {
   }
   const spy =spyOn(service,'deleteContext').and.returnValue(Observable.of(data));
   component.deleteContext(data);
-    console.log('zzz',component.ref.status);
-  console.log('cc',data.status);
+  
   //fixture.detectChanges();
   fixture.whenStable().then(()=>{
-     console.log('zzz---1',component.ref.status);
-  console.log('cc--1',data.status);
+    
 expect(component.ref.status).toEqual(data.status);
   })
   

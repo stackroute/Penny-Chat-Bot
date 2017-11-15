@@ -965,3 +965,70 @@ url
 });
 });
 //=================reset password ====================//
+
+
+/*=======Start of positive test case for getUnAnswerCount========*/
+
+   describe('Start of positive test case for getUnAnswerCount',()=>{
+ 
+before(()=>{
+//yield is used to stub the info required by database
+unanswerQuesFind.yields(null,[testconfig.uNanswerquesCount])
+//registerUpdate.yields(null,[{status:true, message : "oldpassword do not match",data:[]}])
+});
+it('positive test case for getUnAnswerCount',(done)=>{
+ 
+url
+  .get('/counts/getUnanswerCount')
+  //.set('Authorization', 'bearer' +jwtToken).expect(200)
+  .expect('Content-Type', /json/)
+  .send(testconfig.uNanswerquesCount)
+  .end((err,res)=>{
+    if(err){
+      return err;
+    }
+      else{
+      
+
+     assert.equal(res.body.unansCount,1);
+   done();
+}
+});
+});
+});
+
+/*=======End of positive test case for getUnAnswerCount========*/
+
+
+/*=======Start of negative test case for getUnAnswerCount========*/
+
+   describe('Start of negative test case for getUnAnswerCountNegative',()=>{
+ 
+before(()=>{
+//yield is used to stub the info required by database
+unanswerQuesFind.yields(null,[null])
+//registerUpdate.yields(null,[{status:true, message : "oldpassword do not match",data:[]}])
+});
+it('negative test case for getUnAnswerCountNegative',(done)=>{
+ 
+url
+  .get('/counts/getUnanswerCount')
+  //.set('Authorization', 'bearer' +jwtToken).expect(200)
+  .expect('Content-Type', /json/)
+  .send(testconfig.uNanswerquesCountNegative)
+  .end((err,res)=>{
+    if(err){
+      return err;
+    }
+      else{
+      
+    console.log('hey', res.body)
+     assert.equal(res.body.unansCount,null);
+   done();
+}
+});
+});
+});
+
+
+/*=======End of negative test case for getUnAnswerCount========*/

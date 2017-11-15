@@ -19,7 +19,7 @@ export class DashboardService {
 		console.log(url);
 		return this.http
 		.get(url)
-		.map((res: Response)=>res.json()).catch(this._errorHandler);
+		.map((res: Response)=> res.json()).catch(this._errorHandler);
 	}
 
 	getUnansweredQues(){
