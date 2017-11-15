@@ -13,7 +13,7 @@ import {RedirectComponent} from './redirect/redirect.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {Http,HttpModule} from '@angular/http';
 import { AuthGuard } from './auth/auth.guard';
-
+import { AvatarModule } from "ng2-avatar";
 
 // Import containers
 // Import directives
@@ -44,6 +44,7 @@ import {YoutubePlayerModule} from 'ng2-youtube-player';
   HttpModule,
   BsDropdownModule.forRoot(),
   TabsModule.forRoot(),
+  AvatarModule.forRoot(),
   ChartsModule,
   YoutubePlayerModule
   ],
