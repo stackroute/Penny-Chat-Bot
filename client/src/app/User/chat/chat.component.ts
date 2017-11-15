@@ -68,6 +68,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     this.answer="";
     if(!this.maincounter) {     //if no follow up questions
       this.chatService.fetch(ans).subscribe((res)=> {
+        console.log(res);
         if(res.message == Config.component.badCount) {
           swal(
             Config.component.logout,
@@ -94,17 +95,15 @@ export class ChatComponent implements OnInit, AfterViewChecked {
         }
         let linkend =[];
         this.question[this.question.length -1].link = res.links;
+        this.question[this.question.length-1].video = [];
         console.log(this.question);
         res.links.map((data) => {
           if(data.Counter) {
             this.followup(data.Counter);
           } else if(data.Video) {
             let video = data.Video.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-            this.videoId.push(video);
-          } else {
-            linkend.push(data.Link);
-            this.answ.Link = linkend;
-          }
+            this.question[this.question.length-1].video.push(video);
+          } 
         })
       }, (dataError)=>{
          //localStorage.removeItem(Config.component.localStorage);
@@ -209,10 +208,21 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     })
   }
   resp:any;
-  next(ans:any){
+  index:any;
+  next(ans:any,index){
+    this.resp = [];
+    this.index = index;
+    console.log(index);
+    console.log(this.question[index])
+    let linked = [];
+    this.question[index].link.map((data) => {
+      if(data.Link) {
+        linked.push(data.Link)
+      }
+    })
+    this.answ.Link = linked;
     this.chatService.checklink(this.answ.Link).subscribe((resp)=>{
       this.resp = resp}, (dataError)=>{
-
         this.router.navigateByUrl('/error'); 
       })
     //resp contains the unfurled data from server

@@ -15,5 +15,11 @@ module.exports = {
 		messageNotfound: "Data Undefined",
 		messageFound: "Data Found",
 		error: "Error in inserting in followup's setFlow"
+	},
+	comp : {
+		yesno : "Yes/No",
+		question : "Question",
+		mcq : "MCQ",
+		q : 'Q'
 	}
 }
