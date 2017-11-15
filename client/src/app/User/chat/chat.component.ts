@@ -212,8 +212,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   next(ans:any,index){
     this.resp = [];
     this.index = index;
-    console.log(index);
-    console.log(this.question[index])
     let linked = [];
     this.question[index].link.map((data) => {
       if(data.Link) {
@@ -231,7 +229,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     this.chatService.unansweredquestion(this.answer)
     .subscribe ((ref)=>{
     }, (dataError)=>{
-       
         this.router.navigateByUrl('/error'); 
     })
   }
