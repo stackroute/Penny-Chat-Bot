@@ -1,131 +1,66 @@
 
-
- <div class="row timerow">
-     <!-- User Count -->
-      <div class="col-md-3">    
-        <div class="widget widget-default widget-item-icon">
-          <div class="widget-item-left">
-            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-          </div> 
-          <div class="widget-data">
-            <div class="widget-int num-count ng-binding" >8</div>
-            <div class="widget-title">Products</div>
-            <div class="widget-subtitle"><a class="userdata" [routerLink]="['/admin/userstatus']" >Products
-            </a></div>
-          </div>           
-        </div>
-      </div>
-      <!-- Products -->
-      <div class="col-md-3">          
-        <div class="widget widget-default widget-item-icon">
-          <div class="widget-item-left">
-            <span class="fa fa-sitemap fa-2x"></span>
-          </div>
-          <div class="widget-data">
-            <div class="widget-int num-count ng-binding" >9</div>
-            <div class="widget-title">Products</div>
-            <div class="widget-subtitle"><a class="userdata">Products</a></div>
-          </div>
-        </div>  
-      </div>
-      <!-- Most Viewed Product -->
-      <div class="col-md-3">           
-        <div class="widget widget-default widget-item-icon">
-          <div class="widget-item-left">
-            <span class="fa fa-product-hunt fa-2x"></span>
-          </div>
-          <div class="widget-data">
-            <div class="widget-int num-count ng-binding mostViewed" >10</div>
-            <div class="widget-title">Products</div>
-            <div class="widget-subtitle">
-              <a class="userdata">Products</a></div>
-            </div>
-          </div>  
-        </div>
-        <!-- Time and Date -->
-        <div class="col-md-3">            
-          <div class="widget widget-default widget-item-icon updateTime">
-            <div class="widget-item-left">
-              <span class="fa fa-clock-o fa-2x"></span>
-            </div>
-            <div class="widget-data time">
-              <div class="widget-big-int plugin-clock ng-binding"><h6>5:23</h6></div>
-              <div class="widget-subtitle plugin-date ng-binding date" ><span>14/11/17</span>
-              </div>
-            </div>
-          </div>  
-        </div>
-  </div>
-
-
-
-
-
-<!-- start of row -->
-<div class="row">
-  <!--start of column of first card-->
-  <div class="col-md-3">
-    <div id="c_card" class="card pi-draggable" draggable="true">
-      <div class="card-header">
-        {{Config.dashboard.Training}}
-      </div>
-      <div class="card-body">
-        <p class="card-text">{{Config.dashboard.trainyourbot}}</p>
-        <a [routerLink]="['/admin/trainingbot']">{{Config.dashboard.trainbot}}</a>
-      </div>
-    </div>
-  </div>
-  <!--end of column of first card-->
-
-  <!--start of column of second card-->
-  <div class="col-md-3">
-    <div id="c_card" class="card pi-draggable" draggable="true">
-      <div class="card-header">
-       {{Config.dashboard.addflow}}
-     </div>
-     <div class="card-body">
-      <p class="card-text">{{Config.dashboard.addquestion}}</p>
-      <a [routerLink]="['/admin/createflow']">{{Config.dashboard.starthere}}</a>
-    </div>
+<div *ngIf = "nodeCount != undefined">
+<div class="row" *ngIf = "unAnsCount != undefined">
+ <!-- Domain -->
+ <div class="col-md-3">    
+  <div class="widget widget-default widget-item-icon">
+    <div class="widget-item-left">
+    <i class="fa fa-university fa-2x" aria-hidden="true"></i>
+      <!-- <i class="fa fa-user fa-2x" aria-hidden="true"></i> -->
+    </div> 
+    <div class="widget-data">
+      <div class="widget-int num-count ng-binding" >{{nodeCount[0].Domain}}</div>
+      <div class="widget-title">Domain</div>
+      <div class="widget-subtitle"><a class="userdata" [routerLink]="['/admin/trainingbot']" >Add Domain
+      </a></div>
+    </div>           
   </div>
 </div>
-<!--end of column of second card-->
-
- <!--start of column of third card-->
-  <div class="col-md-3">
-    <div id="c_card" class="card pi-draggable" draggable="true">
-      <div class="card-header">
-       Pending Questions &nbsp; 10
-     </div>
-
-     <div class="card-body">
-      <p class="card-text">{{Config.dashboard.addquestion}}</p>
-      <a [routerLink]="['/admin/createflow']">{{Config.dashboard.starthere}}</a>
+<!-- Sub Domain -->
+<div class="col-md-3">          
+  <div class="widget widget-default widget-item-icon">
+    <div class="widget-item-left">
+      <span class="fa fa-sitemap fa-2x"></span>
     </div>
+    <div class="widget-data">
+      <div class="widget-int num-count ng-binding" >{{nodeCount[1].SubDomain}}</div>
+      <div class="widget-title">Sub Domain</div>
+      <div class="widget-subtitle"><a class="userdata" [routerLink]="['/admin/trainingbot']">Add Sub Domain</a></div>
+    </div>
+  </div>  
+</div>
+<!-- Entity -->
+<div class="col-md-3">           
+  <div class="widget widget-default widget-item-icon">
+    <div class="widget-item-left">
+      <!-- <span class="fa fa-product-hunt fa-2x"></span> -->
+      <i class="fa fa-gift fa-2x" aria-hidden="true"></i>
+    </div>
+    <div class="widget-data">
+      <div class="widget-int num-count ng-binding mostViewed" >{{nodeCount[2].Entity}}</div>
+      <div class="widget-title">Entity</div>
+      <div class="widget-subtitle">
+        <a class="userdata" [routerLink]="['/admin/trainingbot']">Entity</a></div>
+      </div>
+    </div>  
+  </div>
+
+  <!-- Entity -->
+<div class="col-md-3">           
+  <div class="widget widget-default widget-item-icon">
+    <div class="widget-item-left">
+      <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
+    </div>
+    <div class="widget-data">
+      <div class="widget-int num-count ng-binding mostViewed" >{{unAnsCount.unansCount}}</div>
+      <div class="widget-title">Unanswered Question Count</div>
+      <div class="widget-subtitle">
+        <a class="userdata" [routerLink]="['/admin/trainingbot']">Add Questions</a></div>
+      </div>
+    </div>  
+  </div>
   </div>
 </div>
-<!--end of column of third card-->
-
- <!--start of column of fourth card-->
-   <!-- Time and Date -->
-        <div class="col-md-3">            
-          <div class="widget widget-default widget-item-icon updateTime">
-            <div class="widget-item-left">
-              <span class="fa fa-clock-o fa-2x"></span>
-            </div>
-            <div class="widget-data time">
-              <div class="widget-big-int plugin-clock ng-binding"><h6>5:23</h6></div>
-              <div class="widget-subtitle plugin-date ng-binding date" ><span>14/11/17</span>
-              </div>
-            </div>
-          </div>  
-        </div>
-<!--end of column of fourth card-->
-</div>
-  <!-- end of row -->
 
 
 
-
- 
- 
