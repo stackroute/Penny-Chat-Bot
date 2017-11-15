@@ -93,6 +93,7 @@ export class ContextComponent implements OnInit {
   getIntent(){
     this.contextService.getIntent().subscribe((ref) => {
       this.intents = [];
+      this.subIntents = [];
       ref.map((intent)=> {
         if(intent._fields[0].labels[0] == Config.intent.intent && intent._fields[0].properties.name != Config.type.type){
           this.intents.push({id:this.intents.length+1,itemName : intent._fields[0].properties.name,name : intent._fields[0].properties.name, priority : intent._fields[0].properties.priority, value : "", videoLink : [], blogLink : [], subIntent : []});

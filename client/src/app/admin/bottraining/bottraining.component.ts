@@ -200,7 +200,6 @@ export class BottrainingComponent implements OnInit {
   contextSynonym(context){
     this.bottrainingservice.contextSynonym(context,this.val)
     .subscribe(res =>{
-      alert(Config.bottraining.addedsucces);
       swal(Config.bottraining.addedsucces,
         'success'
         )
