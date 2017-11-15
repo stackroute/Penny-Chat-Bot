@@ -1,5 +1,3 @@
-/*Preeti Singh
-22/10/2017*/
 
 import { Injectable } from '@angular/core';
 import { Http,Response } from '@angular/http';
@@ -19,7 +17,6 @@ export class SetpasswordService {
   setPassword(username:string,id:string,password:any):Observable<any>{
 
     //changes the password 
-  
     let main:any = {};
     main.password = password;//assigning password to mail object
     main.username=username;//assigning username to mail object
@@ -30,6 +27,7 @@ export class SetpasswordService {
     .catch(this._errorHandler);
   }
 
+  //mail expire method
   mailExpire(username:string,id:string){
     let main:any = {};
     main._id = id;//assigning id to mail object

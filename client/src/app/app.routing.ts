@@ -7,8 +7,6 @@ import { RedirectComponent } from './redirect/redirect.component';
 import { SocialLoginRedirectComponent } from './social-login-redirect/social-login-redirect.component';
 import { AuthGuard } from './auth/auth.guard';
 
-// Import Containers
-
 export const routes: Routes = [
 {
   path: 'user',

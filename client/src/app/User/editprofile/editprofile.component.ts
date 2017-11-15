@@ -28,16 +28,18 @@ export class EditprofileComponent implements OnInit {
 		console.log(this.userData);
 	}
 
+	// redirect user to dashboard
 	gotoDashboard() {
-
-		this.router.navigateByUrl('/user/chat'); // render to user dashboard
+		this.router.navigateByUrl('/user/chat'); 
 	}
-   
+  
+ // redirect user to reset password 
  gotoResetPassword() {
-		this.router.navigateByUrl('/user/resetpassword'); // render to user dashboard
+		this.router.navigateByUrl('/user/resetpassword'); 
 	}
 
-	passwordvalidation() {  // matching password and confirm password 
+	// matching password and confirm password
+	passwordvalidation() {   
 		if(this.userData.data.password!==this.cnfmPassword){
 			swal(
 
@@ -49,6 +51,7 @@ export class EditprofileComponent implements OnInit {
 		}
 	}
 
+	// submit edited value in user profile
 	submit() {
 		if(!this.userData.data.name || !this.userData.data.email ){
 
@@ -65,7 +68,7 @@ export class EditprofileComponent implements OnInit {
 						Config.editProfile.msg1,
 						Config.editProfile.msg6
 
-												)
+						)
 				}
 				else {			// if updated successfully
 					swal(
@@ -82,5 +85,5 @@ export class EditprofileComponent implements OnInit {
 			});
 		}
 		
-}
+	}
 }

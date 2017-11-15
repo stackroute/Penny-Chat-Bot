@@ -33,10 +33,12 @@ describe('CreateFlowService', () => {
     createflowService=getTestBed().get(CreateFlowService)
     mockBackend=TestBed.get(MockBackend);
   });
+
   //------------testing if Service exists------------//
   it('should be created', inject([CreateFlowService], (service: CreateFlowService) => {
     expect(service).toBeTruthy();
   }));
+
   //------------ Positive testing of creatflow------------//
   it('positive case for fetch()', fakeAsync(() => {
     let createflowService : CreateFlowService = getTestBed().get(CreateFlowService);
@@ -52,7 +54,8 @@ describe('CreateFlowService', () => {
         expect(res).toBeDefined();
         expect(res).toBe(testConfig.mockResponse);
       })
-  }))
+  }));
+
   //------------ Negative testing for creatflow------------//
   it('negative case for fetch()', fakeAsync(() => {
     let createflowService : CreateFlowService = getTestBed().get(CreateFlowService);
@@ -68,5 +71,5 @@ describe('CreateFlowService', () => {
         expect(res).toBeDefined();
         expect(res.data).toBe(testConfig.mockdata.data);
       })
-  }))
+  }));
 })

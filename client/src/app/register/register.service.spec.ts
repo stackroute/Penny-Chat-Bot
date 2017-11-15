@@ -10,7 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {testConfig} from './register.config';
 
-
+	// test suite for register service
 	describe('RegisterService', () => {
 	let de:  DebugElement;
 	let el:  HTMLElement;

@@ -17,7 +17,7 @@ export class BottrainingService {
     return this.http.get(url)
     .map((res:Response) =>{
       return res.json();
-    }).catch(this._errorHandler);
+    }).catch(this._errorHandler); /*error handling*/
   }
 
   /*error handling*/
@@ -25,18 +25,13 @@ export class BottrainingService {
     return Observable.throw(error || Config.bottraining.Server);
   }
   
-
   //getting all the combinations of unanswered questions
   getQues(ques):Observable<any>{
     let Quesurl:any = config.ip+urlConfig.AdminBotTraininggetQues;
     return this.http.post(Quesurl,{ques}).map((res)=>{
       return res.json();
-    }).catch(this._errorHandler);
-  }
-
-  /*error handling*/
-
-  
+    }).catch(this._errorHandler); /*error handling*/
+  }  
 
   //getting all the intents present
   getIntent(){
@@ -44,12 +39,8 @@ export class BottrainingService {
     return this.http.get(url)
     .map((res:Response) =>{
       return res.json();
-    }).catch(this._errorHandler);
+    }).catch(this._errorHandler); /*error handling*/
   }
-
-  /*error handling*/
- 
-  
 
   //getting all the context stored in database
   getContext(){
@@ -57,11 +48,8 @@ export class BottrainingService {
     return this.http.get(url)
     .map((res:Response) =>{
       return res.json();
-    }).catch(this._errorHandler);
-  }
-
- 
-  
+    }).catch(this._errorHandler); /*error handling*/
+  }  
 
   /*================================Add Intent& Sentence====================*/
   addSentence(object): Observable<any> {
@@ -71,11 +59,8 @@ export class BottrainingService {
     .map((res: Response)=>{
       return res.json()
     }
-    ).catch(this._errorHandler);
+    ).catch(this._errorHandler); /*error handling*/
   }
-
-
-  
 
   /*============================Change Intent & Service======================*/
   changeIntent(object): Observable<any> {
@@ -84,41 +69,28 @@ export class BottrainingService {
     .put(url1,{object:object})
     .map((res: Response)=>
       res.json()
-      ).catch(this._errorHandler);
+      ).catch(this._errorHandler); /*error handling*/
   }
 
-
-  
-
   /*===========================Fetch Data in Service========================*/
-
   fetch(object): Observable<any> {
     let url2=config.ip+urlConfig.AdminBotTrainingfetch;
     return this.http
     .get(url2,object)
     .map((res: Response)=>
       res.json()
-      ).catch(this._errorHandler);
+      ).catch(this._errorHandler); /*error handling*/
   }
 
-  /*error handling*/
- 
-  
-
   /*======================set synonym==========================*/
-
   setSynonym(intent,word): Observable<any> {
     let synUrl=config.ip+urlConfig.AdminBotTrainingsetSynonym;
     return this.http
     .post(synUrl,{intent:intent,word:word})
     .map((res: Response)=>
       res.json()
-      ).catch(this._errorHandler);
+      ).catch(this._errorHandler); /*error handling*/
   }
-
-  /*error handling*/
- 
-  
 
   // adding synonyms of existing contexts
   contextSynonym(context,word): Observable<any> {
@@ -128,13 +100,8 @@ export class BottrainingService {
     .map((res: Response)=>{
       res.json()
     }
-    
-    ).catch(this._errorHandler);
+    ).catch(this._errorHandler); /*error handling*/
   }
-
-  /*error handling*/
- 
- 
 
   // adding new question to database
   sendques(question){
@@ -143,11 +110,8 @@ export class BottrainingService {
     .post(synUrl,{question:question})
     .map((res: Response)=>
       res.json()
-      ).catch(this._errorHandler);
+      ).catch(this._errorHandler); /*error handling*/
   }
-
-  /*error handling*/
-
 
   /*==========================Start of Adds New Intent==============================*/
   addIntent(intent):Observable<any> {
@@ -155,12 +119,8 @@ export class BottrainingService {
     return this.http.post(trainurl,{data:intent})
     .map((res:Response)=>{
       return res.json();
-    }).catch(this._errorHandler);
+    }).catch(this._errorHandler); /*error handling*/
   }
-
-  /*error handling*/
-  
- 
 
   /*==========================Start of Add Intent's Synonym==============================*/
   addSynonym(data): Observable<any> {
@@ -169,11 +129,8 @@ export class BottrainingService {
     .put(trainurl,{data: data})
     .map((res: Response)=>{
       return res.json()
-    }).catch(this._errorHandler);
+    }).catch(this._errorHandler); /*error handling*/
   }
-
- 
-
 
   // getting all the synonym of an intent
   getRelatedEntity(intentName:any){
@@ -182,12 +139,8 @@ export class BottrainingService {
     .post(url,{intentName})
     .map((res:Response) =>{
       return res.json();
-    }).catch(this._errorHandler);
+    }).catch(this._errorHandler); /*error handling*/
   }
-
-  /*error handling*/
-
-
 
   // adding more synonyms to existing intent
   addMoreSynonym(synonymname:any,intentName:any){
@@ -195,12 +148,8 @@ export class BottrainingService {
     return this.http.post(url,{synonymname,intentName})
     .map((res:Response) =>{
       return res.json();
-    }).catch(this._errorHandler);
+    }).catch(this._errorHandler); /*error handling*/
   }
-
-  /*error handling*/
- 
-  
 
   // deletes existing synonym of an intent
   deleteSynonym(synonymname:any,intentname:any){
@@ -208,11 +157,8 @@ export class BottrainingService {
     return this.http.put(url,{synonymname,intentname})
     .map((res:Response) =>{
       return res.json();
-    }).catch(this._errorHandler);
-  }
-
-
-   
+    }).catch(this._errorHandler); /*error handling*/
+  }   
 
   /*==========================Start of Suggest Synonym==============================*/
   suggest(data): Observable<any> {
@@ -221,36 +167,27 @@ export class BottrainingService {
     .put(suggesturl,{data: data})
     .map((res: Response)=>{
       return res.json().data
-    }).catch(this._errorHandler);
+    }).catch(this._errorHandler); /*error handling*/
   }
 
- 
-  
-
   /*=====================delete intent=========================*/
-
   deleteIntent(intent): Observable<any> {
     let deleteIntentUrl=config.ip+urlConfig.AdminBotTrainingdeleteIntent;
     return this.http
     .put(deleteIntentUrl,{data: intent})
     .map((res: Response)=>{
       return res.json()
-    }).catch(this._errorHandler);
+    }).catch(this._errorHandler); /*error handling*/
   }
 
- 
-
   /*=====================delete pending questions=========================*/
-
   deletePendingQuestions(ques): Observable<any> {
     let deletePendingQuestions=config.ip+urlConfig.AdminBotTrainingdeletePendingQuestions;
     return this.http
     .put(deletePendingQuestions,{ques: ques})
     .map((res: Response)=>{
       return res.json();
-    }).catch(this._errorHandler);
-  }
-
- 
+    }).catch(this._errorHandler); /*error handling*/
+  } 
   
 }

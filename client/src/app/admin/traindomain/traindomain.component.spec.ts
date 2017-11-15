@@ -12,13 +12,18 @@ import { TraindomainService } from './traindomain.service';
 import {Observable} from 'rxjs/Observable';
 import { testConfig } from './traindomain.config';
 
+//------------RouterStub-------------
 class RouterStub {
   navigateByUrl(url: string) { return url; }
 }
+
+// stub data
 let trainDomainServiceStub = {
   isLoggedIn: true,
   user: { name: 'Test User'}
 };
+
+// test suite for train domain component
 describe('Train Domain Component', () => {
   let component: TraindomainComponent;
   let fixture: ComponentFixture<TraindomainComponent>;

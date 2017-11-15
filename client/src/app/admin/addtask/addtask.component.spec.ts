@@ -14,6 +14,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA }from '@angular/core';
 import { testConfig } from './addtask.config';
+
 /*=============test suite=============*/
 describe('AddtaskComponent', () => {
   let data:any;
@@ -66,8 +67,8 @@ describe('AddtaskComponent', () => {
     })
     
   });
-  
   /*------------------End Positive testing for addtask(AddQuestion)----------------*/
+
   /*------------------Negative testing for addtask(AddQuestion)-----------------*/
   it('Should test Negative addQuestion', () => {
     const item = testConfig.addtaskComponent

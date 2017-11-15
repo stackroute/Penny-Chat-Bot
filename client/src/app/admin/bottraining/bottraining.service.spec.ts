@@ -4,7 +4,7 @@ import { BottrainingService } from './bottraining.service';
 import {MockBackend, MockConnection } from '@angular/http/testing';
 import {testConfig} from './bottraining.config';
 
-
+// test suite for bot training service
 describe('BottrainingService', () => {
   let mockBackend:MockBackend;
   let intentService:BottrainingService;
@@ -26,10 +26,12 @@ describe('BottrainingService', () => {
     mockBackend = TestBed.get(MockBackend);
   });
 
+  //-----------------------------test case for specific service------------------------------------
   it('should be created', inject([BottrainingService], (service: BottrainingService) => {
     expect(service).toBeTruthy();
   }));
-  //-----------------------------POsitive Test Case For addintent------------------------------------
+
+  //-----------------------------Positive Test Case For addintent------------------------------------
   it('should check addIntent() positive case', fakeAsync(() => {
 
     let mockResponse=testConfig.res

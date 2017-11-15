@@ -17,6 +17,7 @@ import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import swal from 'sweetalert2';
 import {testConfig } from './create-flow.config' ;
 
+// test suite for create flow component
 describe('CreateFlow Component', () => {
   let component: CreateFlowComponent;
   let fixture: ComponentFixture<CreateFlowComponent>;
