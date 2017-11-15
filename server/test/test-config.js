@@ -236,5 +236,17 @@ module.exports = {
 				{
 					newpassword : "jasmien9",oldpassword: "jasmi"
 				}
+			},
+
+
+			uNanswerquesCount:{
+
+			questions:[{question:"what is retirement?"}]
+			},
+
+          uNanswerquesCount:{
+
+			questions:[null]
 			}
+
 		}

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { DashboardComponent } from './dashboard.component';
 import { By } from '@angular/platform-browser';
@@ -13,6 +13,7 @@ import {MockBackend, MockConnection } from '@angular/http/testing';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA }from '@angular/core';
+import {testConfig} from './dashboard.config';
 
 /*=============test suite=============*/
 describe('Dashboard component', () => {
@@ -55,5 +56,74 @@ describe('Dashboard component', () => {
    expect(component).toBeTruthy();
  });
  
+//---------------------------------positive test case for getCount----------------------------
+  it('should check getCount() positive case', fakeAsync(() => {
+      const spy =spyOn(service,'getCount').and.returnValue(Observable.of(testConfig.getCount));
+    component.getCount();
+  
+  fixture.detectChanges();
+  fixture.whenStable().then(()=>{
+  
+  console.log('hello comp1',component.nodeCount, 'hey 2 here', testConfig.getCount[0] )  
+expect(component.nodeCount[0]).toEqual(testConfig.getCount[0]);
+  })
+
+
+  }));
+
+  //----------------------------------negative test case for getCount------------------------
+  it('should check getCount() negative case', fakeAsync(() => {
+    const spy =spyOn(service,'getCount').and.returnValue(Observable.of(testConfig.getCountNegative));
+    component.getCount();
+  
+  fixture.detectChanges();
+  fixture.whenStable().then(()=>{
+  
+  console.log('hello comp2',component.nodeCount, 'hey 2 here', testConfig.getCountNegative[0] )  
+expect(component.nodeCount[0]).toEqual(testConfig.getCountNegative[0]);
+   })
+
+  }));
+
+  //---------------------------Positive testcase for getUnansweredQues()----------------------------------
+  it('should check getUnansweredQues() positive case', fakeAsync(() => {
+  
+  const spy =spyOn(service,'getUnansweredQues').and.returnValue(Observable.of(testConfig.unanscount));
+  component.getUnansweredQues();
+  
+  fixture.detectChanges();
+  fixture.whenStable().then(()=>{
+  
+  console.log('hello comp1',component.unAnsCount, 'hey 2 here', testConfig.getCount[0] )  
+expect(component.unAnsCount.unanscount).toEqual(testConfig.unanscount.unanscount);
+  
+  })
+
+  
+  }));
+
+
+  //---------------------------negative testcase for getUnansweredQues()----------------------------------
+  it('should check getUnansweredQues() negative case', fakeAsync(() => {
+
+    const spy =spyOn(service,'getUnansweredQues').and.returnValue(Observable.of(testConfig.unanscountnegative));
+  component.getUnansweredQues();
+  
+  fixture.detectChanges();
+  fixture.whenStable().then(()=>{
+  
+  console.log('hello comp1',component.unAnsCount, 'hey 2 here', testConfig.getCount[0] )  
+expect(component.unAnsCount.unanscountnegative).toEqual(testConfig.unanscountnegative.unanscountnegative);
+  
+  })
+
+  
+    }));
+    
+
+
+
+
+
 
  });
