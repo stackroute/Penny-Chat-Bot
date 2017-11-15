@@ -31,11 +31,11 @@ margin-right: 5px;
 .panel-body
 {
 overflow-y: scroll;
-height: 500px;   
+height: 320px;   
 }
 .panel-body.tablepanel {
 overflow-y: scroll;
-height: 170px;   
+height: 370px;   
 }
 ::-webkit-scrollbar-track
 {
@@ -64,6 +64,13 @@ width:50%;
 padding:6px 1px;
 
 }
+
+.main-collapsible-header {
+    background-color: #375372;
+    color: white;
+}
+
+
 .btn.headingbtn {
 background-color:#375372;
 }
@@ -180,6 +187,25 @@ color: #fff;
 background-color: #375372;
 border-color: #375372;
 }
+
+.displayQues {
+  margin-left: 2%;
+}
+
+.panel-primary {
+    border-color: #337ab7;
+    width: 110%;
+}
+
+.collapse {
+  width:100%;
+}
+
+app-context {
+  width:100%;
+}
+
+
 .btn.btn-primary.pi-draggable.btn-block {
 color: #fff;
 background-color: #375372;

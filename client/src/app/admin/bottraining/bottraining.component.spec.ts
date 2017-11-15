@@ -16,9 +16,13 @@ import { BottrainingService } from './bottraining.service';
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import swal from 'sweetalert2';
 import {testConfig} from './bottraining.config';
+
+//------------RouterStub-------------
 class RouterStub {
   navigateByUrl(url: string) { return url; }
 }
+
+//------------test suite for bot training component-------------
 describe('Bot training Component', () => {
   let component: BottrainingComponent;
   let fixture: ComponentFixture<BottrainingComponent>;

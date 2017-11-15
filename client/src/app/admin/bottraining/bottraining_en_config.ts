@@ -38,6 +38,7 @@ export const Config = {
         'deleted':"Successfully Deleted",
         'Question':'Question',
         'localStorage':'Userdata',
-        'Server':'Server Error'
+        'Server':'Server Error',
+        'SuggMsg':'ENTER ONLY NUMERIC DIGIT'
     }
 }

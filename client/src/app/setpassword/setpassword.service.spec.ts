@@ -1,5 +1,3 @@
-/*Preeti Singh
-22/10/2017*/
 
 import { TestBed, inject, async, fakeAsync, getTestBed, tick } from '@angular/core/testing';
 import { SetpasswordService } from './setpassword.service';
@@ -17,11 +15,11 @@ describe('SetpasswordService', () => {
 	let de:  DebugElement;
 	let el:  HTMLElement;
 	let mockBackend:any;
-
 	let setPasswordService:any;
 	let data:any;
 	let registerbtn:any;
 
+	// test suite for set password service
 	beforeEach( async(() => {
 		TestBed.configureTestingModule({
 			providers: [SetpasswordService,MockBackend,
@@ -42,7 +40,7 @@ describe('SetpasswordService', () => {
 		expect(service).toBeTruthy();
 	}));
 
-
+	// test case for setpassword new entries
 	it('should mocked setPassword new  entries', fakeAsync(() => {
 
 		const setPasswordRes = testConfig.data;
@@ -66,7 +64,7 @@ describe('SetpasswordService', () => {
 	}));
 
 
-
+	// test case for set password
 	it("tested of setPassword service method", fakeAsync(()=>{
 		const data = testConfig.serviceData;
 

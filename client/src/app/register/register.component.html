@@ -28,7 +28,7 @@
              </div>
       <div [hidden]="email.valid || email.pristine" class="message">
         <div [hidden]="!email.hasError('required')">{{Config.signup.emailrequire}}</div>
-        <div [hidden]="!email.hasError('pattern')">{{Config.signup.emailformat}} <small><b>joe@abc.com</b></small></div>
+        <div [hidden]="!email.hasError('pattern')">{{Config.signup.emailformat}} <small><b>{{Config.signup.emailex}}</b></small></div>
       </div>
            
              <!-- password field -->

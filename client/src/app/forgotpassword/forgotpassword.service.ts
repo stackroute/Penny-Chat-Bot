@@ -1,5 +1,3 @@
-/*Preeti Singh
-22/10/2017*/
 
 import { Injectable } from '@angular/core';
 import { Http,Response } from '@angular/http';
@@ -15,6 +13,7 @@ export class ForgotpasswordService {
 
   constructor(private http:Http) { }
 
+  //goto backend to hit the request
   forgotPassword(email:string){
   	return this.http
   	.post(expressUrls.forgotPassword,{email:email})
@@ -24,8 +23,8 @@ export class ForgotpasswordService {
     //call _errorHandler() if any error is catched
   }
 
+  //error handling 
   _errorHandler(error: Response){
 		return Observable.throw(error || Config.forgotpassword.serverError)
-    //error handling 
 	}
 }

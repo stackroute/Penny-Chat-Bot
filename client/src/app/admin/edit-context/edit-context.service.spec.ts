@@ -4,6 +4,7 @@ import {MockBackend, MockConnection } from '@angular/http/testing';
 import {testConfig} from './edit-context.config';
 import { EditContextService } from './edit-context.service';
 
+// test suite for edit context service
 describe('EditContextService', () => {
   let mockBackend:MockBackend;
   let contextService:EditContextService;

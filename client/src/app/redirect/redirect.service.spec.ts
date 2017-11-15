@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { RedirectService } from './redirect.service';
 import {testConfig} from './redirect.config';
 
+// test suite for redirect service
 describe('RedirectService', () => {
 	let de:  DebugElement;
 	let el:  HTMLElement;

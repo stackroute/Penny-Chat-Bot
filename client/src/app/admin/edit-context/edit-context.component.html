@@ -138,7 +138,7 @@
  </collapsible-list-item>
  <collapsible-list-item>
   <collapsible-header class="waves-effect collapsible-header">
-           Add Flow
+           {{Config.html.addflow}}
        </collapsible-header>
        <collapsible-body [expanded]="false">
        <div>
@@ -151,7 +151,7 @@
                <div class="dropdown-menu dropdownsubintent">
                 <a class="dropdown-item" *ngFor="let flo of flowitem" (click)="flowpart(flo,i)">{{flo}}</a>
               </div>
-        <button class="btn btn-primnary deleteflowbtn" *ngIf="main.flow" (click)="deleteFlow(i)">Delete</button>
+        <button class="btn btn-primnary deleteflowbtn" *ngIf="main.flow" (click)="deleteFlow(i)">{{Config.html.deletebutton}}</button>
      </div>
 
    </collapsible-body>

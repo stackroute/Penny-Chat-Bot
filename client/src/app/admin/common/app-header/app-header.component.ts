@@ -11,6 +11,7 @@ export class AppHeaderComponent implements OnInit{
 	initialCharacter : any;
 	Config:any=Config;
 
+	// runs before html render and on initialization
 	ngOnInit(){		
       let data = JSON.parse(localStorage.getItem(Config.localStorage));
       this.initialCharacter = data.data.name;

@@ -43,6 +43,7 @@ export class RedirectComponent implements OnInit {
   });  	
   }
 
+  /*runs on initialization*/
   ngOnInit() {
   	this.redirectUrl();
     }

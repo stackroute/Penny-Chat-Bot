@@ -28,4 +28,73 @@
 </div>
 <!--end of column of second card-->
 </div>
-  <!-- end of row -->
+<!-- end of row -->
+
+
+
+
+
+
+
+
+<div *ngIf = "nodeCount != undefined">
+<div class="row timerow" *ngIf = "unAnsCount != undefined">
+ <!-- Domain -->
+ <div class="col-md-3">    
+  <div class="widget widget-default widget-item-icon">
+    <div class="widget-item-left">
+      <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+    </div> 
+    <div class="widget-data">
+      <div class="widget-int num-count ng-binding" >{{nodeCount[0].Domain}}</div>
+      <div class="widget-title">Domain</div>
+      <div class="widget-subtitle"><a class="userdata" [routerLink]="['/admin/trainingbot']" >Click
+      </a></div>
+    </div>           
+  </div>
+</div>
+<!-- Sub Domain -->
+<div class="col-md-3">          
+  <div class="widget widget-default widget-item-icon">
+    <div class="widget-item-left">
+      <span class="fa fa-sitemap fa-2x"></span>
+    </div>
+    <div class="widget-data">
+      <div class="widget-int num-count ng-binding" >{{nodeCount[1].SubDomain}}</div>
+      <div class="widget-title">Sub Entity</div>
+      <div class="widget-subtitle"><a class="userdata" [routerLink]="['/admin/trainingbot']">Click</a></div>
+    </div>
+  </div>  
+</div>
+<!-- Entity -->
+<div class="col-md-3">           
+  <div class="widget widget-default widget-item-icon">
+    <div class="widget-item-left">
+      <span class="fa fa-product-hunt fa-2x"></span>
+    </div>
+    <div class="widget-data">
+      <div class="widget-int num-count ng-binding mostViewed" >{{nodeCount[2].Entity}}</div>
+      <div class="widget-title">Entity</div>
+      <div class="widget-subtitle">
+        <a class="userdata" [routerLink]="['/admin/trainingbot']">Click</a></div>
+      </div>
+    </div>  
+  </div>
+
+  <!-- Entity -->
+<div class="col-md-3">           
+  <div class="widget widget-default widget-item-icon">
+    <div class="widget-item-left">
+      <span class="fa fa-product-hunt fa-2x"></span>
+    </div>
+    <div class="widget-data">
+      <div class="widget-int num-count ng-binding mostViewed" >{{unAnsCount.unansCount}}</div>
+      <div class="widget-title">Unanswered Question Count</div>
+      <div class="widget-subtitle">
+        <a class="userdata" [routerLink]="['/admin/trainingbot']">Click</a></div>
+      </div>
+    </div>  
+  </div>
+  </div>
+</div>
+

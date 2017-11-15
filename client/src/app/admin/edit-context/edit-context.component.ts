@@ -52,9 +52,8 @@ export class EditContextComponent implements OnInit {
   
   constructor(private editContextService:EditContextService, private router : Router ) { }
 
-
+  // on initializing component
   ngOnInit() {
- //   this.getContext();
     this.getcontent();
     this.editContextService.getAllContext().subscribe((ref) => {
       ref.map((context)=> {
@@ -70,10 +69,6 @@ export class EditContextComponent implements OnInit {
     this.dropdownSettingsContext = Config.dropdownSettingsContext;
   }
   
-check(){
-  console.log('hdghkdf')
-}
-
   /*==================get all context==================*/
   getContext(){
     this.contextDropDown = [];
