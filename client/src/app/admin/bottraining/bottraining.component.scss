@@ -31,8 +31,18 @@ margin-right: 5px;
 .panel-body
 {
 overflow-y: scroll;
-height: 320px;   
+height: 370px;   
 }
+
+.panel {
+  border: 1px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* border: 1px solid transparent; */
+    /* border-radius: 4px; */
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
 .panel-body.tablepanel {
 overflow-y: scroll;
 height: 370px;   
@@ -70,6 +80,12 @@ padding:6px 1px;
     color: white;
 }
 
+.quetioncollapse {
+    display: block;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 0;
+}
 
 .btn.headingbtn {
 background-color:#375372;
@@ -183,8 +199,8 @@ margin-top:1.5%;
 background-color: #375372;
 }
 .panel-primary>.panel-heading {
-color: #fff;
-background-color: #375372;
+color:black;
+background-color:#fff;
 border-color: #375372;
 }
 
@@ -205,6 +221,13 @@ app-context {
   width:100%;
 }
 
+.col-md-4 {
+      position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 14px;
+     padding-left: 1px; 
+  }
 
 .btn.btn-primary.pi-draggable.btn-block {
 color: #fff;

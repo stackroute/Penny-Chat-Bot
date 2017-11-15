@@ -22,6 +22,14 @@ a {
     padding: 10px 15px;
 }
 
+.drop.dropdown-list[_ngcontent-c9] {
+    position: fixed;
+    padding-top: 7px;
+    width: 60%;
+    z-index: 9999;
+}
+
+
 div.dropdown-menu.dropdownsubintent {
 position: inherit;
 float: inherit;

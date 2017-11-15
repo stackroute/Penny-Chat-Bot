@@ -1,20 +1,20 @@
 
 
-<div> 
-  <div class="row">
 
 <collapsible-list [type]="'accordion'">
 
+<!-- <div> 
+  <div class="row"> -->
   <collapsible-list-item>
     <collapsible-header class="waves-effect main-collapsible-header">
       Unanswered Questions
     </collapsible-header>
-    <collapsible-body [expanded]="true">
+    <collapsible-body [expanded]="true" class="quetioncollapse">
     <div class="col-md-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">
+       <!--  <div class="panel-heading">
           <span class="glyphicon glyphicon-comment"></span> {{Config.bottraining.PendingQuestions}}
-        </div>
+        </div> -->
         <div class="panel-body">
           <ul class="chat">
             <li class="left clearfix">
@@ -149,6 +149,8 @@
   </collapsible-list-item>
   <!-- Context ends here -->
 
+<!-- </div>
+</div> -->
 </collapsible-list>
 
 

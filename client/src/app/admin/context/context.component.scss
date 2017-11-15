@@ -17,7 +17,7 @@ a {
 text-decoration:none;
 }
 .card-header {
-background-color: #375372;
+background-color: #7a99bc;
 color: white;
 padding: 10px 15px;
 }
@@ -141,7 +141,8 @@ text-decoration:none;
 background-color:#375372;
 }
 .add {
-    margin-top: -10%;
+      margin-top: -6%;
+    margin-left: 6%
 }
 #c_button {
 font-size: inherit;
@@ -184,8 +185,6 @@ margin-top:1.5%;
 }
 .panel-primary>.panel-heading {
 color: #fff;
-background-color: #375372;
-border-color: #375372;
 }
 .btn.btn-primary.pi-draggable.btn-block {
 color: #fff;
@@ -209,26 +208,11 @@ border-color: #375372;
 border-color: #375372;
 }
 
+
+
 div.dropdown-menu.dropdownsubintent {
 position: inherit;
 float: inherit;
-/* top: 100%;
-left: 0;
-z-index: 1000;
-display: none;
-float: inherit;
-min-width: 160px;
-padding: 5px 0;
-margin: 2px 0 0;
-font-size: 14px;
-text-align: left;
-list-style: none;
-background-color: #fff;
-background-clip: padding-box;
-border: 1px solid #ccc;
-border: 1px solid rgba(0,0,0,.15);
-border-radius: 4px;
-box-shadow: 0 6px 12px rgba(0,0,0,.175);*/
 }
 
 .textarea {
