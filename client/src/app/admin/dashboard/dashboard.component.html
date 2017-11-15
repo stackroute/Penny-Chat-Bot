@@ -1,54 +1,16 @@
-<!-- start of row -->
-<div class="row">
-  <!--start of column of first card-->
-  <div class="col-md-4">
-    <div id="c_card" class="card pi-draggable" draggable="true">
-      <div class="card-header">
-        {{Config.dashboard.Training}}
-      </div>
-      <div class="card-body">
-        <p class="card-text">{{Config.dashboard.trainyourbot}}</p>
-        <a [routerLink]="['/admin/trainingbot']">{{Config.dashboard.trainbot}}</a>
-      </div>
-    </div>
-  </div>
-  <!--end of column of first card-->
-
-  <!--start of column of second card-->
-  <div class="col-md-4">
-    <div id="c_card" class="card pi-draggable" draggable="true">
-      <div class="card-header">
-       {{Config.dashboard.addflow}}
-     </div>
-     <div class="card-body">
-      <p class="card-text">{{Config.dashboard.addquestion}}</p>
-      <a [routerLink]="['/admin/createflow']">{{Config.dashboard.starthere}}</a>
-    </div>
-  </div>
-</div>
-<!--end of column of second card-->
-</div>
-<!-- end of row -->
-
-
-
-
-
-
-
-
 <div *ngIf = "nodeCount != undefined">
-<div class="row timerow" *ngIf = "unAnsCount != undefined">
+<div class="row" *ngIf = "unAnsCount != undefined">
  <!-- Domain -->
  <div class="col-md-3">    
   <div class="widget widget-default widget-item-icon">
     <div class="widget-item-left">
-      <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+    <i class="fa fa-university fa-2x" aria-hidden="true"></i>
+      <!-- <i class="fa fa-user fa-2x" aria-hidden="true"></i> -->
     </div> 
     <div class="widget-data">
       <div class="widget-int num-count ng-binding" >{{nodeCount[0].Domain}}</div>
       <div class="widget-title">Domain</div>
-      <div class="widget-subtitle"><a class="userdata" [routerLink]="['/admin/trainingbot']" >Click
+      <div class="widget-subtitle"><a class="userdata" [routerLink]="['/admin/trainingbot']" >Add Domain
       </a></div>
     </div>           
   </div>
@@ -61,8 +23,8 @@
     </div>
     <div class="widget-data">
       <div class="widget-int num-count ng-binding" >{{nodeCount[1].SubDomain}}</div>
-      <div class="widget-title">Sub Entity</div>
-      <div class="widget-subtitle"><a class="userdata" [routerLink]="['/admin/trainingbot']">Click</a></div>
+      <div class="widget-title">Sub Domain</div>
+      <div class="widget-subtitle"><a class="userdata" [routerLink]="['/admin/trainingbot']">Add Sub Domain</a></div>
     </div>
   </div>  
 </div>
@@ -70,13 +32,14 @@
 <div class="col-md-3">           
   <div class="widget widget-default widget-item-icon">
     <div class="widget-item-left">
-      <span class="fa fa-product-hunt fa-2x"></span>
+      <!-- <span class="fa fa-product-hunt fa-2x"></span> -->
+      <i class="fa fa-gift fa-2x" aria-hidden="true"></i>
     </div>
     <div class="widget-data">
       <div class="widget-int num-count ng-binding mostViewed" >{{nodeCount[2].Entity}}</div>
       <div class="widget-title">Entity</div>
       <div class="widget-subtitle">
-        <a class="userdata" [routerLink]="['/admin/trainingbot']">Click</a></div>
+        <a class="userdata" [routerLink]="['/admin/trainingbot']">Entity</a></div>
       </div>
     </div>  
   </div>
@@ -85,16 +48,18 @@
 <div class="col-md-3">           
   <div class="widget widget-default widget-item-icon">
     <div class="widget-item-left">
-      <span class="fa fa-product-hunt fa-2x"></span>
+      <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
     </div>
     <div class="widget-data">
       <div class="widget-int num-count ng-binding mostViewed" >{{unAnsCount.unansCount}}</div>
       <div class="widget-title">Unanswered Question Count</div>
       <div class="widget-subtitle">
-        <a class="userdata" [routerLink]="['/admin/trainingbot']">Click</a></div>
+        <a class="userdata" [routerLink]="['/admin/trainingbot']">Add Questions</a></div>
       </div>
     </div>  
   </div>
   </div>
 </div>
+
+
 

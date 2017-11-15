@@ -1,7 +1,7 @@
 
 
 
-
+<!-- 
 <collapsible-list [type]="'accordion'" class="collapse">
   
   <collapsible-list-item>
@@ -14,7 +14,7 @@
     </collapsible-header>
     <collapsible-body [expanded]="false">
 
-     <!-- ==================calling edit context================== -->
+    
      <app-edit-context></app-edit-context>
  <div class="col-md-3 ">
   <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show();getIntent();getAllContext()" draggable="true">{{Config.html.AddNewContext}}</a>
@@ -22,16 +22,16 @@
     </collapsible-body>
   </collapsible-list-item>
  
-</collapsible-list>
-<!-- 
-<div id="c_card" class="card pi-draggable" draggable="true">
- <div class="card-header">
+</collapsible-list> -->
+
+<!--<div id="c_card" class="card pi-draggable" draggable="true">
+  <div class="card-header">
    <div class=row>
      <div class="col-md-8">
        <span>{{Config.html.title}}</span>
      </div>
    </div>
- </div>
+ </div> -->
 
 
  <app-edit-context></app-edit-context>
@@ -40,8 +40,8 @@
  <div class="col-md-3 ">
   <a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show();getIntent();getAllContext()" draggable="true">{{Config.html.AddNewContext}}</a>
 </div><br>
-</div> -->
-
+<!-- </div>
+ -->
 <!-- ======================Modal to add new context========================== -->
 <div bsModal #addContext="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -86,14 +86,7 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;{{Config.html.IndependentDomain}}
                 </label>
               </div>
-              <!-- <button type="button" class="btn btn-md btn-primary dropdown-toggle" *ngIf = "setDomain" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                {{selectedContext.name}} ({{selectedContext.label}})
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" *ngFor="let context of contexts;let i=index " (click)="setContext(context)">{{context.name}} ({{context.label}})</a>
-              </div> -->
-
-
+            
               <div *ngIf = "setDomain" >
                 <angular2-multiselect name="dropdown"  [data]="contexts" [(ngModel)]="selectContext"
                 [settings]="dependencyDropdownSettings" 
@@ -102,10 +95,6 @@
               </angular2-multiselect>
 
             </div>
-
-
-
-
           </form>
         </tab>
         <!-- ==================Tab to add information for intents================== -->
@@ -150,9 +139,7 @@
       <collapsible-body [expanded]="false">
       <div class="input-group mb-2 mr-sm-2 mb-sm-0 video"  *ngFor="let input of inputs; let j=index ">
         <input type="text" class="form-control " id="inlineFormInputGroup" placeholder="Video Link" [(ngModel)]="selectedIntent[i].videoLink[j]" >
-        <!--   <div class="input-group-addon">
-            <a (click)="addInput()"><i class="fa fa-plus" aria-hidden="true"></i></a>
-          </div> -->
+       
           <div class="input-group-addon">
             <a (click)="removeVideo(i,j,selectedIntent[i].videoLink[j])"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
           </div>
@@ -171,9 +158,7 @@
   <collapsible-body [expanded]="false">
   <div class="input-group mb-2 mr-sm-2 mb-sm-0 blog" *ngFor="let add of blog;let k=index ">
     <input type="text" class="form-control" placeholder="Blog Link" [(ngModel)]="selectedIntent[i].blogLink[k]" name="blog">
-   <!--  <div class="input-group-addon">
-      <a (click)="addBlog()"><i class="fa fa-plus" aria-hidden="true"></i></a>
-    </div> -->
+  
     <div class="input-group-addon">
       <a (click)="removeBlog(i,k,selectedIntent[i].blogLink[k])"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
     </div>
@@ -197,9 +182,7 @@
   <div class="dropdown-menu dropdownsubintent">
     <a class="dropdown-item " *ngFor="let subInt of subIntents; let l=index "  (click)="setsubIntent(subInt)">{{subInt.name}} </a>
   </div>   
-</div> <!--          
-<textarea class="form-control" id="exampleTextarea" rows="3"></textarea> -->
-
+</div> 
 
 <textarea class="form-control textarea" id="exampleTextarea" rows="3" *ngIf="selectedSubIntent.name!='Select SubIntent'"  placeholder="description" [(ngModel)]="selectedSubIntent.value" (blur)="pushSubIntent(i,selectedSubIntent)" ></textarea>
 </collapsible-body>

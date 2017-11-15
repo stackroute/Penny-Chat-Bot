@@ -1,6 +1,6 @@
 <div class="card-body">
   <div class = "col-md-9 contextDropDownbtn">
-    <angular2-multiselect (click)="getContext()" [data]="contextDropDown" [(ngModel)]="selectedItemsContext" 
+    <angular2-multiselect class="drop" (click)="getContext()" [data]="contextDropDown" [(ngModel)]="selectedItemsContext" 
     [settings]="dropdownSettingsContext" 
     (onSelect)="onItemSelectContext($event)" 
     (onDeSelect)="OnItemDeSelectContext($event)"

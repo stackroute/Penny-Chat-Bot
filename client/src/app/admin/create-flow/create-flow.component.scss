@@ -50,7 +50,7 @@
   
   z-index: 1;
   color: #424242;
-  font-size: 1.1em;
+  font-size: 1.4em;
   height: 100%;
   display: inline-block;
   float: left;
@@ -131,4 +131,14 @@
   overflow: hidden;
   max-height: 10.5em;
   line-height: 1.5;
+}
+.form-control{
+  font-size: 18px;
+      height: 40px;
+}
+.btn{
+  font-size: 18px;
+}
+h3{
+  font-size: 25px;
 }

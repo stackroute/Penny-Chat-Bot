@@ -1,6 +1,6 @@
 .btn {
 line-height:0.5;
-padding: 14px 14px;
+padding: 12px 12px;
 }
 .btn.btn-block {
 width:50%;
@@ -8,7 +8,8 @@ padding:6px 1px;
 
 }
 .btn.btn-primary {
-color:white;     
+color:white;  
+font-size: 17px;   
 }
 .btn.btn-primary:hover {
 color:white;
@@ -17,7 +18,7 @@ a {
 text-decoration:none;
 }
 .card-header {
-background-color: #375372;
+background-color: #7a99bc;
 color: white;
 padding: 10px 15px;
 }
@@ -26,11 +27,16 @@ padding: 10px 15px;
     background-color: #375372;
     color: white;
 }
-
+.form-control{
+    font-size:18px;
+}
 
 .collapsible-header {
     background-color: #7a99bc;
     color: white;
+}
+.ng2-tag-input__text-input[_ngcontent-c14]{
+    font-size:15px;
 }
 
 
@@ -114,6 +120,9 @@ background-color: #555;
 .btn {
 line-height:0.5;
 }
+a.dropdown-item{
+  font-size:20px;
+}
 .addto {
 margin-left: 80%;
 margin-top: -5%;
@@ -141,11 +150,13 @@ text-decoration:none;
 background-color:#375372;
 }
 .add {
-    margin-top: -10%;
+      margin-top: -6%;
+    margin-left: 6%
 }
-#c_button {
-font-size: inherit;
+span{
+    font-size: 18px;
 }
+
 #btn-chat {
 color: #fff;
 background-color: #fa9040;
@@ -184,20 +195,19 @@ margin-top:1.5%;
 }
 .panel-primary>.panel-heading {
 color: #fff;
-background-color: #375372;
-border-color: #375372;
 }
 .btn.btn-primary.pi-draggable.btn-block {
 color: #fff;
 background-color: #375372;
 border-color: #375372;
+font-size: 17px;
 }
 .addContextbtn{
 margin-top:2%;
-    padding-top: 14px;
-    padding-right: 14px;
-    padding-bottom: 14px;
-    padding-left: 14px;
+    padding-top: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
 }
 .btn.btn-primary{
 background-color: #375372;
@@ -205,30 +215,18 @@ border-color: #375372;
 }
 
 .btn.btn-md.btn-primary.dropdown-toggle{
-    font-size: 14px;
+    font-size: 18px;
 border-color: #375372;
 }
+
 
 div.dropdown-menu.dropdownsubintent {
 position: inherit;
 float: inherit;
-/* top: 100%;
-left: 0;
-z-index: 1000;
-display: none;
-float: inherit;
-min-width: 160px;
-padding: 5px 0;
-margin: 2px 0 0;
-font-size: 14px;
-text-align: left;
-list-style: none;
-background-color: #fff;
-background-clip: padding-box;
-border: 1px solid #ccc;
-border: 1px solid rgba(0,0,0,.15);
-border-radius: 4px;
-box-shadow: 0 6px 12px rgba(0,0,0,.175);*/
+}
+
+a.dropdown-item{
+ font-size:20px;
 }
 
 .textarea {

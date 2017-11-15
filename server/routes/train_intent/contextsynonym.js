@@ -3,6 +3,7 @@ let router = express.Router();
 const neo4j = require('neo4j-driver').v1;
 import logger from '../../log4js';
 import config from '../../config/config';
+import staticConfig from './Config';
 //Create connection with neo4j database
 const driver = neo4j.driver(config.neo4jUrl, neo4j.auth.basic("neo4j", config.neo4jurlpassword));
 const session = driver.session();

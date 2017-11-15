@@ -1,5 +1,5 @@
 <!-- edit profile page for user -->
-<div class="container">
+<div class="container unanswed">
  <h2 >{{Config.editProfile.Edit_User}}</h2>
  <hr>
  <div  class="row m-y-2" >
@@ -16,7 +16,7 @@
     <div class="form-group row">
       <div class="col-lg-6 input-group">
         <!-- email field -->
-        <span class="input-group-addon" id="basic-addon1">@</span>
+        <span class="input-group-addon basic-addon1">@</span>
         <input class="form-control " type="email" name="email" [(ngModel)]='userData.data.email' disabled>
       </div>
     </div>
@@ -34,12 +34,12 @@
 
       <div class="col-lg-12">
         <!-- submit button -->
-        <a class="btn btn-default btn-md buttons" (click)='submit()'>{{Config.editProfile.Submit_User}}</a>&nbsp;
+        <a class="btn btn-default btn-md buttons buttonprimary penny" (click)='submit()'>{{Config.editProfile.Submit_User}}</a>&nbsp;
 
         <!-- back button -->
-        <a class="btn btn-default btn-md buttons" (click)="gotoDashboard() ">{{Config.editProfile.Back_User}}</a>
+        <a class="btn btn-default btn-md buttons buttonprimary" (click)="gotoDashboard() ">{{Config.editProfile.Back_User}}</a>
 
-        <a class="btn btn-default btn-md buttons" (click)="gotoResetPassword() ">{{Config.editProfile.Reset_Pass}}</a>
+        <a class="btn btn-default btn-md buttons buttonprimary" (click)="gotoResetPassword() ">{{Config.editProfile.Reset_Pass}}</a>
       </div>
     </div>
   </form>

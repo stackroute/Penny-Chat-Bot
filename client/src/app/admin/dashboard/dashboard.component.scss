@@ -132,6 +132,7 @@ a {
    font-family: arial;
    width: 100%;
    float: left;
+   margin-bottom:2%;
 }
 
 .widget .widget-data .widget-title {
@@ -184,14 +185,17 @@ a {
 
   font-size: 25px;
 }
+p,a{
+  font-size: 20px;
+}
 
 
 
 
 
-
-
-
-.timerow {
-  margin-bottom:2%;
+.userdata {
+  font-size:14px;
+}
+.col-md-3 {
+  margin-bottom:3%;
 }
